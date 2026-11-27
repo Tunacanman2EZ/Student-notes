@@ -1,0 +1,226 @@
+{
+  "app": "notes-vault",
+  "kind": "contribution",
+  "version": 1,
+  "createdOn": "2026-11-27T09:19:32.318Z",
+  "contributor": {
+    "id": "55946333-9863-49ca-acb3-a25bfccc48c9",
+    "displayName": "Front-pay"
+  },
+  "program": "Applied science software engineering",
+  "class": {
+    "code": "ENVR200",
+    "name": "ENVR200: Global Environmental Change"
+  },
+  "lessons": [
+    {
+      "group": "Week 5",
+      "item": "Lesson 1",
+      "title": "Welcome to ENVR200!",
+      "topic": "Week 5 · Lesson 1",
+      "order": 501,
+      "date": "2026-06-08",
+      "dateEnd": "2026-06-15",
+      "refined": "IN PLAIN WORDS\nENVR200 teaches you to judge climate claims with evidence instead of trust, from \"HAARP controls the weather\" to \"the ice was going to melt anyway.\"\n\nKEY IDEAS\n1. Unit 1, How the climate system works: how Earth's climate normally behaves, and how scientists know what they know.\n2. Unit 2, Impacts and choices: what the changes mean for people, ecosystems and policy, and how to weigh the options.\n\nKEY POINTS\n- The course is about evidence: what is measured, how it's measured, and what it supports.",
+      "original": ""
+    },
+    {
+      "group": "Week 5",
+      "item": "Lesson 2",
+      "title": "A planet that holds its heat",
+      "topic": "Week 5 · Lesson 2",
+      "order": 502,
+      "date": "2026-06-08",
+      "dateEnd": "2026-06-15",
+      "refined": "IN PLAIN WORDS\nA planet's temperature comes from an energy balance: sunlight in, heat out to space, and the atmosphere in between acting like a blanket. An atmosphere makes a planet warmer overall and shrinks the swing between day and night.\n\nKEY IDEAS\n1. Temperature depends on energy balance, not just distance from the star.\n2. With an atmosphere: sunlight mostly reaches the surface; the atmosphere slows heat loss and spreads heat around with winds; temperatures are warmer and steadier.\n3. Without an atmosphere (like the Moon): very hot in sunlight, very cold in darkness, because heat radiates straight to space.\n4. Same star and distance, different atmosphere → different temperatures and day–night swings.\n\nCODE\nA simple model for a game or simulation:\n```text\ntemp ≈ (starPower / distance²) × (1 + atmosphereFactor)\n```\n\nKEY POINTS\n- In real physics, temperature goes with the fourth root of the sunlight received: 16 times more sunlight only doubles the temperature (in kelvin). The simple model above exaggerates the effect.",
+      "original": ""
+    },
+    {
+      "group": "Week 5",
+      "item": "Lesson 3",
+      "title": "Weather is not climate",
+      "topic": "Week 5 · Lesson 3",
+      "order": 503,
+      "date": "2026-06-08",
+      "dateEnd": "2026-06-15",
+      "refined": "IN PLAIN WORDS\nWeather is short-term conditions in one place, from hours to a season. Climate is the long-term pattern, usually 30-year or longer averages, including how often extremes happen. Weather is the noise; climate is the signal.\n\nKEY IDEAS\n1. Weather: \"It's stormy today,\" a 5-day heat wave, one tornado, one flood, one record-hot day.\n2. Climate: \"Summers here are about 1.5°C warmer than 40 years ago,\" \"fewer snow days than in the 1980s.\"\n3. Climate is measured with 30+ year averages, the frequency of certain weather, and typical ranges and extremes.\n4. Noise: the day-to-day and year-to-year ups and downs. Signal: the long-term trend line.\n5. Climate change means the trend (averages, ranges, frequency of extremes) shifting over decades, not \"this one storm.\"\n\nKEY POINTS\n- On a graph, weather is the scattered dots; climate is the smooth line through them.\n- Signs of a shifting climate: more hot days, records broken more often, shorter snow seasons over decades.",
+      "original": ""
+    },
+    {
+      "group": "Week 5",
+      "item": "Lesson 4",
+      "title": "Earth's climate has a history",
+      "topic": "Week 5 · Lesson 4",
+      "order": 504,
+      "date": "2026-06-08",
+      "dateEnd": "2026-06-15",
+      "refined": "IN PLAIN WORDS\nOver the last million years, Earth has switched between ice ages and warmer interglacials about every 100,000 years. Three natural drivers shape climate: orbital cycles (the slow pacemaker), volcanoes (short cooling pulses) and changes in the Sun (small nudges). All of them work by changing sunlight in versus heat out.\n\nKEY IDEAS\n1. Two climate states:\n   - Ice age (glacial): huge ice sheets over North America and Europe, cooler, lower sea level.\n   - Interglacial: ice mostly on Greenland and Antarctica, warmer, higher sea level.\n2. We are in an interglacial; before modern times, the background trend over several thousand years was a very slow cooling (about 0.1°C per 1,000 years).\n3. Orbital (Milankovitch) cycles:\n   - Eccentricity: how stretched Earth's orbit is.\n   - Tilt (obliquity): how strong the seasons are, especially at high latitudes.\n   - Precession: which way the axis points, changing when seasons happen along the orbit.\n   - Weaker high-latitude summers → less melting → ice sheets grow; stronger summers → ice sheets shrink.\n4. Volcanoes: large eruptions (Krakatoa, Tambora) cool the planet for about 1–5 years. Tambora caused the \"Year Without a Summer\" (1816).\n5. Solar variation: the 11-year sunspot cycle and quiet periods (the Maunder Minimum) change total solar irradiance slightly, nudging climate over years to decades.\n\nKEY POINTS\n- Orbital cycles change where and when sunlight is strong; volcanoes block some sunlight; the Sun changes how much it sends.\n- Volcanoes cool mainly through sulfur dioxide, which forms tiny sulfate droplets high in the atmosphere that reflect sunlight for a year or more; ash falls out within weeks.\n- The ~100,000-year rhythm applies to the last ~1 million years; before that, the cycles were about 41,000 years long.",
+      "original": ""
+    },
+    {
+      "group": "Week 5",
+      "item": "Lesson 6",
+      "title": "The greenhouse mechanism",
+      "topic": "Week 5 · Lesson 6",
+      "order": 506,
+      "date": "2026-06-08",
+      "dateEnd": "2026-06-15",
+      "refined": "IN PLAIN WORDS\nThe greenhouse mechanism in short: sunlight warms the surface, the surface sends infrared heat up, and CO₂ and methane absorb some of it and re-emit it in all directions, including back down. More CO₂ means more trapped heat, and melting ice adds to the warming.\n\nKEY IDEAS\n1. Sunlight in → surface sends infrared up → greenhouse gases re-emit part of it downward → the surface stays warmer.\n2. CO₂ and CH₄ molecules vibrate in ways that match infrared; N₂ and O₂ mostly don't.\n3. Methane: stronger per molecule, shorter-lived. CO₂: weaker per molecule, long-lasting, so it accumulates.\n4. CO₂ has risen from about 280 ppm before industry to over 420 ppm (about +50%).\n5. Ice-albedo feedback: warming → ice melts → dark ocean exposed → more heat absorbed → more melting.\n\nKEY POINTS\n- The feedback loop amplifies warming that greenhouse gases start.",
+      "original": ""
+    },
+    {
+      "group": "Week 5",
+      "item": "Lesson 7",
+      "title": "The carbon cycle: where carbon goes",
+      "topic": "Week 5 · Lesson 7",
+      "order": 507,
+      "date": "2026-06-08",
+      "dateEnd": "2026-06-15",
+      "refined": "IN PLAIN WORDS\nCarbon moves between reservoirs (air, ocean, living things, soils, fossil fuels, rocks) through fluxes (photosynthesis, respiration, ocean exchange, volcanoes, burning fuel). Burning fossil fuels moves carbon from slow underground storage into the air faster than natural sinks can take it back, so CO₂ keeps rising.\n\nKEY IDEAS\n1. Reservoir: a place carbon is stored: atmosphere, ocean, land biosphere, soils, fossil fuels, carbonate rocks.\n2. Flux: a process that moves carbon between reservoirs: photosynthesis (air → plants), respiration and decay (→ air), ocean absorption and release (air ↔ ocean), volcanoes (rocks → air), burning fossil fuels (underground → air).\n3. Fast cycle (years to centuries): plants, animals, soils and the surface ocean trade carbon with the air; roughly balanced, with small seasonal wiggles.\n4. Slow cycle (hundreds of thousands to millions of years): rock weathering, burial as sediment and fossil fuels, and slow return through volcanoes and plate movement.\n5. Burning fossil fuels is a new, fast, one-way flux with no fast reverse process.\n6. Natural sinks take up roughly half of each year's human emissions (the ocean and the land about a quarter each). The rest stays in the air.\n\nCODE\n```text\nburn_fossil_fuel(amount):\n    fossil_fuel.carbon -= amount\n    atmosphere.carbon  += amount\n# there is no fast \"put it back underground\" process\n```\n\nKEY POINTS\n- The Keeling Curve shows both: seasonal \"breathing\" from the fast cycle and a long upward trend from fossil fuels.\n- Summary: fossil carbon moves into the fast cycle faster than sinks can absorb it, so atmospheric CO₂ piles up.",
+      "original": ""
+    },
+    {
+      "group": "Week 5",
+      "item": "Lesson 8",
+      "title": "Natural vs. human drivers",
+      "topic": "Week 5 · Lesson 8",
+      "order": 508,
+      "date": "2026-06-08",
+      "dateEnd": "2026-06-15",
+      "refined": "IN PLAIN WORDS\nAny proposed cause of warming can be checked with three tests: timing, magnitude and fingerprint. The Sun fails timing and fingerprint, volcanoes fail magnitude, and human greenhouse gases pass all three.\n\nKEY IDEAS\n1. Timing: does the driver change when the temperature changes?\n   - Sun: output flat or slightly down since about 1970 while temperatures rose → fails.\n   - Greenhouse gases: rose strongly as warming sped up → passes.\n2. Magnitude: is the effect big and lasting enough?\n   - Volcanoes: short cooling dips with recovery in a few years → fails.\n   - Solar cycles: small wiggles, not a long ramp → too small.\n   - Greenhouse gases: strong enough to match the warming → passes.\n3. Fingerprint: does the pattern match what's observed?\n   - Observed: the lower atmosphere is warming and the stratosphere is cooling.\n   - A brighter Sun would warm both → fails.\n   - Greenhouse gases predict warm below, cool above → passes.\n\nCODE\n```text\nDriver            | Timing | Magnitude | Fingerprint\n------------------|--------|-----------|------------\nSun               | fails  | too small | fails\nVolcanoes         |   –    | fails     |   –\nGreenhouse gases  | passes | passes    | passes\n```\n\nKEY POINTS\n- A cause has to pass all three tests, not just one.",
+      "original": ""
+    },
+    {
+      "group": "Week 5",
+      "item": "Lesson 9",
+      "title": "The fingerprint of modern warming",
+      "topic": "Week 5 · Lesson 9",
+      "order": 509,
+      "date": "2026-06-08",
+      "dateEnd": "2026-06-15",
+      "refined": "IN PLAIN WORDS\nModern warming has a clear fingerprint in independent measurements: ocean heat is rising, land ice is shrinking faster, and Arctic sea ice is declining. Together with the timing and size of the warming, the most reasonable conclusion is that humans are the main cause.\n\nKEY IDEAS\n1. Ocean heat content (OHC): more than 90% of the extra heat goes into the oceans. Air temperature is noisy; OHC is a steady long-term energy meter. Decades of rising OHC mean Earth is taking in more energy than it loses.\n2. Land ice (Greenland, Antarctica, glaciers): measured with satellite altimetry (surface height) and GRACE gravity satellites (mass). Both show ice loss that is speeding up.\n3. Sea ice: frozen ocean water; satellites track its area. Arctic summer sea ice has shrunk strongly over recent decades.\n4. These are measured independently, with different instruments, and all move in the warming direction.\n5. The three tests together:\n   - Timing: warming sped up from the mid-1900s, as greenhouse gases rose quickly.\n   - Magnitude: the size matches what physics and models predict.\n   - Fingerprint: ocean heat up, ice down, lower atmosphere warming with the stratosphere cooling, nights warming faster than days.\n\nCODE\n```text\nocean_heat_content   rising\nland_ice_mass        falling\nsea_ice_area         falling\n```\n\nKEY POINTS\n- Falling land ice mass means ice really lost, not just moved around.\n- Independent datasets agreeing is what makes the evidence strong.",
+      "original": ""
+    },
+    {
+      "group": "Week 5",
+      "item": "Lesson 10",
+      "title": "What scientists know - and what's still open",
+      "topic": "Week 5 · Lesson 10",
+      "order": 510,
+      "date": "2026-06-08",
+      "dateEnd": "2026-06-15",
+      "refined": "IN PLAIN WORDS\nThe scientific consensus on climate is narrow: warming is happening, it is mainly human-caused, and it carries serious risks. Some details are still being worked out. Honest uncertainty is stated as ranges; manufactured doubt uses an open question to attack a settled fact.\n\nKEY IDEAS\n1. The three consensus claims: warming is happening; it's mainly human-caused; the risks are serious.\n2. Evidence of warming from independent sources: thermometers on land and sea, satellites, ocean heat content, ice loss.\n3. Past climate: natural records show that a few degrees of global change reshaped the planet (the last ice age was about 6°C colder globally, with a range of about 5–7°C). That supports \"serious risks.\"\n4. Settled: the planet is warming, mainly because of humans, and keeps warming while greenhouse gases rise.\n5. Frontier (still being studied): exact regional rainfall changes, the timing of ice-sheet thresholds, local details of storms and extremes.\n6. Honest uncertainty: the direction is known; the size is given as a range with likelihood words. IPCC terms: \"likely\" = 66–100%, \"very likely\" = 90–100%, \"extremely likely\" = 95–100%.\n7. Manufactured doubt: using a frontier question to cast doubt on a settled fact.\n\nCODE\n```text\nSettled                              | Frontier\n-------------------------------------|--------------------------------------------\nPlanet is warming                    | Exact regional rainfall changes\nWarming is mainly human-caused       | Timing of big ice-sheet thresholds\nSerious risks if warming continues   | Local details of humidity, storms, extremes\n```\n\n```text\nManufactured doubt: \"Because we're unsure how fast ice sheets will melt, we can't even be sure\nhumans are warming the planet.\"\nWhy it fails: ice-sheet timing is a frontier question; human-caused warming is settled.\n```\n\nKEY POINTS\n- Past-climate tools (ice cores, ocean sediment cores, other natural records) show past changes; today's warming is measured directly with thermometers, satellites, ocean heat and ice data.\n- Radiocarbon dating only reaches back about 50,000 years.\n- The IPCC's wording on human influence strengthened over time: \"very likely\" (2007), \"extremely likely\" (2013), \"unequivocal\" (2021).",
+      "original": ""
+    },
+    {
+      "group": "Week 6",
+      "item": "Lesson 1",
+      "title": "A living world under change",
+      "topic": "Week 6 · Lesson 1",
+      "order": 601,
+      "date": "2026-06-15",
+      "dateEnd": "2026-06-22",
+      "refined": "IN PLAIN WORDS\nAs the climate warms, living things are affected in three main ways: where species can live (range shifts), when life events happen (timing shifts), and whether habitats can support them at all (habitat stress). Biodiversity is a network of roles, so losing key species weakens how ecosystems work.\n\nKEY IDEAS\n1. Range shifts: species move poleward or uphill to stay in their comfort zone. Cold-adapted species near mountaintops can run out of room, raising extinction risk.\n2. Timing shifts (phenology): earlier leaf-out and flowering, changed insect emergence, shifted migrations. Partners can miss each other: flowers and pollinators, insects and the birds or bats that eat them.\n3. Habitat stress:\n   - Coral bleaching: heat makes corals expel their symbiotic algae; they turn white, lose their main food source and may die, and the reef loses structure and shelter.\n   - Forest die-back: repeated heat, drought, pests and fire push trees past their limits; less shade and moisture, more fire risk, and the forest can shift from absorbing carbon to releasing it.\n4. Biodiversity as function: what matters is who is present and how they interact. Removing certain species weakens functions like pollination, nutrient cycling and water regulation.\n5. Lower biodiversity means lower resilience: slower recovery, and small shocks can push an ecosystem into a degraded state.\n\nCODE\n```text\nif temperature > species_max and can_move_uphill:\n    move uphill\nelif temperature > species_max:\n    population declines\n```\n\nKEY POINTS\n- Range shifts change who is present; timing shifts change when they interact; habitat stress changes whether the place can support them.",
+      "original": ""
+    },
+    {
+      "group": "Week 6",
+      "item": "Lesson 2",
+      "title": "When the climate hits home",
+      "topic": "Week 6 · Lesson 2",
+      "order": 602,
+      "date": "2026-06-15",
+      "dateEnd": "2026-06-22",
+      "refined": "IN PLAIN WORDS\nClimate change affects people by changing how often and how hard extreme events like floods and heat waves hit. The harm depends on the hazard plus exposure (how much is in its path) and vulnerability (how badly it's hurt when hit).\n\nKEY IDEAS\n1. Five impact areas to check for any event:\n   - Health: injuries, illness, deaths, strained hospitals, mental health.\n   - Food: crop and livestock losses, flooded stores, higher prices.\n   - Water: too little or too much, contamination, broken systems.\n   - Displacement: people forced from their homes, for a while or for good.\n   - Livelihoods: jobs, income, businesses, tools, tourism, ports.\n2. Event attribution: simulate the world with and without human warming, and compare how often the event happens in each.\n3. Accurate wording: \"climate change made this heat wave more likely or more intense,\" not \"climate change caused this storm.\"\n4. Exposure: location and what's built where (houses on a riverbank vs. on a hill).\n5. Vulnerability: building strength, savings, health, insurance, transport, social support.\n\nCODE\n```text\nimpact = hazard + exposure + vulnerability\n```\n\nExample, a big city flood:\n```text\nHealth:        injuries, infections from dirty water, stress\nFood:          flooded stores, broken supply chains, spoiled food\nWater:         drinking water contaminated by sewage and chemicals, broken pipes\nDisplacement:  neighborhoods evacuated, people in shelters\nLivelihoods:   flooded shops and factories, destroyed tools, lost work\n```\n\nKEY POINTS\n- The same storm can cause very different outcomes depending on exposure and vulnerability.\n- A flood can leave lots of water but very little safe water.",
+      "original": ""
+    },
+    {
+      "group": "Week 6",
+      "item": "Lesson 3",
+      "title": "Possible climate futures",
+      "topic": "Week 6 · Lesson 3",
+      "order": 603,
+      "date": "2026-06-15",
+      "dateEnd": "2026-06-22",
+      "refined": "IN PLAIN WORDS\nA climate scenario is an \"if-then\" future, not a prediction: if emissions follow a given path, the climate responds a given way. Low, medium and high emissions lead to very different warming by 2100, and some parts of the climate system can cross tipping points.\n\nKEY IDEAS\n1. Prediction: \"this will happen.\" Scenario: \"if emissions follow this path, here is one possible 2100.\"\n2. Rough warming by 2100: low emissions ~1.5–2°C; medium ~2–3°C; high ~3–4°C or more, with much more sea-level rise and risk.\n3. Climate model: a physics simulation of Earth on a 3D grid of cells in the air and ocean; each time step updates temperature, winds, humidity, ocean currents, ice and land.\n4. The same model run with different emission scenarios gives different futures.\n5. Which path happens depends on human choices that aren't fixed yet.\n6. Some systems change gradually, like a slider; others change like a switch after a threshold.\n7. Tipping point: a threshold after which part of the climate system changes much faster and becomes hard to reverse (for example, ice-sheet loss speeding up sea-level rise).\n\nKEY POINTS\n- IPCC 2021 best estimates for 2081–2100, compared with 1850–1900: about 1.4°C (very low emissions), 1.8°C (low), 2.7°C (intermediate), 3.6°C (high) and 4.4°C (very high).\n- Projections show outcomes for different choices, not one fixed ending.",
+      "original": ""
+    },
+    {
+      "group": "Week 6",
+      "item": "Lesson 4",
+      "title": "Cutting emissions",
+      "topic": "Week 6 · Lesson 4",
+      "order": 604,
+      "date": "2026-06-15",
+      "dateEnd": "2026-06-22",
+      "refined": "IN PLAIN WORDS\nThink of CO₂ in the air like water in a tub. The faucet is emissions, which add CO₂; the drain is removal, which takes it out. Cutting emissions turns down the faucet; carbon removal opens the drain.\n\nKEY IDEAS\n1. Turning down the faucet (emissions reduction):\n   - Clean energy: replace fossil power with solar, wind and hydro, lowering CO₂ per kWh.\n   - Electrification: switch fuel-burning uses to electricity (gas car → EV, gas furnace → heat pump, gas stove → induction). This only helps as the electricity gets cleaner.\n   - Efficiency: the same service with less energy (LED bulbs, insulation, efficient motors).\n2. Opening the drain (carbon removal):\n   - Engineered: direct air capture. In Iceland, captured CO₂ is mixed with water and pumped underground, where it reacts with rock and turns to stone.\n   - Biological: growing and protecting forests, soils and other ecosystems.\n\nCODE\n```text\natmosphere_CO2 += emit_rate   × time   # faucet\natmosphere_CO2 -= remove_rate × time   # drain\n\nemit_rate = base_rate × (1 - clean_energy_share) × efficiency_factor   # efficiency_factor < 1\n```\n\nKEY POINTS\n- Scale: Iceland's Orca plant was built to capture about 4,000 tonnes of CO₂ a year, while fossil fuels emit roughly 37 billion tonnes a year. Cutting emissions does most of the work; removal handles what's left.",
+      "original": ""
+    },
+    {
+      "group": "Week 6",
+      "item": "Lesson 5",
+      "title": "Adapting to change",
+      "topic": "Week 6 · Lesson 5",
+      "order": 605,
+      "date": "2026-06-15",
+      "dateEnd": "2026-06-22",
+      "refined": "IN PLAIN WORDS\nMitigation reduces future climate change; adaptation reduces harm from the change already happening. Four adaptation strategies are resilient infrastructure, early warning, managed retreat and drought-resistant farming. How well a place can adapt depends on its resources, so the same storm does different damage in different places.\n\nKEY IDEAS\n1. Mitigation: cutting emissions and slowing warming. Adaptation: building defenses and changing where and how people live.\n2. Resilient infrastructure: levees, sea walls, pumps, raised buildings.\n   - The Netherlands' Delta Works (gates, dikes and pumps) keeps low land dry.\n   - New Orleans had levees and gates, but design, maintenance and planning limits led to failures in Hurricane Katrina.\n3. Early-warning systems: radar, sensors, forecasts, sirens, text alerts and radio buy time to evacuate.\n4. Managed retreat: planned moves out of high-risk zones before the next disaster (buying out floodplain homes and rebuilding higher).\n5. Drought-resistant agriculture: heat- and drought-tolerant crops, soil that holds more water, efficient irrigation such as drip.\n6. Adaptive capacity: the ability to prepare, respond and recover, based on money, infrastructure, technology, information, government quality and community support.\n\nCODE\n```text\nStrategy                     | Mainly protects\n-----------------------------|-------------------------------------------------\nResilient infrastructure     | housing, the economy (can harm ecosystems if badly designed)\nEarly-warning systems        | lives and health first, then housing and the economy\nManaged retreat              | long-term safety of housing and lives, sometimes local culture\nDrought-resistant farming    | food security, farmer income, rural communities\n```\n\nKEY POINTS\n- Any warming at all means adaptation is needed alongside mitigation.\n- Unequal capacity explains why the same hazard causes very different losses.",
+      "original": ""
+    },
+    {
+      "group": "Week 6",
+      "item": "Lesson 6",
+      "title": "The cost of acting and not acting",
+      "topic": "Week 6 · Lesson 6",
+      "order": 606,
+      "date": "2026-06-15",
+      "dateEnd": "2026-06-22",
+      "refined": "IN PLAIN WORDS\nThe cost of acting is money spent on purpose to cut emissions, like a carbon price. The cost of not acting is the damage that follows, like wildfire insurance payouts. Some numbers are measured, others are chosen or modeled, and the same cost weighs much more on a poorer country.\n\nKEY IDEAS\n1. Cost of action: deliberate spending, such as a carbon price (a fee per ton of CO₂).\n2. Cost of inaction: damage costs, such as large wildfire insurance payouts and insurers leaving high-risk areas.\n3. Measured (observed) numbers come from real data that already happened (last year's wildfire payouts).\n4. Assumed or modeled numbers are chosen by people or projected by models (a $50 carbon price; projected damages in 2080; a 70% cut by 2050).\n5. Capacity to pay is uneven: the same $1 billion is a much heavier burden for a poor country than a rich one.\n\nCODE\n```python\ncarbon_price_per_ton = 50                 # chosen\ntons_emitted = 1_000_000\naction_cost = carbon_price_per_ton * tons_emitted\nprint(action_cost)                        # 50000000 ($50M)\n\nwildfire_payouts = 1_200_000_000          # measured ($1.2B)\nprint(wildfire_payouts / action_cost)     # 24.0\n```\n\n```text\nSame cost ($1B), different burden:\nCountry A  GDP per person $60,000  → easier to absorb\nCountry B  GDP per person $15,000\nCountry C  GDP per person $2,000   → a heavy hit\n```\n\nKEY POINTS\n- In this example, damage costs are 24 times the cost of acting.\n- Always ask whether a number was measured or assumed before comparing it with another.\n\nCORRECTION\nThe original summary said \"$100M action vs $1.2B inaction,\" but $50 × 1,000,000 tons is $50M. The point still holds: damage costs can be much larger.",
+      "original": ""
+    },
+    {
+      "group": "Week 6",
+      "item": "Lesson 7",
+      "title": "Climate policy: the US and the world",
+      "topic": "Week 6 · Lesson 7",
+      "order": 607,
+      "date": "2026-06-15",
+      "dateEnd": "2026-06-22",
+      "refined": "IN PLAIN WORDS\nClimate policy has four main tools: carbon pricing, regulations and standards, subsidies and public investment, and international agreements. The Paris Agreement asks every country to act, with richer, higher-emitting countries doing more and helping vulnerable ones.\n\nKEY IDEAS\n1. Carbon pricing (\"you emit, you pay\"): a carbon tax or cap-and-trade makes pollution cost more, so cleaner choices win.\n2. Regulation and standards (\"meet the rule or you can't operate\"): limits on car CO₂ per mile or power-plant emissions.\n3. Subsidies and public investment (\"we help pay for clean options\"): tax credits for solar, EVs and batteries; public funding for clean infrastructure and research.\n4. International agreements (\"shared goals, shared effort\"): the Paris Agreement.\n5. Paris equity principle: \"common but differentiated responsibilities and respective capabilities.\"\n   - Common: every country helps.\n   - Differentiated: rich, high-emitting countries act more and earlier, based on historical responsibility and capability.\n   - Support: they help vulnerable countries with finance, technology and capacity.\n6. Tuvalu emits very little but is highly exposed to sea-level rise; equity says large emitters should cut more and help fund solutions there.\n7. The US approach of 2022–2024 (the Inflation Reduction Act) focused on large subsidies and investment at home: clean tech, domestic jobs, technology leadership and lower US emissions.\n\nCODE\n```text\nCarbon pricing:        if actor emits CO2 → actor pays a fee\nStandards:             if actor misses the standard → actor can't operate or sell\nSubsidies:             if a project cuts emissions → government helps pay\nParis agreement:       each country sets a target based on its emissions and wealth\n```\n\nKEY POINTS\n- US approach: invest at home. Paris equity: fair shares based on responsibility and capability.\n\nUPDATE (checked Nov 2026)\n- The US withdrawal from the Paris Agreement took effect on January 27, 2026.\n- The One Big Beautiful Bill Act (signed July 4, 2025) ended or sped up the phase-out of many Inflation Reduction Act credits; for example, the EV tax credits ended for purchases after September 30, 2025.",
+      "original": ""
+    },
+    {
+      "group": "Week 6",
+      "item": "Lesson 8",
+      "title": "Where values meet evidence",
+      "topic": "Week 6 · Lesson 8",
+      "order": 608,
+      "date": "2026-06-15",
+      "dateEnd": "2026-06-22",
+      "refined": "IN PLAIN WORDS\nClimate debates mix evidence claims (what is true, which can be checked) with value claims (what should be done). People can accept the same evidence and still disagree in good faith because they weigh different values. Manufactured doubt attacks solid evidence to avoid that values conversation.\n\nKEY IDEAS\n1. Evidence claim: describes reality and can be checked against data.\n2. Value claim: says what is right, fair or preferred; uses words like should, shouldn't, unfair, duty, free to.\n3. Four value frames:\n   - Cost: money and resources.\n   - Fairness: who pays, who benefits, who suffers.\n   - Liberty: freedom of choice and limits on control.\n   - Stewardship: duty to nature and future generations.\n4. Good-faith disagreement: shared evidence, different values.\n5. Manufactured doubt: repeatedly questioning well-established facts so action never starts.\n\nSTEPS\nIdentifying a climate statement:\n1. Is it about what is true? → evidence claim.\n2. Is it about what should be done? → value claim. Then find the frame: costs → cost; burden or \"least responsible suffer most\" → fairness; freedom or force → liberty; future generations or ecosystems → stewardship.\n3. Do both sides accept the same basic evidence? → good-faith disagreement.\n4. Does one side keep questioning settled facts? → likely manufactured doubt.\n\nCODE\n```text\nEvidence:      CO₂ is trapping more of the heat Earth gives off.\nCost:          We should avoid climate policies that raise energy bills too much.\nFairness:      It's wrong if the communities that emitted the least suffer the most.\nLiberty:       People should be free to choose whether they drive or take transit.\nStewardship:   We have a responsibility to protect wildlife and forests from long-term damage.\n\nGood faith:    \"Yes, humans are warming the planet, but strict rules would cost jobs; we should\n               use cheaper, slower options.\"\nDoubt:         \"Scientists keep changing their minds; we don't even know if it's really warming.\"\n```\n\nKEY POINTS\n- CO₂ traps outgoing heat (infrared from Earth's surface), not incoming sunlight.",
+      "original": ""
+    },
+    {
+      "group": "Week 6",
+      "item": "Lesson 9",
+      "title": "Reading climate claims critically",
+      "topic": "Week 6 · Lesson 9",
+      "order": 609,
+      "date": "2026-06-15",
+      "dateEnd": "2026-06-22",
+      "refined": "IN PLAIN WORDS\nTo read a climate claim critically, separate how it's told (framing) from what it actually says (evidence), check where the information came from, read graphs carefully, and watch for cherry-picked data.\n\nKEY IDEAS\n1. Framing: dramatic wording, emojis, scary or heroic images. Evidence: specific, checkable claims.\n2. High-trust sources: IPCC, NASA, NOAA, national academies, peer-reviewed papers, university pages.\n3. AI tools and videos are starting points that should lead back to those sources.\n4. Red flags: no author, no references, only emotional language.\n5. Graph checks: read the y-axis labels and scale, then ask whether the time range is long enough.\n6. Cherry-picking: using only the slice of data that supports the message.\n7. Local data, like 20 years of hourly readings from your own thermometer, is good local evidence; compare it with global datasets (NASA, NOAA) and peer-reviewed work before drawing global conclusions.\n\nCODE\n```text\nFraming:   \"They're spraying aluminum in our sky!!\" + scary plane photos\nEvidence:  \"Stratospheric aerosol injection is a proposed solar geoengineering method to\n           reflect sunlight and cool the planet.\"\n\nCherry-pick:  \"No global warming,\" based only on 2016–2021.\nWhy:          2016 was an unusually hot El Niño year, so the next few years look flat.\n```\n\nSTEPS\n1. What part is the telling, and what part is a claim I can check?\n2. Where did it come from? Can I trace it to NASA, the IPCC or a real paper?\n3. On a graph: what do the axes say, and is the time window long enough?\n4. What happens if I zoom out or include all the data?\n\nKEY POINTS\n- \"Does the y-axis start at 0?\" matters for counts and money. For temperature, 0 isn't \"nothing,\" so zoomed-in temperature charts are normal; check that the axis is labeled and the scale is honest.",
+      "original": ""
+    },
+    {
+      "group": "Week 6",
+      "item": "Lesson 10",
+      "title": "Your informed verdict",
+      "topic": "Week 6 · Lesson 10",
+      "order": 610,
+      "date": "2026-06-15",
+      "dateEnd": "2026-06-22",
+      "refined": "IN PLAIN WORDS\nAn informed verdict states a position on a real question, backs it with evidence from trusted sources, and explains how the evidence leads to the conclusion. Example question: \"Are people wrong to think climate change is raising their utility costs?\" Verdict: partly right, because climate is one factor among several.\n\nKEY IDEAS\n1. Core science: more heat, drought, floods, sea-level rise and stronger storms affect farms, coasts and energy systems; damage to infrastructure and higher demand (like air conditioning) can raise some bills.\n2. Other factors also push prices up: rising electricity demand from data centers and AI, market changes, and company decisions.\n3. Sources: government science agencies (NASA, NOAA) for climate impacts; energy agencies and regulators for prices and grids.\n4. Staying informed habit: one trusted source, one weekly reminder, a quick skim, then update what you know.\n\nSTEPS\nFour-sentence verdict skeleton:\n1. Claim/value: \"People are (right / partly right / mostly wrong) to think ______, but ______.\"\n2. Evidence 1: \"Data or reports from [trusted source] show that ______, which has contributed to ______.\"\n3. Evidence 2 (optional): \"Studies or records also find that ______, especially in ______.\"\n4. Explanation: \"This means ______ is only one part of a larger mix of causes, including ______.\"\n\nCODE\n```text\nClaim:        People are partly right to think climate change is raising their utility costs,\n              but it is only one of several factors.\nEvidence:     Energy reports show rising electricity demand from data centers and AI strains\n              power grids, which can raise bills in some regions.\nExplanation:  Climate change is one part of a bigger mix of causes, including rising demand,\n              market changes and company decisions, that push prices up.\n```\n\nKEY POINTS\n- Name the actual report and agency when writing the evidence sentence.",
+      "original": ""
+    }
+  ]
+}

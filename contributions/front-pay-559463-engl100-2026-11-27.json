@@ -1,0 +1,237 @@
+{
+  "app": "notes-vault",
+  "kind": "contribution",
+  "version": 1,
+  "createdOn": "2026-11-27T09:19:32.318Z",
+  "contributor": {
+    "id": "55946333-9863-49ca-acb3-a25bfccc48c9",
+    "displayName": "Front-pay"
+  },
+  "program": "Applied science software engineering",
+  "class": {
+    "code": "ENGL100",
+    "name": "ENGL100: English composition"
+  },
+  "lessons": [
+    {
+      "group": "Writing with clarity and control",
+      "item": "Lesson 1",
+      "title": "Welcome to ENGL100!",
+      "topic": "Writing with clarity and control · Lesson 1",
+      "order": 501,
+      "date": "2026-03-23",
+      "dateEnd": "2026-03-30",
+      "refined": "IN PLAIN WORDS\nENGL100 Unit 1 is about writing clearly. Writing turns ideas into clear, controlled language that other people, and AI tools, can act on.\n\nKEY IDEAS\n1. Everyday project writing is real professional writing:\n   - Agreements define terms: who owns what, what is exclusive, how people are credited and paid.\n   - A README explains a project: the vision, the features, what's done and what's next, and how to contribute.\n   - Community rules and messages coordinate people and set expectations.\n2. Writing these things down reduces confusion and disputes later.\n3. Clear writing signals professionalism: rights, expectations and process are spelled out.\n\nKEY POINTS\n- Unit 1: write clearly so people understand you. Unit 2: write persuasively so people might change their minds.\n- A good test for any document: could someone act on it without asking you what you meant?",
+      "original": ""
+    },
+    {
+      "group": "Writing with clarity and control",
+      "item": "Lesson 2",
+      "title": "Sentences that work",
+      "topic": "Writing with clarity and control · Lesson 2",
+      "order": 502,
+      "date": "2026-03-23",
+      "dateEnd": "2026-03-30",
+      "refined": "IN PLAIN WORDS\nA run-on joins two complete sentences with nothing strong enough between them. A comma splice is the most common kind: two complete sentences joined by only a comma.\n\nKEY IDEAS\n1. Independent clause: a complete sentence on its own.\n2. Dependent clause: starts with a word like because, although, when or if, and can't stand alone.\n3. Three fixes for two complete sentences:\n   - Period: two sentences. Clean and firm.\n   - Comma + a coordinating conjunction (FANBOYS: for, and, nor, but, or, yet, so): smoother.\n   - Semicolon: a tight link between two closely related sentences.\n4. Never use \"; and\" together. Use a semicolon or a comma + and, not both.\n5. Sentence types:\n   - Simple: one complete idea.\n   - Compound: two complete ideas joined with a conjunction or a semicolon.\n   - Complex: one main idea plus a dependent idea.\n\nSTEPS\nChecking a long sentence:\n1. Are there two complete sentences inside it?\n2. Are they joined by only a comma, or by nothing? That's a run-on.\n3. Fix it with a period, a comma + FANBOYS word, or a semicolon.\n\nCODE\n```text\nComma splice:  We launched the app yesterday, users are already sending feedback.\nPeriod:        We launched the app yesterday. Users are already sending feedback.\nComma + and:   We launched the app yesterday, and users are already sending feedback.\nSemicolon:     We launched the app yesterday; users are already sending feedback.\n\nWrong:         I updated the report; and it still has a few errors.\n\nDependent:     Because we listened to their feedback   (not complete)\nComplex:       Because we listened to their feedback, customers loved the new feature.\nCompound:      We tested the new process; the results were surprising.\n```\n\nKEY POINTS\n- A dependent clause at the start of a sentence is followed by a comma.\n- Exclamation marks add emotion; use them rarely in formal writing and never stack them (!.).",
+      "original": ""
+    },
+    {
+      "group": "Writing with clarity and control",
+      "item": "Lesson 3",
+      "title": "Avoiding Grammar traps",
+      "topic": "Writing with clarity and control · Lesson 3",
+      "order": 503,
+      "date": "2026-03-23",
+      "dateEnd": "2026-03-30",
+      "refined": "IN PLAIN WORDS\nFive common grammar traps, each with a quick test: dangling modifiers, misplaced \"only,\" broken parallel structure, unclear pronouns, and passive voice that hides who did something.\n\nKEY IDEAS\n1. Dangling modifier: an opening phrase followed by the wrong subject. Test: who is doing the action? Put that person or thing right after the comma.\n2. \"Only\" limits whatever it sits next to. Place it beside the word you mean to limit.\n3. Parallel structure: items in a list use the same grammatical pattern (verb, verb, verb).\n4. Pronoun ambiguity: each he, she, they, it, this or that must point to exactly one thing. If two could fit, use the name.\n5. Passive voice: [object] + was/were + past participle (+ by [doer]). Test: \"by whom?\" If the doer matters, make it active: [doer] + [verb] + [object].\n\nCODE\n```text\nDangling:   After checking the build, several bugs were found.\nFixed:      After checking the build, the QA team found several bugs.\n\n\"Only\":     I was only given one task.   (limits what was done to me)\n            I was given only one task.   (limits the number)\n\nParallel:   I need to fix UI bugs, the audio mix, and optimizing save times.   (wrong)\n            I need to fix UI bugs, adjust the audio mix, and optimize save times.\n\nPronoun:    When Jake reviewed the bug list with Carlos, he got frustrated.   (who?)\n            When Jake reviewed the bug list with Carlos, Jake got frustrated.\n\nPassive:    The build was delayed by three days.\nActive:     The team delayed the build by three days.\n```\n\nSTEPS\nFive-point check for any sentence:\n1. Does the opening phrase match the subject right after the comma?\n2. Is \"only\" next to the word it limits?\n3. Do list items share one pattern?\n4. Can every pronoun answer \"who or what, exactly?\" with one option?\n5. Should any passive sentence be active because the doer matters?\n\nKEY POINTS\n- In \"delayed by three days,\" the \"by\" phrase is a length of time, not a doer; the passive sentence names no one, which is why the active version has to add \"the team\".",
+      "original": ""
+    },
+    {
+      "group": "Writing with clarity and control",
+      "item": "Lesson 4",
+      "title": "Building strong paragraphs",
+      "topic": "Writing with clarity and control · Lesson 4",
+      "order": 504,
+      "date": "2026-03-23",
+      "dateEnd": "2026-03-30",
+      "refined": "IN PLAIN WORDS\nA strong paragraph has one topic sentence that states the main idea, and every other sentence supports it.\n\nKEY IDEAS\n1. Topic sentence: tells the reader what the paragraph is about; usually first; works like a promise.\n2. Unity: the whole paragraph stays on one main idea.\n3. Supporting sentence: explains, gives a reason, or gives an example for the topic sentence.\n4. Off-topic sentence: may be true and interesting, but doesn't serve the main idea.\n5. Drift: a sentence on the same general subject that pulls focus from the specific idea.\n\nSTEPS\nDrift test for each sentence:\n1. Remove it in your head.\n2. Is the main idea still clear and focused?\n3. Yes, and it adds little → cut or move it. No → keep it.\n\nCODE\n```text\nTopic:       Balancing loot drops is one of the hardest parts of game design.\nSupporting:  If rare items drop too often, players lose the sense of achievement.\nOff-topic:   The soundtrack also has to match the mood of each level.\n\nTopic:       Final Fantasy VII is one of my favorite games because it motivated me to learn\n             to read and felt unique for its time.\nSupporting:  Another reason I loved it was the option to equip materia and call summons.\n```\n\nKEY POINTS\n- Topic sentence patterns: \"One reason I love ___ is ___.\" / \"___ is challenging because ___.\"\n- Final Fantasy VII calls them Summons (Summon Materia); \"Aeons\" is the Final Fantasy X name.",
+      "original": ""
+    },
+    {
+      "group": "Writing with clarity and control",
+      "item": "Lesson 5",
+      "title": "Developing a paragraph",
+      "topic": "Writing with clarity and control · Lesson 5",
+      "order": 505,
+      "date": "2026-03-23",
+      "dateEnd": "2026-03-30",
+      "refined": "IN PLAIN WORDS\nPEEL is a reliable pattern for a body paragraph: Point, Evidence, Explanation, Link.\n\nKEY IDEAS\n1. Point: the main claim in one clear sentence.\n2. Evidence: a specific fact, statistic or example that supports the point (not the point reworded).\n3. Explanation: why that evidence proves the point.\n4. Link: one short sentence tying back to the main idea.\n\nCODE\n```text\nPoint:        Ranked modes in competitive shooters keep players engaged longer than casual modes.\nEvidence:     Call of Duty's ranked play has kept large player bases active for years, with each\n              new ranked season pulling players back to climb again.\nExplanation:  Ranked rewards and seasons give players long-term goals, so they stay invested\n              instead of quitting after a few casual matches.\nLink:         Because of this, ranked systems keep players engaged much longer than casual\n              playlists alone.\n```\n\nKEY POINTS\n- Check the evidence: is it new and specific, not just the point in other words?\n- Check the explanation: does it say why the evidence matters?\n- Evidence is stronger when the source is named (who reported it, and when).",
+      "original": ""
+    },
+    {
+      "group": "Writing with clarity and control",
+      "item": "Lesson 7",
+      "title": "Organizing an essay",
+      "topic": "Writing with clarity and control · Lesson 7",
+      "order": 507,
+      "date": "2026-03-23",
+      "dateEnd": "2026-03-30",
+      "refined": "IN PLAIN WORDS\nA persuasive essay has an introduction that ends with the thesis, body paragraphs that each have one job, and a conclusion. Ordering the body paragraphs from basic to deeper ideas builds the argument step by step.\n\nKEY IDEAS\n1. Introduction: a hook, 1–2 sentences of background, then the thesis as the last sentence.\n2. Thesis: clear, specific and arguable.\n3. Body paragraph job: topic sentence → evidence or example → explanation → link to the thesis or the next point.\n4. Ladder order: start with the most basic point and climb to the deepest or strongest one.\n5. Admitting a risk or limit, then returning to the main point, makes an argument stronger, not weaker.\n6. Reverse outline: one line per paragraph; if the list reads like a path, the structure works.\n\nCODE\nExample ladder for an essay on online games and social connection:\n```text\nBody 1 – Safe space: tools like mute and block let players join in only when comfortable.\nBody 2 – Trust: the same respectful players showing up over time builds trust.\nBody 3 – Skills + limit: games build skills and confidence, but too much gaming creates\n         new problems, so balance matters.\n```\n\nReverse outline:\n```text\nIntro       – topic + thesis\nBody 1      – [point]\nBody 2      – [point]\nBody 3      – [point]\nConclusion  – restate in new words + final thought\n```\n\nKEY POINTS\n- An arguable thesis is one a reasonable reader could disagree with.",
+      "original": ""
+    },
+    {
+      "group": "Writing with clarity and control",
+      "item": "Lesson 8",
+      "title": "Writing for your reader",
+      "topic": "Writing with clarity and control · Lesson 8",
+      "order": 508,
+      "date": "2026-03-23",
+      "dateEnd": "2026-03-30",
+      "refined": "IN PLAIN WORDS\nBefore writing anything, ask APC: who is the Audience, what is the Purpose, and what is the Context? Then choose a tone between casual and formal to fit.\n\nKEY IDEAS\n1. Audience: friend, classmate, instructor, manager, interviewer.\n2. Purpose: ask, thank, explain a problem, request help, give an update.\n3. Context: public or private, urgent or not, first message or ongoing, how quickly they usually reply.\n4. If a message feels \"off,\" one of the three was usually missed.\n5. Tone spectrum:\n   - Casual: \"Hey, what's up?\", slang, emojis, shortcuts.\n   - Neutral professional: \"Hi [Name], I hope you're doing well.\" Right for most school and work email.\n   - Formal: \"Good evening, Professor [Last Name].\" Titles and polished wording.\n6. Use neutral or formal for anyone who decides your grade, pay or opportunities.\n\nCODE\n```text\nProfessional signals:   Hi [Name], / Good morning, / I hope you're doing well.\n                        Could you... / Would you be able to... / Thank you for your time.\nToo casual for work:    Hey yo / Sup / Boss man / lol, lmao / u, btw, idk / lots of emojis\nPolite questions:       Would you be willing to tell me about your career path?\n                        Would you be able to answer a couple of questions for me?\n```\n\nKEY POINTS\n- Check: would I say this in a professional meeting? If not, make it more professional; if it feels stiff, simplify.\n- Using a title and last name (Professor Lee, Ms. Garcia) shows respect.",
+      "original": ""
+    },
+    {
+      "group": "Writing with clarity and control",
+      "item": "Lesson 10",
+      "title": "From draft to polished essay",
+      "topic": "Writing with clarity and control · Lesson 10",
+      "order": 510,
+      "date": "2026-03-23",
+      "dateEnd": "2026-03-30",
+      "refined": "IN PLAIN WORDS\nTurning a draft into a polished essay: a specific thesis with one body paragraph per point, concrete details as evidence, and several rounds of revision for structure, not just typos. These notes come from feedback on an essay about how RuneScape shaped problem-solving, communication and a sense of adventure.\n\nKEY IDEAS\n1. A specific thesis names its points, and each body paragraph matches one of them.\n2. Structure used: intro with background and thesis → one body paragraph per point → conclusion restating how the topic shaped the writer.\n3. Concrete details (specific quests, places, items, people) make an essay feel real.\n4. Emotional depth: show what the experience meant (connection, challenge, purpose), not just what happened.\n5. Revision should include big changes to structure and clarity.\n\nSTEPS\nPolishing a finished draft:\n1. Check that every body paragraph matches one part of the thesis.\n2. Vary how sentences start; mix in a question or combine short sentences.\n3. Put a comma after an opening transition (\"Finally, ...\").\n4. Break up any sentence that tries to do too much.\n5. Keep the direct, honest voice; plain and sincere beats \"fancy.\"\n\nKEY POINTS\n- Many sentences starting with the same word (\"It,\" \"Getting,\" the topic's name) is a sign to vary them.",
+      "original": ""
+    },
+    {
+      "group": "Argument, research, and revision",
+      "item": "Lesson 1",
+      "title": "What makes a good argument",
+      "topic": "Argument, research, and revision · Lesson 1",
+      "order": 601,
+      "date": "2026-03-30",
+      "dateEnd": "2026-04-06",
+      "refined": "IN PLAIN WORDS\nENGL100 Unit 2 is about writing persuasively. A good argument is built on a claim: not a fact and not just an opinion, but a statement a smart person could reasonably disagree with.\n\nKEY IDEAS\n1. Fact: can be checked and proven true or false.\n2. Opinion: personal taste or feeling; can't be proven for everyone.\n3. Claim: someone argues it's true, a smart person could disagree, and both sides can give reasons.\n4. A thesis is a zoomed-out claim that passes this test.\n\nSTEPS\nSmart-person test:\n1. Could a smart person reasonably disagree with this?\n2. No, and it can be checked → fact.\n3. It's pure taste → opinion.\n4. Yes, and both sides could give reasons → claim.\n\nCODE\n```text\nFact:     The PS5 was released in 2020.\n          Water boils at 100°C at sea level.\nOpinion:  Pineapple on pizza is disgusting.\nClaim:    Online school helps more students succeed than in-person school.\n          Microtransactions are bad for the gaming industry.\n```\n\nKEY POINTS\n- Strong arguments are built on arguable claims, not strings of facts or unsupported opinions.",
+      "original": ""
+    },
+    {
+      "group": "Argument, research, and revision",
+      "item": "Lesson 2",
+      "title": "How arguments work",
+      "topic": "Argument, research, and revision · Lesson 2",
+      "order": 602,
+      "date": "2026-03-30",
+      "dateEnd": "2026-04-06",
+      "refined": "IN PLAIN WORDS\nAny argument can be taken apart into four pieces: the main claim, the evidence, the unstated assumptions, and the rhetorical strategies.\n\nKEY IDEAS\n1. Main claim (thesis): the position everything connects back to.\n2. Evidence: examples, analogies, statistics or stories. Judge it: is it relevant, and is there enough?\n3. Unstated assumption: a belief the argument needs but never says.\n4. Rhetorical strategy: a deliberate move to persuade, such as a story, a qualified claim (\"I'm not saying...\"), or a vivid scenario that makes readers ask \"Am I like that?\"\n\nCODE\n```text\nClaim:       Everyone should learn to write clearly.\nAssumption:  Clear writing helps people succeed.\n```\n\nPractice on a Paul Graham essay about writing and thinking:\n```text\nMain claim:  Writing helps you discover what you think, because putting ideas into words\n             forces you to refine them.\nEvidence:    examples of rewriting and refining ideas.\nAssumption:  writing is a reliable way to reach clearer ideas, and clarity is worth the time.\nStrategy:    a \"perfect person\" example and an \"I'm not saying...\" qualification.\n```\n\nSTEPS\nReading any argument:\n1. What's the main claim?\n2. What evidence is used? Is it relevant and enough?\n3. What does the writer assume without saying?\n4. What strategies are used to persuade?",
+      "original": ""
+    },
+    {
+      "group": "Argument, research, and revision",
+      "item": "Lesson 3",
+      "title": "Crafting a strong thesis",
+      "topic": "Argument, research, and revision · Lesson 3",
+      "order": 603,
+      "date": "2026-03-30",
+      "dateEnd": "2026-04-06",
+      "refined": "IN PLAIN WORDS\nAn argumentative thesis is a position plus at least one reason, in one sentence. A strong thesis is specific, debatable, supportable, and not overloaded with examples.\n\nKEY IDEAS\n1. Controlling idea (Unit 1): the main point of a piece, often an observation.\n2. Argumentative thesis (Unit 2): an arguable claim with a reason; invites reasonable disagreement.\n3. Formula: Position + reason(s).\n4. Strong thesis checklist: specific (no vague \"things,\" \"stuff,\" \"good,\" \"bad\"), debatable, supportable, one clean sentence.\n5. Common fixes: add a reason to a preference; make vague reasons concrete; cut extra examples.\n\nCODE\n```text\nControlling idea:  Video games can help people relax after a stressful day.\nThesis:            Video games are one of the most effective ways to reduce stress after work\n                   because they let players focus, solve problems and step away from pressure.\n\nNot arguable:      Social media exists.\nArguable:          Social media is harmful for teenagers because it exposes them to scams and\n                   dangerous content.\n\nWeak:              Homework is a big problem for many students.\nStronger:          Schools should limit homework because excessive assignments increase stress\n                   and reduce time for sleep.\n\nVague reason:      ...because it benefits us both.\nConcrete reason:   ...because it reduces grinding for players while keeping combat challenging.\n\nOverstuffed:       ...because they can't show diagrams or visual art projects or get feedback on graphs...\nCleaner:           ...because it prevents them from sharing diagrams and getting feedback on visual work.\n```\n\nSTEPS\nChecking a thesis:\n1. Does it clearly take a side?\n2. Does it give at least one specific reason?\n3. Could a smart person reasonably disagree?\n4. Is it one clean sentence?",
+      "original": ""
+    },
+    {
+      "group": "Argument, research, and revision",
+      "item": "Lesson 4",
+      "title": "Finding sources you can trust",
+      "topic": "Argument, research, and revision · Lesson 4",
+      "order": 604,
+      "date": "2026-03-30",
+      "dateEnd": "2026-04-06",
+      "refined": "IN PLAIN WORDS\nThe CRAAP test is a quick way to judge a source. Rate Currency, Relevance, Authority, Accuracy and Purpose as high, medium or low, then decide how much to rely on it.\n\nKEY IDEAS\n1. Currency: how recent is it, and has the topic changed since then?\n2. Relevance: is it about your exact claim, or only loosely related?\n3. Authority: who made it, what are their credentials, and is the publisher trusted?\n4. Accuracy: is it backed by data, methods and references, or only opinion and stories?\n5. Purpose: does it inform, persuade, sell or entertain? Many sources mix purposes.\n6. Strong on all five → main evidence. Weak in some → background, examples or \"what people say,\" not core proof.\n\nCODE\n```text\n2011 government PDF on teen mental health\n  Currency: low (old for today's social media)   Relevance: medium\n\nBlog by \"Jenna K., youth mentor\" (no last name, credentials or sources)\n  Authority: low → maybe a story or quote, not main proof\n\n2019 peer-reviewed journal article\n  Accuracy: high (methods, data, references)   Currency: medium\n\nNASA article on the first black hole image\n  Authority: high (named scientists, mission data)\n\nSpaceNews article on orbital data centers\n  Currency: high   Authority: high for industry news   Purpose: mostly inform\n  Not enough alone for the technical details → add scientific sources\n```\n\nKEY POINTS\n- With documentaries and popular science, separate the evidence (data, experiments) from the speculation.\n- The CRAAP test was created by librarian Sarah Blakeslee at California State University, Chico (around 2004).\n- The first black hole image (galaxy M87, 2019) was made by the Event Horizon Telescope collaboration; NASA reported on it and its telescopes helped, so credit the collaboration.",
+      "original": ""
+    },
+    {
+      "group": "Argument, research, and revision",
+      "item": "Lesson 5",
+      "title": "Using evidence effectively",
+      "topic": "Argument, research, and revision · Lesson 5",
+      "order": 605,
+      "date": "2026-03-30",
+      "dateEnd": "2026-04-06",
+      "refined": "IN PLAIN WORDS\nQuote for exact wording, paraphrase for the idea, summarize for the big picture. Present evidence with ICE: Introduce it, Cite it, Explain it. Avoid patchwriting, which is copying a source's structure and swapping a few words.\n\nKEY IDEAS\n1. Quote: exact words, when the wording is powerful, unique or the thing being analyzed.\n2. Paraphrase: the same idea in new words, at similar length.\n3. Summarize: a shorter version of a longer section.\n4. ICE:\n   - Introduce: who or where it's from (\"A recent study found that...\").\n   - Cite: the quote, paraphrase or summary.\n   - Explain: how it supports your point.\n5. Argument paragraph: sub-claim → evidence (ICE) → connection to the bigger argument.\n6. Patchwriting signs: nearly the same sentence structure, many identical phrases, mostly synonym swaps.\n\nSTEPS\nFixing patchwriting:\n1. Read the source and close it.\n2. Write the idea from memory, in a new sentence structure.\n3. Check that the meaning matches and nothing was added.\n4. Credit the source.\n\nCODE\n```text\nSub-claim:   Video games can improve people's thinking skills.\nIntroduce:   Some psychologists argue that...\nCite:        frequent gamers are better at planning and solving problems.\nExplain:     This supports the idea that gaming builds thinking skills.\nConnection:  This challenges the claim that gaming is always unhealthy.\n```\n\n```text\nSource:       \"Spending time in nature can reduce stress and help people feel more relaxed and focused.\"\nPatchwritten: Spending time in nature can lower stress, leaving you more focused and relaxed.\nParaphrase:   According to [source], people who spend time outdoors often feel calmer and find it\n              easier to concentrate.\n```\n\nKEY POINTS\n- A paraphrase still needs a citation.\n- Don't add ideas the source never said (for example, \"anxiety\" when the source only says stress).",
+      "original": ""
+    },
+    {
+      "group": "Argument, research, and revision",
+      "item": "Lesson 6",
+      "title": "Building a convincing paragraph",
+      "topic": "Argument, research, and revision · Lesson 6",
+      "order": 606,
+      "date": "2026-03-30",
+      "dateEnd": "2026-04-06",
+      "refined": "IN PLAIN WORDS\nA convincing body paragraph has four parts: a claim, concrete evidence, an explanation that answers \"So what?\", and an echo-link sentence that repeats a key word from the thesis.\n\nKEY IDEAS\n1. Claim: the first sentence; one clear idea.\n2. Evidence: a fact, example or research finding; specific and concrete.\n3. Explanation: why the evidence matters; connects it back to the claim.\n4. Echo-link: the last sentence; zooms out to the thesis and repeats one key word or idea from it.\n\nCODE\n```text\nClaim:        Braille, the first writing system for blind people, was a groundbreaking solution\n              to a serious problem.\nEvidence:     Braille gave blind people a way to read and write independently.\nExplanation:  Because of this, blind people could share their knowledge and take part in society\n              instead of living in isolation. Braille worked like a new written language of their own.\nEcho-link:    Overall, Braille opened up new opportunities by making reading and writing\n              accessible in school and everyday life.\n```\n\nKEY POINTS\n- Checklist: clear claim, concrete evidence, an explanation that answers \"So what?\", a last sentence that echoes the thesis.\n- Specific evidence names its source; \"scientists found\" is stronger with who, when and where.",
+      "original": ""
+    },
+    {
+      "group": "Argument, research, and revision",
+      "item": "Lesson 7",
+      "title": "Structuring a persuasive essay",
+      "topic": "Argument, research, and revision · Lesson 7",
+      "order": 607,
+      "date": "2026-03-30",
+      "dateEnd": "2026-04-06",
+      "refined": "IN PLAIN WORDS\nPersuasive essay structure: an introduction (hook, background, thesis last), usually three body paragraphs with one main point each in \"ladder\" order, and a conclusion that restates the idea in new words and ends strongly.\n\nKEY IDEAS\n1. Introduction: hook, brief background, thesis as the last sentence.\n2. Thesis: arguable and specific.\n3. Body paragraphs: topic sentence → evidence or example → explanation → link to the thesis.\n4. Ladder order: basic need → deeper need → long-term impact.\n5. Conclusion: restate the main idea in new words, recall the key points, end with a strong final thought.\n6. Reverse outline: write a one-line summary of each paragraph and check that the list reads like a path.\n\nCODE\n```text\nThesis:  Online video games can be a healthy way for people to slowly rebuild trust and\n         social connection.\n\nBody 1 – Safe space: mute and block tools let players take part only when comfortable.\nBody 2 – Trust: the same fair, respectful players showing up over time builds trust.\nBody 3 – Skills + limit: games build reading, math, story and memory skills and confidence,\n         but too much gaming creates new problems, so balance matters.\n```\n\nKEY POINTS\n- The ladder takes the reader step by step instead of giving every idea at once.\n- Naming a limit (Body 3) and answering it strengthens the argument.",
+      "original": ""
+    },
+    {
+      "group": "Argument, research, and revision",
+      "item": "Lesson 8",
+      "title": "From essay to workplace writing",
+      "topic": "Argument, research, and revision · Lesson 8",
+      "order": 608,
+      "date": "2026-03-30",
+      "dateEnd": "2026-04-06",
+      "refined": "IN PLAIN WORDS\nEssay skills carry into workplace writing. A memo is a short formal recommendation inside a company. An email starts a conversation and makes a clear request. A short proposal covers problem → solution → request in about 100 words.\n\nKEY IDEAS\n1. Memo header: To (a person or role), From, Date, Subject.\n2. Memo body: one short paragraph: recommendation → reason or evidence → expected outcome.\n3. Email: greeting → one line of context → main point → clear question or request → sign-off and name.\n4. Proposal paragraph: problem → solution → request.\n5. APC chooses the form: memo is internal and formal; email is internal or external and conversational; a proposal is a more formal pitch that can include budget and timing.\n\nCODE\nMemo:\n```text\nTo:      Store Owner\nFrom:    [Your Name]\nDate:    [Date]\nSubject: Plan for replacing key equipment\n\nI recommend planning ahead for approved commercial equipment. When equipment fails and can't\nbe replaced quickly, inspections and customer service suffer. A plan would protect both and\nkeep costs predictable.\n```\n\nEmail:\n```text\nHello [Manager's Name],\n\nI have a question about planning for equipment at our store, and I'd appreciate your feedback.\n[Idea and why it matters.]\nWould you be open to reviewing a short plan next week?\n\nSincerely,\n[Your Name]\n```\n\nProposal (about 100 words):\n```text\nProblem:  Our store risks failed inspections and slow service when equipment breaks and can't\n          be replaced quickly with approved commercial models.\nSolution: Create a one-year savings plan for equipment, or buy one key backup item now if the\n          budget allows.\nRequest:  I'm asking for permission to draft a written plan listing the equipment we need,\n          estimated costs and a monthly savings amount.\n```\n\nKEY POINTS\n- Address a memo to the person or role who decides, not the whole company.",
+      "original": ""
+    },
+    {
+      "group": "Argument, research, and revision",
+      "item": "Lesson 9",
+      "title": "Revision that transforms",
+      "topic": "Argument, research, and revision · Lesson 9",
+      "order": 609,
+      "date": "2026-03-30",
+      "dateEnd": "2026-04-06",
+      "refined": "IN PLAIN WORDS\nRevision means rethinking the writing, not just fixing mistakes. Revise ideas and structure first, edit the language last, and use change tags to check that the new draft is truly different.\n\nKEY IDEAS\n1. Revision changes what you say and in what order; editing fixes grammar, wording and punctuation.\n2. Four-step loop: Plan → Write → Check → Improve; each pass makes the writing stronger.\n3. Priority ladder:\n   - Ideas: what is the main point, which details support it, what can be left out?\n   - Structure: what comes first, second, last? Should run-ons be split? Should related thoughts be grouped?\n   - Language: smoother, clearer sentences; a school-appropriate tone that stays honest; grammar last.\n4. Change tags: [IDEAS], [STRUCTURE], [LANGUAGE]. If Draft 2 only has [LANGUAGE] changes, it was edited, not revised.\n\nKEY POINTS\n- A personal story can be shaped for school by choosing one main idea and the details that support it, without changing what really happened.\n- Structure is often the hardest part.",
+      "original": ""
+    },
+    {
+      "group": "Argument, research, and revision",
+      "item": "Lesson 10",
+      "title": "When AI writes for you",
+      "topic": "Argument, research, and revision · Lesson 10",
+      "order": 610,
+      "date": "2026-03-30",
+      "dateEnd": "2026-04-06",
+      "refined": "IN PLAIN WORDS\nAI text tools predict the next likely word; they don't check what's true, so they can sound confident and be wrong (hallucinations). Treat any AI claim with a specific number, date or named study as false until a real source confirms it.\n\nKEY IDEAS\n1. Danger zone: exact percentages and amounts, specific years (\"a 2022 report\"), big-name studies with no citation (\"a Stanford study\").\n2. Three options for a doubtful AI claim:\n   - Keep it, only if real, credible sources match it.\n   - Patch it: remove the fake numbers and studies, and make it general and honest.\n   - Rewrite it: replace an extreme or unrealistic claim entirely.\n3. Use AI for brainstorming wording, shaping structure and offering alternative phrasings.\n4. You stay responsible: check every statistic, date and study, and remove anything you can't verify.\n\nCODE\n```text\nAI claim:   AI tools have reduced homework time by 73% according to a 2022 Stanford study.\nPatched:    AI writing tools can help some students spend less time on routine parts of\n            homework, giving them more time to study and revise.\n\nAI claim:   92% of colleges now require students to use AI for all assignments.\nRewritten:  Colleges are still working out how students should use AI in their coursework.\n```\n\nKEY POINTS\n- Hedged words like \"can help\" and \"may\" avoid overpromising.\n- AI helps structure what you want to say only as long as you stay in control.",
+      "original": ""
+    },
+    {
+      "group": "Argument, research, and revision",
+      "item": "Lesson 11",
+      "title": "AI in your writing process",
+      "topic": "Argument, research, and revision · Lesson 11",
+      "order": 611,
+      "date": "2026-03-30",
+      "dateEnd": "2026-04-06",
+      "refined": "IN PLAIN WORDS\nUse AI as a writing coach, not a ghostwriter. Frame prompts with a \"sandwich\" of Role, Audience, Purpose, Goals and Rules; ask for critique only; fix one weakness yourself; and state honestly how AI was used.\n\nKEY IDEAS\n1. Prompt sandwich: Role (who the AI is), Audience, Purpose, Goals (the help you want), Rules (what it must not do).\n2. Useful rules: don't guess (say what's unclear instead); stay on topic; don't rewrite my text, only critique.\n3. Two-step loop: the AI critiques ideas, structure or language; you choose one weakness and rewrite it yourself.\n4. Teaching paragraph outline: topic sentence (what it is and why it matters) → plain explanation → concrete example → consequence.\n5. Transparency statement: the tool, the task, how it helped, what you did yourself, and what you didn't let it do.\n\nCODE\n```text\nYou are a college-level writing tutor who understands basic game development.\nAudience: beginner game developers.\nPurpose: I'm explaining [topic].\nGoals:\n- Tell me where my ideas are unclear.\n- Tell me whether my example helps.\n- Tell me whether my paragraph structure is logical.\nRules:\n- Don't rewrite my text; only critique.\n- If you're not sure, say what's unclear instead of guessing.\n- If my question is off-topic, say so.\nHere is my paragraph:\n[paste paragraph]\n```\n\nTeaching paragraph:\n```text\nTopic:        Collisions and layers matter in 2D games because they control how objects interact.\nExplanation:  A collision tells the game when two objects touch, like a player stepping into a\n              healing area.\nExample:      If enemies and players aren't on separate layers, an area heal might heal monsters too.\nConsequence:  Ignoring collisions and layers leads to hours of fixing strange bugs later.\n```\n\nTransparency statement template:\n```text\nI used [tool] to [task]. It helped me by [how]. I [chose the topics / checked accuracy /\nrewrote parts myself], and I did not [let it write whole drafts / copy its output without checking].\n```\n\nKEY POINTS\n- Fixing one weakness at a time keeps the writing yours.",
+      "original": ""
+    },
+    {
+      "group": "Argument, research, and revision",
+      "item": "Lesson 12",
+      "title": "Your argument, your voice",
+      "topic": "Argument, research, and revision · Lesson 12",
+      "order": 612,
+      "date": "2026-03-30",
+      "dateEnd": "2026-04-06",
+      "refined": "IN PLAIN WORDS\nA strong argumentative essay has an original, focused thesis, vivid examples, one consistent audience, a fair counterargument with a rebuttal, and a conclusion that pushes the idea forward. These notes come from feedback on an essay arguing that AI-driven game companies could become real rivals to Xbox and PlayStation.\n\nKEY IDEAS\n1. Opening with evidence (\"Recent articles about AI in game development...\") is stronger than opening with opinion.\n2. A strong thesis has a time frame, the players involved, and how the change happens.\n3. Each body paragraph supports the thesis from a different angle (changing worlds; reactive characters) and ends by linking back.\n4. Counterargument: present the other side fairly (generic, buggy, soulless), then rebut it (AI extends human creativity rather than replacing it).\n5. Conclusion: don't just repeat the thesis; push it forward and echo earlier images.\n6. Write consistently for the chosen audience while staying appropriate for school.\n\nSTEPS\nChecking an argumentative essay:\n1. Does the intro move smoothly to a clear thesis?\n2. Does each body paragraph give one angle with concrete details and a linking last sentence?\n3. Is the counterargument treated with respect, and answered specifically?\n4. Does the conclusion move the idea forward?\n5. Is the source named (and cited if the class requires it)?\n6. Is the AI acknowledgment note at the end?\n\nKEY POINTS\n- At higher levels, \"recent articles\" must be named and formally cited.\n- A short transition before the thesis (\"Because of these changes,\") can smooth the intro.",
+      "original": ""
+    }
+  ]
+}

@@ -1,0 +1,248 @@
+{
+  "app": "notes-vault",
+  "kind": "contribution",
+  "version": 1,
+  "createdOn": "2026-11-27T09:19:32.318Z",
+  "contributor": {
+    "id": "55946333-9863-49ca-acb3-a25bfccc48c9",
+    "displayName": "Front-pay"
+  },
+  "program": "Applied science software engineering",
+  "class": {
+    "code": "BE106",
+    "name": "BE106: Backend project"
+  },
+  "lessons": [
+    {
+      "group": "Setting up the project",
+      "item": "Lesson 1",
+      "title": "Welcome to BE106!",
+      "topic": "Setting up the project · Lesson 1",
+      "order": 101,
+      "date": "2026-11-09",
+      "dateEnd": "2026-11-16",
+      "refined": "IN PLAIN WORDS\nBE106 is the backend capstone: build one complete API by yourself, run it at a live public URL, keep it in a public GitHub repository with docs a stranger can follow, and be able to explain every line, even code AI helped with.\n\nKEY IDEAS\n1. From guided practice to shipping one complete backend on your own.\n2. Deliverables: a live URL for the running API and a public GitHub repository.\n3. Documentation good enough for another developer to use the API.\n4. AI is allowed, but you must be able to explain every line you keep.\n\nKEY POINTS\n- One API, running publicly, in a public repository, documented.\n- Idea → end-to-end backend → hosted → documented → explained.",
+      "original": ""
+    },
+    {
+      "group": "Setting up the project",
+      "item": "Lesson 2",
+      "title": "Scoping your project idea",
+      "topic": "Setting up the project · Lesson 2",
+      "order": 102,
+      "date": "2026-11-09",
+      "dateEnd": "2026-11-16",
+      "refined": "IN PLAIN WORDS\nScope a project small enough for one term: one user type and one core resource. Your idea was Boost: each user saves short motivational messages (\"boosts\") and taps a button to see one. Each boost belongs to the user who made it.\n\nKEY IDEAS\n1. Resource domain: the real-world area the app is about (motivation and self-esteem).\n2. Core resource: the main thing the backend stores (a boost, a short message).\n3. Record ownership: which user owns each record (the one who created the boost).\n4. User story: who uses it, what they do, and why.\n5. Term-sized scope: one user type, one resource, basic actions, no extra services or real-time features.\n\nCODE\n```text\nDomain:     motivation / self-esteem\nResource:   boost = a short motivational message\nOwner:      the user who created it\nActions:    create, view, edit, delete, show one on a button tap\nUser story: As a user who wants to stay motivated, I want to save my own boosts\n            and tap a button to see one, so I get a quick reminder when I'm feeling low.\n```\n\nKEY POINTS\n- Start with a tight core loop, then build on it.\n- One user type + one resource + basic actions fits one term.\n\nNOTE\nLater lessons build Studio Cost Raid (studio_cost_raid) instead of Boost. If you switched projects, this plan describes the first idea.",
+      "original": ""
+    },
+    {
+      "group": "Setting up the project",
+      "item": "Lesson 3",
+      "title": "API resource and endpoint planning",
+      "topic": "Setting up the project · Lesson 3",
+      "order": 103,
+      "date": "2026-11-09",
+      "dateEnd": "2026-11-16",
+      "refined": "IN PLAIN WORDS\nPlan the API before coding it: which method does what, which status code means success, and which means each kind of error. Auth endpoints: register, login, profile. Resource endpoints: list, create, get one, update, delete, plus a random \"lucky\" one.\n\nKEY IDEAS\n1. GET reads, POST creates, PUT updates, DELETE removes.\n2. 200 OK returns data. 201 Created made something. 204 No Content succeeded with nothing to return.\n3. 400 bad input. 401 not logged in or bad token. 403 logged in but not allowed. 404 doesn't exist, or isn't visible to you.\n\nCODE\n```text\nAuth\nPOST /api/register     create an account      201 | 400, 409 email taken   public\nPOST /api/login        check credentials      200 | 400, 401               public\nGET  /api/profile      current user           200 | 401                    logged in\n\nBoosts (all logged in)\nGET    /api/boosts               list mine              200 | 401\nPOST   /api/boosts               create                 201 | 400, 401\nGET    /api/boosts/<id>          one boost              200 | 401, 404\nPUT    /api/boosts/<id>          update                 200 | 400, 401, 404\nDELETE /api/boosts/<id>          delete                 204 | 401, 404\nGET    /api/boosts/luckyboost    one random boost       200 | 401, 404 (none yet)\n```\n\nKEY POINTS\n- 401 = who are you? 403 = you can't do this.\n- Profile → 200. Create → 201. Delete → 204.",
+      "original": ""
+    },
+    {
+      "group": "Setting up the project",
+      "item": "Lesson 4",
+      "title": "Virtual environment and dependencies",
+      "topic": "Setting up the project · Lesson 4",
+      "order": 104,
+      "date": "2026-11-09",
+      "dateEnd": "2026-11-16",
+      "refined": "IN PLAIN WORDS\nA virtual environment is a private Python setup for one project. Create it, activate it, and prove it's active with sys.executable. Install packages, then pin exact versions with pip freeze > requirements.txt, so anyone can rebuild the same environment.\n\nKEY IDEAS\n1. A venv keeps each project's packages separate.\n2. The (venv) prompt is a hint; the real proof is sys.executable pointing inside the project's venv.\n3. A venv is tied to the Python version that created it.\n4. Pinned = package==exact_version on every line.\n5. requirements.txt stores the package list, not the venv. You still create and activate a venv before installing from it.\n\nSTEPS\n1. python -m venv venv\n2. Activate it (PowerShell: .\\venv\\Scripts\\Activate.ps1).\n3. python -c \"import sys; print(sys.executable)\" → the path should be inside your project's venv.\n4. Install the packages.\n5. pip freeze > requirements.txt\n6. Elsewhere: new venv, activate, pip install -r requirements.txt.\n\nCODE\n```powershell\npython -m venv venv\n.\\venv\\Scripts\\Activate.ps1\npython -c \"import sys; print(sys.executable)\"\npip install flask flask-sqlalchemy flask-migrate python-dotenv pyjwt\npip freeze > requirements.txt\n```\n\nKEY POINTS\n- Same pinned versions everywhere means fewer \"works on my machine\" bugs.",
+      "original": ""
+    },
+    {
+      "group": "Setting up the project",
+      "item": "Lesson 5",
+      "title": "Application factory skeleton",
+      "topic": "Setting up the project · Lesson 5",
+      "order": 105,
+      "date": "2026-11-09",
+      "dateEnd": "2026-11-16",
+      "refined": "IN PLAIN WORDS\nThe project skeleton: extensions.py creates db and migrate without an app, __init__.py has create_app (build the app, set the database, init the extensions, register the blueprint), and main.py defines the blueprint. Check it with flask routes.\n\nKEY IDEAS\n1. Extensions are created once and bound to each app inside the factory.\n2. A factory lets dev, test and production apps come from the same code.\n\nCODE\n```text\nstudio_cost_raid/\n  __init__.py       # app factory\n  extensions.py     # db and migrate objects\n  main.py           # blueprint\n```\n\n```python\n# extensions.py\nfrom flask_sqlalchemy import SQLAlchemy\nfrom flask_migrate import Migrate\ndb = SQLAlchemy()\nmigrate = Migrate()\n\n# main.py\nfrom flask import Blueprint\nmain_bp = Blueprint(\"main\", __name__)\n\n# __init__.py\nfrom flask import Flask\nfrom .extensions import db, migrate\nfrom .main import main_bp\n\ndef create_app(config_name=\"development\"):\n    app = Flask(__name__)\n    app.config[\"SQLALCHEMY_DATABASE_URI\"] = \"sqlite:///dev.db\"\n    db.init_app(app)\n    migrate.init_app(app, db)\n    app.register_blueprint(main_bp)\n    return app\n```\n\n```powershell\n.\\venv\\Scripts\\Activate.ps1\n$env:FLASK_APP = \"studio_cost_raid:create_app\"\nflask routes\n```\n\nKEY POINTS\n- create_app builds and returns a ready app; nothing is built at import time.",
+      "original": ""
+    },
+    {
+      "group": "Setting up the project",
+      "item": "Lesson 6",
+      "title": "Config classes and .env",
+      "topic": "Setting up the project · Lesson 6",
+      "order": 106,
+      "date": "2026-11-09",
+      "dateEnd": "2026-11-16",
+      "refined": "IN PLAIN WORDS\nThree config classes (Development, Testing, Production) read values with os.getenv, with safe fallbacks for dev and test only. config_map picks a class by name, and from_object copies its UPPERCASE attributes. .env holds your real local values; .env.example holds the same keys with placeholders. Load .env before the config classes are imported.\n\nKEY IDEAS\n1. Three classes for three environments; UPPERCASE attributes become Flask config keys.\n2. Dev and test may have harmless fallbacks. Production reads only real environment variables.\n3. config_name → config_map[config_name] → app.config.from_object(cls).\n4. .env: real values, local only, never committed. .env.example: same keys, placeholder values, committed.\n5. Use os.getenv in config classes. os.environ[\"X\"] crashes at import if X is missing.\n6. Moving to Postgres later only means changing DATABASE_URL.\n\nCODE\n```python\n# config.py (project root)\nimport os\n\nclass DevelopmentConfig:\n    DEBUG = True\n    SQLALCHEMY_DATABASE_URI = os.getenv(\"DATABASE_URL\", \"sqlite:///dev.db\")\n    JWT_SECRET_KEY = os.getenv(\"JWT_SECRET_KEY\", \"dev-secret-not-for-prod\")\n\nclass TestingConfig:\n    TESTING = True\n    SQLALCHEMY_DATABASE_URI = os.getenv(\"TEST_DATABASE_URL\", \"sqlite:///test.db\")\n    JWT_SECRET_KEY = os.getenv(\"JWT_SECRET_KEY\", \"test-secret-not-for-prod\")\n\nclass ProductionConfig:\n    SQLALCHEMY_DATABASE_URI = os.getenv(\"DATABASE_URL\")\n    JWT_SECRET_KEY = os.getenv(\"JWT_SECRET_KEY\")\n\nconfig_map = {\"development\": DevelopmentConfig, \"testing\": TestingConfig, \"production\": ProductionConfig}\n```\n\n```python\n# studio_cost_raid/__init__.py\nfrom dotenv import load_dotenv\nload_dotenv()                          # FIRST: before config.py is imported\n\nfrom flask import Flask\nfrom config import config_map\nfrom .extensions import db, migrate\nfrom .main import main_bp\n\ndef create_app(config_name=\"development\"):\n    app = Flask(__name__)\n    app.config.from_object(config_map[config_name])\n    db.init_app(app)\n    migrate.init_app(app, db)\n    app.register_blueprint(main_bp)\n    return app\n```\n\n```text\n# .env.example (committed)\nDATABASE_URL=sqlite:///dev.db\nJWT_SECRET_KEY=your-jwt-secret-here\nFLASK_DEBUG=1\n```\n\nKEY POINTS\n- ModuleNotFoundError: 'config' → config.py must sit in the project root, next to run.py.\n- Later: DATABASE_URL=postgresql+psycopg2://user:password@host:port/dbname, no Python changes.\n\nCORRECTION\n- The lesson's code imported config before calling load_dotenv(). Class attributes are read once, at import, so they never saw your .env values and fell back to the defaults. Checked by running it: imported first → sqlite:///dev.db; load_dotenv first → sqlite:///dev2.db. It only seemed to work because the flask command loads .env by itself when python-dotenv is installed. python run.py doesn't.\n- FLASK_ENV was removed in Flask 2.3. FLASK_DEBUG=1 turns on debug mode.",
+      "original": ""
+    },
+    {
+      "group": "Setting up the project",
+      "item": "Lesson 7",
+      "title": "Git init and .gitignore",
+      "topic": "Setting up the project · Lesson 7",
+      "order": 107,
+      "date": "2026-11-09",
+      "dateEnd": "2026-11-16",
+      "refined": "IN PLAIN WORDS\ngit init, then write .gitignore (venv/, .env, __pycache__/, instance/*.db) before the first commit, and check with git status that ignored files don't show. Commit, then check git log --oneline.\n\nKEY IDEAS\n1. Ignored file: exists on disk; Git acts as if it doesn't.\n2. Tracked file: added at least once; its changes show in git status.\n3. Commit: a snapshot in history. Push: uploads existing commits; it doesn't create them.\n4. Changing .gitignore doesn't remove anything already committed. Ignore .env before its first commit.\n\nSTEPS\n1. git init\n2. Write .gitignore.\n3. git status: .env and venv/ must not appear.\n4. git add . and git commit -m \"Initial project structure with config and Flask skeleton\"\n5. git log --oneline\n\nCODE\n```gitignore\nvenv/\n.env\n__pycache__/\ninstance/*.db\n```\n\nKEY POINTS\n- Ignore secrets before the first commit, not after.",
+      "original": ""
+    },
+    {
+      "group": "Setting up the project",
+      "item": "Lesson 8",
+      "title": "Branching and commit hygiene",
+      "topic": "Setting up the project · Lesson 8",
+      "order": 108,
+      "date": "2026-11-09",
+      "dateEnd": "2026-11-16",
+      "refined": "IN PLAIN WORDS\nKeep main always runnable. Do each piece of work on its own branch, write focused commits that say why, and merge with --no-ff so the branch shows in the history. Delete the branch locally and on GitHub after merging.\n\nSTEPS\n1. git switch -c branch-name (new branch from where you are).\n2. Make focused commits.\n3. git push -u origin branch-name (push and link local ↔ remote).\n4. On main: git merge --no-ff branch-name -m \"Merge branch-name: short reason\"\n5. git push, then git log --oneline --graph to see the merge.\n6. git branch -d branch-name and git push origin --delete branch-name.\n\nCODE\n```bash\ngit switch -c docs-readme\ngit commit -m \"Document local dev setup in README\"\ngit push -u origin docs-readme\ngit branch -vv                     # branches, last commit, what each tracks\ngit switch main\ngit merge --no-ff docs-readme -m \"Merge docs-readme: setup docs\"\ngit push\ngit log --oneline --graph\ngit branch -d docs-readme\ngit push origin --delete docs-readme\n```\n\nKEY POINTS\n- Commit message pattern: verb + what + why. If a stranger can't tell why the change exists, the message is too weak.\n- --no-ff forces a merge commit, so the branch stays visible in the graph.",
+      "original": ""
+    },
+    {
+      "group": "Setting up the project",
+      "item": "Lesson 9",
+      "title": "Project file tree and README",
+      "topic": "Setting up the project · Lesson 9",
+      "order": 109,
+      "date": "2026-11-09",
+      "dateEnd": "2026-11-16",
+      "refined": "IN PLAIN WORDS\nThe finished setup: the app package, instance/, config.py, requirements.txt, run.py, .env (local only), .env.example, .gitignore, and a README a stranger can follow to clone and run the project. Audit what Git tracks and what it ignores.\n\nKEY IDEAS\n1. venv/, __pycache__/, .env and instance/*.db exist locally but are ignored.\n2. .env.example lists every variable with a placeholder.\n3. README: clone-and-run steps, each environment variable, and the migration commands.\n\nSTEPS\n1. git ls-files: what's tracked.\n2. git status --ignored --short: what's ignored.\n3. Secrets and local files should be on disk but not in Git.\n\nCODE\n```gitignore\nvenv/\n.env\n__pycache__/\n**/__pycache__/\ninstance/*.db\n```\n\n```powershell\n# README: clone and run\ngit clone <REPO_URL>\ncd studio-cost-raid-backend\npython -m venv venv\n.\\venv\\Scripts\\Activate.ps1\npip install -r requirements.txt\ncopy .env.example .env          # then fill in real values\nflask db upgrade\npython run.py\n```\n\nKEY POINTS\n- A stranger should be able to run the project from the README alone.\n- Never commit real secrets.",
+      "original": ""
+    },
+    {
+      "group": "Setting up the project",
+      "item": "Lesson 10",
+      "title": "First health-check endpoint",
+      "topic": "Setting up the project · Lesson 10",
+      "order": 110,
+      "date": "2026-11-09",
+      "dateEnd": "2026-11-16",
+      "refined": "IN PLAIN WORDS\nGET /health returns {\"status\": \"ok\"} with 200. The request goes: client → app from create_app → blueprint → health() → JSON. Code isn't done until a real request returns the expected result, and only then do you commit.\n\nCODE\n```python\n# main.py\nfrom flask import Blueprint, jsonify\n\nmain_bp = Blueprint(\"main\", __name__)\n\n@main_bp.get(\"/health\")\ndef health():\n    return jsonify({\"status\": \"ok\"}), 200\n```\n\n```powershell\npython run.py\ncurl.exe http://127.0.0.1:5000/health        # {\"status\": \"ok\"}\ngit add studio_cost_raid/main.py\ngit commit -m \"Add /health endpoint for service health-check\"\n```\n\nKEY POINTS\n- A real response is stronger evidence than code that looks right.\n- In PowerShell, use curl.exe; plain curl is a different command there.",
+      "original": ""
+    },
+    {
+      "group": "Setting up the project",
+      "item": "Lesson 11",
+      "title": "Challenge: skeleton smoke test",
+      "topic": "Setting up the project · Lesson 11",
+      "order": 111,
+      "date": "2026-11-09",
+      "dateEnd": "2026-11-16",
+      "refined": "IN PLAIN WORDS\nSmoke test the skeleton: the server starts, a startup message shows which config loaded, /health answers through real HTTP, and git status and git log show a clean tree and a clear history.\n\nSTEPS\n1. python run.py → \"Running on http://127.0.0.1:5000\" proves the factory and Flask start.\n2. Print the loaded config name at startup to prove the right environment.\n3. curl.exe http://127.0.0.1:5000/health → {\"status\": \"ok\"} proves the route works.\n4. git status → \"nothing to commit, working tree clean\".\n5. git log --oneline --decorate --graph -n 5 → a short, readable history.\n\nKEY POINTS\n- Each check proves one layer: startup, config, route, history.",
+      "original": ""
+    },
+    {
+      "group": "Users and authentication",
+      "item": "Lesson 1",
+      "title": "User model and migration",
+      "topic": "Users and authentication · Lesson 1",
+      "order": 201,
+      "date": "2026-11-16",
+      "dateEnd": "2026-11-23",
+      "refined": "IN PLAIN WORDS\nUser model: id, email (unique, required), password_hash (required), created_at. Run the migration chain (init → migrate → upgrade), then check the real database: db.engine.url shows which file is in use, and PRAGMA table_info(user) should match the model.\n\nKEY IDEAS\n1. The models must be imported by the app (from . import models) so migrations see them.\n2. When there are several database files, ask SQLAlchemy which one it uses instead of guessing.\n3. PRAGMA table_info columns: name, type, notnull (1 = required), pk (1 = primary key).\n\nSTEPS\n1. flask --app run.py db init (once).\n2. flask --app run.py db migrate -m \"Add User model\"\n3. flask --app run.py db upgrade\n4. flask --app run.py shell → print(db.engine.url)\n5. Open that file and run PRAGMA table_info(user).\n\nCODE\n```python\nfrom .extensions import db\n\nclass User(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    email = db.Column(db.String(255), unique=True, nullable=False)\n    password_hash = db.Column(db.String(255), nullable=False)\n    created_at = db.Column(db.DateTime)\n```\n\n```python\n# inside flask shell\nfrom studio_cost_raid.extensions import db\nprint(db.engine.url)            # e.g. sqlite:///...instance/dev2.db\n```\n\n```sql\nSELECT name FROM sqlite_master WHERE type='table';\nPRAGMA table_info(user);\n```\n\nKEY POINTS\n- Verify the schema in the database the app really uses.\n- python -m sqlite3 doesn't support dot-commands like .schema; use PRAGMA instead.",
+      "original": ""
+    },
+    {
+      "group": "Users and authentication",
+      "item": "Lesson 2",
+      "title": "Registration endpoint and validation",
+      "topic": "Users and authentication · Lesson 2",
+      "order": 202,
+      "date": "2026-11-16",
+      "dateEnd": "2026-11-23",
+      "refined": "IN PLAIN WORDS\nPOST /auth/register: a body that isn't a JSON object → 400 VALIDATION_ERROR. Email and password rules → 400. Email already taken → 409 EMAIL_TAKEN. Otherwise hash the password, save, and return 201 with id, email and created_at only.\n\nSTEPS\n1. Body not a JSON object → 400 \"Request body must be a JSON object\".\n2. Email: a string, not blank, at most 255 characters → else 400.\n3. Password: a string, 8 to 255 characters → else 400.\n4. Normalize the email: strip and lowercase.\n5. Email already registered → 409 EMAIL_TAKEN.\n6. Hash, create the user, commit → 201 with public fields only.\n\nCODE\n```python\ndata = request.get_json(silent=True)\nif not isinstance(data, dict):\n    return error(400, \"VALIDATION_ERROR\", \"Request body must be a JSON object\")\nemail = data.get(\"email\")\npassword = data.get(\"password\")\nif not isinstance(email, str) or not email.strip():\n    return error(400, \"VALIDATION_ERROR\", \"Email is required\")\nif len(email) > 255:\n    return error(400, \"VALIDATION_ERROR\", \"Email must be at most 255 characters\")\nif not isinstance(password, str) or not 8 <= len(password) <= 255:\n    return error(400, \"VALIDATION_ERROR\", \"Password must be between 8 and 255 characters\")\nemail = email.strip().lower()\n\nif User.query.filter_by(email=email).first():\n    return error(409, \"EMAIL_TAKEN\", \"Email is already registered\")\nuser = User(email=email, password_hash=generate_password_hash(password),\n            created_at=datetime.now(timezone.utc))\ndb.session.add(user)\ntry:\n    db.session.commit()\nexcept IntegrityError:                 # two sign-ups with the same email at once\n    db.session.rollback()\n    return error(409, \"EMAIL_TAKEN\", \"Email is already registered\")\nreturn jsonify({\"user\": {\"id\": user.id, \"email\": user.email,\n                         \"created_at\": user.created_at.isoformat()}}), 201\n```\n\n```json\n{\"error\": {\"code\": \"VALIDATION_ERROR\", \"message\": \"Email is required\"}}\n```\n\nKEY POINTS\n- 201 created, 400 invalid input, 409 email taken.\n- Never return the password or the hash.\n- Store the email lowercased, and lowercase it at login too, or Player@example.com and player@example.com become two accounts.",
+      "original": ""
+    },
+    {
+      "group": "Users and authentication",
+      "item": "Lesson 3",
+      "title": "Password hashing",
+      "topic": "Users and authentication · Lesson 3",
+      "order": 203,
+      "date": "2026-11-16",
+      "dateEnd": "2026-11-23",
+      "refined": "IN PLAIN WORDS\nStore only one-way Werkzeug scrypt hashes. check_password_hash(stored, guess) returns True or False, and nothing is ever decrypted. Audit the database: every password_hash should start with \"scrypt:\".\n\nSTEPS: LOGIN CHECK\n1. Find the user by email.\n2. Not found → login fails.\n3. check_password_hash(stored_hash, entered_password).\n4. True → success. False → failure.\n\nCODE\n```python\nfrom werkzeug.security import generate_password_hash, check_password_hash\n\nuser.password_hash = generate_password_hash(plain_password)      # registration\nis_valid = check_password_hash(user.password_hash, candidate)     # login: True or False\n```\n\n```python\n# audit: every row should print True\nfor u in db.session.execute(db.select(User)).scalars():\n    print(u.id, u.email, u.password_hash.startswith(\"scrypt:\"))\n```\n\nKEY POINTS\n- A hash can't be reversed; you can only test guesses against it.\n- A row that prints False needs fixing (delete and re-register through the normal flow).",
+      "original": ""
+    },
+    {
+      "group": "Users and authentication",
+      "item": "Lesson 4",
+      "title": "Login and JWT issuance",
+      "topic": "Users and authentication · Lesson 4",
+      "order": 204,
+      "date": "2026-11-16",
+      "dateEnd": "2026-11-23",
+      "refined": "IN PLAIN WORDS\nLogin validates the input, finds the user and checks the password. An unknown email and a wrong password both get the same 401 INVALID_CREDENTIALS. On success, the token holds sub = str(user.id), role and exp (now + the lifetime from config), signed with HS256, and is returned as {\"access_token\": ...}.\n\nKEY IDEAS\n1. sub = who (the user id, as a string). exp = valid until.\n2. The secret and lifetime come from config, not from the code.\n3. Decoding without verifying is for looking inside a token while debugging, never for trusting it.\n\nCODE\n```python\nimport datetime as dt\nimport jwt\nfrom flask import current_app\n\nsecret = current_app.config[\"JWT_SECRET_KEY\"]\nlifetime = current_app.config[\"JWT_ACCESS_TOKEN_LIFETIME_SECONDS\"]\npayload = {\n    \"sub\": str(user.id),\n    \"role\": user.role,\n    \"exp\": dt.datetime.now(dt.timezone.utc) + dt.timedelta(seconds=lifetime),\n}\ntoken = jwt.encode(payload, secret, algorithm=\"HS256\")\nreturn jsonify({\"access_token\": token}), 200\n```\n\n```python\n# debugging only: read a token without checking it\njwt.decode(token, options={\"verify_signature\": False})\n# {'sub': '4', 'role': 'player', 'exp': 1795250369}\n```\n\n```json\n{\"error\": {\"code\": \"INVALID_CREDENTIALS\", \"message\": \"Invalid email or password\"}}\n```\n\nKEY POINTS\n- The same 401 for unknown email and wrong password.\n- Secrets and lifetimes live in config classes, per environment.",
+      "original": ""
+    },
+    {
+      "group": "Users and authentication",
+      "item": "Lesson 5",
+      "title": "Protecting routes with decorators",
+      "topic": "Users and authentication · Lesson 5",
+      "order": 205,
+      "date": "2026-11-16",
+      "dateEnd": "2026-11-23",
+      "refined": "IN PLAIN WORDS\n@require_auth checks for \"Authorization: Bearer ...\" (401 AUTH_REQUIRED if missing), verifies the token with JWT_SECRET_KEY and HS256 (401 INVALID_TOKEN on any problem), sets g.user_id = int(sub), then runs the route.\n\nCODE\n```python\nimport functools\nimport jwt\nfrom flask import current_app, g, jsonify, request\n\ndef require_auth(view_func):\n    @functools.wraps(view_func)\n    def wrapper(*args, **kwargs):\n        auth_header = request.headers.get(\"Authorization\", \"\")\n        if not auth_header.startswith(\"Bearer \"):\n            return jsonify({\"error\": {\"code\": \"AUTH_REQUIRED\",\n                                      \"message\": \"Authorization Bearer token required\"}}), 401\n        token = auth_header.removeprefix(\"Bearer \").strip()\n        try:\n            payload = jwt.decode(token, current_app.config[\"JWT_SECRET_KEY\"], algorithms=[\"HS256\"])\n            g.user_id = int(payload[\"sub\"])\n        except jwt.PyJWTError:\n            return jsonify({\"error\": {\"code\": \"INVALID_TOKEN\",\n                                      \"message\": \"Invalid or expired token\"}}), 401\n        return view_func(*args, **kwargs)\n    return wrapper\n```\n\nSTEPS: TEST IT\n1. No token → 401 AUTH_REQUIRED.\n2. A token with one character changed → 401 INVALID_TOKEN.\n3. A fresh login token → 200.\n\nKEY POINTS\n- The guard runs before any route code.\n- Authentication (who are you?) is the decorator's job; the route decides what you may do.",
+      "original": ""
+    },
+    {
+      "group": "Users and authentication",
+      "item": "Lesson 6",
+      "title": "Token expiry and rejection",
+      "topic": "Users and authentication · Lesson 6",
+      "order": 206,
+      "date": "2026-11-16",
+      "dateEnd": "2026-11-23",
+      "refined": "IN PLAIN WORDS\nThe token lifetime comes from config. An expired token raises jwt.ExpiredSignatureError → 401 TOKEN_EXPIRED, caught before the general PyJWTError → 401 INVALID_TOKEN. Expiry limits how long a stolen token works. Stateless logout can't cancel one specific token.\n\nCODE\n```python\ntry:\n    payload = jwt.decode(token, secret, algorithms=[\"HS256\"])\n    g.user_id = int(payload[\"sub\"])\nexcept jwt.ExpiredSignatureError:                     # must come first\n    return jsonify({\"error\": {\"code\": \"TOKEN_EXPIRED\", \"message\": \"Token has expired\"}}), 401\nexcept jwt.PyJWTError:\n    return jsonify({\"error\": {\"code\": \"INVALID_TOKEN\", \"message\": \"Invalid token\"}}), 401\n```\n\nKEY POINTS\n- ExpiredSignatureError is a kind of PyJWTError; catch it first or the general one swallows it.\n- A stolen but valid token works only until exp.\n- With no stored sessions, the server can't switch off one issued token.\n- A short lifetime (like 60 seconds) is handy for testing expiry; restore the normal one afterwards.",
+      "original": ""
+    },
+    {
+      "group": "Users and authentication",
+      "item": "Lesson 7",
+      "title": "Profile read and update endpoints",
+      "topic": "Users and authentication · Lesson 7",
+      "order": 207,
+      "date": "2026-11-16",
+      "dateEnd": "2026-11-23",
+      "refined": "IN PLAIN WORDS\nGET /auth/users/me takes the user from g.user_id (the verified token), never from the request, and returns only id, email and created_at. Updates change only an allowlist of fields (like email), never role or password_hash.\n\nKEY IDEAS\n1. The token decides who the caller is.\n2. A \"my profile\" endpoint that takes user_id from the body or URL lets users reach other people's data.\n3. Allowlist: only named fields may change; everything else stays locked.\n\nCODE\n```python\n@auth_bp.get(\"/users/me\")\n@require_auth\ndef me():\n    user = db.session.get(User, g.user_id)\n    return jsonify({\"user\": {\"id\": user.id, \"email\": user.email,\n                             \"created_at\": user.created_at.isoformat() if user.created_at else None}}), 200\n```\n\n```python\nEDITABLE = {\"email\"}\n\n@auth_bp.patch(\"/users/me\")\n@require_auth\ndef update_me():\n    data = request.get_json(silent=True) or {}\n    user = db.session.get(User, g.user_id)\n    for field in EDITABLE & data.keys():\n        setattr(user, field, data[field])          # validate each field first\n    db.session.commit()\n    return jsonify({\"user\": {\"id\": user.id, \"email\": user.email}}), 200\n```\n\nKEY POINTS\n- Tested with two users: each token only ever returned its own profile.\n- Never return password_hash.\n\nCORRECTION\nThe lesson used User.query.get(g.user_id). That's the old style and gives a warning in current Flask-SQLAlchemy; db.session.get(User, g.user_id) does the same.",
+      "original": ""
+    },
+    {
+      "group": "Users and authentication",
+      "item": "Lesson 8",
+      "title": "Roles and admin access",
+      "topic": "Users and authentication · Lesson 8",
+      "order": 208,
+      "date": "2026-11-16",
+      "dateEnd": "2026-11-23",
+      "refined": "IN PLAIN WORDS\nUsers get a role (default \"user\", NOT NULL). The migration adds it with server_default='user', fills old rows, then sets NOT NULL. The token check (authentication, 401) lives in @require_auth; the role check (authorization, 403) lives in the route. Make admins only through flask shell or a CLI command, never a public endpoint.\n\nSTEPS: ADD A REQUIRED COLUMN TO A TABLE WITH ROWS\n1. Add the column to the model: nullable=False, default=\"user\".\n2. In the migration, add it with server_default='user'.\n3. Fill any existing rows: UPDATE user SET role = 'user' WHERE role IS NULL.\n4. Then make it NOT NULL.\n\nSTEPS: AN ADMIN-ONLY ROUTE\n1. @require_auth (no or bad token → 401).\n2. Load the user (or read the role).\n3. role != \"admin\" → 403.\n4. Otherwise → 200.\n\nCODE\n```python\nrole = db.Column(db.String(50), nullable=False, default=\"user\")\n```\n\n```python\n@admin_bp.get(\"/admin/stats\")\n@require_auth\ndef admin_stats():\n    user = db.session.get(User, g.user_id)\n    if user.role != \"admin\":\n        return jsonify({\"error\": {\"code\": \"FORBIDDEN\", \"message\": \"Admins only\"}}), 403\n    return jsonify({...}), 200\n```\n\nKEY POINTS\n- SQLite refuses to add a NOT NULL column with no default (\"Cannot add a NOT NULL column with default value NULL\"), so use server_default.\n- Never build a public \"make me admin\" endpoint.",
+      "original": ""
+    },
+    {
+      "group": "Users and authentication",
+      "item": "Lesson 9",
+      "title": "401 vs 403 in practice",
+      "topic": "Users and authentication · Lesson 9",
+      "order": 209,
+      "date": "2026-11-16",
+      "dateEnd": "2026-11-23",
+      "refined": "IN PLAIN WORDS\n401 means the server has no valid identity for you (missing, bad or expired token). 403 means it knows who you are, but you aren't allowed to do this. Both use the same error shape.\n\nSTEPS: PICK THE STATUS CODE\n1. Is there a valid identity (a good token)? No → 401.\n2. Does that identity have permission? No → 403.\n3. Otherwise → 2xx.\n\nCODE\n```text\ncurl.exe -i http://127.0.0.1:5000/auth/users/me\nHTTP/1.1 401 UNAUTHORIZED\n{\"error\": {\"code\": \"AUTH_REQUIRED\", \"message\": \"Authorization Bearer token required\"}}\n```\n\nKEY POINTS\n- Missing, bad or expired token → 401 (authentication).\n- Valid token, wrong role → 403 (authorization).\n- Same JSON error shape for both; only the status, code and message change.",
+      "original": ""
+    },
+    {
+      "group": "Users and authentication",
+      "item": "Lesson 10",
+      "title": "Challenge: breaking your own auth",
+      "topic": "Users and authentication · Lesson 10",
+      "order": 210,
+      "date": "2026-11-16",
+      "dateEnd": "2026-11-23",
+      "refined": "IN PLAIN WORDS\nTry to break your own auth. A stolen database only holds one-way scrypt strings, not passwords. A wrong password returns 401 INVALID_CREDENTIALS, an authentication failure, because no identity was proven.\n\nKEY IDEAS\n1. Hash: one-way, used for passwords. Encryption: two-way with a key, never used to store passwords.\n2. Login hashes the guess and compares; nothing is ever unscrambled.\n3. Wrong password → identity not proven → 401, not 403.\n\nSTEPS\n1. In flask shell, load a user and look at password_hash: only an scrypt:... string is stored.\n2. With a small script, send a wrong password to the real /auth/login.\n3. Expect 401 INVALID_CREDENTIALS.\n\nCODE\n```python\n# flask shell\nfrom studio_cost_raid.extensions import db\nfrom studio_cost_raid.models import User\nuser = db.session.query(User).first()\nprint(user.password_hash)          # scrypt:32768:8:1$...\n```\n\n```python\n# test_login_badpass.py\nimport requests\nresponse = requests.post(\"http://127.0.0.1:5000/auth/login\",\n                         json={\"email\": \"badpass@example.com\", \"password\": \"totally-wrong-password\"})\nprint(response.status_code, response.json())\n# 401 {'error': {'code': 'INVALID_CREDENTIALS', 'message': 'Invalid email or password'}}\n```\n\nKEY POINTS\n- No plaintext password column exists.\n- Unknown email and wrong password give the same 401.\n- Next: more automated tests for failed auth (missing body, malformed JSON, invalid email).",
+      "original": ""
+    }
+  ]
+}

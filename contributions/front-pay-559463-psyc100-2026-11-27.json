@@ -1,0 +1,259 @@
+{
+  "app": "notes-vault",
+  "kind": "contribution",
+  "version": 1,
+  "createdOn": "2026-11-27T09:19:32.318Z",
+  "contributor": {
+    "id": "55946333-9863-49ca-acb3-a25bfccc48c9",
+    "displayName": "Front-pay"
+  },
+  "program": "Applied science software engineering",
+  "class": {
+    "code": "PSYC100",
+    "name": "PSYC100: General psychology"
+  },
+  "lessons": [
+    {
+      "group": "Motivation",
+      "item": "Lesson 1",
+      "title": "Maslow's Hierarchy of Needs",
+      "topic": "Motivation · Lesson 1",
+      "order": 20001,
+      "date": "2025-10-27",
+      "dateEnd": "2025-11-03",
+      "refined": "IN PLAIN WORDS\nMaslow's hierarchy says people can't focus on growth until their more basic needs are met. Needs stack like a pyramid, from the bottom up.\n\nKEY IDEAS\n1. Physiological: food, water, sleep.\n2. Safety: security and stability (at work: a stable job, clear access to what you need).\n3. Belonging: inclusion and connection to a team.\n4. Esteem: feeling respected and capable.\n5. Self-actualization: learning, growing and using your full abilities.\n6. An unmet need at any level makes it hard to focus or perform.\n\nSTEPS\n1. Find the blocker: which level is missing?\n2. Start with a small fix at that level before working on higher ones.\n\nKEY POINTS\n- Memory line, bottom to top: food, safe, friends, respect, grow.\n- Abraham Maslow, 1943. Later research found people don't always meet needs in strict order, but the idea that unmet basic needs block higher motivation still holds up.",
+      "original": ""
+    },
+    {
+      "group": "Motivation",
+      "item": "Lesson 2",
+      "title": "Self-Determination Theory (SDT)",
+      "topic": "Motivation · Lesson 2",
+      "order": 20002,
+      "date": "2025-10-27",
+      "dateEnd": "2025-11-03",
+      "refined": "IN PLAIN WORDS\nSelf-Determination Theory (Deci and Ryan) says motivation depends on three needs: autonomy, competence and relatedness. If any of them is blocked for long, motivation drains.\n\nKEY IDEAS\n1. Autonomy: some choice in what you do or how you do it.\n2. Competence: feeling skilled and effective.\n3. Relatedness: connection to other people.\n4. Intrinsic motivation: doing something because it's satisfying in itself.\n5. Deci's Soma puzzle experiment (1971) found that paying people to do a puzzle they already enjoyed reduced how much they kept doing it in free time. This is called the overjustification effect.\n6. Small fixes, such as giving feedback or offering a few choices, can quickly restore motivation.\n\nCODE\nCase study, Naomi:\n```text\nAutonomy blocked:     strict rules\nCompetence blocked:   no real feedback\nRelatedness blocked:  little connection to other teams\n```\n\nKEY POINTS\n- Memory line: ACR, Autonomy, Competence, Relatedness.\n- Rewards don't always backfire; the effect is strongest when the reward feels controlling and the activity was already enjoyable.",
+      "original": ""
+    },
+    {
+      "group": "Motivation",
+      "item": "Lesson 3",
+      "title": "Goal-Setting Theory & SMART Goals",
+      "topic": "Motivation · Lesson 3",
+      "order": 20003,
+      "date": "2025-10-27",
+      "dateEnd": "2025-11-03",
+      "refined": "IN PLAIN WORDS\nGoal-Setting Theory (Locke and Latham) says clear, challenging-but-possible goals improve performance, while vague goals cause stress and confusion. SMART turns a fuzzy goal into one you can track.\n\nKEY IDEAS\n1. Vague goals (\"do better\") cause stress and confusion.\n2. Five principles: clarity, challenge, commitment, feedback, task complexity.\n3. Every goal needs a metric (for example, conversion rate) so progress can be checked.\n4. SMART:\n   - Specific\n   - Measurable\n   - Achievable\n   - Relevant\n   - Time-bound\n\nCODE\n```text\nFuzzy:  \"Get more people to sign up.\"\nSMART:  \"Increase sign-up conversion to 40% by Feb 2.\"\n        Specific: sign-up conversion. Measurable: 40%. Time-bound: Feb 2.\n```\n\nKEY POINTS\n- With a metric attached, you always know whether you're making progress.\n- For complex tasks, break the goal into learning steps so the challenge doesn't overwhelm.",
+      "original": ""
+    },
+    {
+      "group": "Motivation",
+      "item": "Lesson 4",
+      "title": "Self-Efficacy (Bandura)",
+      "topic": "Motivation · Lesson 4",
+      "order": 20004,
+      "date": "2025-10-27",
+      "dateEnd": "2025-11-03",
+      "refined": "IN PLAIN WORDS\nSelf-efficacy (Albert Bandura) is the belief that you can succeed at a task. It grows from four sources, and real success is the strongest.\n\nKEY IDEAS\n1. Mastery experiences: succeeding at small tasks gives real proof. This is the strongest source.\n2. Vicarious experiences: watching someone similar to you succeed.\n3. Verbal persuasion: encouragement and supportive feedback.\n4. Emotional and physical states: managing nerves and staying calm.\n\nCODE\nNaomi's reboot plan uses all four:\n```text\nMastery:     complete one small task\nVicarious:   learn from a peer who has done it\nPersuasion:  a pep talk from her manager\nEmotions:    a calming technique before demo day\n```\n\nKEY POINTS\n- On demo day, what she has actually achieved matters most for her confidence.",
+      "original": ""
+    },
+    {
+      "group": "Motivation",
+      "item": "Lesson 5",
+      "title": "Growth Mindset (Dweck)",
+      "topic": "Motivation · Lesson 5",
+      "order": 20005,
+      "date": "2025-10-27",
+      "dateEnd": "2025-11-03",
+      "refined": "IN PLAIN WORDS\nCarol Dweck's growth mindset is the belief that skills develop through effort, strategy, persistence and help. A fixed mindset sees skills as something you either have or don't. \"I can't do it\" becomes \"I can't do it yet.\"\n\nKEY IDEAS\n1. Fixed mindset: ability is static; criticism feels like proof you lack it (Naomi froze after harsh critique).\n2. Growth mindset: ability grows; criticism is information.\n3. Four reframing lenses:\n   - Effort: practice matters (\"not yet\").\n   - Strategy: try a new method.\n   - Persistence: progress takes several rounds.\n   - Help-seeking: feedback and mentoring speed growth.\n4. Small wins from reframing also build self-efficacy (Lesson 4).\n\nCODE\n```text\nFixed:   \"I'm bad at code reviews.\"\nGrowth:  \"I'm not good at code reviews yet. I'll ask for one tip and try again.\"\n```\n\nKEY POINTS\n- Growth mindset is paired with action: a new strategy or help, not just positive self-talk.\n- Large replication studies found smaller effects than early research, so treat mindset as one helpful tool, not a cure-all.",
+      "original": ""
+    },
+    {
+      "group": "Motivation",
+      "item": "Lesson 6",
+      "title": "Locus of Control (Rotter)",
+      "topic": "Motivation · Lesson 6",
+      "order": 20006,
+      "date": "2025-10-27",
+      "dateEnd": "2025-11-03",
+      "refined": "IN PLAIN WORDS\nLocus of control (Julian Rotter, 1966) is whether you believe your actions steer outcomes (internal) or outside forces do (external). Put your energy where you have control or influence.\n\nKEY IDEAS\n1. Internal locus: \"My actions shape what happens.\"\n2. External locus: \"What happens is decided by luck or other people.\"\n3. An internal locus is linked with higher motivation and better job outcomes.\n4. Three circles:\n   - Control: what you fully decide (your attitude, your effort, your skills).\n   - Influence: what you can affect (asking for help, relationships).\n   - Concern: what you can only watch (the weather, other people's feelings).\n\nSTEPS\nWhen stuck:\n1. Sort each problem into control, influence or concern.\n2. Act on the control and influence items.\n3. Let go of the concern items.\n\nKEY POINTS\n- \"I never have time to study; life gets in the way\" is an external locus; \"What could I have done differently?\" moves it inward.",
+      "original": ""
+    },
+    {
+      "group": "Motivation",
+      "item": "Lesson 7",
+      "title": "Flow (Csikszentmihalyi)",
+      "topic": "Motivation · Lesson 7",
+      "order": 20007,
+      "date": "2025-10-27",
+      "dateEnd": "2025-11-03",
+      "refined": "IN PLAIN WORDS\nFlow (Mihaly Csikszentmihalyi, pronounced \"chick-sent-me-high\") is being completely absorbed in a task, when the challenge roughly matches your skill. Time seems to disappear.\n\nKEY IDEAS\n1. Challenge–skill balance: not too easy (boredom), not too hard (anxiety).\n2. A clear goal.\n3. Immediate feedback on progress.\n4. Deep focus without distractions.\n5. Time distortion: hours feel like minutes.\n6. Flow breaks with context switching or when a task is far too easy or hard.\n\nSTEPS\nPlanning a \"flow day\":\n1. Guard focus: remove the phone, close tabs, block meetings.\n2. Use autonomy: choose tasks, or how to approach them.\n3. Tune the challenge: make the task clearer, harder, or get help if stuck.\n4. Set a clear goal for the session (a SMART goal helps).\n\nKEY POINTS\n- In software work, flow comes from a task that fits your level, a clear goal and uninterrupted time.\n- Connections: internal locus (Lesson 6), autonomy (Lesson 2), growth mindset (Lesson 5), SMART goals (Lesson 3).",
+      "original": ""
+    },
+    {
+      "group": "Motivation",
+      "item": "Lesson 8",
+      "title": "The ABCDE Model (Ellis)",
+      "topic": "Motivation · Lesson 8",
+      "order": 20008,
+      "date": "2025-10-27",
+      "dateEnd": "2025-11-03",
+      "refined": "IN PLAIN WORDS\nThe ABCDE model (Albert Ellis) says it's usually your belief about an event, not the event itself, that causes the upset. The model helps you catch that belief, test it and choose a better response.\n\nKEY IDEAS\n1. A, Activating event: what actually happened, facts only.\n2. B, Belief: the thought you had about it.\n3. C, Consequence: how you felt and what you did.\n4. D, Disputation: test the belief with evidence (\"Is this really true? What else could explain it?\").\n5. E, Effect: a new, more helpful response.\n\nCODE\n```text\nA: My manager didn't reply to my message.\nB: \"They're mad at me.\"\nC: Felt anxious and avoided them.\nD: They were in meetings all day, and they've replied fine before.\nE: Wait a few hours, then send a short follow-up.\n```\n\n```text\nA: The manager walked past without responding just before Leila's presentation.\nB: \"They must think my work isn't good enough.\"\nC: Tense; rushed the slides; avoided eye contact.\nD: The manager may have been focused on the client meeting, or didn't notice her.\n   There's no evidence it was about her work.\nE: Breathe, present at a normal pace, make eye contact, and check in afterward if needed.\n```\n\nKEY POINTS\n- Adding \"yet\" in the E step connects to growth mindset (Lesson 5).\n- End by choosing one small next step before replying.",
+      "original": ""
+    },
+    {
+      "group": "Motivation",
+      "item": "Lesson 9",
+      "title": "Job Demands-Resources (JD-R) & Burnout",
+      "topic": "Motivation · Lesson 9",
+      "order": 20009,
+      "date": "2025-10-27",
+      "dateEnd": "2025-11-03",
+      "refined": "IN PLAIN WORDS\nThe Job Demands–Resources (JD-R) model says work stress builds when what drains you (demands) outweighs what helps you (resources). Prevent burnout by adding resources and taking small recovery breaks.\n\nKEY IDEAS\n1. Job demands: what drains energy (deadlines, workload, constant meetings).\n2. Job resources: what helps (mentoring, peer feedback, protected focus time, recognition).\n3. Burnout risk rises when demands stay heavier than resources.\n4. Micro-recovery rituals: short resets during the day (a song, a warm drink, a few deep breaths).\n\nCODE\n```text\nNaomi's demands:    new features, a pile of bugs, endless meetings\nUseful resources:   mentoring, peer feedback, protected focus time\n```\n\nKEY POINTS\n- Picture a scale: demands on one side, resources on the other.\n- Developed by Demerouti, Bakker and colleagues (2001).",
+      "original": ""
+    },
+    {
+      "group": "Motivation",
+      "item": "Lesson 10",
+      "title": "Psychological Safety (Edmondson)",
+      "topic": "Motivation · Lesson 10",
+      "order": 20010,
+      "date": "2025-10-27",
+      "dateEnd": "2025-11-03",
+      "refined": "IN PLAIN WORDS\nPsychological safety (Amy Edmondson, 1999) is a team's shared belief that it's safe to speak up, ask questions, admit mistakes and take risks. Her research linked it to more learning and better results.\n\nKEY IDEAS\n1. Signs of high safety: people ask questions; leaders thank people for raising concerns; mistakes are discussed as process problems, not personal failures.\n2. Leaders build safety by inviting ideas and risks openly, admitting their own gaps, thanking people for speaking up, and avoiding personal blame.\n3. When safety is low, an individual can still open with curiosity, share facts rather than judgments, find allies, and use growth-mindset self-talk.\n\nCODE\n```text\nBuilds safety:   \"I want everyone's ideas on the table, even half-formed ones.\"\nLowers safety:   \"Let's get this right the first time; mistakes will set us back.\"\n```\n\nKEY POINTS\n- Raising problems early protects both projects and careers.",
+      "original": ""
+    },
+    {
+      "group": "Motivation",
+      "item": "Lesson 11",
+      "title": "Grit & Beating Plateaus",
+      "topic": "Motivation · Lesson 11",
+      "order": 20011,
+      "date": "2025-10-27",
+      "dateEnd": "2025-11-03",
+      "refined": "IN PLAIN WORDS\nGrit (Angela Duckworth) is passion and perseverance for long-term goals. When progress stalls on a plateau, break the goal into small wins and reconnect with why it matters.\n\nKEY IDEAS\n1. Grit = passion + perseverance over the long term.\n2. Plateau: a stretch where progress feels slow and motivation drops.\n3. Breaking big goals into short milestones keeps progress visible.\n4. Small rituals or rewards after each win help keep going.\n5. A purpose statement anchors effort: \"I'm doing ___ because ___ matters to me.\"\n\nKEY POINTS\n- Plateaus are normal; they call for new milestones or strategies, not quitting.\n- Research suggests grit adds a modest amount beyond conscientiousness; practice and strategy still matter.",
+      "original": ""
+    },
+    {
+      "group": "Motivation",
+      "item": "Lesson 12",
+      "title": "Impostor Syndrome",
+      "topic": "Motivation · Lesson 12",
+      "order": 20012,
+      "date": "2025-10-27",
+      "dateEnd": "2025-11-03",
+      "refined": "IN PLAIN WORDS\nImpostor syndrome is the persistent feeling of being a fraud whose success is just luck. You counter it by checking that inner voice against real evidence and giving yourself credit for your effort.\n\nKEY IDEAS\n1. First described as the \"impostor phenomenon\" by Pauline Clance and Suzanne Imes (1978).\n2. It's common among capable people and is not a medical diagnosis.\n\nSTEPS\n1. Impostor scripts: write down the self-doubting thoughts.\n2. Evidence check: find a real fact that challenges each one.\n3. Peer disclosure: share the feeling with someone you trust; many people feel it.\n4. Reattribution: move the explanation from luck to effort and skill.\n\nCODE\n```text\nScript:         \"I only passed because the test was easy.\"\nEvidence:       \"I studied three nights and earned a good score on the test.\"\nReattribution:  \"I passed because I put in the work.\"\n```",
+      "original": ""
+    },
+    {
+      "group": "Motivation",
+      "item": "Lesson 13",
+      "title": "Case Study: Naomi's Crisis",
+      "topic": "Motivation · Lesson 13",
+      "order": 20013,
+      "date": "2025-10-27",
+      "dateEnd": "2025-11-03",
+      "refined": "IN PLAIN WORDS\nThe capstone case study uses two theories from the course to explain Naomi's crisis and design a plan to fix it.\n\nKEY IDEAS\n1. Analyze the case through two frameworks, linking each to details in the story:\n   - JD-R model (Lesson 9): her demands far outweigh her resources.\n   - Flow (Lesson 7): constant interruptions and a poor challenge–skill match keep her out of flow.\n2. A good plan combines both theories and can be measured.\n\nSTEPS\nThree-step action plan:\n1. An immediate self-care step for Naomi (a micro-recovery ritual).\n2. A small, supportive move by her project manager (protected focus time, fewer meetings).\n3. A measurable progress metric (for example, a weekly stress rating or hours of uninterrupted work).\n\nKEY POINTS\n- The same structure works for any case: name the theory, point to the evidence in the story, then give specific steps.\n- Another plan outline, for a struggling employee: check basic needs (Maslow) → one small SMART goal she chooses (Goal-Setting + autonomy) → quick wins with support (self-efficacy, competence, relatedness) → reframe missed targets as \"not yet\" (growth mindset).",
+      "original": ""
+    },
+    {
+      "group": "Cognitive biases & decision making",
+      "item": "Lesson 1",
+      "title": "Heuristics & Cognitive Bias",
+      "topic": "Cognitive biases & decision making · Lesson 1",
+      "order": 30001,
+      "date": "2025-11-03",
+      "dateEnd": "2025-11-10",
+      "refined": "IN PLAIN WORDS\nThe brain uses shortcuts (heuristics) to decide quickly. They usually work, but they also produce the same predictable mistakes (cognitive biases).\n\nKEY IDEAS\n1. Heuristic: a mental shortcut; fast but not always correct (Kahneman and Tversky).\n2. Cognitive bias: a repeated, predictable error that comes from these shortcuts.\n3. Representativeness heuristic: judging by how well something fits a stereotype instead of the actual odds (base rates).\n4. Availability heuristic: what's easy to recall feels more common.\n5. Authority heuristic: trusting symbols of authority, such as a lab coat or a verification badge.\n\nCODE\n```text\nRepresentativeness:  \"Lena is quiet and loves books, so she's a librarian.\"\n                     There are far more non-librarians who fit that description.\nAvailability:        Shark attacks get heavy news coverage, so they feel common,\n                     though they are very rare.\n```\n\nKEY POINTS\n- When a decision feels obvious, check which shortcut made it feel that way.",
+      "original": ""
+    },
+    {
+      "group": "Cognitive biases & decision making",
+      "item": "Lesson 2",
+      "title": "Anchoring & Framing",
+      "topic": "Cognitive biases & decision making · Lesson 2",
+      "order": 30002,
+      "date": "2025-11-03",
+      "dateEnd": "2025-11-10",
+      "refined": "IN PLAIN WORDS\nThe first number you see (anchoring) and the way information is worded (framing) quietly steer your judgments and choices.\n\nKEY IDEAS\n1. Anchoring: an initial number or label pulls later estimates toward it, even when it's random (like a wheel spin).\n2. Stores show high \"list prices\"; negotiations are shaped by the opening offer.\n3. Framing: the same facts worded differently change choices: \"90% cotton\" vs \"10% synthetic.\"\n4. Tversky and Kahneman's 1981 \"disease problem\": out of 600 people, \"200 will be saved\" and \"400 will die\" describe the same outcome, but people choose differently.\n5. Scarcity cues (\"only 5 left,\" \"today only\") push quick decisions.\n\nSTEPS\nDefending against anchors:\n1. Notice the first number.\n2. Pause and look up outside information.\n3. Decide what it's worth to you before looking at their price.\n\nKEY POINTS\n- Rewording a choice in its opposite frame is a quick way to test whether framing is steering you.",
+      "original": ""
+    },
+    {
+      "group": "Cognitive biases & decision making",
+      "item": "Lesson 3",
+      "title": "Prospect Theory & Loss Aversion",
+      "topic": "Cognitive biases & decision making · Lesson 3",
+      "order": 30003,
+      "date": "2025-11-03",
+      "dateEnd": "2025-11-10",
+      "refined": "IN PLAIN WORDS\nProspect Theory (Kahneman and Tversky, 1979) says people judge outcomes as gains or losses from a reference point, and losses hurt about twice as much as equal gains feel good. That explains many choices that look irrational.\n\nKEY IDEAS\n1. Reference point: outcomes are judged against a starting point, usually the current situation.\n2. Loss aversion: a loss feels roughly twice as strong as an equal gain.\n3. Risk-averse for gains: prefer a sure $50 over a 50% chance at $100.\n4. Risk-seeking for losses: risk losing $100 rather than accept a sure $50 loss.\n5. Diminishing sensitivity: each extra dollar matters less the farther you are from the reference point ($0 → $100 feels big; $1,000 → $1,100 barely registers).\n6. Scarcity increases fear of loss and pushes quick decisions.\n\nCODE\n```text\nA company keeps funding a failing project after spending $1M: \"We can't lose what we put in.\"\nBias:      loss aversion, so it keeps gambling to avoid locking in the loss\nFraming:   \"we'd waste $1M\" sounds terrible; \"we'd save the next $500K\" sounds smart\nFix:       reset the reference point to today, compare future gains with future costs,\n           and set a stop rule in advance\n```\n\nKEY POINTS\n- Gains: play it safe. Losses: roll the dice.",
+      "original": ""
+    },
+    {
+      "group": "Cognitive biases & decision making",
+      "item": "Lesson 4",
+      "title": "False Memory (Loftus & Palmer)",
+      "topic": "Cognitive biases & decision making · Lesson 4",
+      "order": 30004,
+      "date": "2025-11-03",
+      "dateEnd": "2025-11-10",
+      "refined": "IN PLAIN WORDS\nMemory isn't a recording. The brain rebuilds a memory each time it's recalled, so information learned later can change what you remember.\n\nKEY IDEAS\n1. Reconstructive memory: each recall rebuilds the memory.\n2. Misinformation effect: misleading information after an event reshapes the memory of it.\n3. Source-monitoring error: mixing up where a detail came from (the event itself versus a later story or suggestion).\n4. Loftus and Palmer (1974): after watching a car-crash video, people asked how fast the cars were going when they \"smashed\" gave higher speeds than those asked with \"hit,\" and more of them later \"remembered\" broken glass that wasn't in the video.\n\nKEY POINTS\n- Leading questions act like anchors, pulling memories in one direction (Lesson 2).\n- Eyewitness accounts can be confident and still wrong.",
+      "original": ""
+    },
+    {
+      "group": "Cognitive biases & decision making",
+      "item": "Lesson 5",
+      "title": "Inattentional Blindness (Invisible Gorilla)",
+      "topic": "Cognitive biases & decision making · Lesson 5",
+      "order": 30005,
+      "date": "2025-11-03",
+      "dateEnd": "2025-11-10",
+      "refined": "IN PLAIN WORDS\nWhen you focus hard on one thing, you can miss something obvious right in front of you. This is inattentional blindness.\n\nKEY IDEAS\n1. Attention works like a narrow spotlight.\n2. During a demanding task, unexpected things outside the spotlight go unseen.\n3. Simons and Chabris (1999): about half of viewers counting basketball passes didn't notice a person in a gorilla suit walking through the scene.\n4. The cause is where attention is focused, not eyesight.\n5. Everyday versions: fixating on a phone screen, a price tag or a map and missing other important cues.\n\nKEY POINTS\n- Being focused isn't the same as seeing everything; step back and scan regularly.",
+      "original": ""
+    },
+    {
+      "group": "Cognitive biases & decision making",
+      "item": "Lesson 6",
+      "title": "Delay of Gratification (Marshmallow Test)",
+      "topic": "Cognitive biases & decision making · Lesson 6",
+      "order": 30006,
+      "date": "2025-11-03",
+      "dateEnd": "2025-11-10",
+      "refined": "IN PLAIN WORDS\nDelay of gratification means waiting for a larger reward instead of taking a smaller one now. Walter Mischel's marshmallow studies found that the key is distraction strategies, not raw willpower.\n\nKEY IDEAS\n1. The marshmallow test (Mischel, early 1970s): children could eat one marshmallow now or wait and receive two.\n2. Self-control works by \"cooling\" a \"hot\" urge.\n3. Cooling strategies: hum a song, look away, do something else, imagine the marshmallow as a cloud.\n\nKEY POINTS\n- The same strategies help with studying, saving money and long projects.\n- Connections: grit (Motivation, Lesson 11) and internal locus of control (Motivation, Lesson 6).\n- A large 2018 replication found the link between waiting time and later success was much smaller than first reported, and largely explained by family background.",
+      "original": ""
+    },
+    {
+      "group": "Cognitive biases & decision making",
+      "item": "Lesson 7",
+      "title": "The Dunning–Kruger Effect",
+      "topic": "Cognitive biases & decision making · Lesson 7",
+      "order": 30007,
+      "date": "2025-11-03",
+      "dateEnd": "2025-11-10",
+      "refined": "IN PLAIN WORDS\nThe Dunning–Kruger effect (Dunning and Kruger, 1999): people with low skill in an area often overestimate their ability, because the knowledge needed to spot their mistakes is the same knowledge they lack.\n\nKEY IDEAS\n1. Low skill often comes with too-high confidence.\n2. The cause is a metacognition gap (metacognition: thinking about your own thinking).\n3. Honest feedback and practice reveal the real level and close the gap.\n\nSTEPS\nChecking your own calibration:\n1. Predict your score before a quiz.\n2. Take the quiz.\n3. Compare: the difference is your blind spot.\n4. Repeat; calibration improves with practice.\n\nKEY POINTS\n- Some researchers argue part of the effect is a statistical artifact, but the practical lesson holds: check confidence against real results.",
+      "original": ""
+    },
+    {
+      "group": "Cognitive biases & decision making",
+      "item": "Lesson 8",
+      "title": "Somatic Markers (Iowa Gambling Task)",
+      "topic": "Cognitive biases & decision making · Lesson 8",
+      "order": 30008,
+      "date": "2025-11-03",
+      "dateEnd": "2025-11-10",
+      "refined": "IN PLAIN WORDS\nYour body can signal danger before you can explain it. In the Iowa Gambling Task, players' bodies reacted to risky choices before they could say which choices were bad.\n\nKEY IDEAS\n1. Iowa Gambling Task (Bechara, Damasio and colleagues, 1994): four decks of cards, two risky and two steady; only the steady decks win over time.\n2. Stress responses (such as sweaty palms, measured by skin conductance) rose before risky picks, before players could explain the pattern.\n3. Somatic markers: body signals that guide quick decisions (\"soma\" means body).\n4. Emotion can steer choices before conscious reasoning catches up.\n\nKEY POINTS\n- Notice your gut feeling, then check the facts.",
+      "original": ""
+    },
+    {
+      "group": "Cognitive biases & decision making",
+      "item": "Lesson 9",
+      "title": "Halo & Horn Effects",
+      "topic": "Cognitive biases & decision making · Lesson 9",
+      "order": 30009,
+      "date": "2025-11-03",
+      "dateEnd": "2025-11-10",
+      "refined": "IN PLAIN WORDS\nOne strong first impression, good or bad, colors how you judge everything else about a person. The positive version is the halo effect; the negative version is the horn effect.\n\nKEY IDEAS\n1. Halo effect: one positive trait raises ratings on unrelated qualities (good looks, a high rank, a calm manner). First described by Edward Thorndike (1920).\n2. Horn effect: one negative trait drags all ratings down (one rude message, arriving late).\n3. Both are first-impression biases: attention sticks to early signals and hides the real evidence.\n\nSTEPS\nAvoiding it:\n1. Hide the signals: judge the work without the name or appearance.\n2. Check the facts afterward.\n3. Ask a neutral person.\n\nKEY POINTS\n- Blind reviews, structured interviews and scoring rubrics exist to reduce halo and horn effects.",
+      "original": ""
+    }
+  ]
+}

@@ -1,0 +1,358 @@
+{
+  "app": "notes-vault",
+  "kind": "contribution",
+  "version": 1,
+  "createdOn": "2026-11-27T09:19:32.318Z",
+  "contributor": {
+    "id": "55946333-9863-49ca-acb3-a25bfccc48c9",
+    "displayName": "Front-pay"
+  },
+  "program": "Applied science software engineering",
+  "class": {
+    "code": "PY103",
+    "name": "PY103: Object-Oriented Programming"
+  },
+  "lessons": [
+    {
+      "group": "Unit 1",
+      "item": "Intro",
+      "title": "Welcome to OOP (Course Overview)",
+      "topic": "Unit 1 · Intro",
+      "order": 100,
+      "date": "2026-01-19",
+      "dateEnd": "2026-01-26",
+      "refined": "IN PLAIN WORDS\nPY103 teaches you to organize code as objects: things that each hold their own data and their own actions, instead of one long list of steps.\n\nKEY IDEAS\n1. A course (PY103) is made of units; a unit is a themed block of lessons; a lesson is one focused session.\n2. Unit 1, Thinking in objects (Jan 19 – Jan 26):\n   - why different programming styles (paradigms) exist and why OOP is useful\n   - what objects are and how they relate to real things\n   - general patterns (classes) versus specific examples (instances)\n   - building small structured pieces of code\n   - telling \"the same object\" apart from \"the same value\"\n3. Unit 2, Bringing objects to life (Jan 26 – Feb 02):\n   - actions objects can perform\n   - how objects get their starting state\n   - checking and safely updating that state\n   - what belongs to one object versus what is shared\n4. Unit 3 covers many objects working together, ownership of state, encapsulation and inheritance.\n\nKEY POINTS\n- The orientation lesson had no coding on purpose.\n- Order: course → units → lessons, one small step at a time.",
+      "original": ""
+    },
+    {
+      "group": "Unit 1",
+      "item": "Lesson 1",
+      "title": "What Is OOP and Why Do We Need It?",
+      "topic": "Unit 1 · Lesson 1",
+      "order": 101,
+      "date": "2026-01-19",
+      "dateEnd": "2026-01-26",
+      "refined": "IN PLAIN WORDS\nA programming paradigm is a style of organizing a program. Procedural code is a story: step 1, step 2, step 3. Object-Oriented Programming (OOP) is a world: things like players, enemies and inventories, each with its own data and actions. OOP exists because large programs become hard to manage as one long script.\n\nKEY IDEAS\n1. Paradigm: a general way of structuring code, not a language.\n2. Procedural (imperative): \"tell the computer what to do, step by step.\"\n3. OOP: organize the program around the things in the problem, and what each one knows and does.\n4. Each object bundles data (what it is) and actions (what it can do).\n\nKEY POINTS\n- Procedural fits small, straight-line tasks: printing 1–10, adding two numbers, one welcome message.\n- As a project grows, one big script gets long, repeats logic, and is easy to break when changed.\n- OOP fits systems with many related parts that interact over time and keep gaining features.\n- Game example: Player (health, position; move, take damage), Enemy (health, behavior; attack), Inventory (items; add, remove, check space), Settings menu (options; open, close, apply).\n- Library example: Book (title, author, available or borrowed), Borrower (name, contact, checked-out books), Loan (which book, which borrower, due date).\n- Both paradigms are valid. OOP matches how people think about complex systems of things.\n- OOP is about organization, not math.",
+      "original": ""
+    },
+    {
+      "group": "Unit 1",
+      "item": "Lesson 2",
+      "title": "Objects = Data + Behavior",
+      "topic": "Unit 1 · Lesson 2",
+      "order": 102,
+      "date": "2026-01-19",
+      "dateEnd": "2026-01-26",
+      "refined": "IN PLAIN WORDS\nAn object bundles state and behavior. State is what the object is right now: facts and descriptions. Behavior is what the object can do: actions, written as verbs.\n\nKEY IDEAS\n1. Object: one thing that holds its state and behavior together.\n2. State (attributes, data): facts that describe the object. They don't do anything by themselves.\n3. Behavior (methods, actions): verbs. They change something (position, energy, mood) and usually use or react to the state.\n4. Bundling them makes large programs easier to organize, reuse and reason about.\n\nSTEPS\nDescribing any object:\n1. Name the object.\n2. List its state: facts, adjectives, numbers.\n3. List its behavior: the verbs.\n4. Fill in: \"[Object] has state: ___, ___, ___ and behavior: ___, ___, ___.\"\n\nKEY POINTS\n- Corrupted archer (game enemy):\n  - State: corrupted, green, unlimited arrows in its quiver.\n  - Behavior: shoots an arrow every second, walks back and forth, chases the player, runs from the player.\n- A person:\n  - State: age, height, eye color, personality (outgoing, optimistic), always on time.\n  - Behavior: watches anime, builds a game, fills out job applications, goes to sleep when tired.\n- Quick test: if it's a verb, it's behavior; if it's a fact, it's state.",
+      "original": ""
+    },
+    {
+      "group": "Unit 1",
+      "item": "Lesson 3",
+      "title": "Classes and Instances",
+      "topic": "Unit 1 · Lesson 3",
+      "order": 103,
+      "date": "2026-01-19",
+      "dateEnd": "2026-01-26",
+      "refined": "IN PLAIN WORDS\nA class is a blueprint, like Dog. An instance is one real object built from it, like fido. One class can make many instances, and each keeps its own data.\n\nKEY IDEAS\n1. Class: defines what data and behavior a type of object has. It is the idea of a dog in the program, not a specific dog.\n2. Instance: one real object created from a class. fido and luna are both instances of Dog.\n3. Instances share the same kind of data and behavior, but each has its own values (its own name, age).\n4. Without classes you would repeat the same structure for every pet. A class defines it once and reuses it, which avoids copy-paste errors.\n\nKEY POINTS\n- Class = blueprint (or stamp design). Instance = the house built (or the stamped copy).\n- One class → many independent instances: Dog → fido, luna, max, bella.\n- Class names use CapitalCase: Dog, Cat, PetStore, MagicCat.\n- Instance and variable names use snake_case: my_dog, polka_cat, favorite_pet.",
+      "original": ""
+    },
+    {
+      "group": "Unit 1",
+      "item": "Lesson 4",
+      "title": "Quick Detour: Built-In Modules",
+      "topic": "Unit 1 · Lesson 4",
+      "order": 104,
+      "date": "2026-01-19",
+      "dateEnd": "2026-01-26",
+      "refined": "IN PLAIN WORDS\nA module is a file of ready-made Python code. Import it once at the top of your file, then use what's inside with a dot, like random.choice(...).\n\nKEY IDEAS\n1. Python ships with built-in modules. This lesson used:\n   - random: randomness (dice, cards, loot)\n   - time: timing (pauses, countdowns)\n   - math: math functions\n   - datetime: dates and times\n2. import random only loads the module. Nothing random happens until you call something in it.\n3. Dot notation reaches inside: module_name.tool_name(...).\n4. random.randint(a, b): a random whole number from a to b, both ends included.\n5. random.choice(list): one random item from a list.\n6. time.sleep(seconds): pause the program.\n\nSTEPS\nThe loot timer program:\n1. Import random and time.\n2. Print \"Starting loot countdown...\" and pause 2 seconds.\n3. Make the list of possible treasures.\n4. Print \"Opening chest...\" and pause 1 second.\n5. Pick one with random.choice(treasures).\n6. Print what was found.\n\nCODE\n```python\nimport random\n\nroll = random.randint(1, 6)\nprint(\"You rolled:\", roll)\n```\n\n```python\nimport random\nimport time\n\nprint(\"Starting loot countdown...\")\ntime.sleep(2)\n\ntreasures = [\"Gold coins\", \"Magic sword\", \"Health potion\", \"Mystery pet\", \"Rare armor\"]\n\nprint(\"Opening chest...\")\ntime.sleep(1)\n\nloot = random.choice(treasures)\nprint(\"You found:\", loot)\n```\n\nKEY POINTS\n- Import once at the top; use module.thing(...) as many times as needed.\n- Modules here are used as toolboxes of functions; this lesson isn't about classes yet.",
+      "original": ""
+    },
+    {
+      "group": "Unit 1",
+      "item": "Lesson 5",
+      "title": "Objects in Action",
+      "topic": "Unit 1 · Lesson 5",
+      "order": 105,
+      "date": "2026-01-19",
+      "dateEnd": "2026-01-26",
+      "refined": "IN PLAIN WORDS\nrandom.Random() creates an object, here named rng. You then ask that object to do things, like rng.randint(1, 10). The pattern is object → method → data.\n\nKEY IDEAS\n1. random is the module; Random is a class inside it.\n2. random.Random() is a constructor call. The parentheses create a new object.\n3. rng is the object (an instance of Random).\n4. rng.randint is a method: an action that belongs to the object. Adding parentheses, rng.randint(1, 10), calls it.\n5. The value the method returns is data.\n\nCODE\n```python\nimport random\n\nrng = random.Random()\nroll = rng.randint(1, 5000)\n\nprint(\"Object:\", rng)\nprint(\"Method:\", rng.randint)\nprint(\"Data:\", roll)\n```\n\nOutput shape:\n```text\nObject: <random.Random object at 0x...>\nMethod: <bound method Random.randint of <random.Random object at 0x...>>\nData: 2606\n```\n\n```python\nloot_value = rng.random()   # a float from 0.0 up to (not including) 1.0\n```\n\n```python\nrandom.randint(1, 10)   # function in the module\nrng.randint(1, 10)      # method on your object\n```\n\nKEY POINTS\n- The angle brackets <...> are how Python prints an object.\n- rng.random is the method; rng.random() calls it.\n- Flow: object (rng) → method (rng.randint) → data (2606).\n- The module (random) and the object (rng) are different things.",
+      "original": ""
+    },
+    {
+      "group": "Unit 1",
+      "item": "Lesson 6",
+      "title": "Challenge: Thinking in Objects",
+      "topic": "Unit 1 · Lesson 6",
+      "order": 106,
+      "date": "2026-01-19",
+      "dateEnd": "2026-01-26",
+      "refined": "IN PLAIN WORDS\nUnit 1 challenge: an object bundles data and behavior; a class is the factory and an instance is one product. For anything in your code, ask: \"Is this information, or an action?\"\n\nKEY IDEAS\n1. Object = data (what it has or knows) + behavior (what it can do).\n2. Class = blueprint or factory. Instance = one object made from it. Random is the class; rng = random.Random() is an instance.\n3. Plain values such as 42 and \"hello\" are data.\n4. Behavior is a function or method that does something: print(\"hello\"), rng.randint(1, 10), and later \"hello\".upper().\n5. Dot notation: object_name.method_name(arguments).\n6. State: an object's current values (a music app's current song, volume, playlist). Behavior: its actions (play, pause, skip).\n\nCODE\n```python\nimport random\n\nrng = random.Random()\nnumber = rng.randint(1, 10)\nprint(number)\n```\n\n```python\nimport random\n\nattack = random.Random()\nnumber = attack.randint(1, 10000)\nprint(number)\n```\nattack is the object, attack.randint(1, 10000) is the behavior, and number holds the returned data.\n\n```python\nimport random\n\nrng = random.Random()\nx = rng.randint(1, 3)\ny = rng.randint(1, 3)\n```\nx and y are always 1, 2 or 3. They may or may not be equal.\n\nKEY POINTS\n- randint(a, b) includes both ends.\n- \"hello\" is data, not a function; print(\"hello\") is behavior using that data.\n- Check: information → data/state; action, method or function → behavior.",
+      "original": ""
+    },
+    {
+      "group": "Unit 1",
+      "item": "Lesson 7",
+      "title": "Creating Your First Class",
+      "topic": "Unit 1 · Lesson 7",
+      "order": 107,
+      "date": "2026-01-19",
+      "dateEnd": "2026-01-26",
+      "refined": "IN PLAIN WORDS\nThe smallest class is class Pet: with pass inside. Calling Pet() creates an object, and in this lesson attributes are added to that object afterwards with dot notation.\n\nKEY IDEAS\n1. class: the keyword that defines a class. The name uses CapitalCase.\n2. pass: a placeholder meaning \"nothing here yet\". A class body can't be empty.\n3. type(x): shows what kind of thing x is.\n4. Instantiate: create an object from a class, as in my_pet = Pet().\n5. my_pet.name = \"Buddy\" adds a name attribute to that one object.\n\nCODE\n```python\nclass Pet:\n    pass\n\nprint(type(Pet))      # <class 'type'>   (Pet is a class)\n\nmy_pet = Pet()\nprint(type(my_pet))   # <class '__main__.Pet'>   (my_pet is a Pet)\n```\n\n```python\nclass Pet:\n    pass\n\nmy_pet = Pet()\nmy_pet.name = \"Buddy\"\nmy_pet.age = 3\nmy_pet.breed = \"Dalmatian\"\n\nprint(my_pet.name)    # Buddy\nprint(my_pet.age)     # 3\nprint(my_pet.breed)   # Dalmatian\n```\n\nWrong:\n```python\nclass Pet:\n    my_pet.name = first\n    my_pet.age = second\n    my_pet.breed = last\n```\nmy_pet doesn't exist inside the class body, and first, second and last aren't defined anywhere. Python stops with a NameError.\n\nKEY POINTS\n- Pet is the blueprint; my_pet is one object made from it.\n- __main__ in the type name means the class was defined in the file being run.\n- For now, keep the class body as pass and set attributes on the instance after it is created. Unit 2 moves this into __init__.",
+      "original": ""
+    },
+    {
+      "group": "Unit 1",
+      "item": "Lesson 8",
+      "title": "Creating Multiple Objects from One Class",
+      "topic": "Unit 1 · Lesson 8",
+      "order": 108,
+      "date": "2026-01-19",
+      "dateEnd": "2026-01-26",
+      "refined": "IN PLAIN WORDS\nTwo enemies made from one Enemy class each keep their own hp. Changing one doesn't change the other. This is called independent state.\n\nKEY IDEAS\n1. Instance attribute: data stored inside one object, like goblin_enemy.hp.\n2. In goblin_enemy.hp = 45: goblin_enemy is the variable (it refers to the object), hp is the attribute, 45 is the value.\n3. variable.attribute means \"this attribute inside that object.\"\n4. Independent state: each object has its own copy of its attributes.\n\nCODE\n```python\nclass Enemy:\n    pass\n\ndark_archer_enemy = Enemy()\ngoblin_enemy = Enemy()\nslime_enemy = Enemy()\n\ndark_archer_enemy.name = \"Dark Archer\"\ndark_archer_enemy.hp = 20\ngoblin_enemy.name = \"Goblin\"\ngoblin_enemy.hp = 45\nslime_enemy.name = \"Slime\"\nslime_enemy.hp = 5\n\ndark_archer_enemy.hp = 10   # only the archer changes\n\nfor enemy in [dark_archer_enemy, goblin_enemy, slime_enemy]:\n    print(enemy.name, \"HP:\", enemy.hp)\n```\n\nOutput:\n```text\nDark Archer HP: 10\nGoblin HP: 45\nSlime HP: 5\n```\n\nKEY POINTS\n- Only the archer's hp changed; the goblin and slime kept theirs.\n- Every enemy object can carry its own name, hp, attack and defense.\n- All objects from one class share the blueprint, not the values.",
+      "original": ""
+    },
+    {
+      "group": "Unit 1",
+      "item": "Lesson 9",
+      "title": "Object Identity vs Equality (is vs ==)",
+      "topic": "Unit 1 · Lesson 9",
+      "order": 109,
+      "date": "2026-01-19",
+      "dateEnd": "2026-01-26",
+      "refined": "IN PLAIN WORDS\nis asks \"are these the same object?\" == asks \"do these have the same value?\" Two names for one object (aliases) see each other's changes. Two separate objects don't, even if their values start out equal.\n\nKEY IDEAS\n1. Identity (is): both variables point to the exact same object in memory.\n2. Equality (==): the two objects hold the same contents.\n3. Aliases: two names → one object → shared state. b = a does not copy; it gives the same object a second name.\n4. Separate objects: two names → two objects → independent state.\n\nCODE\nAliases:\n```python\nnumbers = [1, 2, 3]\nalso_numbers = numbers\n\nprint(numbers is also_numbers)   # True  (same object)\nprint(numbers == also_numbers)   # True  (same contents)\n\nnumbers.append(4)\nprint(also_numbers)              # [1, 2, 3, 4]\n```\n\nSeparate objects with equal values:\n```python\na = [1, 2, 3]\nb = [1, 2, 3]\n\nprint(a is b)    # False (different objects)\nprint(a == b)    # True  (same values)\n\na.append(4)\nprint(b)         # [1, 2, 3]\n```\n\nWith a class:\n```python\nclass Pet:\n    pass\n\npet1 = Pet()\npet2 = pet1\npet1.name = \"Fluffy\"\nprint(pet1 is pet2)   # True\nprint(pet2.name)      # Fluffy\n\npet3 = Pet()\npet4 = Pet()\npet3.name = \"Fluffy\"\npet4.name = \"Fluffy\"\nprint(pet3 is pet4)             # False\nprint(pet3.name == pet4.name)   # True\n```\n\nKEY POINTS\n- Use is when you need to know whether changing an object through one name will show up through another.\n- Use is to check for None: if x is None:\n- Use == to compare values: numbers, strings, list contents, stored data.\n- For two objects of a class you wrote, == behaves like is unless the class defines how to compare (__eq__).",
+      "original": ""
+    },
+    {
+      "group": "Unit 2",
+      "item": "Lesson 1",
+      "title": "Methods and the Role of self",
+      "topic": "Unit 2 · Lesson 1",
+      "order": 201,
+      "date": "2026-01-26",
+      "dateEnd": "2026-02-02",
+      "refined": "IN PLAIN WORDS\nA method is a function defined inside a class. Its first parameter is always self, which means \"the object this method was called on.\" Python fills in self for you.\n\nKEY IDEAS\n1. Instance method: def method_name(self): inside the class body.\n2. self is the object before the dot. In my_pet.speak(), self is my_pet.\n3. You never pass self yourself; Python passes it automatically.\n4. Call a method with dot notation: object.method_name().\n5. Keep the class definition (what all Pets can do) separate from the main program (where pets are created and used).\n\nCODE\n```python\n# --- class definition ---\nclass Pet:\n    def speak(self):\n        \"\"\"Make a simple pet sound.\"\"\"\n        print(\"woof!\")\n\n# --- main program ---\nmy_pet = Pet()   # create an object\nmy_pet.speak()   # call its method: prints woof!\n```\n\nKEY POINTS\n- Class = blueprint; object = the thing made from it.\n- my_pet.speak() is the line that runs the behavior.\n- The triple-quoted line under def is a docstring that says what the method does.",
+      "original": ""
+    },
+    {
+      "group": "Unit 2",
+      "item": "Lesson 2",
+      "title": "The self Parameter and Methods That Use Attributes",
+      "topic": "Unit 2 · Lesson 2",
+      "order": 202,
+      "date": "2026-01-26",
+      "dateEnd": "2026-02-02",
+      "refined": "IN PLAIN WORDS\nOne describe() method works for every object because it reads self.name. When pet1 calls it, self is pet1; when pet2 calls it, self is pet2. It always shows the values the object has at that moment.\n\nKEY IDEAS\n1. When you call obj.method(), Python passes obj in as self.\n2. Instance attributes live on each object. pet1.name and pet2.name are separate values.\n3. Inside a method, read attributes through self: self.name, not name.\n4. A method reads the object's current values every time it runs. Change an attribute, call the method again, and the output changes without editing the method.\n5. str(number) turns a number into text so it can be joined to other text with +.\n\nCODE\n```python\nclass Pet:\n    def describe(self):\n        print(self.name, \"is a\", str(self.age) + \"-year-old\", self.color, self.species)\n\nclass Car:\n    def describe(self):\n        print(\"Car Model:\", self.model)\n        print(\"Car Model Year:\", self.year)\n        print(\"Car Color:\", self.color)\n\npet1 = Pet()\npet1.name, pet1.species, pet1.age, pet1.color = \"Luna\", \"cat\", 2, \"black\"\npet2 = Pet()\npet2.name, pet2.species, pet2.age, pet2.color = \"Rex\", \"dog\", 6, \"brown\"\n\npet1.describe()          # Luna is a 2-year-old black cat\npet1.name = \"Shadow\"     # changes pet1 only\npet1.describe()          # Shadow is a 2-year-old black cat\npet2.describe()          # Rex is a 6-year-old brown dog\n\ncar1 = Car()\ncar1.model, car1.year, car1.color = \"Toyota Camry LE\", 2004, \"brown\"\ncar2 = Car()\ncar2.model, car2.year, car2.color = \"Honda Civic\", 2018, \"blue\"\ncar2.describe()\ncar1.describe()\n```\n\nKEY POINTS\n- self.age + \"-year-old\" raises a TypeError because age is an int; str(self.age) fixes it.\n- a, b = 1, 2 sets two variables in one line.\n- One class → many objects → each keeps its own data; the same method serves all of them.",
+      "original": ""
+    },
+    {
+      "group": "Unit 2",
+      "item": "Lesson 3",
+      "title": "Challenge I: Objects That Talk to Each Other",
+      "topic": "Unit 2 · Lesson 3",
+      "order": 203,
+      "date": "2026-01-26",
+      "dateEnd": "2026-02-02",
+      "refined": "IN PLAIN WORDS\nObjects can work with each other by passing one object into another object's method: customer1.place_order(barista1). Inside the method, self is the object before the dot, and the other parameter is the object inside the parentheses.\n\nKEY IDEAS\n1. Customer: data name and balance; behavior place_order(barista).\n2. Barista: data name and specialty_drink; behavior make_drink(customer).\n3. Every attribute used inside a method needs its object in front: self.name or barista.name.\n4. Mapping for customer1.place_order(barista1):\n   - self → customer1, so self.name is \"Alex\"\n   - barista → barista1, so barista.name is \"Tifa\"\n5. Mapping for barista1.make_drink(customer1):\n   - self → barista1\n   - customer → customer1\n\nCODE\n```python\nclass Customer:\n    def place_order(self, barista):\n        print(self.name + \" says: I'd like your specialty drink, \" + barista.name + \".\")\n        print(\"Barista specialty is: \" + barista.specialty_drink)\n\nclass Barista:\n    def make_drink(self, customer):\n        print(self.name + \" makes a drink for \" + customer.name + \".\")\n\ncustomer1 = Customer()\ncustomer1.name = \"Alex\"\ncustomer1.balance = 20\n\nbarista1 = Barista()\nbarista1.name = \"Tifa\"\nbarista1.specialty_drink = \"Deluxe Caramel Latte\"\n\ncustomer1.place_order(barista1)\nbarista1.make_drink(customer1)\n```\n\nOutput:\n```text\nAlex says: I'd like your specialty drink, Tifa.\nBarista specialty is: Deluxe Caramel Latte\nTifa makes a drink for Alex.\n```\n\nKEY POINTS\n- Pattern: object.method(other_object). Inside, self = object and the parameter = other_object.\n- Attributes belong to the specific object, not the class.\n- A string like \"\\nTifa\" starts with a new line; \\n means \"line break\".",
+      "original": ""
+    },
+    {
+      "group": "Unit 2",
+      "item": "Lesson 4",
+      "title": "Constructors: Where Objects Begin (__init__)",
+      "topic": "Unit 2 · Lesson 4",
+      "order": 204,
+      "date": "2026-01-26",
+      "dateEnd": "2026-02-02",
+      "refined": "IN PLAIN WORDS\n__init__ is the constructor. It runs automatically when you write Pet(), and it gives every new object its starting attributes. You never call it yourself.\n\nKEY IDEAS\n1. Pet is the class, Pet() creates a new object, and hamster = Pet() stores that object in a variable.\n2. Inside __init__, self is the new object being created.\n3. Each self.something = value line creates an attribute on that object.\n4. In hamster.energy = 100: hamster is the variable, energy is the attribute, 100 is the value.\n\nSTEPS\nWhat Python does for hamster = Pet():\n1. Creates a new, empty Pet object.\n2. Calls __init__ on it, with self set to that object.\n3. Runs each self.attribute = value line.\n4. Stores the finished object in hamster.\n\nCODE\n```python\nclass Pet:\n    def __init__(self):\n        print(\"A new Pet is being created!\")\n        self.species = \"hamster\"\n        self.mood = \"curious\"\n        self.attack = \"Bite\"\n        self.energy = 100\n\nhamster = Pet()\nprint(hamster.species)   # hamster\nprint(hamster.energy)    # 100\n```\n\n```python\nclass Toy:\n    def __init__(self):\n        self.object = \"Teddy Bear\"\n        self.type = \"Elephant\"\n        self.size = \"1 foot\"\n        self.color = \"Blue\"\n\ntoys = Toy()\nprint(\"The Object\", toys.object)\nprint(\"Type Of Object\", toys.type)\nprint(\"Objects Size\", toys.size)\nprint(\"Objects Color\", toys.color)\n```\n\nKEY POINTS\n- The constructor's job is to give each new object a starting state.\n- Python calls __init__ when you call ClassName().\n- Attributes set in __init__ are ready as soon as the object exists.",
+      "original": ""
+    },
+    {
+      "group": "Unit 2",
+      "item": "Lesson 5",
+      "title": "Constructors with Inputs",
+      "topic": "Unit 2 · Lesson 5",
+      "order": 205,
+      "date": "2026-01-26",
+      "dateEnd": "2026-02-02",
+      "refined": "IN PLAIN WORDS\nWhen __init__ has parameters, you set each object's data at the moment you create it: Spaceship(\"Nova\", \"Explorer-X\", \"Rubber Duck\"). The values fill the parameters in order. Leaving one out raises a TypeError.\n\nKEY IDEAS\n1. Parameters: the names in def __init__(self, captain, model, ships). They only exist inside the constructor.\n2. Attributes: self.captain, self.model, self.ships. They live on the object.\n3. Pattern: self.attribute_name = parameter_name (self.captain = captain).\n4. Positional arguments: values are matched to parameters by their order.\n5. The variable outside the class (ship) holds the object.\n6. self alone is not an attribute; self.something is.\n\nCODE\n```python\nclass Spaceship:\n    def __init__(self, captain, model, ships):\n        self.captain = captain\n        self.model = model\n        self.ships = ships\n\nship = Spaceship(\"Nova\", \"Explorer-X\", \"Rubber Duck\")\nprint(ship.captain)   # Nova\nprint(ship.model)     # Explorer-X\nprint(ship.ships)     # Rubber Duck\n```\n\nMissing an argument:\n```python\nship = Spaceship(\"Nova\", \"Explorer-X\")\n```\n```text\nTypeError: Spaceship.__init__() missing 1 required positional argument: 'ships'\n```\n\nKEY POINTS\n- \"Nova\" goes into captain, \"Explorer-X\" into model, \"Rubber Duck\" into ships.\n- Too few or too many arguments both raise a TypeError.",
+      "original": ""
+    },
+    {
+      "group": "Unit 2",
+      "item": "Lesson 6",
+      "title": "Keeping Objects Valid",
+      "topic": "Unit 2 · Lesson 6",
+      "order": 206,
+      "date": "2026-01-26",
+      "dateEnd": "2026-02-02",
+      "refined": "IN PLAIN WORDS\nCheck the inputs inside __init__ so every object starts out valid. Bad values are replaced with safe ones (negative health becomes 0) instead of crashing the program.\n\nKEY IDEAS\n1. Validation: checking that input makes sense before storing it.\n2. Safe fallback: replacing a bad value with a safe one instead of raising an error.\n3. Clamping: forcing a number to stay between a minimum and a maximum.\n4. Read the parameter, check it, then assign the safe result to the attribute.\n5. If every object is valid from the start, the rest of the code doesn't need to keep rechecking.\n\nSTEPS\nBoss rules:\n1. Health below 0 → 0.\n2. Health above 50000 → 50000.\n3. XP on death below 0 → 0.\n\nCODE\nWith if statements:\n```python\nclass Boss:\n    def __init__(self, attack_patterns, name, health, xp_on_death):\n        self.attack_patterns = attack_patterns\n        self.name = name\n\n        if health < 0:\n            self.health = 0\n        elif health > 50000:\n            self.health = 50000\n        else:\n            self.health = health\n\n        if xp_on_death < 0:\n            self.xp_on_death = 0\n        else:\n            self.xp_on_death = xp_on_death\n```\n\nThe same rules with min and max:\n```python\nclass Boss:\n    def __init__(self, attack_patterns, name, health, xp_on_death):\n        self.attack_patterns = attack_patterns\n        self.name = name\n        self.health = max(0, min(health, 50000))   # clamp to 0..50000\n        self.xp_on_death = max(0, xp_on_death)     # no negative XP\n\nprint(Boss([\"slam\"], \"Golem\", -100, 50).health)       # 0\nprint(Boss([\"slam\"], \"Golem\", 999999, 50).health)     # 50000\nprint(Boss([\"slam\"], \"Golem\", 1200, -5).xp_on_death)  # 0\n```\n\nKEY POINTS\n- min(health, 50000) is never above 50000; max(0, ...) is never below 0.\n- Validation in __init__ prevents values like -100 or 999999999 health from ever existing.",
+      "original": ""
+    },
+    {
+      "group": "Unit 2",
+      "item": "Lesson 7",
+      "title": "Methods That Use Object State",
+      "topic": "Unit 2 · Lesson 7",
+      "order": 207,
+      "date": "2026-01-26",
+      "dateEnd": "2026-02-02",
+      "refined": "IN PLAIN WORDS\n__init__ stores the data. A read-only method reads it with self.attribute and returns something built from it, without changing anything.\n\nKEY IDEAS\n1. __init__ sets the starting state: self.movie_title, self.seat, self.price.\n2. A read-only method uses self.attribute but doesn't change it. The object is the same before and after the call.\n3. return hands a value back to the caller, who can print it or store it.\n4. f-string: f\"Movie: {self.movie_title}\" puts values inside text.\n5. Docstring: a triple-quoted string right under a class or def that explains what it does.\n6. File layout: class definitions on top, a # --- main program --- comment, then the code that creates and uses objects.\n\nSTEPS\n1. __init__ stores the values on the object.\n2. The method reads them through self.\n3. The method returns a string built from them.\n4. The main program prints the returned string.\n\nCODE\n```python\nclass MovieTicket:\n    \"\"\"Represents a movie ticket.\"\"\"\n    def __init__(self, movie_title, seat, price):\n        \"\"\"Set the starting state for a movie ticket.\"\"\"\n        self.movie_title = movie_title\n        self.seat = seat\n        self.price = price\n\n    def ticket_info(self):\n        \"\"\"Return a description of this ticket.\"\"\"\n        return f\"Movie: {self.movie_title} | Seat: {self.seat} | Price: {self.price}\"\n\n# --- main program ---\nticket = MovieTicket(\"Devils Rejects\", \"A1\", \"$19.99\")\nprint(ticket.ticket_info())\n```\n\nOutput:\n```text\nMovie: Devils Rejects | Seat: A1 | Price: $19.99\n```\n\nKEY POINTS\n- self = the object; the name after the dot = the attribute.\n- Returning a string is more flexible than printing inside the method: the caller decides what to do with it.\n- Class names use CapitalCase, so MovieTicket rather than Movieticket.",
+      "original": ""
+    },
+    {
+      "group": "Unit 2",
+      "item": "Lesson 8",
+      "title": "Methods That Change Object State",
+      "topic": "Unit 2 · Lesson 8",
+      "order": 208,
+      "date": "2026-01-26",
+      "dateEnd": "2026-02-02",
+      "refined": "IN PLAIN WORDS\nA method can change the object's own data, for example self.hunger -= 10. The change stays on the object, so the next call starts from the new value.\n\nKEY IDEAS\n1. State: the object's current attribute values (self.hunger, self.energy, self.happiness).\n2. State-changing method: a method that updates attributes on self.\n3. self.x -= 10 means: take the current value, subtract 10, save it back.\n4. One method can change several attributes.\n5. Persistent state: a change lasts until something changes it again.\n6. Printing before and after inside the method makes the change easy to see.\n\nCODE\n```python\nclass Cat:\n    def __init__(self, name):\n        self.name = name\n        self.hunger = 50\n        self.energy = 100\n        self.happiness = 50\n\n    def feed(self):\n        print(f\"Before feeding, {self.name}'s hunger is {self.hunger}\")\n        self.hunger -= 10\n        print(f\"After feeding, {self.name}'s hunger is {self.hunger}\")\n\n    def play(self):\n        print(f\"Before playing, energy {self.energy}, happiness {self.happiness}\")\n        self.energy -= 20\n        self.happiness += 15\n        print(f\"After playing, energy {self.energy}, happiness {self.happiness}\")\n\nclass Plant:\n    def __init__(self):\n        self.water = 50\n\n    def water_plant(self):\n        self.water += 20\n\nmittens = Cat(\"Mittens\")\nprint(mittens.hunger)    # 50\nmittens.feed()           # 50 → 40\nmittens.feed()           # 40 → 30\nmittens.play()\nprint(mittens.hunger, mittens.energy, mittens.happiness)   # 30 80 65\n\nfern = Plant()\nfern.water_plant()       # 50 → 70\nfern.water_plant()       # 70 → 90\nprint(fern.water)        # 90\n```\n\nGeneral pattern:\n```python\nclass Thing:\n    def __init__(self):\n        self.attribute = 0           # starting value\n\n    def change_it(self):\n        self.attribute = self.attribute + 1   # or +=, -=\n\nobj = Thing()\nobj.change_it()\nobj.change_it()\nprint(obj.attribute)   # 2\n```\n\nKEY POINTS\n- The method always works from the current value on self.\n- Read-only methods (Lesson 7) report state; state-changing methods update it.",
+      "original": ""
+    },
+    {
+      "group": "Unit 2",
+      "item": "Lesson 9",
+      "title": "Class-Level Basics: Class Attributes",
+      "topic": "Unit 2 · Lesson 9",
+      "order": 209,
+      "date": "2026-01-26",
+      "dateEnd": "2026-02-02",
+      "refined": "IN PLAIN WORDS\nA class attribute is written directly in the class body (not in __init__). It lives on the class and is shared by every object made from it. Change it on the class, and every object sees the new value.\n\nKEY IDEAS\n1. Defined once, when Python reads the class: material = \"ceramic\" inside class CoffeeCup.\n2. Read it from the class (CoffeeCup.material) or from any instance (cup1.material).\n3. Lookup: Python checks the object first; if the object doesn't have the attribute, it uses the class's.\n4. Changing it through the class (CoffeeCup.material = \"glass\") updates what every instance sees.\n\nCODE\n```python\nclass CoffeeCup:\n    material = \"ceramic\"   # class attribute\n\ncup1 = CoffeeCup()\ncup2 = CoffeeCup()\nprint(CoffeeCup.material, cup1.material, cup2.material)   # ceramic ceramic ceramic\n\nCoffeeCup.material = \"glass\"\nprint(CoffeeCup.material, cup1.material, cup2.material)   # glass glass glass\n```\n\n```python\nclass Book:\n    language = \"English\"\n\nbook1 = Book()\nbook2 = Book()\nBook.language = \"Spanish\"\nprint(book1.language, book2.language)   # Spanish Spanish\n```\n\nKEY POINTS\n- Picture the class as a shared shelf and each object as its own drawer. Python checks the drawer first, then the shelf.\n- This lesson only changes class attributes through the class name. Assigning through an object is Lesson 10.",
+      "original": ""
+    },
+    {
+      "group": "Unit 2",
+      "item": "Lesson 10",
+      "title": "Instance Attributes vs Class Attributes",
+      "topic": "Unit 2 · Lesson 10",
+      "order": 210,
+      "date": "2026-01-26",
+      "dateEnd": "2026-02-02",
+      "refined": "IN PLAIN WORDS\nInstance attributes (self.x, usually set in __init__) belong to one object. Class attributes (written in the class body) are shared. Writing obj.x = value creates the object's own copy, which hides (\"shadows\") the shared one for that object only. A list or dict as a class attribute is shared by every object, which is usually a bug.\n\nKEY IDEAS\n1. Instance attribute: stored on one object; can differ between objects.\n2. Class attribute: stored on the class; a shared value for all objects.\n3. Lookup for obj.attr: the object's own attributes (obj.__dict__) first, then the class, then parent classes.\n4. obj.__dict__ shows the attributes stored on that one object.\n5. Shadowing: obj.attr = value creates an instance attribute with the same name as a class attribute. The class attribute is unchanged.\n6. ClassName.attr = value changes the shared value; obj.attr = value changes only that object.\n7. Immutable values (numbers, strings, tuples) are safe to share. Mutable values (lists, dicts, sets) shared on the class are changed for everyone when one object appends to them.\n\nSTEPS\nChoosing where data goes:\n1. Ask: should this value be the same for every object?\n2. Yes → class attribute (Planet.galaxy, Book.library_name, a counter of all pets).\n3. No → instance attribute in __init__ (name, mass, title, isbn).\n4. A list or dict each object should own → create it in __init__ with self.items = [].\n\nCODE\n```python\nclass Pet:\n    species_count = 0            # class attribute (shared)\n\n    def __init__(self, name):\n        self.name = name         # instance attribute\n        Pet.species_count += 1\n\npet1 = Pet(\"Nibbles\")\npet2 = Pet(\"Fluffy\")\n\npet1.species_count = 99          # pet1 gets its own copy (shadowing)\nprint(pet1.species_count)  # 99 (instance)\nprint(pet2.species_count)  # 2  (class)\nprint(Pet.species_count)   # 2  (class)\nprint(pet1.__dict__)       # {'name': 'Nibbles', 'species_count': 99}\nprint(pet2.__dict__)       # {'name': 'Fluffy'}\n```\n\n```python\nclass Book:\n    library_name = \"Downtown Library\"   # same for every book\n\n    def __init__(self, title, isbn):\n        self.title = title              # different per book\n        self.isbn = isbn\n```\n\nThe shared-list problem:\n```python\nclass Band:\n    members = []                 # one list shared by every band\n\n    def __init__(self, name):\n        self.name = name\n\nb1 = Band(\"The Comets\")\nb2 = Band(\"The Rockets\")\nb1.members.append(\"Bob\")\nprint(b2.members)                # ['Bob']\n```\n\nThe fix:\n```python\nclass Band:\n    def __init__(self, name):\n        self.name = name\n        self.members = []        # a new list for each band\n\nb1 = Band(\"The Comets\")\nb2 = Band(\"The Rockets\")\nb1.members.append(\"Alice\")\nb2.members.append(\"Bob\")\nprint(b1.members, b2.members)    # ['Alice'] ['Bob']\n```\n\nKEY POINTS\n- b1.members.append(...) doesn't create an instance attribute; it changes the shared list found on the class. Only assignment (obj.attr = ...) creates one.\n- Pet.species_count += 1 must use the class name. self.species_count += 1 would create a separate copy on each pet.",
+      "original": ""
+    },
+    {
+      "group": "Unit 2",
+      "item": "Lesson 11",
+      "title": "Challenge II",
+      "topic": "Unit 2 · Lesson 11",
+      "order": 211,
+      "date": "2026-01-26",
+      "dateEnd": "2026-02-02",
+      "refined": "IN PLAIN WORDS\nUnit 2 challenge: constructors set the starting state, self is the current object, class and instance attributes differ, an instance attribute can shadow a class attribute, state changes persist across calls, and is differs from ==.\n\nKEY IDEAS\n1. self.title = title: self is the current object, self.title is its attribute, and title is the value passed in. For g1 = Game(\"Zelda\"), it becomes g1.title = \"Zelda\".\n2. Class attribute: Game.difficulty, a shared default. Instance attribute: g1.title, per object.\n3. Shadowing: p1.max_lives = 5 gives p1 its own value; Player.max_lives stays 3.\n4. self.attr = self.attr - amount takes the current value, changes it, and saves it back, so each call builds on the last.\n5. Inside methods use self.attribute; outside the class use variable.attribute. Both reach the same attribute on the same object.\n6. == compares values; is compares identity. For a class without its own __eq__, == falls back to identity, so two separate objects with the same data are not equal.\n\nCODE\n```python\nclass Game:\n    difficulty = \"normal\"   # class attribute\n\n    def __init__(self, title):\n        self.title = title  # instance attribute\n\ng1 = Game(\"Zelda\")\ng2 = Game(\"Mario\")\nprint(Game.difficulty, g1.title, g2.title)   # normal Zelda Mario\n```\n\n```python\nclass Player:\n    max_lives = 3\n\n    def __init__(self, name):\n        self.name = name\n\np1 = Player(\"Alex\")\np1.max_lives = 5\nprint(Player.max_lives)   # 3\nprint(p1.max_lives)       # 5\n```\n\n```python\nclass Battery:\n    def __init__(self, level):\n        self.level = level\n\n    def drain(self, amount):\n        self.level = self.level - amount\n\nb = Battery(100)\nb.drain(30)    # 70\nb.drain(20)    # 50\nprint(b.level) # 50\n```\n\n```python\nclass Artist:\n    def __init__(self, name):\n        self.name = name\n\n    def show(self):\n        print(self.name)\n\na = Artist(\"Prince\")\na.show()        # Prince\nprint(a.name)   # Prince\n```\n\n```python\na = [1, 2]\nb = [1, 2]\nprint(a == b)   # True\nprint(a is b)   # False\n\nclass Meter:\n    def __init__(self, value):\n        self.value = value\n\nm1 = Meter(5)\nm2 = Meter(5)\nprint(m1 == m2)   # False (no __eq__, so == checks identity)\nprint(m1 is m2)   # False\n```\n\nKEY POINTS\n- Changing an instance attribute never changes the class attribute.\n- Each method call works from the object's current state.",
+      "original": ""
+    },
+    {
+      "group": "Unit 3",
+      "item": "Lesson 1",
+      "title": "Many Objects, One Class",
+      "topic": "Unit 3 · Lesson 1",
+      "order": 301,
+      "date": "2026-02-02",
+      "dateEnd": "2026-02-09",
+      "refined": "IN PLAIN WORDS\nOne class can make many objects. They all start with the same values, but each one changes on its own: pet_a.play() only lowers pet_a's energy.\n\nKEY IDEAS\n1. Every call to Pet() creates a new object with the starting state set in __init__.\n2. In pet_a.energy = 60: pet_a is the object, energy is the attribute, 60 is the value.\n3. Mutator: a method that changes the object's data (play, sip, use).\n4. Independent state: each object keeps its own copy of its attributes, so a method only changes the object it is called on.\n\nSTEPS\nReading final values:\n1. What did each object start with?\n2. Which methods were called on each one?\n3. How many times?\n4. Work out each object's value separately.\n\nCODE\n```python\nclass Pet:\n    def __init__(self):\n        self.energy = 100\n\n    def play(self):\n        self.energy -= 10\n\npet_a = Pet()\npet_b = Pet()\npet_a.play()\nprint(pet_a.energy)  # 90\nprint(pet_b.energy)  # 100\n```\n\n```python\nclass CoffeeCup:\n    def __init__(self):\n        self.amount = 100\n\n    def sip(self):\n        self.amount -= 15\n\ncoffee1 = CoffeeCup()\ncoffee2 = CoffeeCup()\ncoffee1.sip()\ncoffee1.sip()\ncoffee2.sip()\nprint(coffee1.amount, coffee2.amount)   # 70 85\n```\n\n```python\nclass Battery:\n    def __init__(self):\n        self.charge = 100\n\n    def use(self):\n        self.charge -= 20\n\nb1 = Battery()\nb2 = Battery()\nb1.use()\nprint(b1.charge, b2.charge)   # 80 100\n```\n\nKEY POINTS\n- Same class and same starting state do not mean shared values.\n- == asks whether values are equal; is asks whether two names point to the same object.",
+      "original": ""
+    },
+    {
+      "group": "Unit 3",
+      "item": "Lesson 2",
+      "title": "Modeling Relationships: One-to-One and One-to-Many",
+      "topic": "Unit 3 · Lesson 2",
+      "order": 302,
+      "date": "2026-02-02",
+      "dateEnd": "2026-02-09",
+      "refined": "IN PLAIN WORDS\nA relationship between objects is an attribute that points to other objects. In a one-to-many relationship, the \"one\" object holds a list of the \"many\": a PetOwner has self.pets = []. The list holds the actual Pet objects, so changing a pet through owner.pets[1] changes that pet everywhere.\n\nKEY IDEAS\n1. One-to-many: one object connected to many others (owner → pets, teacher → students).\n2. The list is created in __init__, so each owner gets their own list.\n3. A class-level list (pets = [] in the class body) would be shared by every owner, which is wrong here.\n4. Walk the relationship: owner → pets list → one pet → that pet's data.\n5. The list stores references, not copies. Changing owner.pets[1].happiness changes that Pet object itself.\n6. same_list = owner.pets gives the same list a second name; it doesn't copy anything.\n7. Two places a relationship can live: an owner-side list (owner.pets) or a child-side pointer (pet.owner). The object that manages the group usually holds the list.\n\nCODE\n```python\nclass Pet:\n    def __init__(self, name):\n        self.name = name\n        self.happiness = 50\n\nclass PetOwner:\n    def __init__(self, name):\n        self.name = name\n        self.pets = []          # each owner gets their own list\n\njulia = PetOwner(\"Julia\")\njulia.pets.append(Pet(\"Milo\"))\njulia.pets.append(Pet(\"Kona\"))\njulia.pets.append(Pet(\"Pixel\"))\n\nprint(julia.name)              # Julia\nprint(julia.pets[0].name)      # Milo\nprint(julia.pets[1].happiness) # 50\n```\n\n```python\nalex = PetOwner(\"Alex\")\nalex.pets.append(Pet(\"Rex\"))\nalex.pets.append(Pet(\"Luna\"))\n\nalex.pets[1].happiness = 80\nprint(alex.pets[0].happiness)  # 50 (Rex)\nprint(alex.pets[1].happiness)  # 80 (Luna)\n\nsame_list = alex.pets\nsame_list[0].happiness = 99\nprint(alex.pets[0].happiness)  # 99 (same list, same Rex)\n```\n\nKEY POINTS\n- julia.pets and alex.pets are separate lists because each was made in __init__.\n- For teachers and students, the teacher holds the list: teacher.students.\n- In this lesson only the owner-side list was coded; there is no pet.owner yet.",
+      "original": ""
+    },
+    {
+      "group": "Unit 3",
+      "item": "Lesson 3",
+      "title": "Manipulating Objects in Programs",
+      "topic": "Unit 3 · Lesson 3",
+      "order": 303,
+      "date": "2026-02-02",
+      "dateEnd": "2026-02-09",
+      "refined": "IN PLAIN WORDS\nPut objects in a list, loop over the list, and call a method on each one. The same kind of loop can add up a total or build a filtered list, like the heroes still alive.\n\nKEY IDEAS\n1. A class defines what each object is and can do; a list of objects lets the program work on many at once.\n2. Act on all: for hero in party: hero.heal(50). Each hero updates itself.\n3. Accumulator: start a total at 0 and add each object's value.\n4. Filter: start with an empty list and append the objects that pass a check.\n5. A total has to be recalculated after the objects change.\n\nSTEPS\n1. Define Hero with name, hp and xp, plus heal and take_damage methods.\n2. Create the heroes and put them in party.\n3. Loop to heal everyone, then loop to damage everyone.\n4. Loop to add up party HP.\n5. Loop to collect heroes with hp > 0.\n\nCODE\n```python\nclass Hero:\n    \"\"\"A hero in the party with HP and XP.\"\"\"\n\n    def __init__(self, name, hp, xp):\n        self.name = name\n        self.hp = hp\n        self.xp = xp\n\n    def heal(self, amount):\n        \"\"\"Heal this hero by the given amount.\"\"\"\n        self.hp += amount\n\n    def take_damage(self, amount):\n        \"\"\"Damage this hero by the given amount.\"\"\"\n        self.hp -= amount\n\nhealer = Hero(\"Healer\", 200, 40)\ntank = Hero(\"Tank\", 400, 20)\nwarrior = Hero(\"Warrior\", 300, 30)\nparty = [healer, tank, warrior]\n\nfor hero in party:\n    hero.heal(50)\n\ntotal_hp = 0\nfor hero in party:\n    total_hp += hero.hp\nprint(\"Total party HP after heal:\", total_hp)   # 1050\n\nfor hero in party:\n    hero.take_damage(300)\n\nalive_heroes = []\nfor hero in party:\n    if hero.hp > 0:\n        alive_heroes.append(hero)\n\nfor hero in alive_heroes:\n    print(hero.name, \"HP:\", hero.hp)\n```\n\nOutput:\n```text\nTotal party HP after heal: 1050\nTank HP: 150\nWarrior HP: 50\n```\n\nKEY POINTS\n- party holds the hero objects themselves, not numbers or strings.\n- Use clear loop names (hero for one item, party for the list) so they don't get mixed up.\n- In a larger program, these blocks would become functions like apply_damage(party, amount), and the classes would move to their own file.",
+      "original": ""
+    },
+    {
+      "group": "Unit 3",
+      "item": "Lesson 4",
+      "title": "Who Owns the State?",
+      "topic": "Unit 3 · Lesson 4",
+      "order": 304,
+      "date": "2026-02-02",
+      "dateEnd": "2026-02-09",
+      "refined": "IN PLAIN WORDS\nPut code on the object that owns the data. If DeliveryDrone keeps reaching into self.package.weight, that method probably belongs on Package.\n\nKEY IDEAS\n1. Package owns weight. DeliveryDrone owns speed and holds a package.\n2. A method that only uses weight belongs on Package (print_package_info, calculate_delivery_fee).\n3. A method about movement (speed, distance, travel time) belongs on DeliveryDrone.\n4. Self-check: if you see self.package.weight, self.user.name or self.order.total, ask whether the logic is really about that other object. If it is, move the method there.\n\nCODE\nBefore (the drone reaches into the package):\n```python\nclass DeliveryDrone:\n    def print_package_info(self):\n        print(\"Package weight is:\", self.package.weight)\n```\n\nAfter (each class handles its own data):\n```python\nclass Package:\n    def __init__(self, weight):\n        self.weight = weight\n\n    def calculate_delivery_fee(self):\n        return self.weight * 10          # 10 cents per unit of weight\n\n    def print_package_info(self):\n        print(\"Package weight is:\", self.weight)\n\nclass DeliveryDrone:\n    def __init__(self, speed, package):\n        self.speed = speed\n        self.package = package\n\n    def estimate_travel_time(self, distance):\n        return distance / self.speed\n\nmy_package = Package(5)\ndrone = DeliveryDrone(10, my_package)\n\nmy_package.print_package_info()             # Package weight is: 5\nprint(my_package.calculate_delivery_fee())  # 50\nprint(drone.estimate_travel_time(30))       # 3.0\n```\n\nKEY POINTS\n- The class that stores the data should usually do the work that uses it.\n- / always gives a float in Python 3, so 30 / 10 is 3.0.",
+      "original": ""
+    },
+    {
+      "group": "Unit 3",
+      "item": "Lesson 5",
+      "title": "Simple Invariants: What Must Always Stay True",
+      "topic": "Unit 3 · Lesson 5",
+      "order": 305,
+      "date": "2026-02-02",
+      "dateEnd": "2026-02-09",
+      "refined": "IN PLAIN WORDS\nAn invariant is a rule about an object's attributes that must always be true, like 0 <= hp <= max_hp. Every method that changes the value checks the rule right after the change and fixes the value if the rule broke.\n\nKEY IDEAS\n1. Examples: HealthBar, 0 <= hp <= max_hp; Battery, 0 <= charge <= 100.\n2. Without checks, values drift into nonsense over several calls: 100 − 150 = −50, then −50 + 300 = 250.\n3. Guard pattern: update → check with if → clamp to the limit → optionally print a message.\n4. Put the check inside the methods that change the attribute, so no caller can skip it.\n5. This lesson fixes values quietly; raising errors comes later.\n\nCODE\n```python\nclass HealthBar:\n    def __init__(self, max_hp):\n        self.max_hp = max_hp\n        self.hp = max_hp\n\n    def take_damage(self, amount):\n        self.hp = self.hp - amount\n        if self.hp <= 0:\n            print(\"HP went below 0, character died.\")\n            self.hp = 0\n\n    def heal(self, amount):\n        self.hp = self.hp + amount\n        if self.hp > self.max_hp:\n            print(\"HP went above max, clamping to max_hp\")\n            self.hp = self.max_hp\n\nclass Battery:\n    def __init__(self):\n        self.charge = 100\n\n    def use(self, amount):\n        self.charge = self.charge - amount\n        if self.charge < 0:\n            print(\"Charge went below 0, clamping to 0\")\n            self.charge = 0\n\n    def recharge(self, amount):\n        self.charge = self.charge + amount\n        if self.charge > 100:\n            print(\"Charge went above 100, clamping to 100\")\n            self.charge = 100\n\nhero = HealthBar(100)\nhero.take_damage(150)    # would be -50 → 0\nhero.heal(300)           # would be 300 → 100\nprint(hero.hp)           # 100\n\nbattery = Battery()\nbattery.use(150)         # → 0\nbattery.recharge(300)    # → 100\nbattery.use(60)          # → 40\nbattery.use(60)          # would be -20 → 0\nprint(battery.charge)    # 0\n```\n\nKEY POINTS\n- After every call, 0 <= charge <= 100 is still true.\n- The same clamp can be written in one line: self.charge = max(0, min(self.charge, 100)).",
+      "original": ""
+    },
+    {
+      "group": "Unit 3",
+      "item": "Lesson 6",
+      "title": "Challenge: RPG Party",
+      "topic": "Unit 3 · Lesson 6",
+      "order": 306,
+      "date": "2026-02-02",
+      "dateEnd": "2026-02-09",
+      "refined": "IN PLAIN WORDS\nUnit 3 challenge: a Hero class, a party list, and loops that show every hero, add up the levels, collect the mages, and make everyone attack.\n\nKEY IDEAS\n1. Hero(...) creates a separate object with its own name, role and level.\n2. In for hero in party:, hero is each object in turn; read hero.name, hero.role, hero.level.\n3. Aggregation: start at 0 and add each hero's level, then print once after the loop.\n4. Filtering: start with an empty list and append the heroes whose role matches.\n5. Behavior lives on the class (attack); a loop calls it on every object.\n6. The filtered list holds the same objects as party. Changing mages[0].level changes nyx.level too.\n\nCODE\n```python\nclass Hero:\n    \"\"\"A member of the adventuring party.\"\"\"\n\n    def __init__(self, name, role, level):\n        self.name = name\n        self.role = role\n        self.level = level\n\n    def attack(self):\n        print(self.name, \"attacks!\")\n\n# === Main ===\naria = Hero(\"Aria\", \"Warrior\", 5)\nnyx = Hero(\"Nyx\", \"Mage\", 7)\nlumi = Hero(\"Lumi\", \"Healer\", 4)\nparty = [aria, nyx, lumi]\n\nfor hero in party:\n    print(hero.name, hero.role, hero.level)\n\ntotal_level = 0\nfor hero in party:\n    total_level = total_level + hero.level\nprint(\"Total party level:\", total_level)   # 16\n\nmages = []\nfor hero in party:\n    if hero.role == \"Mage\":\n        mages.append(hero)\nprint(\"Mages:\", [hero.name for hero in mages])   # ['Nyx']\n\nfor hero in party:\n    hero.attack()\n```\n\nExtension: hp and random damage\n```python\nimport random\n\nclass Hero:\n    def __init__(self, name, role, level, hp):\n        self.name = name\n        self.role = role\n        self.level = level\n        self.hp = hp\n\n    def take_damage(self, amount):\n        self.hp -= amount\n\nparty = [Hero(\"Aria\", \"Warrior\", 5, 30), Hero(\"Nyx\", \"Mage\", 7, 20), Hero(\"Lumi\", \"Healer\", 4, 25)]\n\nfor hero in party:\n    damage = random.randint(1, 3)\n    hero.take_damage(damage)\n    print(hero.name, \"took\", damage, \"→ HP:\", hero.hp)\n```\n\nKEY POINTS\n- The pattern for the whole unit: class → objects → list → loops.\n- same_ref = aria makes a second name for the same hero, not a copy.",
+      "original": ""
+    },
+    {
+      "group": "Unit 3",
+      "item": "Lesson 7",
+      "title": "Encapsulation: Owning Object State",
+      "topic": "Unit 3 · Lesson 7",
+      "order": 307,
+      "date": "2026-02-02",
+      "dateEnd": "2026-02-09",
+      "refined": "IN PLAIN WORDS\nEncapsulation means an object owns its data and offers only certain ways to use it. Internal values get a leading underscore (self._hp), which means \"internal, don't touch from outside.\" Other code reads them through getter methods like get_hp().\n\nKEY IDEAS\n1. Encapsulation: the object owns its state and exposes a public interface for using it.\n2. A leading underscore (_hp, _hunger, _gold_amount) is a convention. Python still allows access, but outside code agrees not to use it.\n3. Inside the class, use self._hp freely.\n4. Getter: a method that returns an internal value.\n5. Public interface: the attributes and methods meant for outside code (name, get_hp(), get_hunger()).\n6. This lesson only reads internal values; changing them safely is Lesson 8.\n\nCODE\n```python\n# === Class definition ===\nclass Pet:\n    \"\"\"A game pet with internal stats.\"\"\"\n\n    def __init__(self, name, hunger, hp):\n        self.name = name\n        self._hunger = hunger\n        self._hp = hp\n\n    def get_hunger(self):\n        \"\"\"Return the current hunger level.\"\"\"\n        return self._hunger\n\n    def get_hp(self):\n        \"\"\"Return the current HP.\"\"\"\n        return self._hp\n\nclass TreasureChest:\n    def __init__(self, gold_amount):\n        self._gold_amount = gold_amount\n\n    def get_gold_amount(self):\n        \"\"\"Return the current gold amount.\"\"\"\n        return self._gold_amount\n\n# === Main program ===\npet = Pet(\"Rex\", 70, 100)\nprint(\"Pet name:\", pet.name)\nprint(\"Pet hunger:\", pet.get_hunger())   # 70\nprint(\"Pet HP:\", pet.get_hp())           # 100\n\nchest = TreasureChest(250)\nprint(\"Gold in chest:\", chest.get_gold_amount())   # 250\n\n# Discouraged: reaches past the public interface\n# print(pet._hp)\n# print(chest._gold_amount)\n```\n\nKEY POINTS\n- object → attribute → value: pet → _hp → 100.\n- Interview answer: store state in underscore attributes like _hp and expose getters like get_hp(), so other code reads state through methods instead of touching internal attributes.",
+      "original": ""
+    },
+    {
+      "group": "Unit 3",
+      "item": "Lesson 8",
+      "title": "Encapsulation: Protecting Object State",
+      "topic": "Unit 3 · Lesson 8",
+      "order": 308,
+      "date": "2026-02-02",
+      "dateEnd": "2026-02-09",
+      "refined": "IN PLAIN WORDS\nA setter is the only safe way to change an internal value. set_hp() checks the new value and either clamps it into range or raises an error, so the object can never hold something impossible like −50 HP.\n\nKEY IDEAS\n1. Stored attributes use an underscore (self._hp); parameters and method names don't (new_hp, set_hp, get_hp).\n2. Getter: lets other code read the value without changing it.\n3. Setter: the only path for changes, and it enforces the rules.\n4. Two ways to protect a value:\n   - Clamping: force it into the valid range. Nothing crashes.\n   - Raising an error: reject it with raise ValueError(...). The program stops, so the bug is found quickly.\n5. Outside code never writes enemy._hp = ...; it always calls set_hp(...).\n6. Even __init__ can use the setter, so the starting value follows the same rules.\n\nCODE\n```python\nclass Monster:\n    def __init__(self, name, hp):\n        self.name = name\n        self._hp = 0\n        self.set_hp(hp)          # the starting value goes through the setter too\n\n    def get_hp(self):\n        \"\"\"Return current HP.\"\"\"\n        return self._hp\n\n    def set_hp(self, new_hp):\n        \"\"\"Set HP, clamped between 0 and 100.\"\"\"\n        if new_hp < 0:\n            self._hp = 0\n        elif new_hp > 100:\n            self._hp = 100\n        else:\n            self._hp = new_hp\n\nkraken1 = Monster(\"Kraken\", 100)\nkraken2 = Monster(\"Kraken\", 100)\n\nkraken1.set_hp(kraken1.get_hp() - 30)    # combat\nprint(kraken1.get_hp())  # 70\nprint(kraken2.get_hp())  # 100 (separate object)\n\nkraken1.set_hp(-50)\nprint(kraken1.get_hp())  # 0, not -50\n```\n\nRaising an error instead of clamping:\n```python\ndef set_hp(self, new_hp):\n    if new_hp < 0:\n        raise ValueError(\"HP can't be negative\")\n    self._hp = new_hp\n```\n\nKEY POINTS\n- Damage: set_hp(get_hp() - damage). Healing: set_hp(get_hp() + heal). Display: get_hp().\n- Two objects with the same name are still separate, each with its own _hp.\n- Pick one clear rule per stat: clamp or raise.",
+      "original": ""
+    },
+    {
+      "group": "Unit 3",
+      "item": "Lesson 9",
+      "title": "Keeping It in the Family: Introducing Inheritance",
+      "topic": "Unit 3 · Lesson 9",
+      "order": 309,
+      "date": "2026-02-02",
+      "dateEnd": "2026-02-09",
+      "refined": "IN PLAIN WORDS\nInheritance lets you write shared code once in a parent class, like Pet. Child classes, like Cow and BlackCow, get all of it automatically. If you can say \"X is a Y,\" X can be a subclass of Y.\n\nKEY IDEAS\n1. Inheritance: a class reuses the attributes and methods of another class.\n2. Parent (base) class: the class that provides them (Pet).\n3. Child class (subclass): the class that inherits (class Cow(Pet):).\n4. \"Is a\" test: a Cow is a Pet; a Car is a Vehicle.\n5. A child with only pass inherits everything: __init__, speak() and feed().\n6. Without inheritance, classes like Dog and Cat repeat the same code.\n\nCODE\n```python\nclass Pet:\n    \"\"\"A generic pet with a name and basic actions.\"\"\"\n\n    def __init__(self, name):\n        self.name = name\n\n    def speak(self):\n        print(\"Some generic pet sound\")\n\n    def feed(self):\n        print(f\"Feeding {self.name}...\")\n\nclass Cow(Pet):\n    pass\n\nclass BlackCow(Pet):\n    pass\n\nbetsy = Cow(\"Betsy\")\nmidnight = BlackCow(\"Midnight\")\n\nbetsy.speak()      # Some generic pet sound\nbetsy.feed()       # Feeding Betsy...\nmidnight.feed()    # Feeding Midnight...\n```\n\nKEY POINTS\n- Cow(\"Betsy\") runs Pet's __init__, so betsy.name is \"Betsy\".\n- Child objects use parent methods as if they were written in the child class.\n- Docstrings under classes and methods explain what each one does, which helps when behavior comes from a parent.",
+      "original": ""
+    },
+    {
+      "group": "Unit 3",
+      "item": "Lesson 10",
+      "title": "Inheritance: Overriding Methods",
+      "topic": "Unit 3 · Lesson 10",
+      "order": 310,
+      "date": "2026-02-02",
+      "dateEnd": "2026-02-09",
+      "refined": "IN PLAIN WORDS\nA child class can replace a parent's method by defining a method with the same name. This is called overriding. To find a method, Python looks in the object's own class first, then walks up to the parent.\n\nKEY IDEAS\n1. Overriding: same method name in the child, different body.\n2. The child still lists the parent in parentheses (class Dog(Pet):), and the method still takes self.\n3. Method lookup: the object's own class → its parent → the parent's parent; the first match wins.\n4. A class with no method of its own uses the nearest one above it.\n5. Each version can have its own docstring, readable with method.__doc__.\n\nSTEPS\nTo predict which version runs for some_pet.talk():\n1. Find the class some_pet was created from.\n2. Does that class define talk? If yes, that version runs.\n3. If not, check its parent, then the next parent up.\n\nCODE\n```python\nclass Pet:\n    def talk(self):\n        \"\"\"PET VERSION: Generic pet sound.\"\"\"\n        print(\"Some generic pet sound\")\n\nclass Dog(Pet):\n    def talk(self):\n        \"\"\"DOG VERSION: Dog-specific sound.\"\"\"\n        print(\"Woof!\")\n\nclass VeryQuietDog(Dog):\n    pass                     # no talk() here, so Python uses Dog's\n\nPet().talk()                 # Some generic pet sound\nmy_dog = Dog()\nmy_dog.talk()                # Woof!\nVeryQuietDog().talk()        # Woof!\n\nprint(Pet.talk.__doc__)      # PET VERSION: Generic pet sound.\nprint(my_dog.talk.__doc__)   # DOG VERSION: Dog-specific sound.\n```\n\nKEY POINTS\n- Cat(Pet) with its own describe() → my_cat.describe() uses Cat's version.\n- Cat(Pet) with only pass → my_cat.describe() uses Pet's version.\n- Overriding changes behavior for the child only; Pet objects are unaffected.",
+      "original": ""
+    }
+  ]
+}

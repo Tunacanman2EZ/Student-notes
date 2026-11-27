@@ -1,0 +1,347 @@
+{
+  "app": "notes-vault",
+  "kind": "contribution",
+  "version": 1,
+  "createdOn": "2026-11-27T09:19:32.318Z",
+  "contributor": {
+    "id": "55946333-9863-49ca-acb3-a25bfccc48c9",
+    "displayName": "Front-pay"
+  },
+  "program": "Applied science software engineering",
+  "class": {
+    "code": "BE104",
+    "name": "BE104: Authentication, Authorization, and Middleware"
+  },
+  "lessons": [
+    {
+      "group": "Track your code with Git and GitHub",
+      "item": "Lesson 1",
+      "title": "Welcome to BE104!",
+      "topic": "Track your code with Git and GitHub · Lesson 1",
+      "order": 701,
+      "date": "2026-09-07",
+      "dateEnd": "2026-09-14",
+      "refined": "IN PLAIN WORDS\nBE104 takes an API from open to protected. A protected API knows who is calling (identity), checks what they are allowed to do (permissions), and is attacked on purpose so you can trust it.\n\nKEY IDEAS\n1. Open API: it does not really know who is calling or what they should be allowed to do.\n2. Protected API: it checks identity and permissions before doing anything sensitive.\n3. Server authority: the client only sends requests. The server decides what is allowed.\n\nSTEPS: THE COURSE PATH\n1. Unit 1, track your code with Git and GitHub: every change versioned, recoverable and shareable.\n2. Unit 2, give your API real users: a users table, safe password storage, registration and login.\n3. Unit 3, prove who is asking and what they can do: tokens, protected routes, ownership rules, admin vs normal users.\n4. Unit 4, attack and audit: think like an attacker, find weaknesses, audit the whole API.\n\nKEY POINTS\n- Open API = no real identity or permission checks.\n- Protected API = identity + permissions checked before sensitive actions.\n- Path: Git → real users → authentication + authorization → attack and audit.",
+      "original": ""
+    },
+    {
+      "group": "Track your code with Git and GitHub",
+      "item": "Lesson 2",
+      "title": "Why version control matters",
+      "topic": "Track your code with Git and GitHub · Lesson 2",
+      "order": 702,
+      "date": "2026-09-07",
+      "dateEnd": "2026-09-14",
+      "refined": "IN PLAIN WORDS\nVersion control's power is the history of changes, not just storage. Every change is recorded with when and why, so you can roll back, review and work with others safely.\n\nKEY IDEAS\n1. Solo: you get known-good versions to roll back to, and a record of when and why things changed. That record helps track down bugs.\n2. Teams: everyone works on the same codebase without silently overwriting each other. Changes can be reviewed before they land, and conflicting edits are shown, not hidden.\n3. Open source: strangers can propose changes. The maintainer sees exactly what changed and decides whether it fits.\n\nKEY POINTS\n- Backup = one or a few copies of the project.\n- Version control = many steps of history, each tied to specific changes.\n- Uploading to a drive is not version control: no change history, no review, no conflict visibility.",
+      "original": ""
+    },
+    {
+      "group": "Track your code with Git and GitHub",
+      "item": "Lesson 3",
+      "title": "How git thinks: snapshots, not copies",
+      "topic": "Track your code with Git and GitHub · Lesson 3",
+      "order": 703,
+      "date": "2026-09-07",
+      "dateEnd": "2026-09-14",
+      "refined": "IN PLAIN WORDS\nA repository is a folder Git watches. A commit is a snapshot of the whole project at a moment you choose. A change moves: working directory → staging area → commit history → remote.\n\nKEY IDEAS\n1. Repository: an ordinary project folder that Git watches.\n2. Commit: a snapshot of the whole project, not a copy of one file.\n3. Working directory: your real files on disk. Saving a file only changes it here.\n4. Staging area: the selection step. \"These changes belong in the next snapshot.\"\n5. Commit history: the ordered list of snapshots.\n6. Remote: a copy of the history somewhere else, like GitHub.\n\nSTEPS: WHY STAGING MATTERS (YOUR EXAMPLE)\n1. You ran git status before staging.\n2. It showed 46 duplicate tile files (art/Tiles) your operating system had hidden from you.\n3. Because changes are staged on purpose, you kept them out of the \"green arrow\" commit.\n4. You made two clean commits: one removing the duplicate path, one for the slime's green arrow.\n5. Anyone reading the history sees exactly what changed and why.\n\nKEY POINTS\n- Saved = the file changed on disk only. A bad reset can still lose it.\n- Committed = recorded in local history and recoverable (that is why git rebase --abort could restore your tiles).\n- Pushed = the commits are copied to a remote and survive your machine failing.\n- Making a commit does not put it on GitHub. Pushing does.",
+      "original": ""
+    },
+    {
+      "group": "Track your code with Git and GitHub",
+      "item": "Lesson 4",
+      "title": "Your first repo: init and status",
+      "topic": "Track your code with Git and GitHub · Lesson 4",
+      "order": 704,
+      "date": "2026-09-07",
+      "dateEnd": "2026-09-14",
+      "refined": "IN PLAIN WORDS\ngit init turns a folder into a repository with no commits yet. git status shows the branch, whether there are commits, what is staged, and which files are untracked.\n\nKEY IDEAS\n1. git init: start Git watching the current folder.\n2. A fresh repository has no commits. git status says \"No commits yet\".\n3. git status shows: the current branch (On branch main), staged changes, and untracked files.\n4. Untracked file: it exists in the working directory, but it is not staged and not in any commit.\n\nSTEPS: CHECK A NEW REPOSITORY\n1. Run git init in the project folder.\n2. Run git status.\n3. Read the branch line, the \"No commits yet\" line, and the \"Untracked files\" list.\n\nCODE\n```bash\ngit init      # start tracking this folder\ngit status    # On branch main / No commits yet / Untracked files: ...\n```\n\nKEY POINTS\n- Untracked does not mean tracked. A file listed by git status can still be untracked.\n- Untracked file: working directory yes, staging area no, commit history no.",
+      "original": ""
+    },
+    {
+      "group": "Track your code with Git and GitHub",
+      "item": "Lesson 5",
+      "title": "Staging and committing changes",
+      "topic": "Track your code with Git and GitHub · Lesson 5",
+      "order": 705,
+      "date": "2026-09-07",
+      "dateEnd": "2026-09-14",
+      "refined": "IN PLAIN WORDS\nSaving a file changes the working directory only. git add moves that version into the staging area. git commit records everything staged into history, and the staging area is empty again.\n\nKEY IDEAS\n1. git add <file> stages the file's current version.\n2. git commit -m \"message\" records everything staged as one snapshot.\n3. After a commit, the staging area is empty and the committed files are clean.\n4. Clear commit messages make the history readable, for example \"Add project notes file\".\n\nSTEPS: THE SAVE → STAGE → COMMIT LOOP\n1. Edit and save the file.\n2. git add <file>\n3. git commit -m \"Describe the change\"\n4. git status should say the working tree is clean.\n\nCODE\n```bash\ngit add README.md\ngit commit -m \"Add a starter README\"\ngit status    # nothing to commit, working tree clean\n```\n\nKEY POINTS\n- Saved, not added → working directory.\n- Added, not committed → staging area.\n- In the last commit → commit history.",
+      "original": ""
+    },
+    {
+      "group": "Track your code with Git and GitHub",
+      "item": "Lesson 7",
+      "title": "Ignoring files with .gitignore",
+      "topic": "Track your code with Git and GitHub · Lesson 7",
+      "order": 707,
+      "date": "2026-09-07",
+      "dateEnd": "2026-09-14",
+      "refined": "IN PLAIN WORDS\n.gitignore tells Git which files to skip. Never commit generated files, machine-only data or secrets. Add .env to .gitignore before you ever create it.\n\nKEY IDEAS\n1. Generated files (__pycache__/): noise that can be recreated.\n2. Local data (game_local.db): only meant for your machine.\n3. Secrets (.env): passwords, keys and database URLs. Committing them exposes them.\n4. .gitignore only affects files Git is not tracking yet.\n\nSTEPS: STOP TRACKING A FILE THAT WAS ALREADY COMMITTED\n1. Add it to .gitignore.\n2. git rm --cached <file> (keeps it on disk, stops tracking it).\n3. Commit the change.\n4. If it was a secret and was ever pushed, change the secret. It is still in the history.\n\nCODE\n```gitignore\n# generated files\n__pycache__/\n# local database (machine-specific)\ngame_local.db\n# secrets\n.env\n```\n\nKEY POINTS\n- Ignore generated files, local data and secrets.\n- A pushed secret must be replaced, not just deleted.",
+      "original": ""
+    },
+    {
+      "group": "Track your code with Git and GitHub",
+      "item": "Lesson 8",
+      "title": "Installing git and your project file tree",
+      "topic": "Track your code with Git and GitHub · Lesson 8",
+      "order": 708,
+      "date": "2026-09-07",
+      "dateEnd": "2026-09-14",
+      "refined": "IN PLAIN WORDS\nInstall and set up Git, then keep a clean project tree. Some files are tracked, some are ignored. Every file is untracked, tracked or ignored.\n\nKEY IDEAS\n1. git --version confirms Git is installed.\n2. git config --global user.name and user.email set the identity written into every commit.\n3. git config --global --list shows the settings.\n4. Tracked: app/, tests/, README.md, requirements.txt, .gitignore.\n5. Ignored: instance/, .env, *.sqlite3, __pycache__/.\n6. Untracked: Git sees it but is not following it yet. Tracked: added and watched. Ignored: matched by .gitignore and skipped (the file still exists on disk).\n\nSTEPS: SET UP A NEW PROJECT\n1. git --version\n2. Set your name and email (once per computer).\n3. cd into the project folder and run git init.\n4. Write .gitignore.\n5. git add the files that belong in the project.\n6. git commit -m \"Initial project structure with gitignore\"\n7. git status should say the working tree is clean.\n\nCODE\n```bash\ngit --version\ngit config --global user.name \"Name\"\ngit config --global user.email \"you@example.com\"\ngit config --global --list\n\ngit init\ngit add .gitignore README.md requirements.txt app tests\ngit commit -m \"Initial project structure with gitignore\"\ngit status     # working tree clean\n```\n\n```gitignore\n__pycache__/\n*.pyc\n*.sqlite3\n.env\ninstance/\n```\n\n```text\ngit-practice-auth-fresh/\n  app/\n    __init__.py\n  tests/\n    test_placeholder.txt\n  instance/          # local-only config and secrets (ignored)\n  .gitignore\n  README.md\n  requirements.txt\n```\n\nKEY POINTS\n- The email in git config goes into every commit and is public if the repository is. GitHub offers a private noreply address in your email settings.\n- Ignored files still exist on disk. Git just skips them.",
+      "original": ""
+    },
+    {
+      "group": "Track your code with Git and GitHub",
+      "item": "Lesson 9",
+      "title": "Pushing to a GitHub remote",
+      "topic": "Track your code with Git and GitHub · Lesson 9",
+      "order": 709,
+      "date": "2026-09-07",
+      "dateEnd": "2026-09-14",
+      "refined": "IN PLAIN WORDS\nA remote is a copy of your repository somewhere else, like GitHub. origin is its usual name. Pushing copies your commits there. It does not change your files or create commits.\n\nKEY IDEAS\n1. Remote repository: your Git history stored somewhere else.\n2. origin: the default name for that remote.\n3. Remote URL: the address Git uses to reach it.\n4. Commit = saved in local history. Push = that history copied to GitHub.\n\nSTEPS: CONNECT AND PUSH\n1. git remote add origin <url> (once per project).\n2. git remote -v to check it.\n3. git push -u origin main the first time (remembers the link).\n4. git push after that.\n5. Compare GitHub's commits with git log --oneline.\n\nCODE\n```bash\ngit remote add origin https://github.com/USERNAME/REPO.git   # save the URL as origin\ngit remote -v                                                # list remotes and URLs\ngit push -u origin main                                      # first push, remember tracking\ngit push                                                     # later pushes\ngit log --oneline                                            # local history to compare\n```\n\nKEY POINTS\n- Pushing only updates the remote.\n- GitHub does not accept your account password for HTTPS pushes. Use the browser sign-in from Git's credential manager or a personal access token.",
+      "original": ""
+    },
+    {
+      "group": "Track your code with Git and GitHub",
+      "item": "Lesson 10",
+      "title": "Cloning a repo from GitHub",
+      "topic": "Track your code with Git and GitHub · Lesson 10",
+      "order": 710,
+      "date": "2026-09-07",
+      "dateEnd": "2026-09-14",
+      "refined": "IN PLAIN WORDS\ngit clone copies an existing repository: its files and its full history. git init starts a brand-new repository with no history.\n\nKEY IDEAS\n1. git clone <url>: creates a new folder with the files and every commit.\n2. git init: turns an existing folder into a new, empty repository.\n3. A cloned repository is already connected to its remote (origin).\n\nSTEPS: CLONE AND CHECK\n1. git clone <url>\n2. cd into the new folder.\n3. git log --oneline: several commits, including the first one, prove the history came along.\n4. git status: \"Your branch is up to date with 'origin/main'\" and \"working tree clean\".\n\nCODE\n```bash\ngit clone https://github.com/octocat/Hello-World.git\ncd Hello-World\ngit log --oneline     # full history\ngit status            # up to date with origin, working tree clean\n```\n\nKEY POINTS\n- Clone = copy an existing project with its history.\n- Init = start tracking a folder from scratch.",
+      "original": ""
+    },
+    {
+      "group": "Track your code with Git and GitHub",
+      "item": "Lesson 11",
+      "title": "Challenge: clone, commit, push the skeleton",
+      "topic": "Track your code with Git and GitHub · Lesson 11",
+      "order": 711,
+      "date": "2026-09-07",
+      "dateEnd": "2026-09-14",
+      "refined": "IN PLAIN WORDS\nChallenge: clone the course's recipe-box-api skeleton, run it, then point origin at your own GitHub repository and push a change. From here on the recipe API is yours to secure.\n\nSTEPS\n1. Clone the skeleton and cd into it.\n2. Create a virtual environment and activate it.\n3. pip install -r requirements.txt\n4. python init_db.py, then python app.py.\n5. Visit http://127.0.0.1:5000/recipes and confirm real JSON comes back.\n6. git remote set-url origin <your repository URL>\n7. Edit README.md, add, commit, and git push -u origin main.\n\nCODE\n```bash\ngit clone <course skeleton URL>\ncd recipe-box-api\npython -m venv venv\nvenv\\Scripts\\activate          # Windows\npip install -r requirements.txt\npython init_db.py\npython app.py                   # then open http://127.0.0.1:5000/recipes\n```\n\n```bash\ngit remote set-url origin https://github.com/<your-username>/recipe-box-api.git\ngit add README.md\ngit commit -m \"Add personal note to README\"\ngit push -u origin main\n```\n\nKEY POINTS\n- Local clone ↔ origin (your GitHub repository).\n- git add stages, git commit records a snapshot, git push sends snapshots to GitHub.",
+      "original": ""
+    },
+    {
+      "group": "Give your API real users",
+      "item": "Lesson 2",
+      "title": "Designing a users table",
+      "topic": "Give your API real users · Lesson 2",
+      "order": 802,
+      "date": "2026-09-14",
+      "dateEnd": "2026-09-21",
+      "refined": "IN PLAIN WORDS\nA users table needs three columns: an id, a unique email, and a password hash. The email can be readable. The password is never stored, only a one-way hash of it.\n\nKEY IDEAS\n1. id INTEGER PRIMARY KEY: the internal identifier for each user.\n2. email TEXT NOT NULL UNIQUE: the login identity. UNIQUE means one account per email.\n3. password_hash TEXT NOT NULL: a one-way representation of the password, never the password itself.\n4. Every column a valid account needs is NOT NULL.\n5. password_hash does not need to be UNIQUE. It is not used to identify anyone.\n\nCODE\n```sql\nCREATE TABLE users (\n    id INTEGER PRIMARY KEY NOT NULL,\n    email TEXT NOT NULL UNIQUE,\n    password_hash TEXT NOT NULL\n);\n```\n\nKEY POINTS\n- Readable: email. Never readable: password.\n- UNIQUE on email stops two accounts sharing one email.\n- You cannot turn a hash back into the password.",
+      "original": ""
+    },
+    {
+      "group": "Give your API real users",
+      "item": "Lesson 4",
+      "title": "Hashing passwords with werkzeug",
+      "topic": "Give your API real users · Lesson 4",
+      "order": 804,
+      "date": "2026-09-14",
+      "dateEnd": "2026-09-21",
+      "refined": "IN PLAIN WORDS\nNever store a password. Store a one-way hash of it. To check a login, hash the guess the same way and compare. Nothing is ever decrypted.\n\nKEY IDEAS\n1. generate_password_hash(password) returns a string. Store it in users.password_hash.\n2. check_password_hash(stored_hash, guess) returns True or False.\n3. The stored string holds the whole recipe: method, settings, salt and hash. For example: scrypt:32768:8:1$<salt>$<hash>.\n4. A random salt makes the same password hash differently every time. That's why you never compare two hashes with ==.\n5. If the database leaks, attackers get hashes, not passwords. They have to guess, and scrypt makes every guess slow.\n\nSTEPS: REGISTER AND LOG IN\n1. Register: hash the password and store only the hash.\n2. Log in: load that user's stored hash.\n3. Run check_password_hash(stored_hash, guess).\n4. True means logged in. False returns 401.\n\nCODE\n```python\nfrom werkzeug.security import generate_password_hash, check_password_hash\n\nstored = generate_password_hash(\"Secret123!\")   # save this in users.password_hash\ncheck_password_hash(stored, \"Secret123!\")       # True\ncheck_password_hash(stored, \"wrong\")            # False\n```\n\nKEY POINTS\n- Never store plaintext passwords, only the hash.\n- Verify by re-hashing the guess and comparing. A hash is never decrypted.\n- The same password gives a different hash each time (salt), so use check_password_hash.\n\nCORRECTION\nThe lesson said the default is pbkdf2:sha256:260000. In Werkzeug 3.x (you have 3.1) it's scrypt. Old pbkdf2 hashes still work, because check_password_hash reads the method from the string.",
+      "original": ""
+    },
+    {
+      "group": "Give your API real users",
+      "item": "Lesson 5",
+      "title": "Building the registration endpoint",
+      "topic": "Give your API real users · Lesson 5",
+      "order": 805,
+      "date": "2026-09-14",
+      "dateEnd": "2026-09-21",
+      "refined": "IN PLAIN WORDS\nPOST /register reads the JSON, checks the username and password, hashes the password, and inserts the user. A taken username returns 409, missing fields return 400, and success returns 201 with the id and username only.\n\nSTEPS\n1. Read the JSON body safely (silent=True).\n2. Validate: both username and password present, otherwise 400.\n3. Hash the password.\n4. INSERT with ? placeholders, then commit.\n5. sqlite3.IntegrityError (UNIQUE username) → 409.\n6. Success → 201 with id and username. Never the password or hash.\n\nCODE\n```python\n@app.post(\"/register\")\ndef register():\n    data = request.get_json(silent=True)          # don't crash on bad JSON\n    if not data or not data.get(\"username\") or not data.get(\"password\"):\n        return jsonify({\"error\": \"username and password are required\"}), 400\n    username = data[\"username\"].strip()           # strip, same as login\n    password_hash = generate_password_hash(data[\"password\"])\n    db = get_db()\n    try:\n        cur = db.execute(\n            \"INSERT INTO users (username, password_hash) VALUES (?, ?)\",\n            (username, password_hash),\n        )\n        db.commit()\n    except sqlite3.IntegrityError:                # UNIQUE(username) hit\n        return jsonify({\"error\": \"username already exists\"}), 409\n    return jsonify({\"id\": cur.lastrowid, \"username\": username}), 201\n```\n\n```sql\nCREATE TABLE IF NOT EXISTS users (\n    id INTEGER PRIMARY KEY,\n    username TEXT NOT NULL UNIQUE,\n    password_hash TEXT NOT NULL\n);\n```\n\nKEY POINTS\n- 201 Created: valid input, new username.\n- 400 Bad Request: no JSON or a missing field.\n- 409 Conflict: the username already exists.\n- Pattern: read → validate → hash → insert → commit → respond.\n\nCORRECTION\nThe lesson's version didn't strip the username, but login (Lesson 6) does. Someone who registered as \" bob\" could never log in as \"bob\". The code above strips in both places.",
+      "original": ""
+    },
+    {
+      "group": "Give your API real users",
+      "item": "Lesson 6",
+      "title": "Verifying credentials on login",
+      "topic": "Give your API real users · Lesson 6",
+      "order": 806,
+      "date": "2026-09-14",
+      "dateEnd": "2026-09-21",
+      "refined": "IN PLAIN WORDS\nPOST /login checks the request shape, looks the user up, and verifies the password hash. An unknown user and a wrong password get the same 401, so nobody can find out which usernames exist. Success returns 200 with the id and username.\n\nSTEPS\n1. Validate the request shape: JSON, both fields are strings, username not blank, password not empty. Otherwise 400.\n2. Look up the user with a parameterized query.\n3. No user, or check_password_hash fails → 401 \"invalid credentials\".\n4. Success → 200 with id and username only. No token yet (that comes in Week 9).\n\nCODE\n```python\nfrom werkzeug.security import check_password_hash\n\n@app.post(\"/login\")\ndef login():\n    data = request.get_json(silent=True)\n    if (\n        not data\n        or not isinstance(data.get(\"username\"), str)\n        or not isinstance(data.get(\"password\"), str)\n        or not data[\"username\"].strip()\n        or not data[\"password\"]\n    ):\n        return jsonify({\"error\": \"invalid request\"}), 400\n    username = data[\"username\"].strip()\n    row = get_db().execute(\n        \"SELECT id, username, password_hash FROM users WHERE username = ?\",\n        (username,),\n    ).fetchone()\n    if row is None or not check_password_hash(row[\"password_hash\"], data[\"password\"]):\n        return jsonify({\"error\": \"invalid credentials\"}), 401   # same for both cases\n    return jsonify({\"id\": row[\"id\"], \"username\": row[\"username\"]}), 200\n```\n\nKEY POINTS\n- 400 = the request is broken. 401 = it's well formed but the credentials don't verify.\n- Unknown user and wrong password must look identical from outside.\n- Never return the password or the hash.\n- Timing gap: an unknown user answers faster because no hash check runs. A common fix is to check against a dummy hash in that case.\n\nNOTE\nThe lesson used request.get_json() without silent=True. Then a body that isn't JSON gets Flask's own 415 error before your 400 check runs. The code above uses silent=True so your 400 always answers.",
+      "original": ""
+    },
+    {
+      "group": "Give your API real users",
+      "item": "Lesson 7",
+      "title": "Status codes for auth failures",
+      "topic": "Give your API real users · Lesson 7",
+      "order": 807,
+      "date": "2026-09-14",
+      "dateEnd": "2026-09-21",
+      "refined": "IN PLAIN WORDS\nEvery auth outcome maps to one clear status code, so a client (like your game) can react to the code without guessing.\n\nKEY IDEAS\nRegistration\n1. New user created → 201 Created.\n2. Username already exists → 409 Conflict.\n3. Missing fields or not JSON → 400 Bad Request.\n\nLogin\n4. Correct username and password → 200 OK.\n5. Wrong username or wrong password → 401 Unauthorized, with the same message for both.\n6. Missing fields or not JSON → 400 Bad Request.\n\nKEY POINTS\n- Bad input → 400.\n- Bad or missing credentials (login) → 401.\n- Resource conflict (duplicate username) → 409.\n- A client can branch on the code: 400 shows a form error, 401 says \"login failed\", 409 says \"username taken\".",
+      "original": ""
+    },
+    {
+      "group": "Give your API real users",
+      "item": "Lesson 9",
+      "title": "Challenge: register and log in with curl",
+      "topic": "Give your API real users · Lesson 9",
+      "order": 809,
+      "date": "2026-09-14",
+      "dateEnd": "2026-09-21",
+      "refined": "IN PLAIN WORDS\nYou tested register and login end to end from the command line: 201 created, 409 duplicate, 400 bad input, 200 login, and the same 401 for a wrong password and an unknown user.\n\nSTEPS: THE TEST MATRIX\n1. Register a new user → 201, body has id and username, no password.\n2. Register the same username again → 409 \"username already exists\".\n3. Register with bad or empty JSON → 400 \"username and password are required\".\n4. Log in correctly → 200 with user info.\n5. Log in with a wrong password → 401 \"invalid credentials\".\n6. Log in with an unknown username → 401 with the same message.\n\nCODE\n```bat\n:: cmd.exe (Windows). ^ continues a line; quotes inside JSON are escaped as \\\"\ncurl -X POST \"http://127.0.0.1:5000/register\" ^\n  -H \"Content-Type: application/json\" ^\n  -d \"{\\\"username\\\":\\\"test1\\\",\\\"password\\\":\\\"Secret123!\\\"}\" ^\n  -v\n```\n\n```bat\ncurl -X POST \"http://127.0.0.1:5000/login\" ^\n  -H \"Content-Type: application/json\" ^\n  -d \"{\\\"username\\\":\\\"test1\\\",\\\"password\\\":\\\"Secret123!\\\"}\" ^\n  -v\n```\n\nKEY POINTS\n- Test every path, not just success.\n- Wrong password and unknown user must give the same 401 body.\n\nNOTE\nThis lesson had no title in your paste, so the title is a best guess.",
+      "original": ""
+    },
+    {
+      "group": "Prove who's asking and what they can do",
+      "item": "Lesson 1",
+      "title": "How JWTs prove identity",
+      "topic": "Prove who's asking and what they can do · Lesson 1",
+      "order": 901,
+      "date": "2026-09-21",
+      "dateEnd": "2026-09-28",
+      "refined": "IN PLAIN WORDS\nA JWT has three parts: header.payload.signature. Anyone can decode and read the payload. The server trusts it only after verifying the signature with its secret. Decoding is reading. Verifying is proving.\n\nKEY IDEAS\n1. Header: how the token is signed (for example HS256) and its type (JWT).\n2. Payload: claims about the user, like sub (user id), username, role, exp (expiry).\n3. Signature: made from header + payload + the server's secret. Any change to the header or payload breaks it.\n\nKEY POINTS\n- Readable is not trustworthy. Anyone can base64-decode a payload.\n- Only a token whose signature verifies with the server's secret is trusted.",
+      "original": ""
+    },
+    {
+      "group": "Prove who's asking and what they can do",
+      "item": "Lesson 2",
+      "title": "Issuing a signed token on login",
+      "topic": "Prove who's asking and what they can do · Lesson 2",
+      "order": 902,
+      "date": "2026-09-21",
+      "dateEnd": "2026-09-28",
+      "refined": "IN PLAIN WORDS\nAfter the password checks out, the server builds a payload (sub, username, exp), signs it with HS256 and a secret only the server knows, and returns the token. The payload is readable, so never put secrets in it.\n\nKEY IDEAS\n1. SHA-256: turns data into a fixed-size fingerprint.\n2. HMAC: a signature made from a secret key + the data + a hash function.\n3. HS256 = HMAC with SHA-256 and one shared secret.\n4. The secret lives on the server, in an environment variable. It is never in the token and never in Git.\n5. Safe claims: sub (user id, as a string), username, exp. Never passwords or secrets.\n\nSTEPS: LOGIN THAT ISSUES A TOKEN\n1. Validate the request (400 if broken).\n2. Look up the user and check the password hash (401 \"invalid credentials\" if wrong).\n3. Build the payload with an expiry.\n4. jwt.encode(payload, JWT_SECRET, algorithm=\"HS256\").\n5. Return {\"token\": token} with 200.\n\nCODE\n```python\nimport os\nfrom datetime import datetime, timedelta, timezone\nimport jwt\n\nJWT_SECRET = os.getenv(\"JWT_SECRET\")     # set in the environment, never committed\n\npayload = {\n    \"sub\": str(row[\"id\"]),               # must be a string in current PyJWT\n    \"username\": row[\"username\"],\n    \"exp\": datetime.now(timezone.utc) + timedelta(hours=1),\n}\ntoken = jwt.encode(payload, JWT_SECRET, algorithm=\"HS256\")\nreturn jsonify({\"token\": token}), 200\n```\n\nKEY POINTS\n- A token is issued only after the credentials verify.\n- Decoding a token proves nothing. Verifying the HMAC signature with the secret proves the server issued it and nobody changed it.\n\nCORRECTION\nTwo fixes for current versions, checked by running them (PyJWT 2.15):\n- Since PyJWT 2.10, \"sub\" must be a string. A token with \"sub\": 6 fails jwt.decode with InvalidSubjectError, so every protected request would get 401. The code above uses str(row[\"id\"]); turn it back with int(payload[\"sub\"]) when comparing ids.\n- datetime.utcnow() is deprecated since Python 3.12. The code uses datetime.now(timezone.utc).",
+      "original": ""
+    },
+    {
+      "group": "Prove who's asking and what they can do",
+      "item": "Lesson 3",
+      "title": "Requiring a token on protected routes",
+      "topic": "Prove who's asking and what they can do · Lesson 3",
+      "order": 903,
+      "date": "2026-09-21",
+      "dateEnd": "2026-09-28",
+      "refined": "IN PLAIN WORDS\nProtected routes need Authorization: Bearer <token>. Check the header, cut off \"Bearer \", verify the token with the secret, and only then use the identity inside it.\n\nSTEPS\n1. Read the Authorization header. Missing, or not starting with \"Bearer \" → 401.\n2. Take the token: everything after \"Bearer \", with spaces stripped.\n3. jwt.decode with the secret and algorithms=[\"HS256\"]. Any error → 401.\n4. Use the payload's sub and username as the caller's identity.\n5. Run the normal route logic.\n\nCODE\n```python\n@app.post(\"/recipes\")\ndef create_recipe():\n    auth_header = request.headers.get(\"Authorization\")\n    if not auth_header or not auth_header.startswith(\"Bearer \"):\n        return jsonify({\"error\": \"missing or invalid authorization header\"}), 401\n    token = auth_header[len(\"Bearer \"):].strip()\n    try:\n        payload = jwt.decode(token, JWT_SECRET, algorithms=[\"HS256\"])\n    except jwt.PyJWTError:\n        return jsonify({\"error\": \"invalid or expired token\"}), 401\n    user_id = int(payload[\"sub\"])\n    username = payload.get(\"username\")\n\n    data = request.get_json(silent=True)\n    if not data or not data.get(\"title\") or not data.get(\"ingredients\"):\n        return jsonify({\"error\": \"title and ingredients are required\"}), 400\n    # ... insert into the database, return 201 ...\n```\n\nKEY POINTS\n- Tokens come from the Authorization header, not from JSON or the URL.\n- Never trust the payload before the signature is verified.\n- Always pass algorithms=[\"HS256\"]. It stops an attacker choosing a different algorithm through the token's header.\n- At this point any valid user can write. Ownership checks come in Lesson 7.",
+      "original": ""
+    },
+    {
+      "group": "Prove who's asking and what they can do",
+      "item": "Lesson 4",
+      "title": "Handling token expiry and logout",
+      "topic": "Prove who's asking and what they can do · Lesson 4",
+      "order": 904,
+      "date": "2026-09-21",
+      "dateEnd": "2026-09-28",
+      "refined": "IN PLAIN WORDS\nAn expired token gets 401 \"token expired, please log in again\", and the client must log in for a new one. Other token problems get 401 \"invalid token\". With stateless tokens, logging out means the client deletes its token.\n\nKEY IDEAS\n1. When exp is in the past, PyJWT raises jwt.ExpiredSignatureError.\n2. An expired token cannot be extended. The user logs in again.\n3. ExpiredSignatureError is a kind of PyJWTError, so catch it first.\n4. Stateless logout: the server stores no session, so there is nothing to clear. The client forgets the token.\n\nCODE\n```python\nauth_header = request.headers.get(\"Authorization\")\nif not auth_header or not auth_header.startswith(\"Bearer \"):\n    return jsonify({\"error\": \"missing or invalid authorization header\"}), 401\ntoken = auth_header[len(\"Bearer \"):].strip()\ntry:\n    payload = jwt.decode(token, JWT_SECRET, algorithms=[\"HS256\"])\nexcept jwt.ExpiredSignatureError:                 # must come first\n    return jsonify({\"error\": \"token expired, please log in again\"}), 401\nexcept jwt.PyJWTError:\n    return jsonify({\"error\": \"invalid token\"}), 401\n```\n\nKEY POINTS\n- No token → 401 \"missing or invalid authorization header\".\n- Expired token → 401 \"token expired, please log in again\".\n- Broken token → 401 \"invalid token\".\n- A stolen stateless token keeps working until it expires. Short lifetimes, or a server-side session list, limit that.",
+      "original": ""
+    },
+    {
+      "group": "Prove who's asking and what they can do",
+      "item": "Lesson 5",
+      "title": "Authenticated is not authorized: 401 versus 403",
+      "topic": "Prove who's asking and what they can do · Lesson 5",
+      "order": 905,
+      "date": "2026-09-21",
+      "dateEnd": "2026-09-28",
+      "refined": "IN PLAIN WORDS\nAuthentication asks \"who is this?\" and fails with 401. Authorization asks \"may they do this?\" and fails with 403. A valid token can still get 403.\n\nKEY IDEAS\n1. 401 Unauthorized: the server can't accept your identity. Missing header, invalid or expired token, wrong username or password.\n2. 403 Forbidden: the server knows who you are, but you aren't allowed. A normal user on an admin route, or editing someone else's data.\n\nSTEPS: PICK THE STATUS CODE\n1. Who is asking? Can't verify → 401.\n2. May they do this? No → 403.\n\nKEY POINTS\n- A request with a valid token can still get 403: it passes authentication but fails authorization.\n- Missing or bad token → 401. Valid token, not allowed → 403.",
+      "original": ""
+    },
+    {
+      "group": "Prove who's asking and what they can do",
+      "item": "Lesson 6",
+      "title": "Find the missing access checks",
+      "topic": "Prove who's asking and what they can do · Lesson 6",
+      "order": 906,
+      "date": "2026-09-21",
+      "dateEnd": "2026-09-28",
+      "refined": "IN PLAIN WORDS\nBroken access control: a logged-in user can act on data they don't own. You proved it by changing recipe 2's title as testuser. The cause is a missing ownership check: the route updates by id and never compares the caller with the owner.\n\nKEY IDEAS\n1. Broken access control: user A can act on user B's data.\n2. Missing ownership check: the server knows who is asking but never compares them with the resource's owner.\n3. Being logged in (authentication) does not make an action allowed (authorization).\n\nSTEPS: THE EXPLOIT YOU RAN\n1. Log in as testuser and get a token.\n2. GET /recipes/2 → \"Overnight oats\" (not yours).\n3. PATCH /recipes/2 with your token and {\"title\": \"Overnight oats HACKED BY testuser\"}.\n4. Result: 200 and the title changed. The flaw is proven.\n\nCODE\n```python\n# The vulnerable route: updates by id only, no owner check\n@app.patch(\"/recipes/<int:recipe_id>\")\ndef update_recipe(recipe_id):\n    ...\n    values.append(recipe_id)\n    cur = get_db().execute(\n        f\"UPDATE recipes SET {', '.join(fields)} WHERE id = ?\", values\n    )\n```\n\nKEY POINTS\n- Authenticated is not the same as authorized.\n- Evidence of the flaw: logged in as user A, changed user B's recipe through PATCH /recipes/<id>, and the API accepted it.",
+      "original": ""
+    },
+    {
+      "group": "Prove who's asking and what they can do",
+      "item": "Lesson 7",
+      "title": "Enforcing ownership on recipes",
+      "topic": "Prove who's asking and what they can do · Lesson 7",
+      "order": 907,
+      "date": "2026-09-21",
+      "dateEnd": "2026-09-28",
+      "refined": "IN PLAIN WORDS\nEach recipe gets an owner_id, set from the token when it's created. Before an update or delete, load the recipe and compare owner_id with the caller. Not the owner → 403.\n\nKEY IDEAS\n1. owner_id is set from the token's sub when the recipe is created.\n2. Authorization rule: user_id from the token == owner_id on the row.\n3. A valid user touching someone else's recipe gets 403, not 401.\n\nSTEPS: PATCH OR DELETE\n1. Verify the token → 401 if it fails.\n2. user_id = int(payload[\"sub\"])\n3. Load the recipe → 404 if it doesn't exist.\n4. owner_id != user_id → 403.\n5. Update (200) or delete (204).\n\nCODE\n```sql\nALTER TABLE recipes ADD COLUMN owner_id INTEGER;\n```\n\n```python\n# create: link the recipe to the caller\nuser_id = int(payload[\"sub\"])\ndb.execute(\n    \"INSERT INTO recipes (title, ingredients, instructions, is_public, owner_id)\"\n    \" VALUES (?, ?, ?, ?, ?)\",\n    (title, ingredients, instructions, is_public, user_id),\n)\n\n# update or delete: owner only\nrow = db.execute(\"SELECT * FROM recipes WHERE id = ?\", (recipe_id,)).fetchone()\nif row is None:\n    return jsonify({\"error\": \"recipe not found\"}), 404\nif row[\"owner_id\"] != user_id:\n    return jsonify({\"error\": \"forbidden: not the owner\"}), 403\ndb.execute(\"DELETE FROM recipes WHERE id = ?\", (recipe_id,))\ndb.commit()\nreturn \"\", 204\n```\n\nKEY POINTS\n- 401: missing, invalid or expired token.\n- 403: valid token, not the owner.\n- 404: no recipe with that id.\n- 200: owner updated it. 204: owner deleted it.\n\nCORRECTION\n- sub is a string in current PyJWT (Lesson 2), so comparing row[\"owner_id\"] (a number) with payload[\"sub\"] would never match, and owners would get 403 on their own recipes. The code uses int(payload[\"sub\"]).\n- ALTER TABLE ... ADD COLUMN leaves older recipes with owner_id = NULL. Only an admin can change those.",
+      "original": ""
+    },
+    {
+      "group": "Prove who's asking and what they can do",
+      "item": "Lesson 8",
+      "title": "Adding an admin role",
+      "topic": "Prove who's asking and what they can do · Lesson 8",
+      "order": 908,
+      "date": "2026-09-21",
+      "dateEnd": "2026-09-28",
+      "refined": "IN PLAIN WORDS\nAdd a role column (default 'user'). At login, put the role from the database into the token. The signature covers it, so editing \"role\" to \"admin\" breaks the token and gets 401. Rule: allow the owner OR an admin, otherwise 403.\n\nKEY IDEAS\n1. The role is stored in the database, never sent by the client.\n2. It goes into the JWT at login, read from the database.\n3. Changing the payload breaks the signature → jwt.decode fails → 401 \"invalid token\".\n\nSTEPS: OWNER-OR-ADMIN CHECK\n1. Verify the token → 401 on failure.\n2. user_id = int(payload[\"sub\"]), role = payload[\"role\"].\n3. Load the recipe → 404 if missing.\n4. Not the owner and not admin → 403.\n5. Otherwise update (200) or delete (204).\n\nCODE\n```sql\nALTER TABLE users ADD COLUMN role TEXT NOT NULL DEFAULT 'user';\n```\n\n```python\nrow = db.execute(\n    \"SELECT id, username, password_hash, role FROM users WHERE username = ?\",\n    (username,),\n).fetchone()\npayload = {\n    \"sub\": str(row[\"id\"]),\n    \"username\": row[\"username\"],\n    \"role\": row[\"role\"],                     # from the database\n    \"exp\": datetime.now(timezone.utc) + timedelta(hours=1),\n}\ntoken = jwt.encode(payload, JWT_SECRET, algorithm=\"HS256\")\n```\n\n```python\nif recipe[\"owner_id\"] != user_id and role != \"admin\":\n    return jsonify({\"error\": \"forbidden: not the owner or admin\"}), 403\n```\n\nKEY POINTS\n- Allow if owner OR admin. Authenticated but neither → 403. Bad token → 401. Missing recipe → 404.\n- A role inside a token lasts until the token expires. A demoted admin keeps admin power until then, unless the server re-checks the role in the database.",
+      "original": ""
+    },
+    {
+      "group": "Prove who's asking and what they can do",
+      "item": "Lesson 9",
+      "title": "Consolidating checks into middleware",
+      "topic": "Prove who's asking and what they can do · Lesson 9",
+      "order": 909,
+      "date": "2026-09-21",
+      "dateEnd": "2026-09-28",
+      "refined": "IN PLAIN WORDS\nMove the header and token checks into one @require_auth decorator. It sets g.user_id and g.role, or returns 401. Routes then only do authorization. One gate means no forgotten checks on new routes and the same errors everywhere.\n\nSTEPS: WHAT @require_auth DOES\n1. Read the Authorization header. Missing or not \"Bearer \" → 401.\n2. Verify the token: expired → 401 \"token expired\"; anything else wrong → 401 \"invalid token\".\n3. Store the identity: g.user_id and g.role.\n4. Call the route.\n\nCODE\n```python\nfrom functools import wraps\nfrom flask import g\n\ndef require_auth(f):\n    @wraps(f)\n    def wrapper(*args, **kwargs):\n        auth_header = request.headers.get(\"Authorization\")\n        if not auth_header or not auth_header.startswith(\"Bearer \"):\n            return jsonify({\"error\": \"missing or invalid authorization header\"}), 401\n        token = auth_header[len(\"Bearer \"):].strip()\n        try:\n            payload = jwt.decode(token, JWT_SECRET, algorithms=[\"HS256\"])\n        except jwt.ExpiredSignatureError:\n            return jsonify({\"error\": \"token expired, please log in again\"}), 401\n        except jwt.PyJWTError:\n            return jsonify({\"error\": \"invalid token\"}), 401\n        g.user_id = int(payload[\"sub\"])\n        g.role = payload.get(\"role\")\n        return f(*args, **kwargs)\n    return wrapper\n\n@app.delete(\"/recipes/<int:recipe_id>\")\n@require_auth                                    # below the route decorator\ndef delete_recipe(recipe_id):\n    db = get_db()\n    row = db.execute(\"SELECT * FROM recipes WHERE id = ?\", (recipe_id,)).fetchone()\n    if row is None:\n        return jsonify({\"error\": \"recipe not found\"}), 404\n    if row[\"owner_id\"] != g.user_id and g.role != \"admin\":\n        return jsonify({\"error\": \"forbidden: not the owner or admin\"}), 403\n    db.execute(\"DELETE FROM recipes WHERE id = ?\", (recipe_id,))\n    db.commit()\n    return \"\", 204\n```\n\nKEY POINTS\n- Authentication lives in one place; routes only decide who may do what.\n- A new protected route = write the function, add @require_auth, use g.user_id and g.role.\n- Token rules change in one place.\n- @require_auth must sit below @app.patch / @app.delete. Decorators run bottom-up, and the route decorator registers whatever it's handed. Put @require_auth above it and Flask registers the unprotected function.",
+      "original": ""
+    },
+    {
+      "group": "Prove who's asking and what they can do",
+      "item": "Lesson 10",
+      "title": "Challenge: fully protect the recipe API",
+      "topic": "Prove who's asking and what they can do · Lesson 10",
+      "order": 910,
+      "date": "2026-09-21",
+      "dateEnd": "2026-09-28",
+      "refined": "IN PLAIN WORDS\nThe full contract for the recipe API: @require_auth (401) → load the recipe (404) → owner or admin (else 403) → validate the body (400) → 200 for an update, 204 for a delete.\n\nSTEPS: PATCH /recipes/<id>\n1. @require_auth: missing header, expired or invalid token → 401.\n2. Load the recipe → 404 if missing.\n3. Not the owner and not admin → 403.\n4. No JSON → 400 \"a JSON body is required\". No updatable fields → 400 \"no updatable fields provided\".\n5. Update the allowed fields and return the recipe with 200.\n\nSTEPS: DELETE /recipes/<id>\n1. @require_auth → 401 on failure.\n2. Load the recipe → 404 if missing.\n3. Not the owner and not admin → 403.\n4. Delete and return 204 with an empty body.\n\nCODE\n```powershell\n# Works in Windows PowerShell 5.1 and PowerShell 7\n$login = Invoke-RestMethod -Method POST http://localhost:5000/login `\n  -ContentType \"application/json\" `\n  -Body '{\"username\": \"testuser\", \"password\": \"testpass123\"}'\n$headers = @{ Authorization = \"Bearer $($login.token)\" }\n\nInvoke-WebRequest -Method PATCH http://localhost:5000/recipes/2 `\n  -ContentType \"application/json\" -Headers $headers `\n  -Body '{\"title\": \"New title\"}'\n```\n\nKEY POINTS\n- No token → 401.\n- Valid token, someone else's recipe → 403.\n- Owner updates their recipe → 200 with the updated JSON.\n- Admin deletes any recipe → 204.\n- Missing recipe → 404. Bad body → 400.\n\nNOTE\n- In Windows PowerShell 5.1, curl is a nickname for Invoke-WebRequest. In PowerShell 7, curl runs the real curl.exe and options like -Method fail. Using the full name works in both.\n- Invoke-WebRequest treats 4xx answers as errors. In PowerShell 7, add -SkipHttpErrorCheck to see a 403's status code instead of an error.",
+      "original": ""
+    },
+    {
+      "group": "Attack, audit, and what's next",
+      "item": "Lesson 1",
+      "title": "What web security is and how attackers think",
+      "topic": "Attack, audit, and what's next · Lesson 1",
+      "order": 1001,
+      "date": "2026-09-28",
+      "dateEnd": "2026-10-05",
+      "refined": "IN PLAIN WORDS\nThink like an attacker. What can I reach without logging in? What can I reach or change as another user? Which inputs does the server trust too much? Four common flaws each have a matching defense.\n\nKEY IDEAS\n1. Sensitive data exposure: secrets are easy to see. Defense: keep secrets out of responses, repositories and logs, and never store them in plaintext.\n2. Broken access control: a user reads or changes other people's data. Defense: ownership and role checks on every action.\n3. Injection: input changes the logic of a query. Defense: parameterized queries with ? placeholders, so input stays data.\n4. Broken authentication: \"who are you?\" is weak. Defense: password hashing and verified tokens.\n5. Vulnerability = the flaw in the code or design. Exploit = the request that uses it.\n\nSTEPS: THE ATTACKER'S OPENING QUESTIONS\n1. No login: what works without a token?\n2. Cross-user: can I touch another user's data?\n3. Trusted input: can my input change a query or the auth logic?\n\nKEY POINTS\n- Plaintext passwords are both data exposure and broken authentication. They are treated as an authentication problem because hashing is part of authentication.\n- A decoded JWT is not trusted until its signature is verified.\n- Attackers don't need your source code. They send requests you didn't expect.",
+      "original": ""
+    },
+    {
+      "group": "Attack, audit, and what's next",
+      "item": "Lesson 2",
+      "title": "OWASP Juice Shop expedition",
+      "topic": "Attack, audit, and what's next · Lesson 2",
+      "order": 1002,
+      "date": "2026-09-28",
+      "dateEnd": "2026-10-05",
+      "refined": "IN PLAIN WORDS\nOWASP Juice Shop is a deliberately insecure shop for practice. Four challenges, each mapped to a flaw and its fix.\n\nKEY IDEAS\n1. Confidential Document: sensitive data exposure. A secret file sits in a public folder and can be downloaded by guessing the URL. Fix: keep secret files outside public folders and never serve them.\n2. View Basket: broken access control. The server trusts a basket id sent by the client, so changing it shows someone else's basket. Fix: check ownership on the server with the logged-in user, and refuse if it isn't theirs.\n3. Login Admin: injection. The login SQL is built by joining strings, so crafted input in the email field changes the query and logs in as admin. Fix: parameterized queries (WHERE email = ?).\n4. Password Strength: broken authentication. The admin password is weak enough to guess. Fix: enforce strong passwords and block common ones, on top of hashing.\n\nKEY POINTS\n- Data exposure → don't serve secret files.\n- Access control → server-side ownership checks.\n- Injection → parameterized queries.\n- Weak passwords → password rules, separate from hashing.",
+      "original": ""
+    },
+    {
+      "group": "Attack, audit, and what's next",
+      "item": "Lesson 3",
+      "title": "The next frontier in security",
+      "topic": "Attack, audit, and what's next · Lesson 3",
+      "order": 1003,
+      "date": "2026-09-28",
+      "dateEnd": "2026-10-05",
+      "refined": "IN PLAIN WORDS\nThis course secured one API: hashed passwords, signed expiring tokens, central middleware, ownership and roles, and 401 vs 403. Bigger systems need more: shared logins, password resets, rate limiting, HTTPS, and tokens trusted across several services.\n\nKEY IDEAS\nInside one API (this course)\n1. Authentication: email or username and password, hashed passwords, signed expiring JWTs.\n2. Authorization: central middleware checks the token; ownership and role checks on resources.\n3. Correct codes: 401 for no valid auth, 403 for authenticated but not allowed.\n\nBeyond one API (bigger systems)\n4. OAuth / SSO: one login shared by many apps.\n5. Password reset: emailed links and special one-time tokens.\n6. Rate limiting: stops bots and attackers flooding login or other endpoints.\n7. HTTPS: stops spying and tampering on data in transit.\n8. Cross-service tokens: many services trusting the same identity.\n\nKEY POINTS\n- One API doing login, tokens, middleware, ownership and roles → this course.\n- Many apps or services, special flows, large-scale abuse, HTTPS → bigger systems.",
+      "original": ""
+    },
+    {
+      "group": "Attack, audit, and what's next",
+      "item": "Lesson 5",
+      "title": "Challenge: course recap",
+      "topic": "Attack, audit, and what's next · Lesson 5",
+      "order": 1005,
+      "date": "2026-09-28",
+      "dateEnd": "2026-10-05",
+      "refined": "IN PLAIN WORDS\nThe whole course on one route, DELETE /games/<id>: Git history → hashed passwords → JWT login → middleware (401 for a bad token) → authorization in the handler (403 if not the owner or an allowed role) → 404 if missing → 200/204 on success.\n\nSTEPS: ONE PROTECTED DELETE\n1. Git tracks every change, so a security bug can be traced and rolled back.\n2. Passwords are stored as hashes.\n3. Login checks the password and returns a JWT.\n4. Middleware reads Authorization: Bearer <token> and verifies the signature and expiry. Bad or missing → 401. Good → attaches the user id and role.\n5. The handler checks: owner, or an allowed role (admin, mod, dev)? No → 403.\n6. Game not found (or not visible to this user) → 404.\n7. Success → 200 or 204.\n\nKEY POINTS\n- Authentication = who are you? Fails with 401.\n- Authorization = are you allowed? Fails with 403.",
+      "original": ""
+    }
+  ]
+}
