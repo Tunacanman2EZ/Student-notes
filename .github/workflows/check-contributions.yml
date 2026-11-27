@@ -1,0 +1,40 @@
+# Runs on EVERY pull request, so the "check" that protect-main requires always shows up.
+#   Share pull request (touches contributions/): only share files may change, and each one is checked
+#     with the same rules the app uses (tools/check-contributions.js).
+#   App update (doesn't touch contributions/): runs the logic tests instead.
+# A red ✗ means the pull request can't be merged until the problem is fixed.
+name: Check shared notes
+on:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: What kind of pull request is this?
+        id: kind
+        run: |
+          git fetch --no-tags --depth=1 origin "${{ github.base_ref }}"
+          changed=$(git diff --name-only "origin/${{ github.base_ref }}" HEAD)
+          echo "Changed files:"; echo "$changed"
+          if echo "$changed" | grep -q '^contributions/'; then echo "kind=share" >> "$GITHUB_OUTPUT"; echo "→ a share"
+          else echo "kind=app" >> "$GITHUB_OUTPUT"; echo "→ an app update (no share files)"; fi
+      - name: "Share: only share files may change"
+        if: steps.kind.outputs.kind == 'share'
+        run: |
+          other=$(git diff --name-only "origin/${{ github.base_ref }}" HEAD | grep -v '^contributions/' || true)
+          if [ -n "$other" ]; then echo "This pull request changes files outside contributions/:"; echo "$other"; exit 1; fi
+      - name: "Share: check the share files"
+        if: steps.kind.outputs.kind == 'share'
+        run: |
+          files=$(git diff --name-only --diff-filter=AM "origin/${{ github.base_ref }}" HEAD -- contributions/ | grep -v 'README.md' || true)
+          if [ -z "$files" ]; then echo "No share files to check."; exit 0; fi
+          node tools/check-contributions.js $files
+      - name: "App update: run the logic tests"
+        if: steps.kind.outputs.kind == 'app'
+        run: node tests/run.js

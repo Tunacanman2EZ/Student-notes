@@ -1,0 +1,62 @@
+# Notes Vault step 2C: search box, class dropdown and dropdown cards, in a real browser.
+#   python tests/browser_ui_test.py      (needs Python + Playwright, like browser_storage_test.py)
+from playwright.sync_api import sync_playwright
+import glob, pathlib, json
+ROOT = pathlib.Path(__file__).resolve().parent.parent
+URL = (ROOT / 'index.html').as_uri()
+FILES = sorted(glob.glob(str(ROOT / 'examples' / '*.json')))
+TOTAL = sum(len(json.load(open(f))['notes']) for f in FILES)
+results = []
+def ok(name, cond, detail=""):
+    results.append(bool(cond)); print(("PASS " if cond else "FAIL ") + name + (f"  ({detail})" if detail else ""))
+def wait(pg): pg.wait_for_timeout(350)
+with sync_playwright() as p:
+    b = p.chromium.launch(); pg = b.new_page(viewport={"width": 1100, "height": 900})
+    errs = []; pg.on('pageerror', lambda e: errs.append(str(e)))
+    pg.goto(URL); wait(pg)
+    ok("new user: the paste box starts open", pg.locator('#add-panel').is_visible())
+    for f in FILES: pg.set_input_files('#import-file', f); pg.wait_for_timeout(250)
+    pg.reload(); wait(pg)
+    ok("every note is listed", pg.locator('.note').count() == TOTAL, pg.inner_text('#result-count'))
+    ok("panels start closed once you have notes", not pg.locator('#add-panel').is_visible())
+    ok("cards start closed", pg.locator('.note.open').count() == 0)
+    opts = pg.locator('#class-filter option').all_inner_texts()
+    ok("dropdown: All classes + every class, newest first", opts[0] == f"All classes ({TOTAL})" and opts[1].startswith("DEMO101"), opts[:3])
+    # search
+    pg.fill('#search', 'plain words'); wait(pg)
+    n401 = pg.locator('.note').count()
+    ok("search narrows the list", 0 < n401 < TOTAL, pg.inner_text('#result-count'))
+    ok("count says 'N of total'", pg.inner_text('#result-count') == f"{n401} of {TOTAL} notes")
+    ok("matches are highlighted", pg.locator('.note-head mark').count() > 0)
+    pg.select_option('#class-filter', label=[o for o in opts if o.startswith("DEMO101")][0]); wait(pg)
+    ok("search + class together", 0 < pg.locator('.note').count() < n401, pg.inner_text('#result-count'))
+    ok("every result is from that class", all("DEMO101" in m for m in pg.locator('.note-meta').all_inner_texts()))
+    pg.fill('#search', '"lighthouse keeper"'); wait(pg)
+    ok("a rare phrase opens its few results right away", pg.locator('.note.open').count() == pg.locator('.note').count() >= 1, pg.inner_text('#result-count'))
+    ok("highlight inside the open note", pg.locator('.note.open .note-text mark').count() > 0)
+    pg.fill('#search', 'zzqqxx'); wait(pg)
+    ok("nothing found: says so", pg.locator('#empty-message').is_visible() and "zzqqxx" in pg.inner_text('#empty-message'))
+    pg.press('#search', 'Escape'); wait(pg)
+    ok("Escape clears the search", pg.input_value('#search') == "" and pg.locator('.note').count() > 0)
+    pg.reload(); wait(pg)
+    ok("the class you picked is remembered", pg.locator('#class-filter').input_value().startswith("DEMO101"))
+    pg.select_option('#class-filter', ''); wait(pg)
+    # word only in the ORIGINAL (Facebook typo "douse") opens the Original tab
+    pg.fill('#search', 'zephyrine'); wait(pg)
+    first = pg.locator('.note').first; first.locator('.note-head').click()
+    ok("found only in your original: Original tab opens", first.locator('.tab.active').inner_text() == "Original")
+    # dropdown cards
+    pg.fill('#search', ''); pg.press('#search', 'Escape'); wait(pg)
+    card = pg.locator('.note').first
+    card.locator('.note-head').click(); ok("click a title: it opens", 'open' in card.get_attribute('class'))
+    ok("open card has Refined/Original tabs", card.locator('.tab').count() == 2)
+    card.locator('.note-head').click(); ok("click again: it closes", 'open' not in card.get_attribute('class'))
+    pg.select_option('#class-filter', label=[o for o in opts if o.startswith("DEMO101")][0]); wait(pg)
+    pg.click('#open-all'); ok("Open all", pg.locator('.note.open').count() == pg.locator('.note').count())
+    pg.click('#close-all'); ok("Close all", pg.locator('.note.open').count() == 0)
+    pg.click('body'); pg.keyboard.press('/'); ok('"/" jumps to the search box', pg.evaluate("document.activeElement.id") == "search")
+    ok("no page errors", not errs, errs)
+    pg.select_option('#class-filter', ''); pg.fill('#search', 'status codes'); wait(pg)
+    pg.screenshot(path=str(pathlib.Path('/tmp') / 'nv-search.png'))
+    b.close()
+print(f"\n{sum(results)} of {len(results)} passed")

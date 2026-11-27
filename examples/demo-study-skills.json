@@ -1,0 +1,45 @@
+{
+  "app": "notes-vault",
+  "version": 1,
+  "notes": [
+    {
+      "id": "study-skills-lesson-1",
+      "className": "Study Skills",
+      "topic": "Lesson 1",
+      "title": "Spaced practice",
+      "order": 1,
+      "date": "2025-12-01",
+      "dateEnd": "2025-12-08",
+      "link": null,
+      "text": "Lesson 1: Spaced practice\nReview a little, often, instead of all at once.\nShort sessions spread over days beat one long session.\n",
+      "refined": "GOAL: Review a little, often, instead of all at once.\n\nShort sessions spread over days beat one long session.",
+      "addedOn": "2026-01-01T00:00:00Z"
+    },
+    {
+      "id": "study-skills-lesson-2",
+      "className": "Study Skills",
+      "topic": "Lesson 2",
+      "title": "Active recall",
+      "order": 2,
+      "date": "2025-12-01",
+      "dateEnd": "2025-12-08",
+      "link": null,
+      "text": "Lesson 2: Active recall\nTest yourself before rereading.\nClose the notes and write what you remember, then check.\n",
+      "refined": "GOAL: Test yourself before rereading.\n\nClose the notes and write what you remember, then check.",
+      "addedOn": "2026-01-01T00:00:00Z"
+    },
+    {
+      "id": "study-skills-lesson-3",
+      "className": "Study Skills",
+      "topic": "Lesson 3",
+      "title": "Teach it back",
+      "order": 3,
+      "date": "2025-12-01",
+      "dateEnd": "2025-12-08",
+      "link": null,
+      "text": "Lesson 3: Teach it back\nExplain it in plain words to someone else.\nIf you can't explain it simply, find the gap and fill it.\n",
+      "refined": "GOAL: Explain it in plain words to someone else.\n\nIf you can't explain it simply, find the gap and fill it.",
+      "addedOn": "2026-01-01T00:00:00Z"
+    }
+  ]
+}

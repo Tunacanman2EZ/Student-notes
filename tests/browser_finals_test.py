@@ -1,0 +1,61 @@
+# Notes Vault step 2F: the Final prep page, in a real browser.
+#   python tests/browser_finals_test.py      (needs Python + Playwright)
+from playwright.sync_api import sync_playwright
+import glob, json, pathlib, tempfile
+ROOT = pathlib.Path(__file__).resolve().parent.parent
+URL = (ROOT / 'index.html').as_uri()
+FILES = sorted(glob.glob(str(ROOT / 'examples' / '*.json')))
+ALL = [n for f in FILES for n in json.load(open(f))['notes']]
+results = []
+def ok(name, cond, detail=""):
+    results.append(bool(cond)); print(("PASS " if cond else "FAIL ") + name + (f"  ({detail})" if detail else ""))
+def settle(pg, ms=450): pg.wait_for_timeout(ms)
+with sync_playwright() as p:
+    b = p.chromium.launch(); pg = b.new_context(viewport={"width": 1366, "height": 900}).new_page()
+    errs = []; pg.on('pageerror', lambda e: errs.append(str(e)))
+    pg.goto(URL); settle(pg)
+    for f in FILES: pg.set_input_files('#import-file', f); pg.wait_for_timeout(200)
+    pg.reload(); settle(pg, 900)
+    ok("every class has a Final prep link", pg.locator('.side-final').count() == pg.locator('.side-class').count())
+    demo = pg.locator('.side-class', has_text='DEMO101'); demo.locator('summary').click()
+    demo.locator('.side-final').click(); settle(pg)
+    ok("Final prep opens", pg.locator('#final-view').is_visible() and not pg.locator('#notes-card').is_visible())
+    sub = pg.locator('#final-view .week-head .muted').inner_text()
+    ok("header says the class and its 2 weeks", "DEMO101" in sub and "2 weeks (Week 1 to Week 2)" in sub, sub)
+    tabs = pg.locator('.final-tabs .panel-tab').all_inner_texts()
+    ok("three tabs with counts", [t.split(' (')[0] for t in tabs] == ['Summaries', 'Study lines', 'Corrections'], tabs)
+    n104 = sum(1 for n in ALL if n['className'].startswith('DEMO101'))
+    ok("Summaries lists every lesson", pg.locator('.final-section.shown .lesson').count() == n104 and tabs[0] == f"Summaries ({n104})")
+    ok("…grouped by week, in order", pg.locator('.final-section.shown .final-week').all_inner_texts()[0].startswith('WEEK 1')
+       or pg.locator('.final-section.shown .final-week').all_inner_texts()[0].startswith('Week 1'))
+    pg.click('.final-tabs [data-tab=study]'); settle(pg)
+    nstudy = int(tabs[1].split('(')[1].rstrip(')'))
+    ok("Study lines tab shows its blocks", pg.locator('.final-section.shown .final-block').count() == nstudy, nstudy)
+    ok("…like the Week 1 cheat sheet", "Cheat sheet" in pg.locator('.final-section.shown').inner_text())
+    pg.click('.final-tabs [data-tab=fixes]'); settle(pg)
+    shown = pg.locator('.final-section.shown').inner_text()
+    ok("Corrections tab has the checked fix", "scrypt" in shown and "CORRECTION" in shown)
+    ok("…but not game-fact fixes", "no real game facts" not in shown)
+    pg.locator('.final-section.shown .lesson button', has_text='Open full note').first.click(); settle(pg, 250)
+    ok("Open full note works here too", pg.locator('.final-section.shown .note.open').count() == 1)
+    # a reviewed lesson shows its tick
+    pg.click('.final-tabs [data-tab=summaries]'); settle(pg)
+    demo.locator('.side-week', has_text='Week 1').click(); settle(pg)
+    pg.locator('.lesson input[type=checkbox]').first.check(); settle(pg)
+    demo.locator('.side-final').click(); settle(pg)
+    ok("reviewed lessons are marked on Final prep", pg.locator('.final-section.shown .tag.done').count() == 1)
+    ok("the tab you were on is remembered", 'active' in pg.locator('.final-tabs [data-tab=summaries]').get_attribute('class'))
+    # a class with no exam markers says so instead of an empty page
+    pf = pg.locator('.side-class', has_text='Study Skills'); pf.locator('summary').click(); pf.locator('.side-final').click(); settle(pg)
+    pg.click('.final-tabs [data-tab=study]'); settle(pg)
+    ok("no study lines: a helpful message", "Use the Summaries tab" in pg.locator('.final-section.shown').inner_text())
+    # print: all three tabs, no sidebar
+    pg.emulate_media(media="print")
+    ok("print shows all three tabs", pg.locator('.final-section:visible').count() == 3)
+    ok("print hides the sidebar and top bar", not pg.locator('#sidebar').is_visible() and not pg.locator('#topbar').is_visible())
+    pg.emulate_media(media="screen")
+    pg.fill('#search', 'jwt'); settle(pg)
+    ok("searching leaves Final prep", pg.locator('#notes-card').is_visible() and not pg.locator('#final-view').is_visible())
+    ok("no page errors", not errs, errs)
+    b.close()
+print(f"\n{sum(results)} of {len(results)} passed")

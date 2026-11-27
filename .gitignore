@@ -1,0 +1,6 @@
+# Your own notes and backups never belong in this public repo.
+notes-vault-backup-*.json
+my-classes/
+*.local.json
+__pycache__/
+.DS_Store

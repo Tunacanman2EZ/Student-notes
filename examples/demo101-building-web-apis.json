@@ -1,0 +1,110 @@
+{
+  "app": "notes-vault",
+  "version": 1,
+  "notes": [
+    {
+      "id": "demo101-week-1-lesson-1",
+      "className": "DEMO101: Building Web APIs",
+      "topic": "Week 1 · Lesson 1",
+      "title": "What an API is",
+      "order": 101,
+      "date": "2026-01-05",
+      "dateEnd": "2026-01-12",
+      "link": null,
+      "text": "Week\n01\nJan 05 - Jan 12\nAPI basics\nLesson 1\nWhat an API is\nAn API is a menu of requests a program accepts.\nThe client asks, the server answers.\nCheat sheet:\nClient = asks\nServer = answers\nEndpoint = one address on the menu\n",
+      "refined": "IN PLAIN WORDS\nAn API is a menu of requests a program accepts. The client asks; the server answers.\n\n————— YOUR NOTES (tidied) —————\n\nAn API is a menu of requests a program accepts.\nThe client asks, the server answers.\nCheat sheet:\nClient = asks\nServer = answers\nEndpoint = one address on the menu",
+      "addedOn": "2026-01-01T00:00:00Z"
+    },
+    {
+      "id": "demo101-week-1-lesson-2",
+      "className": "DEMO101: Building Web APIs",
+      "topic": "Week 1 · Lesson 2",
+      "title": "Routes and status codes",
+      "order": 102,
+      "date": "2026-01-05",
+      "dateEnd": "2026-01-12",
+      "link": null,
+      "text": "Lesson 2\nRoutes and status codes\nA route connects a URL to a function.\n200 OK, 201 Created, 404 Not Found.\nFor finals:\nKnow which code goes with which result.\n",
+      "refined": "IN PLAIN WORDS\nA route connects a URL to a function, and every answer has a status code: 200 OK, 201 Created, 404 Not Found.\n\n————— YOUR NOTES (tidied) —————\n\nA route connects a URL to a function:\n```python\n@app.get(\"/hello\")\ndef hello():\n    return {\"msg\": \"hi\"}, 200\n```\nFor finals:\nKnow which code goes with which result.\n200 = OK, 201 = Created, 404 = Not Found",
+      "addedOn": "2026-01-01T00:00:00Z"
+    },
+    {
+      "id": "demo101-week-1-lesson-3",
+      "className": "DEMO101: Building Web APIs",
+      "topic": "Week 1 · Lesson 3",
+      "title": "JSON in and out",
+      "order": 103,
+      "date": "2026-01-05",
+      "dateEnd": "2026-01-12",
+      "link": null,
+      "text": "Lesson 3\nJSON in and out\nRead the body with request.get_json(silent=True).\nNo JSON? Answer 400.\nThe lighthouse keeper example: one request, one answer.\n",
+      "refined": "IN PLAIN WORDS\nRead JSON with request.get_json(silent=True). If the body isn't JSON, answer 400.\n\n————— YOUR NOTES (tidied) —————\n\nRead the body with request.get_json(silent=True).\nNo JSON? Answer 400.\nThe lighthouse keeper example: one request, one answer.",
+      "addedOn": "2026-01-01T00:00:00Z"
+    },
+    {
+      "id": "demo101-week-1-review",
+      "className": "DEMO101: Building Web APIs",
+      "topic": "Week 1 · Review",
+      "title": "Review: API basics",
+      "order": 150,
+      "date": "2026-01-05",
+      "dateEnd": "2026-01-12",
+      "link": null,
+      "text": "Review\nReview: API basics\n",
+      "refined": "IN PLAIN WORDS\nNo notes were saved for this review yet.",
+      "addedOn": "2026-01-01T00:00:00Z"
+    },
+    {
+      "id": "demo101-week-2-lesson-1",
+      "className": "DEMO101: Building Web APIs",
+      "topic": "Week 2 · Lesson 1",
+      "title": "Hashing passwords",
+      "order": 201,
+      "date": "2026-01-12",
+      "dateEnd": "2026-01-19",
+      "link": null,
+      "text": "Week\n02\nJan 12 - Jan 19\nReal users\nLesson 1\nHashing passwords\nNever store the password. Store a hash.\nThe default method is pbkdf2.\nKey exam idea:\nHashing is one-way; you can only check a guess.\n",
+      "refined": "IN PLAIN WORDS\nNever store a password, only a one-way hash. Login re-hashes the guess and compares.\n\n————— YOUR NOTES (tidied) —————\n\nNever store the password. Store a hash.\n```python\nfrom werkzeug.security import generate_password_hash, check_password_hash\nh = generate_password_hash(\"secret\")\ncheck_password_hash(h, \"secret\")  # True\n```\nKey exam idea:\nHashing is one-way; you can only check a guess.\n\nCORRECTION (checked by running it)\nIn current Werkzeug the default method is scrypt, not pbkdf2. check_password_hash reads the method from the hash, so both still work.\n\nMORE EXACT (game fact)\nThis demo has no real game facts; this block only tests that game-fact fixes stay out of Final prep.",
+      "addedOn": "2026-01-01T00:00:00Z"
+    },
+    {
+      "id": "demo101-week-2-lesson-2",
+      "className": "DEMO101: Building Web APIs",
+      "topic": "Week 2 · Lesson 2",
+      "title": "Tokens and 401 vs 403",
+      "order": 202,
+      "date": "2026-01-12",
+      "dateEnd": "2026-01-19",
+      "link": null,
+      "text": "Lesson 2\nTokens and 401 vs 403\n401 = we don't know who you are.\n403 = we know you, but you can't do this.\nMemorize:\nmissing or bad token → 401\nnot allowed → 403\n",
+      "refined": "IN PLAIN WORDS\n401 means the server can't tell who you are; 403 means it knows you but you're not allowed.\n\n————— YOUR NOTES (tidied) —————\n\n401 = we don't know who you are.\n403 = we know you, but you can't do this.\nMemorize:\nmissing or bad token → 401\nnot allowed → 403",
+      "addedOn": "2026-01-01T00:00:00Z"
+    },
+    {
+      "id": "demo101-week-2-lesson-3",
+      "className": "DEMO101: Building Web APIs",
+      "topic": "Week 2 · Lesson 3",
+      "title": "Owner checks",
+      "order": 203,
+      "date": "2026-01-12",
+      "dateEnd": "2026-01-19",
+      "link": null,
+      "text": "Lesson 3\nOwner checks\nCompare the token's user id with the row's owner_id.\nNot yours → 403 (or 404 to hide it).\nzephyrine is a made-up word that only appears in this original.\n",
+      "refined": "IN PLAIN WORDS\nCompare the token's user id with the row's owner id before changing anything. Not yours → 403 (or 404 to hide it).\n\n————— YOUR NOTES (tidied) —————\n\nCompare the token's user id with the row's owner_id.\nNot yours → 403 (or 404 to hide it).",
+      "addedOn": "2026-01-01T00:00:00Z"
+    },
+    {
+      "id": "demo101-week-2-review",
+      "className": "DEMO101: Building Web APIs",
+      "topic": "Week 2 · Review",
+      "title": "Review: Real users",
+      "order": 250,
+      "date": "2026-01-12",
+      "dateEnd": "2026-01-19",
+      "link": null,
+      "text": "Review\nReview: Real users\n",
+      "refined": "IN PLAIN WORDS\nNo notes were saved for this review yet.",
+      "addedOn": "2026-01-01T00:00:00Z"
+    }
+  ]
+}

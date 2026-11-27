@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Notes Vault</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- TOP BAR: stays at the top. Left: the app name (same width as the sidebar). Right: search + class. -->
+  <header id="topbar">
+    <div class="shell">
+      <div class="brand">
+        <h1>Notes Vault</h1>
+        <p class="sub">Your words stay exactly as you wrote them.</p>
+      </div>
+      <div id="toolbar">
+        <input id="search" type="search" placeholder="Search your notes…  (press / )" aria-label="Search your notes" autocomplete="off">
+        <select id="class-filter" aria-label="Pick a class"></select>
+      </div>
+    </div>
+  </header>
+
+  <div class="shell" id="layout">
+    <!-- SIDEBAR: every class, and its weeks. Click a week to open its Week page. -->
+    <aside id="sidebar">
+      <button id="browse-toggle" class="ghost" aria-expanded="true" aria-controls="sidebar-tree">Browse classes &amp; weeks</button>
+      <div class="side-title">Classes &amp; weeks</div>
+      <nav id="sidebar-tree" aria-label="Classes and weeks"></nav>
+    </aside>
+
+    <main>
+      <!-- BACKUP REMINDER: shows when you've never backed up, or your backup is a week+ behind -->
+      <div id="backup-banner" class="banner" role="status" hidden>
+        <span id="banner-text"></span>
+        <span class="banner-buttons">
+          <button id="banner-backup" class="small">Download backup now</button>
+          <button id="banner-later" class="ghost small">Remind me tomorrow</button>
+        </span>
+      </div>
+
+      <!-- THREE EQUAL BUTTONS: each opens one panel below (click again to close) -->
+      <div id="panel-tabs">
+        <button class="panel-tab" data-panel="add-panel">＋ Add notes</button>
+        <button class="panel-tab" data-panel="backup-panel"><span>Backup<span id="backup-dot" class="dot" title="Changes since your last backup" hidden></span></span></button>
+        <button class="panel-tab" data-panel="classes-panel"><span>Profile &amp; classes (<span id="class-total">0</span>)</span></button>
+        <button class="panel-tab" data-panel="share-panel">Share</button>
+      </div>
+
+    <!-- THE PASTE BOX: paste one note or a whole class. Click the heading to open or close it. -->
+    <section class="card panel" id="add-panel" hidden>
+      <h2>Add notes</h2>
+
+      <label for="note-text">Paste one note, or a whole class</label>
+      <textarea id="note-text" rows="10" placeholder="Paste from Facebook here...&#10;&#10;If it has &quot;Lesson 1:&quot;, &quot;Lesson 2:&quot;... lines, it gets split into one note per lesson."></textarea>
+
+      <div class="row">
+        <div>
+          <label for="note-class">Class</label>
+          <input id="note-class" list="class-list" placeholder="e.g. Motivation Psychology">
+          <datalist id="class-list"></datalist>
+        </div>
+        <div>
+          <label for="note-topic">Topic <span class="muted">(single notes only)</span></label>
+          <input id="note-topic" placeholder="e.g. Loops">
+        </div>
+        <div>
+          <label for="note-date">Date</label>
+          <input id="note-date" type="date">
+          <small id="date-hint"></small>
+        </div>
+      </div>
+
+      <button id="check-btn">Check it</button>
+      <p id="message"></p>
+
+      <!-- PREVIEW: shows how the paste will be split, before anything is saved -->
+      <div id="preview" hidden>
+        <h3 id="preview-title"></h3>
+        <ol id="preview-list"></ol>
+        <button id="save-all-btn">Save all</button>
+        <button id="cancel-btn" class="ghost">Cancel</button>
+      </div>
+    </section>
+
+    <!-- BACKUP: download all notes to a file, or load a file in -->
+    <section class="card panel" id="backup-panel" hidden>
+      <h2>Backup</h2>
+      <p id="backup-status" class="muted"></p>
+      <p class="muted">Your notes only live in this browser. A backup file is your safety net: keep it somewhere safe, like a USB stick or a cloud drive.
+        <strong>To restore</strong> (new computer, cleared browser): click <em>Load a file</em> and pick your backup. Your notes, classes and checkmarks come back.</p>
+      <button id="export-btn">Download backup</button>
+      <label class="file-btn">
+        Load a file
+        <input id="import-file" type="file" accept=".json,application/json">
+      </label>
+      <p id="backup-message"></p>
+      <p id="storage-info" class="muted"></p>
+    </section>
+
+    <!-- PROFILE & CLASSES: your nickname and program, and a record for every class -->
+    <section class="card panel" id="classes-panel" hidden>
+      <h2>Profile &amp; classes</h2>
+      <div class="row">
+        <div>
+          <label for="profile-name">Display name <span class="muted">(a nickname, shown on anything you share)</span></label>
+          <input id="profile-name" maxlength="40" placeholder="e.g. Alex">
+        </div>
+        <div>
+          <label for="profile-program">Program</label>
+          <input id="profile-program" maxlength="80" placeholder="e.g. AAS in AI Software Engineering">
+        </div>
+      </div>
+      <button id="profile-save">Save profile</button>
+      <p id="profile-message"></p>
+      <h3>Your classes</h3>
+      <p class="muted">Click a name to rename it (press Enter to save). Its notes follow, and loading an old class file still finds it. Click the color square to change a class color.</p>
+      <div id="class-table"></div>
+    </section>
+
+    <!-- SHARE: pick lessons → download a share file → upload it to the library as a pull request -->
+    <section class="card panel" id="share-panel" hidden>
+      <h2>Share to the library</h2>
+      <p class="muted">Share your lesson notes with other students. Shared notes go into a <strong>public</strong> library anyone can read,
+        after an automatic safety check and a review. <strong>Never shared:</strong> reviews, finals, quizzes, exams, and notes you locked.
+        Emails and phone numbers are replaced with [hidden].</p>
+      <p id="share-who" class="muted"></p>
+      <div class="row">
+        <div>
+          <label for="share-class">Class</label>
+          <select id="share-class"></select>
+        </div>
+        <div class="share-options">
+          <label class="check"><input id="share-originals" type="checkbox"> Also share my originals (not just the refined notes)</label>
+        </div>
+      </div>
+      <div class="share-tools">
+        <button id="share-all" class="ghost small">Tick all allowed</button>
+        <button id="share-none" class="ghost small">Untick all</button>
+        <span id="share-summary" class="muted"></span>
+      </div>
+      <div id="share-list"></div>
+      <ol id="share-steps">
+        <li><button id="share-download">1. Download share file</button></li>
+        <li>2. Open the library's upload page: <a id="share-upload" target="_blank" rel="noopener">upload to the library</a> (free GitHub account needed)</li>
+        <li>3. Drag your share file in, then click <strong>Propose changes</strong> / <strong>Create pull request</strong>. A safety check runs; once it's reviewed, your notes join the library.</li>
+      </ol>
+      <p id="share-message"></p>
+    </section>
+
+    <!-- WEEK PAGE: one week of one class, for weekly reviews -->
+    <section class="card" id="week-view" hidden></section>
+
+    <!-- FINAL PREP: one whole class, all its weeks, for finals -->
+    <section class="card" id="final-view" hidden></section>
+
+    <!-- COMPARE: your notes next to classmates' -->
+    <section class="card" id="compare-view" hidden></section>
+    <input id="compare-file" type="file" accept=".json,application/json" multiple hidden>
+
+    <!-- SAVED NOTES -->
+    <section class="card" id="notes-card">
+      <div class="card-head">
+        <h2>Saved notes (<span id="count">0</span>)</h2>
+        <div class="card-head-tools">
+          <span id="result-count" class="muted"></span>
+          <button id="open-all" class="ghost small">Open all</button>
+          <button id="close-all" class="ghost small">Close all</button>
+        </div>
+      </div>
+      <div id="note-list"></div>
+      <p id="empty-message" class="muted" hidden></p>
+    </section>
+    </main>
+  </div>
+
+  <!-- Load order matters: logic and data first, then screen, then main.js connects them. -->
+  <script src="js/core/dates.js"></script>
+  <script src="js/core/split.js"></script>
+  <script src="js/core/classes.js"></script>
+  <script src="js/core/merge.js"></script>
+  <script src="js/core/search.js"></script>
+  <script src="js/core/study.js"></script>
+  <script src="js/core/backup.js"></script>
+  <script src="js/core/share.js"></script>
+  <script src="js/core/library.js"></script>
+  <script src="js/core/compare.js"></script>
+  <script src="js/core/finals.js"></script>
+  <script src="js/data/store.js"></script>
+  <script src="js/state.js"></script>
+  <script src="js/ui/codebox.js"></script>
+  <script src="js/ui/highlight.js"></script>
+  <script src="js/ui/list.js"></script>
+  <script src="js/ui/add.js"></script>
+  <script src="js/ui/backup.js"></script>
+  <script src="js/ui/classes.js"></script>
+  <script src="js/ui/panels.js"></script>
+  <script src="js/ui/share.js"></script>
+  <script src="js/ui/sidebar.js"></script>
+  <script src="js/ui/week.js"></script>
+  <script src="js/ui/finals.js"></script>
+  <script src="js/ui/compare.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
