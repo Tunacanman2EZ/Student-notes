@@ -1,6 +1,6 @@
-// Notes Vault: SCREEN LAYER, the Week page (for weekly reviews)
+// Notes Vault: SCREEN LAYER, the Week page (one week of one class, for studying it)
 // One week (or unit) of one class: every lesson in order, its short summary first,
-// a "Reviewed" checkbox, and "Open full note" for the whole thing.
+// a "Studied" checkbox, and "Open full note" for the whole thing.
 // Your checkmarks are saved in their own record (progress), never inside the notes.
 
 function renderWeek() {
@@ -34,7 +34,7 @@ function renderWeek() {
   bar.append(fill);
   const pText = document.createElement("div");
   pText.className = "muted";
-  pText.textContent = `${p.done} of ${p.total} reviewed`;
+  pText.textContent = `${p.done} of ${p.total} studied`;
 
   const buttons = document.createElement("div");
   buttons.className = "week-buttons";
@@ -45,7 +45,7 @@ function renderWeek() {
   const markAll = document.createElement("button");
   markAll.className = "small";
   const allDone = p.done === p.total;
-  markAll.textContent = allDone ? "Unmark all" : "Mark all reviewed";
+  markAll.textContent = allDone ? "Unmark all" : "Mark all studied";
   markAll.addEventListener("click", () => setReviewed(g.notes.map(n => n.id), !allDone));
   const openAll = document.createElement("button");
   openAll.className = "ghost small";
@@ -74,13 +74,6 @@ function renderWeek() {
     label.textContent = lessonLabel(item, note.title);
     check.addEventListener("change", () => setReviewed([note.id], check.checked));
     top.append(check, label);
-    if (isGradedReview(note)) {
-      const tag = document.createElement("span");
-      tag.className = "tag";
-      tag.textContent = "Review";
-      tag.title = "Graded reviews are for you only. They will never be shared.";
-      top.append(tag);
-    }
     box.append(top);
 
     const summary = document.createElement("div");
@@ -103,7 +96,7 @@ function renderWeek() {
   }
 }
 
-// Mark lessons reviewed (or not). Saves only the progress record; your notes aren't touched.
+// Mark lessons studied (or not). Saves only the progress record; your notes aren't touched.
 async function setReviewed(ids, yes) {
   const before = { ...App.progress };
   for (const id of ids) {

@@ -339,43 +339,10 @@ button.lock.on { background: #3a2a16; color: #ffb454; }
 .new-lines li { margin-bottom: 4px; }
 @media (max-width: 900px) { .compare-grid { grid-template-columns: 1fr; } }
 
-/* ---------- Final prep ---------- */
-#final-view { border-top: 4px solid var(--class-color, var(--accent)); }
-.final-tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: calc(var(--gap) * 0.75); margin: 4px 0 var(--gap); }
-.final-section { display: none; }
-.final-section.shown { display: block; }
-.final-week { margin: calc(var(--gap) * 1.5) 0 0; padding-bottom: 6px; border-bottom: 1px solid var(--border-2); color: var(--muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.06em; }
-.final-block { margin-left: 0; padding: 10px 12px; background: var(--input); border-radius: var(--radius-sm); border-left: 3px solid var(--good); }
-.final-block.fix { border-left-color: #ffb454; }
-.final-block::first-line { font-weight: 600; }   /* the "Cheat sheet" / "CORRECTION" line */
-#final-view .lesson-summary { margin-left: 0; }
-#final-view .lesson > button { margin-left: 0; }
-#final-view .lesson .note { margin-left: 0; }
-.side-final { color: #ffd54a; font-weight: 600; }
+/* ---------- group headings (Compare page: one heading per week or unit) ---------- */
+.group-week { margin: calc(var(--gap) * 1.5) 0 0; padding-bottom: 6px; border-bottom: 1px solid var(--border-2); color: var(--muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.06em; }
 .tag.done { background: #1d3a2a; color: var(--good); }
 .tag.shared { background: #1f2d4a; color: #8fb4ff; }
-.print-only { display: none; }
-
-/* ---------- printing (Final prep → Print): just the notes, black on white, all three tabs ---------- */
-@media print {
-  body { background: white; color: black; }
-  #topbar, #sidebar, #panel-tabs, .final-tabs, .week-buttons, .no-print, #notes-card, #week-view { display: none !important; }
-  .shell { display: block; padding: 0; max-width: none; }
-  .card { border: none; padding: 0; background: white; }
-  .final-section { display: block !important; }
-  .final-section + .final-section { break-before: page; }   /* each tab after the first starts a new page */
-  #final-view { border-top: none; }
-  .print-only { display: block; font-size: 1.2rem; }
-  .muted, .final-week { color: #444; }
-  .lesson { break-inside: avoid; border-color: #ccc; }
-  .lesson-title, .lesson.reviewed .lesson-title { color: black; }
-  .lesson-summary { color: black; }
-  .final-block { background: #f5f5f5; color: black; }
-  .code-box { background: #f5f5f5; border-color: #ccc; }
-  .code-box code { color: black; }
-  .code-head { background: #e8e8e8; color: #333; }
-  .tag { border: 1px solid #999; background: white; color: black; }
-}
 
 /* ---------- smaller screens: one column, sidebar folds under a button ---------- */
 @media (max-width: 900px) {
@@ -388,7 +355,7 @@ button.lock.on { background: #3a2a16; color: #ffb454; }
   #topbar { position: static; }          /* on a phone, don't let the top bar cover the notes */
   .brand .sub { display: none; }
   #panel-tabs { grid-template-columns: repeat(2, 1fr); }
-  #panel-tabs .panel-tab, .final-tabs .panel-tab { padding: 0 8px; font-size: 0.85rem; white-space: normal; line-height: 1.2; }
+  #panel-tabs .panel-tab { padding: 0 8px; font-size: 0.85rem; white-space: normal; line-height: 1.2; }
 }
 @media (max-width: 560px) {
   #toolbar { grid-template-columns: 1fr; }

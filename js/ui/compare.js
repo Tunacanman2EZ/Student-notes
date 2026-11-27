@@ -31,7 +31,7 @@ async function loadLibraryClass(entry) {
 
 function openCompare(classId) {
   View.compare = { classId, open: null };
-  View.week = null; View.finals = null;
+  View.week = null;
   View.query = ""; $("search").value = "";
   if (window.matchMedia("(max-width: 900px)").matches) $("sidebar").classList.add("collapsed");
   App.render();
@@ -157,7 +157,7 @@ async function renderCompare() {
     if (r.group !== group) {
       group = r.group;
       const h = document.createElement("h3");
-      h.className = "final-week";
+      h.className = "group-week";
       h.textContent = group;
       page.append(h);
     }
