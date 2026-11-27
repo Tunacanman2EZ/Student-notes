@@ -12,12 +12,10 @@ Open the app's page (or download this repo and double-click `index.html`), then:
    Or use **Backup → Load a file** to load a notes file.
    Want to try it first? Load the files in `examples/`, a small made-up course.
 2. **Search** at the top (press **/**), or pick a class from the dropdown.
-3. **Weekly reviews:** in the sidebar, open a class and click a week. Each lesson shows its short summary,
-   and you tick it off when you've reviewed it.
-4. **Finals:** open a class and click **★ Final prep**. You get summaries, study lines ("Cheat sheet", "For finals"…)
-   and corrections for the whole course, ready to print.
-5. **Back up** whenever the amber dot shows. Your notes only live in your browser.
-6. **Share** lessons with other students: open **Share**, pick a class, tick lessons, download the share file,
+3. **Study a week:** in the sidebar, open a class and click a week. Each lesson shows its short summary,
+   and you tick it off when you've studied it.
+4. **Back up** whenever the amber dot shows. Your notes only live in your browser.
+5. **Share** lessons with other students: open **Share**, pick a class, tick lessons, download the share file,
    and upload it to [`contributions/`](contributions/) (GitHub makes a pull request for you).
    Reviews, finals, quizzes, exams and notes you lock are never shared. Emails and phone numbers are hidden.
 

@@ -1,5 +1,5 @@
-// Notes Vault: LOGIC LAYER, study mode (weeks, summaries, review progress)
-// Groups each class into weeks or units, so a weekly review means opening one week.
+// Notes Vault: LOGIC LAYER, study mode (weeks, summaries, study progress)
+// Groups each class into weeks or units, so studying a week means opening one week.
 // No screen code, so it's tested (tests/run.js).
 
 // "Week 9 · Lesson 2" → { group: "Week 9", item: "Lesson 2" }
@@ -80,7 +80,7 @@ function buildTree(notes, classes) {
   return tree.sort((a, b) => b.newest.localeCompare(a.newest) || a.cls.name.localeCompare(b.cls.name));
 }
 
-// How many of these notes you've marked reviewed. progress = { noteId: "2026-11-26", ... }
+// How many of these notes you've marked studied. progress = { noteId: "2026-11-26", ... }
 function progressOf(notes, progress) {
   const done = notes.filter(n => progress && progress[n.id]).length;
   return { done, total: notes.length };

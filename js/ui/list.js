@@ -126,7 +126,7 @@ function noteCard(note, { terms = [], snippet = "", where = null, open = false }
 
 // ---- the toolbar: search box + class dropdown ----
 // What the screen is showing: a search, a class, or one week's Week page.
-const View = { query: "", className: "", week: null, finals: null, finalsTab: "summaries", compare: null, openClasses: new Set() };
+const View = { query: "", className: "", week: null, compare: null, openClasses: new Set() };
 
 function setUpToolbar() {
   const search = $("search"), pick = $("class-filter");
@@ -137,7 +137,7 @@ function setUpToolbar() {
     clearTimeout(timer);
     timer = setTimeout(() => {   // wait until you pause typing
       View.query = search.value;
-      if (View.query.trim()) { View.week = null; View.finals = null; View.compare = null; }   // searching leaves the Week / Final prep page
+      if (View.query.trim()) { View.week = null; View.compare = null; }   // searching leaves the Week / Compare page
       App.render();
     }, 120);
   });
@@ -147,7 +147,6 @@ function setUpToolbar() {
   pick.addEventListener("change", () => {
     View.className = pick.value;
     View.week = null;
-    View.finals = null;
     View.compare = null;
     savePrefs({ className: View.className });
     App.render();
@@ -190,15 +189,13 @@ function fillClassDropdown() {
 // Draw everything: sidebar, then either the Week page or the notes list.
 function renderAll() {
   renderSidebar();
-  const inWeek = !!View.week, inFinals = !!View.finals, inCompare = !!View.compare;
+  const inWeek = !!View.week, inCompare = !!View.compare;
   $("week-view").hidden = !inWeek;
-  $("final-view").hidden = !inFinals;
   $("compare-view").hidden = !inCompare;
-  $("notes-card").hidden = inWeek || inFinals || inCompare;
+  $("notes-card").hidden = inWeek || inCompare;
   if (inWeek) renderWeek();
-  if (inFinals) renderFinals();
   if (inCompare) renderCompare();
-  renderList(inWeek || inFinals || inCompare);
+  renderList(inWeek || inCompare);
 }
 
 function renderList(skipList = false) {

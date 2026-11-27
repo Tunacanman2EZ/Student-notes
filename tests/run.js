@@ -11,7 +11,6 @@ const { splitClass, piecesMatch, removeFacebookJunk, findLink, cleanTitle } = re
 const { readNotesFile, mergeNotes, makeBackup, sortNotes } = require("../js/core/merge.js");
 const { parseQuery, makeSnippet, searchNotes } = require("../js/core/search.js");
 const { splitTopic, lessonLabel, isGradedReview, plainWords, studySummary, buildTree, progressOf } = require("../js/core/study.js");
-const { studyBlocks, correctionBlocks, buildFinalPrep } = require("../js/core/finals.js");
 const { backupStatus, backupMessage } = require("../js/core/backup.js");
 const { codeFromName, makeClassId, findClass, migrateToV2, renameClass, mergeClasses, classStatus } = require("../js/core/classes.js");
 
@@ -255,36 +254,6 @@ check("example notes: EVERY note gets something to show on the Week page", () =>
 check("example notes: most refined notes have a summary", () => {
   const refined = every.filter(n => n.refined);
   assert.ok(refined.filter(n => plainWords(n.refined)).length / refined.length > 0.5);
-});
-
-// ---------- final prep ----------
-const prepNote = { refined: "IN PLAIN WORDS\nshort\n\n————— YOUR NOTES (tidied) —————\n\nintro\nCheat sheet:\nA = 1\nB = 2\n\n\nother stuff\nFor finals:\n```python\nx = 1\n\n\ny = 2\n```\nGame dev fact: fun\n\nCORRECTION\nThe notes said X; it's Y.\n\nCORRECTION (game fact)\nDoom.\n" };
-check("finds study blocks", () => assert.deepEqual(studyBlocks(prepNote).map(b => b.split("\n")[0]), ["Cheat sheet:", "For finals:"]));
-check("a block ends at two blank lines", () => assert.equal(studyBlocks(prepNote)[0], "Cheat sheet:\nA = 1\nB = 2"));
-check("blank lines inside code don't end a block", () => assert.ok(studyBlocks(prepNote)[1].includes("y = 2")));
-check("the game-dev reward isn't a study line", () => assert.ok(!studyBlocks(prepNote)[1].includes("fun")));
-check("a block stops at a numbered section title", () =>
-  assert.equal(studyBlocks({ text: "For finals:\nknow A\n3. Target package layout: feature areas\nmore" })[0], "For finals:\nknow A"));
-check("very long blocks are cut with a pointer to the note", () =>
-  assert.ok(studyBlocks({ text: "Cheat sheet\n" + "line\n".repeat(40) })[0].endsWith("(open the note for the rest)")));
-check("corrections found, game-fact fixes left out", () => assert.deepEqual(correctionBlocks(prepNote), ["CORRECTION\nThe notes said X; it's Y."]));
-check("example notes: DEMO101 final prep has both weeks, its study lines and its one real correction", () => {
-  const m = migrateToV2(every);
-  const p = buildFinalPrep(m.notes, m.classes, "demo101");
-  assert.deepEqual(p.weeks.map(w => w.name), ["Week 1", "Week 2"]);
-  assert.equal(p.counts.lessons, 8);
-  assert.deepEqual([p.counts.study, p.counts.fixes], [4, 1], JSON.stringify(p.counts));   // the game-fact fix stays out
-});
-check("example notes: every code box in a study block is closed", () => {
-  const m = migrateToV2(every);
-  for (const c of m.classes) for (const w of buildFinalPrep(m.notes, m.classes, c.id).weeks)
-    for (const l of w.lessons) for (const b of [...l.study, ...l.fixes]) assert.equal((b.match(/^```/gm) || []).length % 2, 0, l.note.topic);
-});
-const MAXL = 18 + 15 + 2;   // 18 lines, or a long code box cut at 33 + its closing line + the pointer
-check("example notes: no study block is empty or huge", () => {
-  const m = migrateToV2(every);
-  for (const c of m.classes) for (const w of buildFinalPrep(m.notes, m.classes, c.id).weeks)
-    for (const l of w.lessons) for (const b of l.study) assert.ok(b.split("\n").length >= 2 && b.split("\n").length <= MAXL, l.note.topic);
 });
 
 // ---------- backup reminders ----------

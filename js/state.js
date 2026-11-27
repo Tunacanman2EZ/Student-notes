@@ -6,7 +6,7 @@ const App = {
   notes: [],
   classes: [],   // one record per class (see core/classes.js)
   profile: {},   // your display name and program
-  progress: {},  // lessons you've marked reviewed: { noteId: date }
+  progress: {},  // lessons you've marked studied: { noteId: date }
   classmates: [], // share files you loaded to compare with (never mixed into your notes)
   render: () => {},   // filled in by ui/list.js
 };
