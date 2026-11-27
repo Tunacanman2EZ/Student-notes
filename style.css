@@ -248,8 +248,11 @@ button.delete:hover { background: #c0392b; }
   color: white;
   text-decoration: none;
   font-size: 0.85rem;
+  white-space: nowrap;   /* keep the label on one line */
 }
 .watch:hover { background: #a93226; }
+.watch.is-lesson, .watch.is-link { background: #2e7d5b; }   /* lessons and links green, only videos red */
+.watch.is-lesson:hover, .watch.is-link:hover { background: #256a4c; }
 /* white-space: pre-wrap keeps your line breaks and spaces exactly as pasted */
 .note-text { white-space: pre-wrap; margin: 12px 0 0; overflow-wrap: anywhere; }
 .note-text.refined { border-left: 3px solid var(--good); padding-left: 12px; }

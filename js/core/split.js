@@ -111,4 +111,16 @@ function findLink(text) {
   return m ? m[0] : null;
 }
 
-if (typeof module !== "undefined") module.exports = { HEADING, cleanTitle, splitClass, piecesMatch, removeFacebookJunk, findLink };
+// What the link button on a note should say.
+// A Maestro lesson page is not a video, so only real video sites get "Watch".
+const VIDEO_HOSTS = ["youtube.com", "youtu.be", "vimeo.com"];
+function linkLabel(url) {
+  let host = "";
+  try { host = new URL(url).hostname.toLowerCase(); } catch { return { text: "Open link", kind: "link" }; }
+  const is = (h) => host === h || host.endsWith("." + h);
+  if (is("maestro.org")) return { text: "Open lesson", kind: "lesson" };
+  if (VIDEO_HOSTS.some(is)) return { text: "▶ Watch", kind: "video" };
+  return { text: "Open link", kind: "link" };
+}
+
+if (typeof module !== "undefined") module.exports = { HEADING, cleanTitle, splitClass, piecesMatch, removeFacebookJunk, findLink, linkLabel };

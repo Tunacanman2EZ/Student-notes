@@ -7,7 +7,7 @@ const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
 const { findDates } = require("../js/core/dates.js");
-const { splitClass, piecesMatch, removeFacebookJunk, findLink, cleanTitle } = require("../js/core/split.js");
+const { splitClass, piecesMatch, removeFacebookJunk, findLink, cleanTitle, linkLabel } = require("../js/core/split.js");
 const { readNotesFile, mergeNotes, makeBackup, sortNotes } = require("../js/core/merge.js");
 const { parseQuery, makeSnippet, searchNotes } = require("../js/core/search.js");
 const { splitTopic, lessonLabel, isGradedReview, plainWords, studySummary, buildTree, progressOf } = require("../js/core/study.js");
@@ -51,6 +51,12 @@ check("piecesMatch catches a lost line", () => assert.equal(piecesMatch(sample, 
 check("Facebook 'See more' removed at the end only",
   () => assert.equal(removeFacebookJunk("see more here\nend… See more"), "see more here\nend"));
 check("first link found", () => assert.equal(findLink("watch https://youtu.be/x now"), "https://youtu.be/x"));
+check("maestro link opens the lesson", () => assert.equal(linkLabel("https://app.maestro.org/learn/a/b/c?rid=1").text, "Open lesson"));
+check("youtube link is Watch", () => assert.equal(linkLabel("https://www.youtube.com/watch?v=x").text, "▶ Watch"));
+check("youtu.be link is Watch", () => assert.equal(linkLabel("https://youtu.be/x").kind, "video"));
+check("other link is Open link", () => assert.equal(linkLabel("https://docs.python.org/3/").text, "Open link"));
+check("look-alike host is not maestro", () => assert.equal(linkLabel("https://notmaestro.org.evil.com/x").kind, "link"));
+check("bad link is Open link", () => assert.equal(linkLabel("not a url").kind, "link"));
 check("a link isn't a title", () => assert.equal(cleanTitle("https://x.com"), ""));
 
 // Example data: every class file, glued back into one paste, must split back with nothing lost.
