@@ -1,0 +1,127 @@
+{
+  "app": "notes-vault",
+  "kind": "contribution",
+  "version": 1,
+  "createdOn": "2026-11-27T09:19:32.318Z",
+  "contributor": {
+    "id": "55946333-9863-49ca-acb3-a25bfccc48c9",
+    "displayName": "Front-pay"
+  },
+  "program": "Applied science software engineering",
+  "class": {
+    "code": "FE101",
+    "name": "FE101: Introduction to modern JavaScript & TypeScript"
+  },
+  "lessons": [
+    {
+      "group": "From Python to JavaScript",
+      "item": "Lesson 2",
+      "title": "Why JavaScript?",
+      "topic": "From Python to JavaScript · Lesson 2",
+      "order": 10002,
+      "date": "2026-02-23",
+      "dateEnd": "2026-03-02",
+      "refined": "IN PLAIN WORDS\nJavaScript is the language of the web. Every browser can already run it, so it powers everything you click and see on websites. With Node.js it also runs on servers.\n\nKEY IDEAS\n1. Every major browser has a JavaScript engine built in; nothing to install.\n2. Client side (browser): what users see and touch: buttons, forms, animations, live updates, chat.\n3. Server side (Node.js): logins, storing data, talking to databases, tracking scores.\n4. Modern JavaScript: the language as it evolved after the 2015 \"ES6\" update; what real projects use today.\n\nKEY POINTS\n- Python leads in AI and data science; JavaScript leads in web interfaces and can also run servers.\n- Example: a game site's interface when you log in is client-side JavaScript; saving your scores is server-side work.\n\nNOTE\nLesson 1, \"Welcome to FE101\", had no notes. Class dates: Feb 23 – Mar 2.",
+      "original": ""
+    },
+    {
+      "group": "From Python to JavaScript",
+      "item": "Lesson 3",
+      "title": "Hello JavaScript",
+      "topic": "From Python to JavaScript · Lesson 3",
+      "order": 10003,
+      "date": "2026-02-23",
+      "dateEnd": "2026-03-02",
+      "refined": "IN PLAIN WORDS\nprint(\"Hello\") in Python is console.log(\"Hello\"); in JavaScript. Each statement ends with a semicolon.\n\nCODE\n```text\nPython                 | JavaScript\n-----------------------|------------------------------\nprint(\"Hello\")         | console.log(\"Hello\");\na new line ends a line | a semicolon ; ends a statement\n```\n\n```javascript\nconsole.log(\"Hello\");\nconsole.log(\"World\");\n```\n\nKEY POINTS\n- console.log shows the message in the console, without the quotes.\n- One console.log per line of output.\n- An embedded editor first means no installs and instant feedback; real browser tools come later.",
+      "original": ""
+    },
+    {
+      "group": "From Python to JavaScript",
+      "item": "Lesson 4",
+      "title": "Variables: const and let",
+      "topic": "From Python to JavaScript · Lesson 4",
+      "order": 10004,
+      "date": "2026-02-23",
+      "dateEnd": "2026-03-02",
+      "refined": "IN PLAIN WORDS\nJavaScript makes you declare a variable with a keyword. Use const for values that never change and let for values that will. Names use camelCase.\n\nCODE\n```javascript\nconst birthYear = 1995;\n// birthYear = 2000;   // TypeError: Assignment to constant variable.\n\nlet volume = 5;\nvolume = 8;            // allowed\n\nconst currentYear = 2026;\nlet age = 36;\nage = 39;\nconsole.log(age);      // 39\n```\n\nKEY POINTS\n- Python: age = 30 just creates the variable. JavaScript: const age = 30; or let age = 30;\n- Use const by default; let only when the value must change (counters, scores, age over time).\n- Python uses snake_case (birth_year); JavaScript uses camelCase (birthYear): first word lowercase, each next word capitalized.",
+      "original": ""
+    },
+    {
+      "group": "From Python to JavaScript",
+      "item": "Lesson 5",
+      "title": "Basic Types & Strings: JavaScript vs Python",
+      "topic": "From Python to JavaScript · Lesson 5",
+      "order": 10005,
+      "date": "2026-02-23",
+      "dateEnd": "2026-03-02",
+      "refined": "IN PLAIN WORDS\nJavaScript has strings, numbers and booleans, like Python, but only one number type for whole and decimal values. If either side of + is a string, JavaScript glues text together instead of doing math.\n\nCODE\n```text\nType     | Examples            | typeof gives | Python\n---------|---------------------|--------------|--------------------\nString   | \"hello\", \"42\"       | \"string\"     | str\nNumber   | 5, 3.14, 1000       | \"number\"     | int and float both\nBoolean  | true, false         | \"boolean\"    | bool\n```\n\n```javascript\nconsole.log(5 + 1);              // 6\nconsole.log(\"5\" + 1);            // \"51\"\nconsole.log(\"5\" + 100);          // \"5100\"\nconsole.log(typeof (5 + 1));     // \"number\"\nconsole.log(typeof (\"5\" + 1));   // \"string\"\nconsole.log(typeof true);        // \"boolean\"\n```\n\nKEY POINTS\n- If either side of + is a string, the number becomes text and the two are joined (concatenation).\n- typeof checks a value's type while the code runs: handy for catching \"5\" where you expected 5.",
+      "original": ""
+    },
+    {
+      "group": "From Python to JavaScript",
+      "item": "Lesson 6",
+      "title": "Conditionals: Python vs JavaScript",
+      "topic": "From Python to JavaScript · Lesson 6",
+      "order": 10006,
+      "date": "2026-02-23",
+      "dateEnd": "2026-03-02",
+      "refined": "IN PLAIN WORDS\nThe same if / elif / else logic as Python with new syntax: elif becomes else if, conditions go in ( ), blocks go in { } instead of indentation, and and/or become && and ||.\n\nCODE\n```text\nPython        | JavaScript\n--------------|--------------\nelif          | else if\nindentation   | curly braces { }\nif x > 5:     | if (x > 5) {\nand           | &&\nor            | ||\n```\n\n```javascript\nlet score = 65;\nlet hasBonus = true;\nif (score >= 90) {\n  console.log(\"S Rank\");\n} else if (score >= 75 && hasBonus) {\n  console.log(\"A Rank\");\n} else if (score >= 60 || hasBonus) {\n  console.log(\"B Rank\");\n} else {\n  console.log(\"C Rank\");\n}\n// B Rank\n```\n\n```javascript\n// Common mistakes\nif (totalScore <= score);         // the ; ends the if, so the next line ALWAYS runs\nif (score >= 75 && has_bonus)     // has_bonus doesn't exist; the variable is hasBonus\nelse if points > 50) {            // missing ( around the condition\n```\n\nKEY POINTS\n- Braces define the block, not indentation.\n- Watch for extra or missing } and (.",
+      "original": ""
+    },
+    {
+      "group": "From Python to JavaScript",
+      "item": "Lesson 7",
+      "title": "Template Literals",
+      "topic": "From Python to JavaScript · Lesson 7",
+      "order": 10007,
+      "date": "2026-02-23",
+      "dateEnd": "2026-03-02",
+      "refined": "IN PLAIN WORDS\nBacktick strings (template literals) let you drop values into text with ${...}, like Python's f-strings. They can also span several lines.\n\nCODE\n```javascript\nconst name = \"Tunacan\";\nconsole.log(`Hello ${name}`);          // Hello Tunacan\nconst a = 4, b = 6;\nconsole.log(`Total: ${a + b}`);        // Total: 10\n\nconst story = `You enter the spire\nyour surroundings become pitch black\nthe floor shakes, you fall into the dark!`;\nconsole.log(story);\n\nconsole.log('Hello ${name}');          // single quotes: prints Hello ${name} literally\n```\n\nKEY POINTS\n- Python f\"Hello {name}\" ↔ JavaScript `Hello ${name}`.\n- Anything inside ${ } runs as JavaScript: a variable, a property, an expression.\n- Single, double and backtick strings are all type \"string\"; only backticks interpolate.\n- Normal quotes can't hold a bare line break (SyntaxError); backticks can.",
+      "original": ""
+    },
+    {
+      "group": "From Python to JavaScript",
+      "item": "Lesson 8",
+      "title": "Challenge: JS Basics",
+      "topic": "From Python to JavaScript · Lesson 8",
+      "order": 10008,
+      "date": "2026-02-23",
+      "dateEnd": "2026-03-02",
+      "refined": "IN PLAIN WORDS\nThe JavaScript basics challenge: const vs let, the three basic types, console.log, + doing math or joining text, and if / else if / else.\n\nCODE\n```javascript\nconst pi = 3.14;\nlet score = 10;\nscore = 15;                    // fine with let\n\nconsole.log(typeof 3.14);      // \"number\"\nconsole.log(3 + 4);            // 7\nconsole.log(4 + \"6\");          // \"46\"\nconst a = 10, b = \"5\";\nconsole.log(a + b);            // \"105\", which can make conditions tricky\n\nscore = 18;\nif (score > 20) {\n  console.log(\"Win\");\n} else if (score >= 10) {\n  console.log(\"Close\");        // this one runs\n} else {\n  console.log(\"Lose\");\n}\n```\n\nKEY POINTS\n- Conditions are checked top to bottom; the first true branch runs and the rest are skipped.",
+      "original": ""
+    },
+    {
+      "group": "From Python to JavaScript",
+      "item": "Lesson 9",
+      "title": "Equality and Missing Values",
+      "topic": "From Python to JavaScript · Lesson 9",
+      "order": 10009,
+      "date": "2026-02-23",
+      "dateEnd": "2026-03-02",
+      "refined": "IN PLAIN WORDS\nCompare with ===, which checks value and type. == converts types first and causes surprising matches. undefined means \"nothing was set\"; null means \"empty on purpose\". Six values count as false in an if.\n\nCODE\n```javascript\nconsole.log(\"5\" === 5);           // false (string vs number)\nconsole.log(\"5\" == 5);            // true  (\"5\" converted to 5)\nconsole.log(0 == false);          // true\nconsole.log(undefined == null);   // true  (special case)\nconsole.log(undefined === null);  // false\n\nlet a;\nconsole.log(a);                   // undefined: never given a value\nlet movementState = null;         // exists, but inactive for now (like Python's None)\n```\n\n```javascript\nif (\"0\") console.log(\"runs\");     // non-empty string → truthy\nif (\"\") console.log(\"never\");     // empty string → falsy\n```\n\nKEY POINTS\n- Use === almost always.\n- Falsy: false, 0, \"\", null, undefined, NaN (also -0 and 0n). Everything else is truthy, including \"0\", \"false\" and -1.\n- When an if doesn't run, check whether the value is one of the falsy six.",
+      "original": ""
+    },
+    {
+      "group": "From Python to JavaScript",
+      "item": "Lesson 10",
+      "title": "Arrays (JS Lists)",
+      "topic": "From Python to JavaScript · Lesson 10",
+      "order": 10010,
+      "date": "2026-02-23",
+      "dateEnd": "2026-03-02",
+      "refined": "IN PLAIN WORDS\nJavaScript arrays are Python lists: square brackets, indexes from 0, .length instead of len(), .push() instead of append(), and .pop() works the same.\n\nCODE\n```text\nPython              | JavaScript\n--------------------|---------------------------\nmy_list = [1, 2]    | const myList = [1, 2];\nlen(my_list)        | myList.length\nmy_list.append(x)   | myList.push(x)\nmy_list.pop()       | myList.pop()\nmy_list[-1]         | myList.at(-1)   or   myList[myList.length - 1]\n```\n\n```javascript\nconst playList = [\"In Your Eye\", \"Down Low\"];\nplayList.push(\"Elevator Up\");             // returns the new length, 3\nconst removed = playList.pop();           // \"Elevator Up\"\nconsole.log(playList);                    // [ 'In Your Eye', 'Down Low' ]\nconsole.log(playList.length);             // 2\n```\n\nKEY POINTS\n- const means the name can't be reassigned; the array's contents can still change.\n- myList[-1] is undefined in JavaScript; use .at(-1).\n- push + pop = a stack (last in, first out).",
+      "original": ""
+    },
+    {
+      "group": "JS data & logic",
+      "item": "Lesson 1",
+      "title": "Objects",
+      "topic": "JS data & logic · Lesson 1",
+      "order": 20001,
+      "date": "2026-03-02",
+      "dateEnd": "2026-03-09",
+      "refined": "IN PLAIN WORDS\nA JavaScript object stores named values (properties), like a Python dictionary. You read and change properties with dot notation (enemy.hp) or bracket notation (enemy[\"hp\"]). Brackets let the key come from a variable.\n\nKEY IDEAS\n1. Object literal: curly braces, key: value pairs, commas between pairs.\n2. Keys usually don't need quotes when they're simple names.\n3. Dot notation reads or updates a property whose name you know: enemy.hp.\n4. Bracket notation uses a string: enemy[\"hp\"], or a variable holding the string: enemy[key].\n5. A missing property returns undefined. There's no error (like Python's dict.get() returning None).\n6. Keys are case-sensitive: enemy.Name and enemy.name are different properties.\n7. A plain object is just a data container. Classes, methods and \"this\" (object-oriented programming) come later.\n\nSTEPS\nTo update a property and see the new value:\n1. Assign with = (not ==).\n2. Then log it. Logging before the update shows the old value.\n\nCODE\n```javascript\nlet enemy = { name: \"Viper\", hp: 50, status: \"poisoned\" };\n\nconsole.log(enemy.name);     // Viper\nenemy.hp = 40;               // update with dot notation\nconsole.log(enemy.hp);       // 40\n\nlet key = \"status\";\nenemy[key] = \"stunned\";      // update with bracket notation + a variable\nconsole.log(enemy[key]);     // stunned\n\nconsole.log(enemy.mana);     // undefined (property doesn't exist)\nconsole.log(enemy.Name);     // undefined (keys are case-sensitive)\n```\n\n```python\n# Python comparison\ndata = {\"name\": \"Viper\"}\nprint(data.get(\"status\"))    # None\n# data[\"status\"] would raise a KeyError\n```\n\nKEY POINTS\n- enemy[key] uses the variable's value; enemy[\"key\"] looks for a property literally named \"key\".\n- enemy[status] without quotes looks for a variable named status, which may not exist.\n- = assigns a value; == only compares, so player[\"hp\"] == 90 changes nothing.\n- Pick one naming style for keys (usually lowercase, like hp and name) and stick with it.\n- Missing property → undefined, but reading a property OF undefined crashes: enemy.stats.hp throws a TypeError when stats doesn't exist.\n\nNOTE\nconsole.log(Magic) failed with \"Magic is not defined\" because, without enemy., JavaScript looks for a variable called Magic. Use enemy.Magic.",
+      "original": ""
+    }
+  ]
+}

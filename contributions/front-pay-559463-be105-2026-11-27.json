@@ -1,0 +1,369 @@
+{
+  "app": "notes-vault",
+  "kind": "contribution",
+  "version": 1,
+  "createdOn": "2026-11-27T09:19:32.318Z",
+  "contributor": {
+    "id": "55946333-9863-49ca-acb3-a25bfccc48c9",
+    "displayName": "Front-pay"
+  },
+  "program": "Applied science software engineering",
+  "class": {
+    "code": "BE105",
+    "name": "BE105: Advanced Backend Concepts and Microservices"
+  },
+  "lessons": [
+    {
+      "group": "Unit 1",
+      "item": "Lesson 1",
+      "title": "Welcome to BE105!",
+      "topic": "Unit 1 · Lesson 1",
+      "order": 101,
+      "date": "2026-10-12",
+      "dateEnd": "2026-10-19",
+      "refined": "IN PLAIN WORDS\nBE105 moves you from a single-file API that works to a production-shaped backend: one that combines results from several internal parts, still gives a useful partial answer when one part fails, and overlaps slow waits.\n\nKEY IDEAS\n1. Combine results from several internal parts or services.\n2. Return a partial but useful response when one part fails.\n3. Overlap slow waits, so several of them take about as long as one.\n\nKEY POINTS\n- Single-file API → production-shaped backend.\n- Keep asking: does this help a large backend stay alive and flexible?",
+      "original": ""
+    },
+    {
+      "group": "Unit 1",
+      "item": "Lesson 2",
+      "title": "Why one file stops scaling",
+      "topic": "Unit 1 · Lesson 2",
+      "order": 102,
+      "date": "2026-10-12",
+      "dateEnd": "2026-10-19",
+      "refined": "IN PLAIN WORDS\nOne big app.py mixes auth, recipes, config and the database, so code is hard to find, risky to change, hard to test alone and hard to configure. The plan: split it by feature area (auth, recipes) and by layer (routes, services, data), plus config.py. The public contract must stay the same while the inside changes.\n\nKEY IDEAS\n1. Costs of a single-file app: hard to find code, risky changes (auth changes can break recipes), hard to test one piece alone, and config and secrets loaded at import time.\n2. Responsibilities in the old app.py: auth routes and JWTs, recipe routes, and config, secrets and the database connection.\n3. Feature area: a domain chunk like auth or recipes.\n4. Layer: a kind of responsibility: routes (HTTP), services (rules), data (queries).\n5. Public contract: everything a client can observe. Paths, methods, status codes, JSON shape, auth rules.\n6. Internal structure: how the contract is built. Files, modules, how routes call services and data, where config loads.\n7. Behavior-preserving refactor: change the internal structure, keep the public contract.\n8. Acceptance list: plain-text request/response scenarios rerun after the refactor to prove behavior is preserved.\n\nSTEPS: PLAN THE REFACTOR\n1. List the responsibilities in the big file.\n2. Design the target layout (feature areas × layers).\n3. Write the acceptance list: method, path, request, expected status and behavior for each scenario.\n4. Move code without changing the contract.\n5. Rerun the acceptance list.\n\nCODE\n```text\nrecipe_box/               # main app package\n    __init__.py           # create the Flask app, register pieces\n    auth/\n        routes.py         # HTTP endpoints: /register, /login\n        services.py       # auth logic: hashing, JWT handling\n        data.py           # user queries\n    recipes/\n        routes.py         # HTTP endpoints: /recipes, /recipes/<id>\n        services.py       # recipe rules: ownership, validation\n        data.py           # recipe queries\n    config.py             # configuration and secrets loading\n```\n\n```text\nAcceptance list (8 scenarios that must not change)\n1. Register user\n2. Login (valid credentials)\n3. Login (invalid credentials)\n4. List recipes (authorized)\n5. Create recipe (authorized)\n6. Update own recipe (owner)\n7. Delete someone else's recipe (forbidden)\n8. Admin deletes any recipe\n```\n\nKEY POINTS\n- A refactor into a package must keep the public contract: paths, methods, status codes, JSON and auth behavior.\n- Routes for endpoints, services for rules, data for queries.",
+      "original": ""
+    },
+    {
+      "group": "Unit 1",
+      "item": "Lesson 3",
+      "title": "Make your app an importable package",
+      "topic": "Unit 1 · Lesson 3",
+      "order": 103,
+      "date": "2026-10-12",
+      "dateEnd": "2026-10-19",
+      "refined": "IN PLAIN WORDS\nA folder with __init__.py is an importable package. Run commands from the project root. The application definition is where the app object is made; the entry point (wsgi.py) just imports it.\n\nKEY IDEAS\n1. A folder becomes a Python package when it has __init__.py.\n2. Python finds packages relative to where you run the command. Always run from the project root.\n3. Application definition: the code that creates the Flask app.\n4. Entry point: a tiny file the server imports to get the app.\n\nSTEPS: CHECK THE PACKAGE WORKS\n1. cd to the project root (the folder that holds app/).\n2. python -c \"from app import app; print(type(app))\"\n3. <class 'flask.app.Flask'> means the imports work. ModuleNotFoundError usually means the wrong folder.\n4. Run the server with flask --app wsgi run.\n5. Send the same requests as before the refactor and compare paths, status codes and response shapes.\n\nCODE\n```python\n# app/__init__.py  (application definition)\nfrom recipe_box import create_app\napp = create_app()\n```\n\n```python\n# wsgi.py  (entry point)\nfrom app import app\n```\n\n```bash\nflask --app wsgi run\npython -c \"from app import app; print(type(app))\"\n```\n\nKEY POINTS\n- Definition: where is the app object created?\n- Entry point: which file does the server import to get it?\n- Changing the file layout must not change the routes' behavior.",
+      "original": ""
+    },
+    {
+      "group": "Unit 1",
+      "item": "Lesson 4",
+      "title": "The application factory pattern",
+      "topic": "Unit 1 · Lesson 4",
+      "order": 104,
+      "date": "2026-10-12",
+      "dateEnd": "2026-10-19",
+      "refined": "IN PLAIN WORDS\nAn application factory, create_app(), builds and returns a new Flask app every time it's called: config → extensions → blueprints → return. That avoids one global app built at import time, and lets the same code make several differently configured apps.\n\nKEY IDEAS\n1. Problem with a module-level app = Flask(__name__): only one fixed app, built the moment the module is imported, with config, database and blueprints all set up as a side effect.\n2. Factory: all app assembly happens inside create_app(), when you call it.\n3. Each call gives a new, independent app object.\n4. The entry point calls create_app() instead of importing a global app.\n\nSTEPS: WHAT create_app() DOES\n1. Decide settings (passed in, or read from the environment).\n2. app = Flask(__name__)\n3. Apply the config.\n4. Initialize extensions: db.init_app(app), errors.init_app(app).\n5. Register every blueprint.\n6. Return the app.\n\nCODE\n```python\ndef create_app(config=None):\n    app = Flask(__name__)\n    # apply config, init extensions, register blueprints\n    return app\n```\n\n```python\nfrom recipe_box import create_app\napp1 = create_app()\napp2 = create_app()\nprint(app1 is app2)   # False: two separate apps\n```\n\n```python\n# wsgi.py\nfrom recipe_box import create_app\napp = create_app()\nif __name__ == \"__main__\":\n    app.run()\n```\n\nKEY POINTS\n- A factory builds a fresh app on demand, each with its own configuration.\n- Prove the refactor kept behavior: register → 201, login → 200 with a token, GET /recipes with the token → 200.",
+      "original": ""
+    },
+    {
+      "group": "Unit 1",
+      "item": "Lesson 5",
+      "title": "One codebase, three environments",
+      "topic": "Unit 1 · Lesson 5",
+      "order": 105,
+      "date": "2026-10-12",
+      "dateEnd": "2026-10-19",
+      "refined": "IN PLAIN WORDS\nBaseConfig holds shared settings. DevelopmentConfig, TestingConfig and ProductionConfig override only what differs. CONFIG_MAP maps names to classes, and app.config.from_object(cls) copies the UPPERCASE attributes into the app. Config changes how the app runs, never the public API.\n\nKEY IDEAS\n1. Environment-dependent value: anything that changes between dev, test and production. DEBUG, the database path, secrets, rate limits, external endpoints.\n2. Not environment-dependent: fixed rules (a minimum secret length), the project layout, business logic.\n3. Config class hierarchy: shared defaults in BaseConfig, only differences in subclasses.\n4. CONFIG_MAP connects a name (\"testing\") to a class.\n5. app.config.from_object(cls) copies every UPPERCASE attribute.\n6. The entry point chooses the environment; the factory does the building.\n\nCODE\n```python\nclass BaseConfig:\n    TOKEN_LIFETIME = TOKEN_LIFETIME      # same everywhere\n\nclass DevelopmentConfig(BaseConfig):\n    DEBUG = True\n\nclass TestingConfig(BaseConfig):\n    TESTING = True\n    DEBUG = False\n\nclass ProductionConfig(BaseConfig):\n    DEBUG = False\n\nCONFIG_MAP = {\n    \"development\": DevelopmentConfig,\n    \"testing\": TestingConfig,\n    \"production\": ProductionConfig,\n}\n\ndef create_app(config_name=\"development\"):\n    app = Flask(__name__)\n    app.config.from_object(CONFIG_MAP[config_name])\n    # init db, error handlers, blueprints\n    return app\n```\n\n```python\n# entry point\napp = create_app(\"production\")\nif __name__ == \"__main__\":\n    app.run()          # don't override debug here; the config decides\n```\n\nKEY POINTS\n- Subclasses share settings and override only real differences.\n- Changing only config_name changes behavior; routes and logic stay the same.\n- Config never changes routes, request/response formats or status codes.\n\nNOTE\nClass attributes like DEBUG = read_debug_flag() are worked out once, when the module is first imported, not each time create_app() runs. Changing DEBUG in the environment later needs a restart, or reading it inside the factory.",
+      "original": ""
+    },
+    {
+      "group": "Unit 1",
+      "item": "Lesson 6",
+      "title": "Keep your secrets out of git",
+      "topic": "Unit 1 · Lesson 6",
+      "order": 106,
+      "date": "2026-10-12",
+      "dateEnd": "2026-10-19",
+      "refined": "IN PLAIN WORDS\nSecrets never go in code or Git. .env holds the real values and is gitignored. .env.example is committed with fake values and lists every key. Call load_dotenv() before the config reads the environment. Fail fast: refuse to start if a secret is missing or too short, and never fall back to a default secret.\n\nKEY IDEAS\n1. Environment variables are the real source of settings. .env is a local, gitignored convenience for development.\n2. Production servers set secrets through the service manager, a cloud secret manager or container variables, not .env.\n3. .env: real secrets, in .gitignore, never committed, pasted or logged.\n4. .env.example: committed, fake values, documents every required key. New developers copy it to .env.\n5. A default like os.environ.get(\"JWT_SECRET\", \"change-me\") lets the app start with a predictable key. Stop instead.\n6. Machine-specific settings (database path, debug flag) also come from the environment, through helper functions.\n7. One check_env(environ) function holding every startup rule lets the server and the tests share the same checks.\n\nSTEPS: SET UP SECRETS\n1. Add .env to .gitignore.\n2. Commit .env.example with every key and fake values.\n3. pip install python-dotenv and add it to requirements.txt.\n4. Call load_dotenv() before create_app().\n5. Validate required secrets at startup and stop with a clear message if they're missing.\n\nCODE\n```text\n# .env.example (committed, fake values)\nJWT_SECRET=example-not-a-real-secret-change-me\nRECIPES_DB=recipes.db\nDEBUG=0\n```\n\n```python\nfrom dotenv import load_dotenv\nload_dotenv()                      # copy .env keys into os.environ\napp = create_app(\"production\")\n```\n\n```python\nMIN_SECRET_LENGTH = 32\n\ndef read_jwt_secret():\n    secret = os.environ.get(\"JWT_SECRET\", \"\")\n    if len(secret) < MIN_SECRET_LENGTH:\n        raise SystemExit(\n            \"JWT_SECRET is missing or shorter than %d characters.\\n\"\n            \"Generate one with: python -c \\\"import secrets; print(secrets.token_hex(32))\\\"\"\n            % MIN_SECRET_LENGTH\n        )\n    return secret\n\ndef database_path():\n    return os.environ.get(\"RECIPES_DB\", os.path.join(PROJECT_DIR, \"recipes.db\"))\n\ndef read_debug_flag():\n    return os.environ.get(\"DEBUG\", \"\").lower() in (\"1\", \"true\", \"yes\")\n```\n\nKEY POINTS\n- .env holds real secrets and is ignored by Git. .env.example is committed, fake, and lists every setting.\n- Missing or unsafe secret → the server refuses to start.\n- load_dotenv() does not overwrite variables that are already set, so a real environment variable beats .env. Tests rely on this.",
+      "original": ""
+    },
+    {
+      "group": "Unit 1",
+      "item": "Lesson 7",
+      "title": "Blueprints and URL prefixes",
+      "topic": "Unit 1 · Lesson 7",
+      "order": 107,
+      "date": "2026-10-12",
+      "dateEnd": "2026-10-19",
+      "refined": "IN PLAIN WORDS\nA blueprint groups one feature's routes (@bp.post instead of @app.post), and the factory registers them on the app. Final URL = url_prefix + route rule. Registering with no prefix keeps the old paths.\n\nKEY IDEAS\n1. Feature blueprint: a Flask object that holds one area's routes before they're attached to an app.\n2. The factory assembles the app; the routes live in blueprints.\n3. Final URL = the blueprint's url_prefix + the route's rule. /auth + /login = /auth/login.\n4. No url_prefix → the rule is the URL, so /login stays /login.\n5. Moving routes into blueprints must not change URLs, methods or status codes.\n\nCODE\n```python\nfrom flask import Blueprint\nbp = Blueprint(\"accounts\", __name__)\n\n@bp.post(\"/login\")\ndef login():\n    ...\n```\n\n```python\nfrom .routes import BLUEPRINTS\n\ndef create_app(config_name=\"development\"):\n    app = Flask(__name__)\n    app.config.from_object(CONFIG_MAP[config_name])\n    db.init_app(app)\n    errors.init_app(app)\n    for bp in BLUEPRINTS:\n        app.register_blueprint(bp)          # no url_prefix: paths unchanged\n    return app\n```\n\n```python\napp.register_blueprint(accounts, url_prefix=\"/auth\")   # /login becomes /auth/login\n```\n\nKEY POINTS\n- Routes use @bp.<method>, not @app.<method>.\n- Given a prefix and a rule, you can say the final path.\n- In your project: /register, /login, /recipes and /recipes/<int:recipe_id> are unchanged because no prefix is used.",
+      "original": ""
+    },
+    {
+      "group": "Unit 1",
+      "item": "Lesson 8",
+      "title": "Give routes one job",
+      "topic": "Unit 1 · Lesson 8",
+      "order": 108,
+      "date": "2026-10-12",
+      "dateEnd": "2026-10-19",
+      "refined": "IN PLAIN WORDS\nA route has one job: translate HTTP. Business rules (who may do what) live in services. SQL lives in data modules. For each line, ask: is it HTTP, a rule, or the database?\n\nKEY IDEAS\n1. HTTP layer (routes): the path and method, path parameters, reading the body, jsonify and the status code. No rules, no SQL.\n2. Business layer (services and auth): who may do what. @require_auth, @optional_auth, current_viewer(), \"which recipes can this viewer see?\"\n3. Data layer (data or repository modules): connections, SELECT/INSERT/UPDATE/DELETE, turning rows into dicts.\n\nSTEPS: SORT A ROUTE'S LINES\n1. Is it about the request or response? → HTTP.\n2. Is it about who can do what? → business.\n3. Does it touch SQL or the database? → data.\n4. A route full of SQL and rules is a red flag.\n\nCODE\n```python\n@bp.post(\"/recipes\")                 # HTTP\n@require_auth                        # business\ndef create_recipe():                 # HTTP\n    return jsonify(                  # HTTP\n        recipes.create(              # business (calls data inside)\n            current_viewer(),        # business\n            request.get_json(silent=True),   # HTTP\n        )\n    ), 201                           # HTTP\n```\n\nKEY POINTS\n- Routes: mostly HTTP. Services: rules. Data modules: database.\n- Input in (HTTP) → call a service → output out (HTTP).",
+      "original": ""
+    },
+    {
+      "group": "Unit 1",
+      "item": "Lesson 9",
+      "title": "Build a second app for testing",
+      "topic": "Unit 1 · Lesson 9",
+      "order": 109,
+      "date": "2026-10-12",
+      "dateEnd": "2026-10-19",
+      "refined": "IN PLAIN WORDS\nBuild a second, testing app from the same code: create_app(\"testing\"), with RECIPES_DB pointing at a temporary file and a test JWT_SECRET. Tests never touch real data. Creating the app and creating the tables are separate jobs.\n\nKEY IDEAS\n1. Same routes and code for dev and test; only config and environment differ.\n2. Environment variables (RECIPES_DB, JWT_SECRET) plus Config.from_env() point each app at its own database and secret.\n3. create_app() wires config, extensions and blueprints. It does not create tables.\n4. init_db() (run by init_db.py) creates the tables.\n5. Flask test client: app.test_client() sends requests to the app in-process, with no server running.\n6. Throwaway testing database: a separate SQLite file, created and deleted freely.\n\nSTEPS: A TEST RUN THAT CAN'T TOUCH REAL DATA\n1. Pick a temporary database path and delete any old file there.\n2. Set RECIPES_DB and JWT_SECRET in os.environ (they beat .env).\n3. Run init_db.py to create the tables in that file.\n4. app = create_app(\"testing\"); client = app.test_client()\n5. Send requests and check status codes and bodies.\n6. Prove isolation: count rows in the dev database before and after. Yours stayed at 7 users and 2 recipes.\n\nCODE\n```python\ndef create_app(config_name=\"development\"):\n    app = Flask(__name__)\n    app.config.from_object(CONFIG_MAP[config_name])         # DEBUG, TESTING\n    app.config.from_mapping(Config.from_env().as_flask_config())   # DB path, secret\n    db.init_app(app)\n    errors.init_app(app)\n    for bp in BLUEPRINTS:\n        app.register_blueprint(bp)\n    return app\n```\n\n```python\nimport os, subprocess, sys, tempfile\n\nDB = os.path.join(tempfile.gettempdir(), \"recipe_box_contract_test.db\")\nif os.path.exists(DB):\n    os.remove(DB)\nos.environ[\"RECIPES_DB\"] = DB\nos.environ[\"JWT_SECRET\"] = \"contract-secret-\" + \"y\" * 40\n\nHERE = os.path.dirname(os.path.abspath(__file__))\nsubprocess.run([sys.executable, os.path.join(HERE, \"init_db.py\")], check=True)\n\nfrom recipe_box import create_app\napp = create_app(\"testing\")\nclient = app.test_client()\n```\n\nKEY POINTS\n- Application creation and database creation are separate concerns.\n- Proof of isolation is numbers: the dev database's counts don't change when the tests run.",
+      "original": ""
+    },
+    {
+      "group": "Unit 2",
+      "item": "Lesson 1",
+      "title": "Wire Flask-SQLAlchemy with init_app",
+      "topic": "Unit 2 · Lesson 1",
+      "order": 201,
+      "date": "2026-10-19",
+      "dateEnd": "2026-10-26",
+      "refined": "IN PLAIN WORDS\nAn ORM maps tables to classes, rows to objects and columns to attributes, so you write Python instead of SQL strings. Wire Flask-SQLAlchemy in with the init_app pattern: db = SQLAlchemy() at module level, db.init_app(app) inside create_app, and the database URI from your config.\n\nKEY IDEAS\n1. ORM mapping: table users → class User(db.Model); column username → user.username; row (1, \"bob\") → User(id=1, username=\"bob\").\n2. Trade-off: less SQL in strings, reusable models and editor help, but less direct control over the exact SQL.\n3. init_app pattern: create the extension object once, unbound; bind it to each app in the factory.\n4. The database location belongs in config: RECIPES_DB from the environment → SQLALCHEMY_DATABASE_URI.\n5. Models must match the existing tables for reads to work.\n6. SQLAlchemy needs an app context to reach app.config and the database.\n\nSTEPS: ADD THE ORM TO AN EXISTING APP\n1. extensions.py: db = SQLAlchemy()\n2. Config builds SQLALCHEMY_DATABASE_URI = f\"sqlite:///{db_path}\".\n3. create_app calls db.init_app(app).\n4. Write models that match the existing tables.\n5. Check it read-only inside an app context: User.query.all().\n\nCODE\n```python\n# extensions.py\nfrom flask_sqlalchemy import SQLAlchemy\ndb = SQLAlchemy()          # not bound to any app yet\n```\n\n```python\n# config.py (part)\ndef as_flask_config(self):\n    return {\n        \"JWT_SECRET\": self.jwt_secret,\n        \"RECIPES_DB\": self.db_path,\n        \"SQLALCHEMY_DATABASE_URI\": f\"sqlite:///{self.db_path}\",\n        \"TOKEN_LIFETIME\": self.token_lifetime,\n    }\n```\n\n```python\n# models.py: matches the existing tables\nclass User(db.Model):\n    __tablename__ = \"users\"\n    id = db.Column(db.Integer, primary_key=True)\n    username = db.Column(db.String, nullable=False, unique=True)\n    password_hash = db.Column(db.String, nullable=False)\n    role = db.Column(db.String, nullable=False, default=\"user\")\n\nclass Recipe(db.Model):\n    __tablename__ = \"recipes\"\n    id = db.Column(db.Integer, primary_key=True)\n    title = db.Column(db.String, nullable=False, unique=True)\n    ingredients = db.Column(db.Text, nullable=False)\n    instructions = db.Column(db.Text, nullable=False, default=\"\")\n    is_public = db.Column(db.Integer, nullable=False, default=1)\n    owner_id = db.Column(db.Integer)\n```\n\n```python\n# check the wiring without touching any endpoint\napp = create_app(\"production\")\nwith app.app_context():\n    print(User.query.all())\n    print(Recipe.query.all())\n```\n\nKEY POINTS\n- INTEGER PRIMARY KEY → db.Integer, primary_key=True. TEXT NOT NULL → nullable=False. UNIQUE → unique=True. DEFAULT 'user' → default=\"user\".\n- Seeing real rows inside an app context proves the extension, the config and the models are wired correctly.",
+      "original": ""
+    },
+    {
+      "group": "Unit 2",
+      "item": "Lesson 2",
+      "title": "Read rows without writing SQL",
+      "topic": "Unit 2 · Lesson 2",
+      "order": 202,
+      "date": "2026-10-19",
+      "dateEnd": "2026-10-26",
+      "refined": "IN PLAIN WORDS\nORM reads: .all() returns a list, .first() returns one object or None. Chain .filter, .order_by and .limit, then call .all() at the end. Turn objects into dicts before jsonify. A missing recipe is still a 404.\n\nKEY IDEAS\n1. Collection query (GET /recipes) → .all() → a list, maybe empty.\n2. Single-object query (GET /recipes/<id>) → .first() → one object or None.\n3. Recipe.query starts the query; nothing hits the database until .all() or .first().\n4. One serializer (recipe_to_dict) controls exactly which keys the API returns.\n\nCODE\n```python\nfrom sqlalchemy import or_\n\nquery = Recipe.query.filter(\n    or_(Recipe.is_public == 1, Recipe.owner_id == viewer.user_id)\n)\nquery = query.order_by(Recipe.title).limit(20)\nrecipes = [recipe_to_dict(r) for r in query.all()]\n```\n\n```python\nrow = Recipe.query.filter(Recipe.id == recipe_id).first()\nif row is None:\n    raise ApiError(404, \"recipe not found\")\nrecipe = recipe_to_dict(row)\nif not can_see(viewer, recipe):\n    raise ApiError(404, \"recipe not found\")     # hide private recipes\n```\n\n```python\ndef recipe_to_dict(recipe):\n    return {\n        \"id\": recipe.id,\n        \"title\": recipe.title,\n        \"ingredients\": recipe.ingredients,\n        \"instructions\": recipe.instructions,\n        \"is_public\": recipe.is_public,\n        \"owner_id\": recipe.owner_id,\n    }\n```\n\nKEY POINTS\n- .all() → [] or [obj, ...]. .first() → obj or None.\n- ORM object → dict → jsonify. Never return ORM objects directly.\n- A missing recipe stays a 404, never a 200 with {} or [].",
+      "original": ""
+    },
+    {
+      "group": "Unit 2",
+      "item": "Lesson 3",
+      "title": "Write rows through the ORM session",
+      "topic": "Unit 2 · Lesson 3",
+      "order": 203,
+      "date": "2026-10-19",
+      "dateEnd": "2026-10-26",
+      "refined": "IN PLAIN WORDS\nThe session is a staging area: db.session.add(obj), change attributes, or db.session.delete(obj). Nothing is saved until db.session.commit(). Port raw SQL to the ORM: INSERT → create and add, UPDATE → load and set, DELETE → load and delete, then commit.\n\nKEY IDEAS\n1. db.session.add(obj) stages a new row.\n2. Changing attributes on a loaded object stages an UPDATE automatically.\n3. db.session.delete(obj) stages a DELETE.\n4. db.session.commit() is the commit point. The database changes here.\n5. Finish with one data path: no sqlite3 imports left, the old raw-SQL module removed.\n\nCODE\n```python\ndef create_recipe_orm(title, ingredients, instructions, is_public, owner_id):\n    recipe = Recipe(\n        title=title,\n        ingredients=ingredients,\n        instructions=instructions,\n        is_public=1 if is_public else 0,\n        owner_id=owner_id,\n    )\n    db.session.add(recipe)\n    db.session.commit()\n    return recipe_to_dict(recipe)\n\ndef update_recipe_orm(recipe_id, changes):\n    recipe = db.session.get(Recipe, recipe_id)       # load by primary key\n    if recipe is None:\n        return None\n    for field in (\"title\", \"ingredients\", \"instructions\"):\n        if field in changes:\n            setattr(recipe, field, changes[field])\n    if \"is_public\" in changes:\n        recipe.is_public = 1 if changes[\"is_public\"] else 0\n    db.session.commit()\n    return recipe_to_dict(recipe)\n\ndef delete_recipe_orm(recipe_id):\n    recipe = db.session.get(Recipe, recipe_id)\n    if recipe is None:\n        return False\n    db.session.delete(recipe)\n    db.session.commit()\n    return True\n```\n\nKEY POINTS\n- add / attribute change / delete only stage. commit() writes.\n- Models and db live in the main package (extensions.py, models.py); other modules import them relatively (from .models import Recipe).\n\nCORRECTION\nThe lesson loaded rows with Recipe.query.get(id). That's the old style and gives a warning in current Flask-SQLAlchemy. The code uses db.session.get(Recipe, id), which does the same thing.",
+      "original": ""
+    },
+    {
+      "group": "Unit 2",
+      "item": "Lesson 4",
+      "title": "Relationships and foreign keys",
+      "topic": "Unit 2 · Lesson 4",
+      "order": 204,
+      "date": "2026-10-19",
+      "dateEnd": "2026-10-26",
+      "refined": "IN PLAIN WORDS\nA foreign key (recipes.owner_id → users.id) keeps child rows pointing at real parents. One-to-many: User.recipes and Recipe.owner, linked with back_populates. owner_id is the raw number; owner is the User object. Foreign key errors are about database consistency. 403/404 decisions are service logic.\n\nKEY IDEAS\n1. Foreign key: a child column that must match a primary key in a parent table.\n2. Referential integrity: no \"orphan\" rows pointing at users that don't exist.\n3. One-to-many: one user has many recipes; each recipe has at most one owner.\n4. owner_id is the database column. owner and recipes are ORM navigation only.\n5. 404: the recipe doesn't exist, or it's private and not yours. 403: you can see it but aren't the owner or an admin.\n\nSTEPS: FIX \"FOREIGN KEY constraint failed\"\n1. Find the column (recipes.owner_id).\n2. Look at the value being inserted.\n3. Check that id exists in the parent table (users.id).\n4. Fix the data (create the user, fix bad rows) or the code (only use real user ids).\n\nCODE\n```python\nclass User(db.Model):\n    __tablename__ = \"users\"\n    id = db.Column(db.Integer, primary_key=True)\n    recipes = db.relationship(\"Recipe\", back_populates=\"owner\", lazy=\"dynamic\")\n\nclass Recipe(db.Model):\n    __tablename__ = \"recipes\"\n    id = db.Column(db.Integer, primary_key=True)\n    owner_id = db.Column(db.Integer, db.ForeignKey(\"users.id\"), nullable=True)\n    owner = db.relationship(\"User\", back_populates=\"recipes\")\n```\n\n```python\nrecipe.owner.username                                   # recipe → owner\nuser.recipes.filter(Recipe.is_public == 1).all()        # user → recipes\n```\n\n```python\n# SQLite: foreign keys are OFF unless you turn them on per connection\nimport sqlite3\nfrom sqlalchemy import event\nfrom sqlalchemy.engine import Engine\n\n@event.listens_for(Engine, \"connect\")\ndef _turn_on_foreign_keys(dbapi_connection, connection_record):\n    if isinstance(dbapi_connection, sqlite3.Connection):\n        cursor = dbapi_connection.cursor()\n        cursor.execute(\"PRAGMA foreign_keys=ON\")\n        cursor.close()\n```\n\nKEY POINTS\n- \"One\" side: User. \"Many\" side: Recipe. The foreign key lives on the many side.\n- An IntegrityError is a data-consistency problem, not an authorization one.\n\nCORRECTION\nOn SQLite, SQLAlchemy doesn't turn foreign keys on by itself. Checked by running it: a recipe with owner_id=9999 saved with no error until the listener above was added, then the same insert failed with \"FOREIGN KEY constraint failed\".",
+      "original": ""
+    },
+    {
+      "group": "Unit 2",
+      "item": "Lesson 6",
+      "title": "Change a model, generate a migration",
+      "topic": "Unit 2 · Lesson 6",
+      "order": 206,
+      "date": "2026-10-19",
+      "dateEnd": "2026-10-26",
+      "refined": "IN PLAIN WORDS\nModels are the source of truth for the schema. Change the model → flask db migrate (writes a script; the database isn't changed yet) → read upgrade() → flask db upgrade (applies it). Prove it on a fresh database: upgrade replays every migration, and PRAGMA table_info shows the new column.\n\nSTEPS\n1. Change the model (add tagline to User).\n2. flask db migrate -m \"add tagline to user\" writes a script under migrations/versions/.\n3. Read upgrade(): find add_column('tagline', ...), and make sure every foreign key has a name.\n4. flask db upgrade applies all pending migrations to the database.\n5. Point RECIPES_DB at an empty file, run flask db upgrade, and watch every migration run in order.\n6. Check the schema with PRAGMA table_info(users).\n\nCODE\n```python\nclass User(db.Model):\n    __tablename__ = \"users\"\n    # ...existing columns...\n    tagline = db.Column(db.String, nullable=True)    # new optional column\n```\n\n```bash\nflask db migrate -m \"add tagline to user\"\nflask db upgrade\n```\n\n```python\n# in the generated upgrade(): give the foreign key a name\nbatch_op.create_foreign_key(\n    \"fk_recipes_owner_id_users\", \"users\", [\"owner_id\"], [\"id\"]\n)\n```\n\n```text\nRunning upgrade  -> fd994be151dd, baseline: create users and recipes\nRunning upgrade fd994be151dd -> e6d0df2b99d9, add tagline to user\n```\n\n```python\nimport sqlite3\nconn = sqlite3.connect(\"recipes_fresh.db\")\nfor row in conn.execute(\"PRAGMA table_info(users);\"):\n    print(row)               # one row should be ... 'tagline', 'VARCHAR' ...\nconn.close()\n```\n\nKEY POINTS\n- migrate writes the script; upgrade changes the database. They are different steps.\n- Always read upgrade() before applying it.\n- \"Constraint must have a name\": SQLite batch mode can't create an unnamed foreign key. Replace None with a real name.\n- A fresh database reaching the same schema through migrations proves the chain is complete.",
+      "original": ""
+    },
+    {
+      "group": "Unit 2",
+      "item": "Lesson 7",
+      "title": "Caching expensive reads",
+      "topic": "Unit 2 · Lesson 7",
+      "order": 207,
+      "date": "2026-10-19",
+      "dateEnd": "2026-10-26",
+      "refined": "IN PLAIN WORDS\nCache expensive reads with Flask-Caching: SimpleCache with a 30-second timeout. A cold request does the work; a warm one comes from memory. The cost is memory, plus data up to 30 seconds old. Never cache login, register, or \"current state\" like balances.\n\nKEY IDEAS\n1. Expensive read: many rows, joins or counts, called often. GET /recipes and GET /recipes/count.\n2. Cold request: first call, or after the timeout. Does the full work and stores the result.\n3. Warm request: within the timeout. Served from memory.\n4. Cost: memory use and temporary staleness.\n5. Safe to cache: lists, counts, leaderboards, \"recent\" feeds.\n6. Never cache: login, register, personal \"right now\" data (balances, live health), anything where stale data is dangerous.\n7. @cache.cached keys on the URL path only. If the response depends on who is logged in, a shared cache can serve one user's data to another.\n\nSTEPS: CACHE ONE READ\n1. extensions.py: cache = Cache()\n2. In create_app, set CACHE_TYPE and CACHE_DEFAULT_TIMEOUT, then cache.init_app(app). (A NullCache warning means CACHE_TYPE was set too late.)\n3. Put @cache.cached(timeout=30) on the view, below the route decorator.\n4. Measure several calls: the first is cold, the next ones warm.\n\nCODE\n```python\n# create_app\napp.config[\"CACHE_TYPE\"] = \"SimpleCache\"\napp.config[\"CACHE_DEFAULT_TIMEOUT\"] = 30\ncache.init_app(app)\n```\n\n```python\n@bp.get(\"/recipes\")\n@optional_auth\n@cache.cached(timeout=30, unless=lambda: request.headers.get(\"Authorization\") is not None)\ndef list_recipes():\n    return jsonify(recipes.list_for(current_viewer())), 200\n```\n\n```powershell\nMeasure-Command { Invoke-WebRequest http://127.0.0.1:5000/recipes | Out-Null }\n```\n\nKEY POINTS\n- Cache only data that may be slightly stale.\n- Cost of caching: memory and staleness.\n\nCORRECTION\nGET /recipes shows different recipes to different people (owners also see their private ones), but @cache.cached stores one answer per path. Without a fix, the first logged-in owner's list, private recipes included, could be served to everyone for 30 seconds. The unless= above caches guest requests only. Checked by running it: the logged-in user saw their private recipe, and the guest after them did not.",
+      "original": ""
+    },
+    {
+      "group": "Unit 2",
+      "item": "Lesson 8",
+      "title": "Invalidating cached data on writes",
+      "topic": "Unit 2 · Lesson 8",
+      "order": 208,
+      "date": "2026-10-19",
+      "dateEnd": "2026-10-26",
+      "refined": "IN PLAIN WORDS\nA cached GET goes stale after a write. Clear the cached entry in the write path, after the database write succeeds. Keep personal data out of shared cache keys. Never cache /login or /register.\n\nKEY IDEAS\n1. Stale cached response: a cached answer that no longer matches the database.\n2. Reproduce it: GET /recipes (cache warms) → POST /recipes (201) → GET /recipes still shows the old list.\n3. Write-path invalidation: the code that writes also clears the affected cache entry.\n4. Clear only after the write succeeds, so a failed write doesn't throw away a good cache.\n5. Cache-key isolation: personalized responses need a per-user key, or no cache at all.\n6. Never-cache endpoints: POST /login and POST /register (passwords, tokens, per-user results, side effects).\n\nSTEPS: EVERY WRITE TO RECIPES\n1. Do the write (create, update or delete).\n2. If it succeeded, delete the cached GET /recipes entry.\n3. Return the response.\n\nCODE\n```python\nLIST_KEY = \"view//recipes\"          # @cache.cached's default key: \"view/\" + the path\n\n@bp.post(\"/recipes\")\n@require_auth\ndef create_recipe():\n    created = recipes.create(current_viewer(), request.get_json(silent=True))\n    cache.delete(LIST_KEY)          # after the write succeeded\n    return jsonify(created), 201\n\n@bp.patch(\"/recipes/<int:recipe_id>\")\n@require_auth\ndef update_recipe(recipe_id):\n    updated = recipes.update(current_viewer(), recipe_id, request.get_json(silent=True))\n    cache.delete(LIST_KEY)\n    return jsonify(updated), 200\n\n@bp.delete(\"/recipes/<int:recipe_id>\")\n@require_auth\ndef delete_recipe(recipe_id):\n    recipes.delete(current_viewer(), recipe_id)\n    cache.delete(LIST_KEY)\n    return \"\", 204\n```\n\nKEY POINTS\n- Write happens → any cache of that data is suspect → clear it after success.\n- Auth, secrets, personal data and side effects → never cache.\n\nCORRECTION\nThe lesson cleared the cache with cache.delete_memoized(list_recipes). That only works for @cache.memoize. For @cache.cached it does nothing. Checked by running it: with delete_memoized the list was still stale after a write; with cache.delete(\"view//recipes\") the new recipe showed up.",
+      "original": ""
+    },
+    {
+      "group": "Unit 2",
+      "item": "Lesson 9",
+      "title": "Rate limiting sensitive endpoints",
+      "topic": "Unit 2 · Lesson 9",
+      "order": 209,
+      "date": "2026-10-19",
+      "dateEnd": "2026-10-26",
+      "refined": "IN PLAIN WORDS\nFlask-Limiter limits how many requests one client (one IP address) can make to an endpoint per minute. Limit only the sensitive ones: POST /login 5 per minute, POST /register 2 per minute. Over the limit → 429 Too Many Requests.\n\nKEY IDEAS\n1. Rate limiting slows abuse (password guessing, signup spam) without breaking normal use.\n2. key_func=get_remote_address groups requests by client IP.\n3. storage_uri=\"memory://\" keeps counts in memory: fine for one dev server, not for several production servers.\n4. Per-endpoint limits only. Recipe reads stay unlimited, because they're normal traffic.\n5. Trade-off: people sharing one IP (school, café) can hit the limit together.\n6. Over the limit: 429 Too Many Requests, with headers saying when to retry (such as Retry-After).\n\nSTEPS\n1. Create the limiter in extensions.py.\n2. limiter.init_app(app) in create_app.\n3. Add @limiter.limit(...) under the route decorator on /login and /register.\n4. Pin the version in requirements.txt (Flask-Limiter==4.1.1).\n\nCODE\n```python\n# extensions.py\nfrom flask_limiter import Limiter\nfrom flask_limiter.util import get_remote_address\nlimiter = Limiter(key_func=get_remote_address, storage_uri=\"memory://\")\n```\n\n```python\n@bp.post(\"/register\")\n@limiter.limit(\"2 per minute\")       # BELOW the route decorator\ndef register():\n    ...\n\n@bp.post(\"/login\")\n@limiter.limit(\"5 per minute\")\ndef login():\n    ...\n```\n\nKEY POINTS\n- Limit login and register; leave normal reads alone.\n- 429 means \"too many requests, try again later\".\n\nCORRECTION\nThe lesson put @limiter.limit above @bp.post. Decorators run bottom-up, so the route registered the unlimited function and the limit never ran. Checked by running it: with the limit above the route, three logins in a row all got 200; with it below, the third got 429.",
+      "original": ""
+    },
+    {
+      "group": "Unit 2",
+      "item": "Lesson 10",
+      "title": "Challenge: the extension-backed API",
+      "topic": "Unit 2 · Lesson 10",
+      "order": 210,
+      "date": "2026-10-19",
+      "dateEnd": "2026-10-26",
+      "refined": "IN PLAIN WORDS\nBuild one feature end to end: Recipe ↔ Tag, many-to-many (a join table plus a relationship with secondary=), then migrate → inspect → upgrade. Keep the layers: models, repositories, services (with ApiError), thin routes. Use one serializer everywhere and validate new fields.\n\nKEY IDEAS\n1. Many-to-many needs a join table (recipe_tags) with two foreign keys.\n2. relationship(\"Tag\", secondary=recipe_tags) connects the two sides.\n3. Models: tables, relationships and simple helpers like recipe_to_dict.\n4. Repositories: queries only. No permissions, no HTTP.\n5. Services: who may see or change what; raise ApiError(status, message).\n6. Routes: read the request, call a service, return jsonify and a status. Permission checks never live here.\n7. One serializer for every endpoint that returns a recipe. Adding a field there updates them all.\n\nSTEPS: A NEW FEATURE, END TO END\n1. Model: new table, columns, relationships.\n2. flask db migrate -m \"...\" → read the script → flask db upgrade.\n3. Repository: new queries.\n4. Service: rules and error codes.\n5. Route: method, path, body, response.\n6. Validate new input and reject bad types with 400.\n\nCODE\n```python\nrecipe_tags = db.Table(\n    \"recipe_tags\",\n    db.Column(\"recipe_id\", db.Integer, db.ForeignKey(\"recipes.id\"), primary_key=True),\n    db.Column(\"tag_id\", db.Integer, db.ForeignKey(\"tags.id\"), primary_key=True),\n)\n\nclass Tag(db.Model):\n    __tablename__ = \"tags\"\n    id = db.Column(db.Integer, primary_key=True)\n    name = db.Column(db.String, nullable=False, unique=True)\n\nclass Recipe(db.Model):\n    # ...existing columns...\n    tags = db.relationship(\"Tag\", secondary=recipe_tags, backref=\"recipes\")\n```\n\n```python\n# service: validate a new collection field\nif \"tags\" in data:\n    raw = data[\"tags\"]\n    if not isinstance(raw, list) or not all(isinstance(t, str) for t in raw):\n        raise ApiError(400, \"tags must be a list of strings\")\n    tags = [t.strip() for t in raw if t.strip()]\n```\n\n```python\n@bp.get(\"/recipes/<int:recipe_id>\")\n@optional_auth\ndef get_recipe(recipe_id):\n    return jsonify(recipes.find_visible(current_viewer(), recipe_id)), 200\n```\n\nKEY POINTS\n- Permission checks go in the service layer.\n- Don't silently ignore invalid input; return 400.\n- Changing the serializer changes the contract, so update the tests and clients too.",
+      "original": ""
+    },
+    {
+      "group": "Unit 3",
+      "item": "Lesson 2",
+      "title": "Time three calls in a row",
+      "topic": "Unit 3 · Lesson 2",
+      "order": 302,
+      "date": "2026-10-26",
+      "dateEnd": "2026-11-02",
+      "refined": "IN PLAIN WORDS\nA baseline is what you measure before changing anything. Calls to a 1-second endpoint made one after another took about 1 s, 3 s and 5 s for 1, 3 and 5 calls: each sequential call adds its whole wait.\n\nKEY IDEAS\n1. Synchronous: each httpx.get waits to finish before the next starts.\n2. Time the whole group: one start before all calls, one end after.\n3. Total time grows with the number of sequential calls (about 1 second each here).\n4. A baseline gives you real numbers to compare against after you change the code.\n\nSTEPS\n1. Start the slow service (python app.py) and check /health returns {\"status\": \"ok\"}.\n2. In a second terminal, run the timing script.\n3. Record the totals for 1, 3 and 5 calls.\n\nCODE\n```python\nimport time\nimport httpx\n\nstart = time.perf_counter()\nfor food in [\"eggs\", \"milk\", \"bread\", \"cheese\", \"apple\"]:\n    httpx.get(f\"http://127.0.0.1:5001/nutrition/{food}\")\nend = time.perf_counter()\nprint(\"Total time:\", end - start)\n```\n\n```text\n1 call  → 1.03 s\n3 calls → 3.07 s\n5 calls → 5.16 s\n```\n\nKEY POINTS\n- Sequential waits add up.\n- Measure first, so you can prove later that a change made it faster.\n\nNOTE\nThe lesson used time.time(). time.perf_counter() is the better clock for timing code, because time.time() follows the wall clock, which can jump if the system time changes.",
+      "original": ""
+    },
+    {
+      "group": "Unit 3",
+      "item": "Lesson 3",
+      "title": "Threads versus async",
+      "topic": "Unit 3 · Lesson 3",
+      "order": 303,
+      "date": "2026-10-26",
+      "dateEnd": "2026-11-02",
+      "refined": "IN PLAIN WORDS\nThreads and async both overlap I/O waits. In normal Python (CPython) the GIL lets only one thread run Python code at a time, so threads don't speed up pure-Python CPU work. Processes do. Small and simple → sync. Many I/O waits → threads or async. Heavy CPU → processes.\n\nKEY IDEAS\n1. Thread: a lightweight worker inside a process. Good at overlapping waits.\n2. GIL (Global Interpreter Lock): in CPython, only one thread runs Python bytecode at a time.\n3. Async: one thread and an event loop switching between tasks when they're ready to continue.\n4. Process: a separate Python interpreter with its own GIL, so it can run on another core.\n\nSTEPS: CHOOSE AN APPROACH\n1. Mostly waiting on I/O → threads or async.\n2. Pure Python CPU → processes (threads and async won't help).\n3. Small and simple → plain synchronous code.\n\nCODE\n```text\n5 HTTP calls to the slow service:  sequential 5.15 s → threads 1.05 s   (waits overlapped)\n50-million-step Python loop:       sequential 0.91 s → 2 threads 1.83 s (GIL + overhead)\n```\n\nKEY POINTS\n- Threads helped only in the I/O-bound case, and the timings prove it.\n- Async helps the same I/O-bound work as threads. It doesn't get around the GIL for CPU work.\n\nNOTE\nPython 3.13 and later also come in an optional \"free-threaded\" build without the GIL. The normal install still has the GIL, so the rule above holds for it.",
+      "original": ""
+    },
+    {
+      "group": "Unit 3",
+      "item": "Lesson 4",
+      "title": "Coroutines, await, and one entry point",
+      "topic": "Unit 3 · Lesson 4",
+      "order": 304,
+      "date": "2026-10-26",
+      "dateEnd": "2026-11-02",
+      "refined": "IN PLAIN WORDS\nasync def makes a coroutine function. Calling it only creates a coroutine object; nothing inside runs yet. await runs it. asyncio.run(main()) starts the event loop. In JavaScript, calling an async function starts it right away. In Python it doesn't.\n\nKEY IDEAS\n1. async def foo(): defines a coroutine function.\n2. foo() creates a coroutine object, not running.\n3. await foo() runs it and gives back its result.\n4. asyncio.run(main()) starts the event loop and runs main to the end.\n5. A coroutine you create but never await gives \"RuntimeWarning: coroutine 'foo' was never awaited.\"\n\nSTEPS: SHAPE OF AN ASYNC SCRIPT\n1. Write async def main() with the top-level async logic.\n2. Inside, await every coroutine you create (or hand it to gather or create_task).\n3. Start it once: asyncio.run(main()).\n\nCODE\n```python\nimport asyncio\n\nasync def worker():\n    return \"done\"\n\nasync def main():\n    result = await worker()     # runs worker\n    print(result)\n\nasyncio.run(main())\n```\n\nKEY POINTS\n- foo() ≠ running. await foo() = running.\n- JavaScript and GDScript: calling an async function starts it. Python: it only starts when awaited.\n- asyncio.run can't be called from inside code that is already running in an event loop (\"asyncio.run() cannot be called from a running event loop\"). One asyncio.run per script is the habit to keep.",
+      "original": ""
+    },
+    {
+      "group": "Unit 3",
+      "item": "Lesson 5",
+      "title": "Stall the event loop on purpose",
+      "topic": "Unit 3 · Lesson 5",
+      "order": 305,
+      "date": "2026-10-26",
+      "dateEnd": "2026-11-02",
+      "refined": "IN PLAIN WORDS\nawait asyncio.sleep() pauses one coroutine and lets the others run, so waits overlap (total ≈ the longest delay). time.sleep() blocks the event-loop thread, so coroutines run one after another (total ≈ the sum). Any blocking call inside a coroutine stalls all of them while it runs.\n\nKEY IDEAS\n1. Non-blocking wait (await asyncio.sleep): the coroutine pauses; the loop runs others.\n2. Blocking wait (time.sleep, blocking I/O, heavy CPU) inside a coroutine: the event loop can't run anything else until it returns.\n3. Healthy output: all starts, then all ends. Stalled output: all of A, then all of B.\n4. A total time equal to the sum of the delays means something is blocking the loop.\n\nCODE\n```python\nimport asyncio\n\nasync def worker(name, delay):\n    print(f\"{name} start\")\n    await asyncio.sleep(delay)          # non-blocking\n    print(f\"{name} end\")\n\nasync def main():\n    task_a = asyncio.create_task(worker(\"A\", 1))\n    task_b = asyncio.create_task(worker(\"B\", 1))\n    await task_a\n    await task_b\n\nasyncio.run(main())\n```\n\n```text\nawait asyncio.sleep: A start, B start, A end, B end   (about 1 s)\ntime.sleep:          A start, A end, B start, B end   (about 2 s)\n```\n\nKEY POINTS\n- Stall rule: one blocking call in the event loop stops every coroutine until it finishes.\n- Fix: use the async version of the wait (await asyncio.sleep, an async client).\n- Checked by running it with two 0.3-second workers: 0.30 s with asyncio.sleep, 0.60 s with time.sleep.",
+      "original": ""
+    },
+    {
+      "group": "Unit 3",
+      "item": "Lesson 6",
+      "title": "Tasks and asyncio.gather",
+      "topic": "Unit 3 · Lesson 6",
+      "order": 306,
+      "date": "2026-10-26",
+      "dateEnd": "2026-11-02",
+      "refined": "IN PLAIN WORDS\nasyncio.gather starts several coroutines together and waits for all of them. The total is about the longest single wait. Results come back in the order you passed them in, not the order they finished. asyncio.create_task starts a coroutine right away in the background.\n\nKEY IDEAS\n1. Sequential awaits add up: 1 + 2 + 3 = about 6 s.\n2. gather overlaps them: about 3 s (your run: 3.01 s).\n3. gather returns results in argument order. Checked by running it: A (0.3 s), B (0.1 s), C (0.2 s) returned ['A', 'B', 'C'] even though B finished first.\n4. create_task starts the coroutine immediately; await it later.\n5. Keep a reference to every task (variable, list or set). asyncio only holds a weak reference, so an unreferenced task can be garbage-collected before it finishes.\n6. A crash inside a task nobody awaits can die quietly, so long-running tasks should catch and log their own errors.\n7. JavaScript's Promise.all is similar, but JS promises are already running when created; Python coroutines start only when awaited or scheduled.\n\nCODE\n```python\nimport asyncio, time\n\nasync def charge(name, delay):\n    print(f\"{name} starts charging...\")\n    await asyncio.sleep(delay)\n    print(f\"{name} finished after {delay} seconds\")\n    return delay\n\nasync def main():\n    start = time.perf_counter()\n    results = await asyncio.gather(\n        charge(\"Enemy A\", 1), charge(\"Enemy B\", 2), charge(\"Enemy C\", 3)\n    )\n    print(\"Results:\", results)                                   # [1, 2, 3]\n    print(f\"Total elapsed: {time.perf_counter() - start:.2f} s\") # about 3.00\n\nasyncio.run(main())\n```\n\nKEY POINTS\n- Independent waits started together: total ≈ the longest one.\n- Make the coroutines, then gather them. Results stay in input order.\n\nNOTE\nThe lesson timed with asyncio.get_event_loop().time(). It works inside async code, but asyncio.get_running_loop() is the current name, and time.perf_counter() is simpler for measuring.",
+      "original": ""
+    },
+    {
+      "group": "Unit 3",
+      "item": "Lesson 7",
+      "title": "Concurrent HTTP with httpx",
+      "topic": "Unit 3 · Lesson 7",
+      "order": 307,
+      "date": "2026-10-26",
+      "dateEnd": "2026-11-02",
+      "refined": "IN PLAIN WORDS\nAsync only helps when there are several independent I/O waits. Use one httpx.AsyncClient inside async with. An await inside a loop is still sequential; to overlap, create the coroutines first, then gather them. No crash doesn't mean the design is concurrent: check the timing.\n\nKEY IDEAS\n1. Worth it: several independent waits, and total time matters. Not worth it: one request, or steps that need the previous result.\n2. async with httpx.AsyncClient() opens and closes the client safely.\n3. A for loop with await inside runs one call at a time.\n4. gather(..., return_exceptions=True) returns a list mixing results and exception objects, so one failure doesn't hide the rest.\n5. Without return_exceptions, gather raises the first error, but the other coroutines are not cancelled; they keep running.\n6. An exception like httpx.ConnectError is an environment problem (server down, wrong port). A sequential loop is a design problem that raises nothing.\n\nCODE\n```python\nimport asyncio, time\nimport httpx\n\nasync def fetch_one(client, n):\n    resp = await client.get(f\"http://localhost:8000/slow?n={n}\")\n    return resp.text\n\nasync def main():\n    async with httpx.AsyncClient() as client:\n        start = time.perf_counter()\n        results = await asyncio.gather(\n            *(fetch_one(client, n) for n in [1, 2, 3]),\n            return_exceptions=True,\n        )\n        print(f\"Total: {time.perf_counter() - start:.2f} s\")\n    for item in results:\n        if isinstance(item, Exception):\n            print(\"failed:\", type(item).__name__)\n        else:\n            print(\"ok:\", item)\n\nif __name__ == \"__main__\":\n    asyncio.run(main())\n```\n\nKEY POINTS\n- Sequential: 3 one-second calls ≈ 3 s. Gathered: a little over 1 s. That gap is the evidence.\n- httpx's default timeout is 5 seconds.",
+      "original": ""
+    },
+    {
+      "group": "Unit 3",
+      "item": "Lesson 8",
+      "title": "Give every call a time limit",
+      "topic": "Unit 3 · Lesson 8",
+      "order": 308,
+      "date": "2026-10-26",
+      "dateEnd": "2026-11-02",
+      "refined": "IN PLAIN WORDS\nasyncio.wait_for(coro, timeout=...) returns the result in time, or cancels the work and raises TimeoutError. Catch it and return a clear marker so the other results survive. A timeout means \"reachable but too slow\"; a ConnectError means \"never reached\". Pick the timeout from measured times.\n\nKEY IDEAS\n1. wait_for puts a hard limit on one async operation.\n2. When time runs out, the inner work is cancelled and TimeoutError is raised.\n3. Partial results: keep the successful answers and mark the slow ones, e.g. ['OK: ...', 'n=2: TIMEOUT', 'OK: ...'].\n4. TimeoutError (from wait_for): connected, but too slow. httpx.ConnectError: never connected.\n5. httpx's own timeout= raises httpx.TimeoutException (ReadTimeout, ConnectTimeout), a different error.\n6. Shorter timeout: faster answers, more late-but-valid responses dropped. Longer: more complete data, longer waits.\n\nCODE\n```python\nasync def fetch_with_limit(client, n):\n    url = f\"http://localhost:8000/slow?n={n}\"\n    try:\n        resp = await asyncio.wait_for(client.get(url), timeout=3.0)\n        return f\"OK: {resp.text}\"\n    except TimeoutError:                 # same as asyncio.TimeoutError since Python 3.11\n        return f\"n={n}: TIMEOUT\"\n```\n\nKEY POINTS\n- A timeout should give partial results, not a crash.\n- Choose the limit on purpose, from measured normal and worst-case times.",
+      "original": ""
+    },
+    {
+      "group": "Unit 3",
+      "item": "Lesson 9",
+      "title": "Async views and their limits",
+      "topic": "Unit 3 · Lesson 9",
+      "order": 309,
+      "date": "2026-10-26",
+      "dateEnd": "2026-11-02",
+      "refined": "IN PLAIN WORDS\nA Flask async def view can gather several outbound calls, so one request waits only about as long as its slowest dependency. It doesn't raise how many requests the server can handle overall. A blocking call inside it adds its full time and stops the overlap while it runs.\n\nKEY IDEAS\n1. Async views improve one request's waiting time when it fans out to several independent I/O calls.\n2. They don't, by themselves, increase requests per second or how many users the server can handle.\n3. Flask runs each async view on its own event loop inside a normal worker thread; the worker stays busy for the whole request.\n4. A blocking call (time.sleep, a blocking database query) inside the view stalls that request's tasks. Your test: elapsed for the gathered calls stayed about 3.3 s, but the client waited about 2 s + 3.3 s.\n5. Async views need pip install \"flask[async]\". Without it Flask raises \"Install Flask with the 'async' extra in order to use async views.\"\n\nCODE\n```python\n@bp.get(\"/async-demo\")\nasync def async_demo():\n    async with httpx.AsyncClient() as client:\n        start = time.perf_counter()\n        responses = await asyncio.gather(\n            client.get(\"http://localhost:8000/slow?n=1\", timeout=5.0),\n            client.get(\"http://localhost:8000/slow?n=2\", timeout=5.0),\n            client.get(\"http://localhost:8000/slow?n=3\", timeout=5.0),\n        )\n        elapsed = time.perf_counter() - start\n    return jsonify({\"results\": [r.text for r in responses], \"elapsed\": elapsed}), 200\n```\n\nKEY POINTS\n- Async view + gather → the request waits about as long as its slowest dependency.\n- Three awaits in a row without gather are sequential.\n- Blocking calls inside async code stall the loop; they don't raise errors.",
+      "original": ""
+    },
+    {
+      "group": "Unit 3",
+      "item": "Lesson 10",
+      "title": "Challenge: speed up a slow endpoint",
+      "topic": "Unit 3 · Lesson 10",
+      "order": 310,
+      "date": "2026-10-26",
+      "dateEnd": "2026-11-02",
+      "refined": "IN PLAIN WORDS\n/api/summary makes three independent calls to a slow service. async def + AsyncClient + gather overlaps them. safe_get adds a 2-second timeout and returns \"FALLBACK: <error name>\", so the endpoint still answers 200 with an obvious marker when the service is down or slow.\n\nSTEPS\n1. Confirm the work is I/O-bound and the calls are independent.\n2. Make the view async def and open one AsyncClient.\n3. Create the three coroutines, then gather them.\n4. Wrap each call in safe_get: timeout, status check, and a clear fallback.\n5. Measure sequential vs async with the same three calls.\n\nCODE\n```python\nasync def safe_get(client, url):\n    try:\n        resp = await client.get(url, timeout=2.0)\n        resp.raise_for_status()           # a 500 becomes an error, not fake data\n        return resp.text\n    except httpx.HTTPError as e:          # timeouts, connection errors, bad status\n        return f\"FALLBACK: {type(e).__name__}\"\n\n@bp.get(\"/api/summary\")\nasync def summary():\n    async with httpx.AsyncClient() as client:\n        list_text, deleted_text, counts_text = await asyncio.gather(\n            safe_get(client, \"http://localhost:8000/slow?type=list\"),\n            safe_get(client, \"http://localhost:8000/slow?type=deleted\"),\n            safe_get(client, \"http://localhost:8000/slow?type=counts\"),\n        )\n    return jsonify({\"list\": list_text, \"deleted\": deleted_text, \"counts\": counts_text}), 200\n```\n\nKEY POINTS\n- Sequential total ≈ the sum of the calls; gathered ≈ the slowest one.\n- Service up → real data. Service down or slow → 200 with a clear FALLBACK marker.\n- Threads would also overlap the waits, but with more overhead than async here.\n- On Windows, a stopped localhost server shows ConnectTimeout (not ConnectError): connecting to a closed local port retries for about 2 seconds, so the 2-second timeout fires first.\n\nCORRECTION\n- The notes said \"about 7 seconds\" sequential and \"about 1 second\" async for the same three calls. Both can't be true: if three calls add up to 7 s, at least one takes over 2.3 s, so the async version can't finish under that (and would hit the 2-second fallback). Re-time it before quoting numbers.\n- The lesson's safe_get didn't check the status code, so a 500 error page would have come back as if it were real data. resp.raise_for_status() fixes that; the same except catches it.",
+      "original": ""
+    },
+    {
+      "group": "Unit 4",
+      "item": "Lesson 2",
+      "title": "Service-to-service authentication",
+      "topic": "Unit 4 · Lesson 2",
+      "order": 402,
+      "date": "2026-11-02",
+      "dateEnd": "2026-11-09",
+      "refined": "IN PLAIN WORDS\nEvery hop between processes proves two things. Which user? The JWT, checked with JWT_SECRET. Which service is calling? An internal token in a private header, checked with INTERNAL_SERVICE_TOKEN. An internal call checks both (401 if either fails), then loads data scoped to the owner (404 if not found or not yours). Localhost is never proof.\n\nKEY IDEAS\n1. Boundaries: client → users (login, signup), client → recipes (external API), gateway or users → recipes (internal).\n2. User identity: Authorization: Bearer <jwt>, verified with JWT_SECRET.\n3. Service identity: a private header with the internal token, verified with INTERNAL_SERVICE_TOKEN.\n4. Separate secrets: user tokens reach clients, internal tokens never do, and one leak doesn't expose the other.\n5. A request from localhost or an internal port can still be a test script, malware or a compromised service. Location is not identity.\n6. Owner-only queries include owner_id = sub, so \"doesn't exist\" and \"not yours\" both give 404 and nobody can discover records by guessing ids.\n7. Auth checks run before the cache: failed credentials never touch it.\n\nSTEPS: AN INTERNAL CALL TO RECIPES\n1. Verify the JWT → 401 if missing, invalid or expired.\n2. Verify the internal token → 401 if missing or wrong. A valid JWT does not skip this.\n3. Query with id = X and owner_id = sub.\n4. Nothing found → 404. Found → 200 or 201.\n\nCODE\n```python\nimport hmac\n\ndef check_internal_token(given):\n    expected = current_app.config[\"INTERNAL_SERVICE_TOKEN\"]\n    return bool(given) and hmac.compare_digest(given, expected)\n```\n\n```text\nTest matrix (internal recipes endpoint)\nNo JWT, no internal token        → 401\nBad JWT, good internal token     → 401\nGood JWT, missing internal token → 401\nGood JWT, bad internal token     → 401\nBoth good, not found for owner   → 404\nBoth good, recipe owned          → 200 / 201\n```\n\nKEY POINTS\n- Always verify credentials; never trust localhost or \"it's internal\".\n- 401 = credentials problem. 404 = hidden or missing owner-only resource.\n- Compare secrets with hmac.compare_digest, which takes the same time whether or not the first characters match.\n\nNOTE\nThis lesson named the header X-Caller and the next lesson names it X-Internal-Token. Pick one name and use it in every service.",
+      "original": ""
+    },
+    {
+      "group": "Unit 4",
+      "item": "Lesson 3",
+      "title": "A gateway that composes services",
+      "topic": "Unit 4 · Lesson 3",
+      "order": 403,
+      "date": "2026-11-02",
+      "dateEnd": "2026-11-09",
+      "refined": "IN PLAIN WORDS\nA gateway is one client-facing endpoint (/me-with-recipes) that calls the users and recipes services and returns one JSON with \"partial\" and \"missing\". Each call gets its own timeout. A failed call becomes null and is listed in missing: you give up completeness to stay available. The gateway forwards the user's JWT and adds the internal token.\n\nKEY IDEAS\n1. Gateway composition: one client request, several internal calls, one combined response.\n2. Response shape: user, recipes, partial (true if anything failed), missing (names of what failed).\n3. Availability vs completeness: answer fast with what you have instead of waiting or failing completely.\n4. Credential forwarding: pass the user's Authorization header on; add the internal token for internal services. The gateway doesn't log users in itself.\n5. Independent calls started together take about as long as the slowest one, not the sum.\n\nCODE\n```json\n{\n  \"user\": {\"id\": 1, \"name\": \"Test User\"},\n  \"recipes\": null,\n  \"partial\": true,\n  \"missing\": [\"recipes\"]\n}\n```\n\n```python\nimport httpx\n\nuser_auth = request.headers.get(\"Authorization\")\nusers_headers = {\"Authorization\": user_auth}\nrecipes_headers = {\"Authorization\": user_auth, \"X-Internal-Token\": INTERNAL_SERVICE_TOKEN}\n\nusers_result = recipes_result = None\nmissing = []\nwith httpx.Client(timeout=1.0) as client:\n    try:\n        r = client.get(USERS_URL, headers=users_headers)\n        r.raise_for_status()\n        users_result = r.json()\n    except httpx.HTTPError:              # timeouts, connection errors AND bad status codes\n        missing.append(\"user\")\n    try:\n        r = client.get(RECIPES_URL, headers=recipes_headers)\n        r.raise_for_status()\n        recipes_result = r.json()\n    except httpx.HTTPError:\n        missing.append(\"recipes\")\n\nreturn jsonify({\"user\": users_result, \"recipes\": recipes_result,\n                \"partial\": bool(missing), \"missing\": missing})\n```\n\nKEY POINTS\n- Return what you have and mark exactly what's missing.\n- Forward the user's JWT and add an internal token: two separate identities.\n- For lower latency, run both calls with httpx.AsyncClient + asyncio.gather.\n\nCORRECTION\nThe lesson caught only httpx.RequestError. raise_for_status() raises httpx.HTTPStatusError, which is not a RequestError, so a 500 from recipes crashed the gateway instead of landing in missing (checked by running it). httpx.HTTPError covers both.",
+      "original": ""
+    },
+    {
+      "group": "Unit 4",
+      "item": "Lesson 4",
+      "title": "Challenge: split and compose a monolith",
+      "topic": "Unit 4 · Lesson 4",
+      "order": 404,
+      "date": "2026-11-02",
+      "dateEnd": "2026-11-09",
+      "refined": "IN PLAIN WORDS\nSplit the monolith into three processes: gateway on 5000, users on 5001 (register, login), recipes on 5002. /me-with-recipes degrades instead of crashing: a non-200 becomes \"recipes-status-N\", an exception becomes \"recipes-unavailable\", and the client still gets 200. Then compare the public contract before and after.\n\nKEY IDEAS\n1. Gateway (5000): accepts client requests, calls the internal services, returns one composed response.\n2. Users (5001): POST /register → 201, POST /login → 200 with a JWT.\n3. Recipes (5002): public reads (GET /recipes, /recipes/<id>, /recipes/count); writes protected with @require_auth.\n4. Graceful degradation: a failing dependency shows up in missing, not as a 500 to the client.\n5. Contract check after a split: rerun the same requests through the new entry point and note what's unchanged, changed, missing or new.\n\nSTEPS: START THE THREE SERVICES (POWERSHELL, ONE TERMINAL EACH)\n1. Activate the virtual environment.\n2. Set FLASK_APP to that service's factory.\n3. python -m flask run --port <port>\n\nCODE\n```powershell\n.\\venv\\Scripts\\Activate.ps1\n$env:FLASK_APP = \"gateway_app:create_app\"               # recipe_box.users_app:create_app / recipe_box.recipes_app:create_app\npython -m flask run --port 5000                         # 5001 / 5002\n```\n\n```python\ntry:\n    resp = requests.get(\"http://127.0.0.1:5002/recipes\", timeout=2.0)\n    if resp.status_code == 200:\n        recipes_result = resp.json()\n    else:\n        recipes_result = None\n        missing.append(f\"recipes-status-{resp.status_code}\")\nexcept requests.RequestException:\n    recipes_result = None\n    missing.append(\"recipes-unavailable\")\npartial = bool(missing)\n```\n\n```python\n# recipes create_app: turn AuthError into a proper 401\nfrom flask import jsonify\nfrom recipe_box.errors import AuthError\n\n@app.errorhandler(AuthError)\ndef handle_auth_error(err):\n    return jsonify({\"error\": str(err)}), 401\n```\n\nKEY POINTS\n- With recipes returning 500, the gateway still answered 200 with \"missing\": [\"recipes-status-500\"].\n- Contract change found: GET /recipes on port 5000 was 200 in the monolith and 404 after the split (the gateway doesn't expose it). /me-with-recipes is new.\n- A rejected caller should get 401/403, never a 500.\n\nCORRECTION\nAn unauthenticated POST /recipes returned 500, because nothing turned AuthError into a response. With the error handler above registered in the recipes create_app, the same request got 401 (checked by running it).",
+      "original": ""
+    },
+    {
+      "group": "Unit 4",
+      "item": "Lesson 5",
+      "title": "Challenge: start a project from scratch",
+      "topic": "Unit 4 · Lesson 5",
+      "order": 405,
+      "date": "2026-11-02",
+      "dateEnd": "2026-11-09",
+      "refined": "IN PLAIN WORDS\nA from-scratch Flask project: a package with the factory, extensions.py, models.py and routes.py, plus config.py, .env / .env.example, wsgi.py and migrations/. The factory loads .env, picks a config class, initializes db and migrate, imports the models and registers the blueprint. Prove it: curl /notes → {\"notes\": []}.\n\nKEY IDEAS\n1. Layout: venv/, notebook/ (__init__.py, routes.py, models.py, extensions.py), config.py, .env, .env.example, wsgi.py, migrations/.\n2. extensions.py creates one db and one migrate object; create_app binds them.\n3. Config classes read secrets and the database URL from the environment. Testing can use in-memory SQLite.\n4. The models must be imported inside create_app so migrations can see them.\n5. A migration file existing is not the same as being applied; flask db upgrade applies it.\n\nSTEPS: FIRST RUN\n1. Create and activate the virtual environment, install requirements.\n2. Write .env (real values, not committed) and .env.example (fake values, committed).\n3. flask db init (once per project).\n4. After every model change: flask db migrate -m \"...\" then flask db upgrade.\n5. flask run, then curl http://127.0.0.1:5000/notes.\n6. \"Could not import 'wsgi'\" → missing wsgi.py, wrong FLASK_APP or wrong folder.\n\nCODE\n```python\n# notebook/__init__.py\nfrom flask import Flask\nfrom dotenv import load_dotenv\nfrom .extensions import db, migrate\n\ndef create_app(config_name=\"development\"):\n    load_dotenv()                                   # before config is read\n    from config import DevelopmentConfig, TestingConfig\n    app = Flask(__name__)\n    app.config.from_object(TestingConfig if config_name == \"testing\" else DevelopmentConfig)\n    db.init_app(app)\n    migrate.init_app(app, db)\n    from . import models, routes                    # models visible to migrations\n    app.register_blueprint(routes.bp)\n    return app\n```\n\n```python\n# config.py\nimport os\n\nclass BaseConfig:\n    SECRET_KEY = os.environ.get(\"SECRET_KEY\", \"dev-secret-change-me\")   # dev fallback only\n    SQLALCHEMY_DATABASE_URI = os.environ.get(\"DATABASE_URL\", \"sqlite:///notebook.db\")\n    SQLALCHEMY_TRACK_MODIFICATIONS = False\n\nclass DevelopmentConfig(BaseConfig):\n    DEBUG = True\n\nclass TestingConfig(BaseConfig):\n    TESTING = True\n    SQLALCHEMY_DATABASE_URI = \"sqlite:///:memory:\"\n```\n\n```python\n# notebook/models.py\nfrom .extensions import db\n\nclass Note(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    title = db.Column(db.String(100), nullable=False)\n    body = db.Column(db.Text, nullable=True)\n\n# notebook/routes.py\nfrom flask import Blueprint\nbp = Blueprint(\"notes\", __name__)\n\n@bp.get(\"/notes\")\ndef list_notes():\n    return {\"notes\": []}\n```\n\n```text\n# .env (not committed)\nSECRET_KEY=super-secret-dev-key\nDATABASE_URL=sqlite:///notebook.db\nFLASK_APP=wsgi:app\nFLASK_DEBUG=1\n```\n\nKEY POINTS\n- Secrets and database URLs come from the environment. Dev fallbacks are fine; production secrets never are.\n- load_dotenv() runs before the config classes are imported, so they see your .env values.\n\nCORRECTION\nThe lesson's .env used FLASK_ENV=development. FLASK_ENV was removed in Flask 2.3 and does nothing now. FLASK_DEBUG=1 turns on debug mode.",
+      "original": ""
+    },
+    {
+      "group": "Unit 4",
+      "item": "Lesson 6",
+      "title": "Challenge: architecture review and recap",
+      "topic": "Unit 4 · Lesson 6",
+      "order": 406,
+      "date": "2026-11-02",
+      "dateEnd": "2026-11-09",
+      "refined": "IN PLAIN WORDS\nFor any unfamiliar system, ask the same four questions. Who owns which data? What's safe to cache, and what isn't? Where do I rate-limit, and what risk does that reduce? What happens when a service is down or slow? Never lie with data, and keep the response shape stable.\n\nSTEPS: THE FOUR-QUESTION REVIEW\n1. Ownership: who is allowed to change this data? That service owns it; others use its API.\n2. Caching: cache public, slow-changing, non-personal data. Never seats, live prices or personal data.\n3. Rate limiting: start with expensive or abusable endpoints (payments, heavy searches), and name the risk each limit reduces.\n4. Failure: fail clearly, return partial data, or use a fallback, without lying and without changing the response shape.\n\nKEY IDEAS\n1. One service = one responsibility + the data it owns. Example: Events (events, venues), Booking (holds, seat availability), Payment (payments, refunds).\n2. Red flags: two services writing the same data, or one service reading another's tables.\n3. Safe to cache for 30–60 s: event titles, dates, venue descriptions.\n4. Unsafe: exact seat availability and dynamic prices; being wrong for 30 seconds means overselling or wrong charges.\n5. In order (events → booking → payment): simple, but slow if one step is slow.\n6. In parallel: faster, but needs a plan when one part fails, such as refunding when payment succeeds and booking fails.\n7. Work the user isn't waiting on (emails, receipts) can run in the background.\n\nCODE\n```text\nBookingService is down:\n\nMisleading:  \"active_bookings\": []              (looks like \"no bookings\")\nHonest:      \"active_bookings\": null            plus an \"unavailable\" marker,\n             or fail the whole request with a clear error.\nThe other fields (profile, upcoming_events) keep the same shape.\n```\n\nKEY POINTS\n- Never return [] for an outage.\n- Keep fields stable; change values, not structure.\n- Parallel steps need a compensation plan.\n- Next steps for an architecture like this: monitoring (see which service is slow or failing), background jobs and safe retries.",
+      "original": ""
+    }
+  ]
+}

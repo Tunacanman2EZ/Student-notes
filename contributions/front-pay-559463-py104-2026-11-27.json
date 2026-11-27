@@ -1,0 +1,237 @@
+{
+  "app": "notes-vault",
+  "kind": "contribution",
+  "version": 1,
+  "createdOn": "2026-11-27T09:19:32.318Z",
+  "contributor": {
+    "id": "55946333-9863-49ca-acb3-a25bfccc48c9",
+    "displayName": "Front-pay"
+  },
+  "program": "Applied science software engineering",
+  "class": {
+    "code": "PY104",
+    "name": "PY104: Software engineering principles"
+  },
+  "lessons": [
+    {
+      "group": "Clean code & testing",
+      "item": "Lesson 1",
+      "title": "Naming Conventions",
+      "topic": "Clean code & testing · Lesson 1",
+      "order": 10001,
+      "date": "2025-09-29",
+      "dateEnd": "2025-10-06",
+      "refined": "IN PLAIN WORDS\nClear, consistent names make code readable. Python uses snake_case. Functions are named with verbs because they do things; variables are named with nouns because they hold data.\n\nKEY IDEAS\n1. snake_case: lowercase words joined by underscores (calculate_total, user_list).\n2. Functions: start with a verb (get_users, calculate_tax, print_report).\n3. Variables: nouns that describe the data (total_score, user_list).\n4. Constants: UPPER_CASE (MAX_HP = 100).\n5. Never reuse built-in names like list, dict, str or sum for variables.\n\nCODE\n```python\ndef calculate_total(prices):\n    return sum(prices)\n\nitem_prices = [2.50, 3.00]\norder_total = calculate_total(item_prices)\n```\n\nWhat goes wrong with a built-in name:\n```python\nlist = [1, 2, 3]       # hides the built-in list()\n# list(\"abc\")          # TypeError: 'list' object is not callable\ndel list               # restores the built-in\n```\n\nKEY POINTS\n- def add(x, y) becomes clearer as def add(first_number, second_number) when the meaning matters.\n- A function called data() says nothing; get_users() says what it does.",
+      "original": ""
+    },
+    {
+      "group": "Clean code & testing",
+      "item": "Lesson 2 & 3",
+      "title": "Docstrings & Comments",
+      "topic": "Clean code & testing · Lesson 2 & 3",
+      "order": 10002,
+      "date": "2025-09-29",
+      "dateEnd": "2025-10-06",
+      "refined": "IN PLAIN WORDS\nA docstring, placed right under a def line, explains what a function does, what it takes, and what it returns. Comments (#) explain why the code does something, not what it obviously does.\n\nKEY IDEAS\n1. Docstring: a triple-quoted string as the first line inside a function.\n2. Common sections: Args (inputs and their types) and Returns (the output).\n3. The docstring describes the function's contract: what goes in and what comes out.\n4. A \"why\" comment explains a reason or a number (# 8% sales tax rate).\n5. A noise comment repeats the code (x = x + 1  # add one) and should be deleted.\n\nCODE\n```python\ndef count_words(text):\n    \"\"\"\n    Count the number of words in a string.\n\n    Args:\n        text (str): The string to count.\n\n    Returns:\n        int: The total word count.\n    \"\"\"\n    # split() with no argument handles runs of spaces and tabs\n    words = text.split()\n    return len(words)\n\nTAX_RATE = 0.08  # 8% state sales tax\n```\n\nKEY POINTS\n- help(count_words) shows the docstring.\n- Explain \"what\" in a comment only when the code is hard to read.",
+      "original": ""
+    },
+    {
+      "group": "Clean code & testing",
+      "item": "Lesson 4 & 5",
+      "title": "Formatting & Readability",
+      "topic": "Clean code & testing · Lesson 4 & 5",
+      "order": 10004,
+      "date": "2025-09-29",
+      "dateEnd": "2025-10-06",
+      "refined": "IN PLAIN WORDS\nPEP 8 is Python's style guide. Following it (consistent indentation, spacing and line length) makes code easy for a team to read.\n\nKEY IDEAS\n1. Indentation: 4 spaces per level, no tabs.\n2. Spaces around = and operators, and after commas: x = 1 + 2, not x=1+2.\n3. Blank lines: 2 between top-level functions; 1 inside a function to separate steps.\n4. Line length: under 79 characters. Break long lines inside parentheses.\n5. Mixing tabs and spaces causes errors; set the editor to insert 4 spaces.\n\nCODE\n```python\ndef total_cost(price, quantity):\n    subtotal = price * quantity\n    return subtotal\n\n\ndef print_receipt(item, price, quantity):\n    message = (\n        f\"{item}: {quantity} x ${price:.2f} \"\n        f\"= ${total_cost(price, quantity):.2f}\"\n    )\n    print(message)\n```\n\nKEY POINTS\n- Six-point checklist: indentation, blank lines, spaces, names, docstrings, comments.\n- Two f-strings next to each other inside parentheses are joined into one string.",
+      "original": ""
+    },
+    {
+      "group": "Clean code & testing",
+      "item": "Lesson 6",
+      "title": "Decomposition (Helper Functions)",
+      "topic": "Clean code & testing · Lesson 6",
+      "order": 10006,
+      "date": "2025-09-29",
+      "dateEnd": "2025-10-06",
+      "refined": "IN PLAIN WORDS\nDecomposition means breaking a long script into small functions that each do one job. A main() function runs the overall flow by calling the helpers.\n\nKEY IDEAS\n1. Helper function: does one specific task.\n2. main(): holds the high-level steps and calls the helpers.\n3. if __name__ == \"__main__\": main() runs main only when the file is run directly, not when it is imported.\n4. A \"god function\" does input, math and printing all at once; split it into get_input(), calculate() and print_result().\n5. Small functions are easier to read, test and reuse.\n\nCODE\n```python\ndef calculate_minutes(shifts):\n    total = 0\n    for shift in shifts:\n        total += shift[\"minutes\"]\n    return total\n\n\ndef print_report(total):\n    print(\"Total:\", total)\n\n\ndef main():\n    shifts = [\n        {\"worker\": \"Jess\", \"minutes\": 300},\n        {\"worker\": \"Sam\", \"minutes\": 240},\n    ]\n    total = calculate_minutes(shifts)\n    print_report(total)\n\n\nif __name__ == \"__main__\":\n    main()\n# Total: 540\n```\n\nKEY POINTS\n- Keep the top level of the script clean: definitions, then one call to main().\n- calculate_minutes could also be return sum(s[\"minutes\"] for s in shifts).",
+      "original": ""
+    },
+    {
+      "group": "Clean code & testing",
+      "item": "Lesson 7 & 8",
+      "title": "Debugging (Print & Assert)",
+      "topic": "Clean code & testing · Lesson 7 & 8",
+      "order": 10007,
+      "date": "2025-09-29",
+      "dateEnd": "2025-10-06",
+      "refined": "IN PLAIN WORDS\nDebug by tracing values with print() and by checking invariants with assert. A DEBUG flag turns trace prints on or off in one place.\n\nKEY IDEAS\n1. Trace: print values as the code runs, with a label like [TRACE] so you know where each line came from.\n2. Invariant: a rule that must always be true at that point (hp >= 0).\n3. assert condition, \"message\" raises AssertionError when the rule breaks.\n4. DEBUG = True / False controls all trace prints.\n5. Python skips asserts in optimized mode (python -O), so use them for development checks, never for validating user input.\n\nCODE\n```python\nDEBUG = True\n\ndef process(n):\n    if DEBUG:\n        print(f\"[TRACE] process: n is {n}\")\n    assert n > 0, \"n must be positive\"\n    return n * 2\n\nprint(process(4))   # [TRACE] process: n is 4, then 8\n# process(-1)       # AssertionError: n must be positive\n```\n\n```python\nfor i in range(3):\n    if DEBUG:\n        print(f\"[TRACE] loop {i}\")\n\nmy_list = [1]\nassert len(my_list) > 0, \"list should not be empty\"\n```\n\nKEY POINTS\n- Too many prints hide the useful ones; label them or use the flag.\n- For checks that must always run, use if and raise ValueError.",
+      "original": ""
+    },
+    {
+      "group": "Clean code & testing",
+      "item": "Lesson 9",
+      "title": "Function Design (Input/Output)",
+      "topic": "Clean code & testing · Lesson 9",
+      "order": 10009,
+      "date": "2025-09-29",
+      "dateEnd": "2025-10-06",
+      "refined": "IN PLAIN WORDS\nParameters make a function work for any input, and return sends the result back so it can be used. Keep calculation functions free of print; print the result where the function is called.\n\nKEY IDEAS\n1. Parameter: a name in the def line. Argument: the value passed in the call.\n2. return: hands the result back to the caller.\n3. return for logic, print for display.\n4. Bounds checking keeps results within limits (hp never above max_hp).\n5. A function can return several values as a tuple.\n\nCODE\n```python\ndef heal_player(hp, healed, max_hp):\n    new_hp = hp + healed\n    if new_hp > max_hp:\n        return max_hp\n    return new_hp\n\nprint(heal_player(80, 30, 100))   # 100\nprint(heal_player(50, 30, 100))   # 80\n```\n\n```python\ndef clamp(value, min_val, max_val):\n    if value < min_val:\n        return min_val\n    if value > max_val:\n        return max_val\n    return value\n\ndef sum_and_product(a, b):\n    return a + b, a * b\n\ntotal, product = sum_and_product(3, 4)   # 7, 12\n```\n\nKEY POINTS\n- def add(a, b): print(a + b) can't be reused in math; return a + b can.\n- heal_player could also be return min(hp + healed, max_hp).",
+      "original": ""
+    },
+    {
+      "group": "Clean code & testing",
+      "item": "Lesson 10 & 11",
+      "title": "Testing & Edge Cases",
+      "topic": "Clean code & testing · Lesson 10 & 11",
+      "order": 10010,
+      "date": "2025-09-29",
+      "dateEnd": "2025-10-06",
+      "refined": "IN PLAIN WORDS\nTest code on purpose with three kinds of cases: typical (normal use), edge (the limits), and invalid (bad input). When a test finds a bug, reduce it to the smallest case that still fails.\n\nKEY IDEAS\n1. Typical case: everyday input.\n2. Edge case: the boundaries, such as 0, the maximum, an empty list, or exactly the limit.\n3. Invalid case: input the function should reject.\n4. Table-driven test: a list of (inputs, expected) pairs checked in a loop.\n5. // silently drops decimals, which can hide a bug.\n\nCODE\n```python\ndef use_mana_potion(mana, potion, max_mana):\n    return min(mana + potion, max_mana)\n\nassert use_mana_potion(5, 2, 10) == 7    # typical\nassert use_mana_potion(8, 2, 10) == 10   # edge: reaches the max\nassert use_mana_potion(9, 5, 10) == 10   # edge: would go over\nassert use_mana_potion(0, 5, 10) == 5    # edge: empty start\n```\n\nTable-driven:\n```python\ndef add(a, b):\n    return a + b\n\ncases = [((2, 3), 5), ((-1, 5), 4), ((0, 0), 0)]\nfor args, expected in cases:\n    assert add(*args) == expected, f\"add{args} should be {expected}\"\nprint(\"All add tests pass\")\n```\n\nKEY POINTS\n- Don't only test the happy path; try 0, negatives and very large numbers.\n- add(*args) unpacks the tuple (2, 3) into add(2, 3).",
+      "original": ""
+    },
+    {
+      "group": "Clean code & testing",
+      "item": "Lesson 12 & 13",
+      "title": "Boundaries & Validation",
+      "topic": "Clean code & testing · Lesson 12 & 13",
+      "order": 10012,
+      "date": "2025-09-29",
+      "dateEnd": "2025-10-06",
+      "refined": "IN PLAIN WORDS\nSet clear limits on what values are allowed and check inputs as soon as they arrive. If something is wrong, raise a ValueError with a specific message instead of letting bad data spread.\n\nKEY IDEAS\n1. Boundary: the minimum and maximum allowed (0 <= hp <= 100 includes both ends).\n2. Contract: the docstring's promise about valid inputs and outputs.\n3. ValueError: the right type but an invalid value, such as a negative level.\n4. Fail fast (gatekeeper pattern): validate at the start and stop immediately on bad data.\n5. Specific messages name the field and the bad value.\n6. The caller can catch the error with try/except ValueError as e.\n\nCODE\n```python\ndef validate_stats(level, stamina):\n    if level < 0:\n        raise ValueError(f\"level must be >= 0 (got {level})\")\n    if stamina < 0:\n        raise ValueError(f\"stamina must be >= 0 (got {stamina})\")\n    return True\n\ntry:\n    validate_stats(-2, 10)\nexcept ValueError as e:\n    print(e)   # level must be >= 0 (got -2)\n```\n\n```python\ndef validate_player(player):\n    for field in (\"hp\", \"mana\", \"level\"):\n        if player[field] < 0:\n            raise ValueError(f\"{field} must be >= 0 (got {player[field]})\")\n    if not 0 <= player[\"hp\"] <= 100:\n        raise ValueError(f\"hp must be 0–100 (got {player['hp']})\")\n\nvalidate_player({\"hp\": 50, \"mana\": 10, \"level\": 3})   # passes\n```\n\nKEY POINTS\n- raise ValueError(\"Error\") gives no help; include what was wrong and the value received.\n- A wrong type (a string where a number belongs) is usually a TypeError, not a ValueError.",
+      "original": ""
+    },
+    {
+      "group": "Clean code & testing",
+      "item": "Lesson 14 & 15",
+      "title": "Refactoring & Error Handling",
+      "topic": "Clean code & testing · Lesson 14 & 15",
+      "order": 10014,
+      "date": "2025-09-29",
+      "dateEnd": "2025-10-06",
+      "refined": "IN PLAIN WORDS\nRefactoring means changing how code is written without changing what it does. Handle user mistakes with specific try/except blocks so the program prints a clear message instead of a traceback.\n\nKEY IDEAS\n1. Refactor: clean up the structure; behavior stays the same.\n2. Use built-ins where they are clearer: sum(nums) instead of a manual loop.\n3. Delete dead code (functions that are never called).\n4. Guard clause: an if at the start of a function that returns or raises early.\n5. Catch specific errors (except ValueError:). A bare except: catches everything, including Ctrl+C, and hides real bugs.\n6. Run your tests before and after refactoring to prove nothing changed.\n\nCODE\n```python\nnums = [3, 4, 5]\n\n# Before\ntotal = 0\nfor n in nums:\n    total += n\n\n# After\ntotal = sum(nums)\nprint(total)   # 12\n```\n\n```python\nitems = [1, 2, 3]\ndoubled = [item * 2 for item in items]   # list comprehension instead of a loop + append\nprint(doubled)                           # [2, 4, 6]\n```\n\n```python\ntry:\n    user_age = int(input(\"Age: \"))\nexcept ValueError:\n    print(\"Please enter a whole number.\")\n```\n\nKEY POINTS\n- Renaming x to user_age is a refactor: clearer, same behavior.\n- Refactor in small steps and re-run the tests after each one.",
+      "original": ""
+    },
+    {
+      "group": "Clean code & testing",
+      "item": "Lesson 16",
+      "title": "Testing with Asserts",
+      "topic": "Clean code & testing · Lesson 16",
+      "order": 10016,
+      "date": "2025-09-29",
+      "dateEnd": "2025-10-06",
+      "refined": "IN PLAIN WORDS\nassert statements lock in how a function should behave. If all of them pass, nothing is printed; if one fails, the program stops and shows which one.\n\nKEY IDEAS\n1. Test case: a specific input with its expected output.\n2. Passing asserts are silent; no output means success.\n3. Tests act as a safety net: they catch regressions (something that used to work and broke) when you refactor.\n4. Cover normal, edge and invalid cases. For invalid input, check that the expected error is raised.\n5. Group tests in a function and print a message at the end.\n\nCODE\n```python\ndef double(n):\n    return n * 2\n\ndef safe_divide(a, b):\n    if b == 0:\n        raise ValueError(\"b must not be 0\")\n    return a / b\n\ndef run_tests():\n    assert double(5) == 10       # normal\n    assert double(0) == 0        # edge\n    assert double(-3) == -6      # negative\n\n    try:\n        safe_divide(1, 0)        # invalid\n        assert False, \"expected ValueError\"\n    except ValueError:\n        pass\n\n    print(\"All Tests Passed\")\n\nrun_tests()\n```\n\nKEY POINTS\n- Write the tests before refactoring, so you can prove the behavior didn't change.\n- assert False inside the try fails the test if no error was raised.",
+      "original": ""
+    },
+    {
+      "group": "Planning, pseudocode & testing",
+      "item": "Lesson 1",
+      "title": "Planning & Accumulators",
+      "topic": "Planning, pseudocode & testing · Lesson 1",
+      "order": 20001,
+      "date": "2025-10-06",
+      "dateEnd": "2025-10-13",
+      "refined": "IN PLAIN WORDS\nPlan the steps in plain English before writing code. An accumulator is a variable that starts at 0 before a loop and collects a running total inside it.\n\nKEY IDEAS\n1. Plan first: a short written plan saves time and prevents missing steps.\n2. Accumulator: total = 0 before the loop, then add to it inside the loop.\n3. Even check: number % 2 == 0 means no remainder.\n4. Odd check: number % 2 != 0.\n\nSTEPS\nPlan: sum the even numbers from 1 to 199.\n1. Set total to 0.\n2. Loop over the numbers 1 to 199.\n3. If the number is even, add it to total.\n4. Print total.\n\nCODE\n```python\ntotal = 0\nfor number in range(1, 200):\n    if number % 2 == 0:\n        total = total + number\nprint(total)   # 9900 (2 + 4 + ... + 198)\n```\n\n```python\nnumbers = [4, 8, 15]\nif numbers:\n    print(sum(numbers) / len(numbers))   # 9.0\nelse:\n    print(\"No numbers.\")\n```\n\nKEY POINTS\n- range(1, 200) stops at 199.\n- Forgetting total = 0 causes a NameError; setting it inside the loop resets it every pass.\n- An average divides by len(), so check the list isn't empty first.",
+      "original": ""
+    },
+    {
+      "group": "Planning, pseudocode & testing",
+      "item": "Lesson 2",
+      "title": "Pseudocode & \"Smallest So Far\"",
+      "topic": "Planning, pseudocode & testing · Lesson 2",
+      "order": 20002,
+      "date": "2025-10-06",
+      "dateEnd": "2025-10-13",
+      "refined": "IN PLAIN WORDS\nPseudocode is a plain-English list of steps, one action per line. The \"smallest so far\" pattern finds the minimum: start with the first item, then replace it whenever a smaller one turns up.\n\nKEY IDEAS\n1. Pseudocode: ordered, human-readable steps that map one-to-one to code.\n2. Initialize: give a variable its starting value.\n3. Smallest so far: start with numbers[0], compare every item, keep the smaller.\n4. Starting at 0 is wrong when every number is negative, because 0 isn't in the list.\n5. The same pattern with > finds the largest.\n\nSTEPS\n1. Set smallest to the first number.\n2. For each number in the list:\n   a. If it is smaller than smallest, set smallest to it.\n3. Print smallest.\n\nCODE\n```python\nnumbers = [42, 17, 8, 99]\nsmallest = numbers[0]\nfor number in numbers:\n    if number < smallest:\n        smallest = number\nprint(smallest)   # 8\n\nvalues = [-5, -12, -3]\nlargest = values[0]\nfor value in values:\n    if value > largest:\n        largest = value\nprint(largest)    # -3\n```\n\nKEY POINTS\n- min(numbers) and max(numbers) do this in one call; the loop shows how they work.\n- An empty list has no numbers[0]; check it first.",
+      "original": ""
+    },
+    {
+      "group": "Planning, pseudocode & testing",
+      "item": "Lesson 3",
+      "title": "Indented Pseudocode",
+      "topic": "Planning, pseudocode & testing · Lesson 3",
+      "order": 20003,
+      "date": "2025-10-06",
+      "dateEnd": "2025-10-13",
+      "refined": "IN PLAIN WORDS\nIndented pseudocode shows structure: numbered main steps contain lettered sub-steps, the same way Python indents the lines inside a loop or an if.\n\nKEY IDEAS\n1. Main steps: 1, 2, 3. Sub-steps: a, b, c, indented under their step.\n2. Indentation shows what belongs inside what.\n3. An arrow (→) shows a condition and its result: \"If found → add to list.\"\n\nCODE\n```text\n1. Prepare drink\n   a. Fill kettle\n   b. Boil water\n2. Mix cocoa\n```\n\n```python\n# 1. Prepare drink\nprint(\"Fill kettle\")\nprint(\"Boil water\")\n# 2. Mix cocoa\nprint(\"Mix cocoa\")\n```\n\n```text\n1. Get login input\n   a. Ask for email\n   b. Ask for password\n2. Validate\n   a. If email has no \"@\" → show error and stop\n   b. If password is shorter than 8 characters → show error and stop\n3. Log the user in\n```\n\nKEY POINTS\n- Each sub-step becomes an indented line (or block) in code.\n- If a step has many sub-steps, it may be a good helper function.",
+      "original": ""
+    },
+    {
+      "group": "Planning, pseudocode & testing",
+      "item": "Lesson 4 & 5",
+      "title": "Tables to Code",
+      "topic": "Planning, pseudocode & testing · Lesson 4 & 5",
+      "order": 20004,
+      "date": "2025-10-06",
+      "dateEnd": "2025-10-13",
+      "refined": "IN PLAIN WORDS\nA decision table lists ranges and their results. Turn it into an if/elif/else chain, checking the boundaries in order, so exactly one branch runs.\n\nKEY IDEAS\n1. Boundary: the exact value where the result changes.\n2. Check ranges in order (lowest first, or highest first) and let each elif rely on the earlier checks.\n3. Use elif, not separate if statements, when only one result should happen.\n4. Truthiness: if title: runs only when title isn't empty.\n5. Membership: if \"word\" in msg: checks for a substring.\n\nSTEPS\n1. Write the table: each range and its result.\n2. Check that every possible value lands in exactly one row.\n3. Write the first row as if, the middle rows as elif, the last as else.\n4. Test the boundary values themselves.\n\nCODE\nWater at sea level (°F):\n```text\ntemp <= 32         → ice\n32 < temp < 212    → liquid\ntemp >= 212        → steam\n```\n\n```python\ntemp = 120\nif temp <= 32:\n    print(\"ice\")\nelif temp < 212:\n    print(\"liquid\")\nelse:\n    print(\"steam\")\n# liquid\n```\n\n```python\nage = 15\nif age < 13:\n    print(\"child\")\nelif age < 20:\n    print(\"teen\")\nelse:\n    print(\"adult\")\n# teen\n\nname = \"\"\nif not name:\n    print(\"Empty\")\n```\n\nKEY POINTS\n- Separate if statements can all run; elif guarantees one.\n- Test 32, 33, 211 and 212 to prove the boundaries are right.",
+      "original": ""
+    },
+    {
+      "group": "Planning, pseudocode & testing",
+      "item": "Lesson 6",
+      "title": "Dictionary Lookups",
+      "topic": "Planning, pseudocode & testing · Lesson 6",
+      "order": 20006,
+      "date": "2025-10-06",
+      "dateEnd": "2025-10-13",
+      "refined": "IN PLAIN WORDS\nA dictionary can replace a long if/elif chain when each input maps straight to one result. Use .get(key, default) so a missing key returns a default instead of crashing.\n\nKEY IDEAS\n1. Key: the lookup term. Value: the result. Mapping: connecting one to the other.\n2. Syntax: {key: value, ...}.\n3. lookup[key] raises KeyError for a missing key; lookup.get(key, default) does not.\n4. Dictionary lookups take about the same time no matter how big the dict is.\n5. Dicts match exact keys only, so ranges (like grade cutoffs) still need comparisons.\n\nCODE\n```python\nlookup = {\"a\": \"apple\", \"b\": \"banana\"}\nprint(lookup[\"a\"])              # apple\nprint(lookup.get(\"z\", \"ok\"))    # ok\n\nnumber_words = {1: \"one\", 2: \"two\"}\nprint(number_words.get(3, \"unknown\"))   # unknown\n```\n\nRanges need comparisons:\n```python\ndef grade(score):\n    cutoffs = {90: \"A\", 80: \"B\", 70: \"C\"}   # highest first\n    for cutoff, letter in cutoffs.items():\n        if score >= cutoff:\n            return letter\n    return \"F\"\n\nprint(grade(95), grade(81), grade(40))   # A B F\n```\n\nKEY POINTS\n- Use .get() for lookups based on user input.\n- The grade loop depends on the cutoffs being listed from highest to lowest; dicts keep the order they were written in.",
+      "original": ""
+    },
+    {
+      "group": "Planning, pseudocode & testing",
+      "item": "Lesson 7 & 8",
+      "title": "Logic Gaps & Mapping",
+      "topic": "Planning, pseudocode & testing · Lesson 7 & 8",
+      "order": 20007,
+      "date": "2025-10-06",
+      "dateEnd": "2025-10-13",
+      "refined": "IN PLAIN WORDS\nBefore coding, check the plan for gaps (missing steps) and overlaps (repeated or conflicting steps). Then translate each pseudocode line into a line of Python, keeping the same structure.\n\nKEY IDEAS\n1. Logical gap: a needed step that's missing, such as never creating the list before adding to it.\n2. Logical overlap: a step that's repeated or contradicts another.\n3. Mapping: each pseudocode line becomes one line or block of code.\n4. Numbered comments (# 1., # 2.) keep the code lined up with the plan.\n\nSTEPS\nPlan with a gap:\n1. Ask for three items.\n2. Add each item to the list.\n3. Print the list.\nGap: the list is never created. Fixed plan: \"0. Create an empty list.\"\n\nCODE\n```python\n# 0. Create an empty list\nitems = []\n# 1–2. Ask for three items and add each one\nfor _ in range(3):\n    item = input(\"Item: \")\n    items.append(item)\n# 3. Print the list\nprint(items)\n```\n\nKEY POINTS\n- \"Ask user for name\" → name = input(\"Enter name: \").\n- \"Add item to list\" → my_list.append(item).\n- If the code and the plan disagree, fix one of them so they match.",
+      "original": ""
+    },
+    {
+      "group": "Planning, pseudocode & testing",
+      "item": "Lesson 9",
+      "title": "Numbered Comments",
+      "topic": "Planning, pseudocode & testing · Lesson 9",
+      "order": 20009,
+      "date": "2025-10-06",
+      "dateEnd": "2025-10-13",
+      "refined": "IN PLAIN WORDS\nNumbered comments split the code into sections that match the plan. When the code changes, the comments must change with it.\n\nKEY IDEAS\n1. # 1., # 2., # 3. mark where each planned step lives in the code.\n2. Comments explain why; the numbers track structure.\n3. An outdated comment is worse than none, because it misleads.\n4. enumerate(actions, 1) numbers items starting at 1.\n\nCODE\n```python\n# 1. Start an empty log\nactions = []\n\n# 2. Collect actions until there are 5\nwhile len(actions) < 5:\n    actions.append(input(\"Action: \"))\n\n# 3. Print them numbered\nfor i, action in enumerate(actions, 1):\n    print(f\"{i}. {action}\")\n```\n\nKEY POINTS\n- If you add a break or a new step, update or renumber the comments.",
+      "original": ""
+    },
+    {
+      "group": "Planning, pseudocode & testing",
+      "item": "Lesson 10 & 11",
+      "title": "Function Stubs",
+      "topic": "Planning, pseudocode & testing · Lesson 10 & 11",
+      "order": 20010,
+      "date": "2025-10-06",
+      "dateEnd": "2025-10-13",
+      "refined": "IN PLAIN WORDS\nA stub is a placeholder function, with pass or a dummy return value, that lets the whole program run before every part is finished. Write main() first, then fill in the stubs one at a time.\n\nKEY IDEAS\n1. Stub: a function with pass or a placeholder return.\n2. pass: a statement that does nothing; it keeps an empty function body valid.\n3. Incremental development: build and test in small pieces.\n4. Top-down: write main() with the calls you need, then implement each helper.\n5. Stubs act as a to-do list (# TODO comments).\n6. A function only has to be defined by the time its call runs. Helpers can sit below main() as long as main() is called at the bottom.\n\nCODE\n```python\ndef main():\n    greet()\n    name = get_name()\n    print(f\"Name so far: {name!r}\")\n\n\ndef greet():\n    \"\"\"Print welcome banner.\"\"\"\n    pass  # TODO: add banner\n\n\ndef get_name():\n    return \"\"  # placeholder\n\n\nif __name__ == \"__main__\":\n    main()\n# Name so far: ''\n```\n\nCalculator, one piece at a time:\n```python\ndef add(a, b):\n    return a + b      # done\n\ndef subtract(a, b):\n    pass              # TODO\n\nprint(add(2, 3))      # 5\nprint(subtract(5, 1)) # None until it's written\n```\n\nKEY POINTS\n- The real mistake is a call on a line that runs before the def is reached.\n- A stub that returns None can cause errors later; return a value of the right type (\"\" or 0) when the caller uses the result.",
+      "original": ""
+    },
+    {
+      "group": "Planning, pseudocode & testing",
+      "item": "Lesson 12 & 13",
+      "title": "Test Tables & Dry Runs",
+      "topic": "Planning, pseudocode & testing · Lesson 12 & 13",
+      "order": 20012,
+      "date": "2025-10-06",
+      "dateEnd": "2025-10-13",
+      "refined": "IN PLAIN WORDS\nA test table lists inputs with their expected outputs, and a loop of asserts checks them all. A dry run means stepping through the code by hand, writing down each variable's value, to find logic errors.\n\nKEY IDEAS\n1. Test table: (input, expected) pairs.\n2. assert func(input) == expected checks each row.\n3. Dry run: trace the code line by line on paper.\n4. AssertionError means the code ran but gave the wrong answer (a logic bug).\n5. Any other error (TypeError, NameError, KeyError, ZeroDivisionError...) means the code broke before it could be checked.\n\nCODE\n```python\ndef best_banner(banners):\n    return max(banners.values())\n\ntest_cases = [\n    ({\"red\": 3, \"blue\": 6}, 6),\n    ({\"a\": 10, \"b\": 2}, 10),\n]\nfor data, expected in test_cases:\n    assert best_banner(data) == expected\nprint(\"PASS\")\n```\n\nDry run of a sum loop:\n```text\nnums = [2, 5, 1]\nstep | n | total\n  0  | - |   0\n  1  | 2 |   2\n  2  | 5 |   7\n  3  | 1 |   8\n```\n\nKEY POINTS\n- Passing asserts print nothing; the final print confirms the loop finished.\n- Read the error type first: it tells you whether to fix the logic or the code.",
+      "original": ""
+    },
+    {
+      "group": "Planning, pseudocode & testing",
+      "item": "Lesson 14 & 15",
+      "title": "Automated Test Suites",
+      "topic": "Planning, pseudocode & testing · Lesson 14 & 15",
+      "order": 20014,
+      "date": "2025-10-06",
+      "dateEnd": "2025-10-13",
+      "refined": "IN PLAIN WORDS\nA test suite is a function that runs many test cases in a loop. Keep the asserts in the suite, not inside the helper functions being tested, and change one thing at a time when hunting a bug.\n\nKEY IDEAS\n1. Test suite: one function holding many test cases.\n2. Demo function: shows the program working, usually by printing.\n3. A loop of tests replaces typing inputs by hand every time.\n4. Asserts belong in the suite. Inside a helper, they would stop normal use of it.\n5. Change one thing at a time, then re-run the suite, so you know what fixed or broke it.\n\nCODE\n```python\nPRICES = {\"sword\": 30, \"bow\": 20}\n\ndef get_price(name):\n    return PRICES.get(name, 0)\n\ndef demo_suite():\n    tests = [(\"sword\", 1, 30), (\"bow\", 2, 40), (\"axe\", 1, 0)]\n    for name, qty, expected in tests:\n        total = get_price(name) * qty\n        assert total == expected, f\"{name}: got {total}, expected {expected}\"\n        print(f\"PASS {name}\")\n\nif __name__ == \"__main__\":\n    demo_suite()\n# PASS sword\n# PASS bow\n# PASS axe\n```\n\nKEY POINTS\n- An assert message with the actual and expected values makes failures easy to read.\n- Re-running the suite after every change catches regressions.",
+      "original": ""
+    }
+  ]
+}

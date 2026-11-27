@@ -1,0 +1,226 @@
+{
+  "app": "notes-vault",
+  "kind": "contribution",
+  "version": 1,
+  "createdOn": "2026-11-27T09:19:32.318Z",
+  "contributor": {
+    "id": "55946333-9863-49ca-acb3-a25bfccc48c9",
+    "displayName": "Front-pay"
+  },
+  "program": "Applied science software engineering",
+  "class": {
+    "code": "HIST200",
+    "name": "HIST200: American history since World War II"
+  },
+  "lessons": [
+    {
+      "group": "Week 1",
+      "item": "Intro",
+      "title": "Welcome to HIST200 (Course Overview)",
+      "topic": "Week 1 · Intro",
+      "order": 100,
+      "date": "2026-01-05",
+      "dateEnd": "2026-01-12",
+      "refined": "IN PLAIN WORDS\nHIST200 is a two-week course on how war, fear and technology shaped the United States, from the atomic bomb to artificial intelligence.\n\nKEY IDEAS\n1. Week 1 (Jan 05 – Jan 12), the atomic age and the rise of technological America, 1945–1970:\n   - atomic weapons, early Cold War strategy and deterrence\n   - the birth of modern computing\n   - cryptography, signals intelligence and surveillance\n   - the Red Scare and McCarthy-era fears\n   - the consumer boom, advertising and TV politics\n   - the space race as a contest of legitimacy and innovation\n2. Week 2 (Jan 12 – Jan 19), the United States in a new era, 1970 to today:\n   - 1970s economic shocks and the crisis of confidence\n   - Vietnam and public opinion\n   - market liberalism and deregulation\n   - personal computing and lock-in\n   - Silicon Valley and venture capital\n   - from military networks to the civilian internet\n   - global supply chains and digital capitalism\n   - the Soviet collapse and the \"unipolar moment\"\n   - the post-9/11 security state\n   - mobile technology, social media and political mobilization\n   - the era of artificial intelligence\n\nKEY POINTS\n- A recurring pattern across both weeks: a threat or crisis → public money and new institutions → new technology → lasting changes in everyday life.",
+      "original": ""
+    },
+    {
+      "group": "Week 1",
+      "item": "Lesson 1",
+      "title": "1945 and the Decision to Use the Atomic Bomb",
+      "topic": "Week 1 · Lesson 1",
+      "order": 101,
+      "date": "2026-01-05",
+      "dateEnd": "2026-01-12",
+      "refined": "IN PLAIN WORDS\nBy summer 1945 Germany had surrendered, but Japan kept fighting with almost no surrenders. Truman's options for ending the war were all terrible. He chose the atomic bomb, believing it would end the war fastest and cost fewer lives overall than an invasion.\n\nKEY IDEAS\n1. Mid-1945: Germany defeated; Japan pushed back to its home islands but fighting on (Iwo Jima, Okinawa); the US and USSR still allies but increasingly mistrustful.\n2. The problem: force Japan to surrender as soon as possible while limiting further casualties, with a tired public expecting total victory.\n3. Operation Downfall: the planned invasion of Japan's home islands, expected to cause enormous American and Japanese casualties.\n4. Manhattan Project: the secret US program to build the bomb, started partly from fear that Nazi Germany would build one first. Einstein signed a letter urging research but didn't build the bomb, and later regretted his role.\n5. Trinity Test (July 16, 1945): the first successful atomic test, in New Mexico.\n6. Potsdam Declaration (July 26, 1945): the Allied demand for unconditional surrender, warning of \"prompt and utter destruction.\"\n\nSTEPS\nTruman's four options, as seen at the time:\n1. Invasion (Downfall): near-certain victory, but forecasts of hundreds of thousands of US casualties and possibly millions of Japanese deaths, over many months.\n2. Blockade + conventional bombing: less risk to US troops, but the war could drag on, with more civilian deaths from bombing and hunger.\n3. A demonstration bomb on a non-city target: shows the power without destroying a city, but only a few bombs existed, a failed demo would weaken the US position, and it might not move Japan's military.\n4. Striking cities (Hiroshima, then Nagasaki): might force a quick surrender and avoid an invasion, at the cost of massive civilian deaths and unknown long-term effects.\n\nCODE\n```text\nMay 1945       Germany surrenders\nJuly 16, 1945  Trinity test\nJuly 26, 1945  Potsdam Declaration\nAug 6, 1945    Hiroshima\nAug 8, 1945    USSR declares war on Japan\nAug 9, 1945    Nagasaki\nAug 15, 1945   Japan announces its surrender\n```\n\nKEY POINTS\n- Factors pushing toward the bomb: casualty forecasts, Japan's fight-to-the-death record (including kamikaze attacks), a working weapon after huge investment, the wish to end the war fast, and concern about Soviet influence in Asia.\n- Explaining the decision-makers' reasoning is not the same as answering the moral question.",
+      "original": ""
+    },
+    {
+      "group": "Week 1",
+      "item": "Lesson 2",
+      "title": "Deterrence, Escalation, and the Birth of the Cold War",
+      "topic": "Week 1 · Lesson 2",
+      "order": 102,
+      "date": "2026-01-05",
+      "dateEnd": "2026-01-12",
+      "refined": "IN PLAIN WORDS\nOnce both superpowers had nuclear weapons, an all-out war would destroy both (mutual assured destruction). So they competed in smaller ways, through crises, alliances and proxy wars, while trying not to climb too high on the escalation ladder.\n\nKEY IDEAS\n1. MAD (Mutual Assured Destruction): if one side strikes, the other can still strike back, so both lose.\n2. Second strike: the ability to retaliate after being attacked; hidden nuclear submarines guarantee it.\n3. Escalation ladder: diplomatic warnings → sanctions and pressure → military alerts and shows of force → limited fighting → full conventional war → tactical nuclear weapons → full nuclear exchange. Leaders climb a rung to show seriousness but avoid jumping several at once.\n4. Flashpoint: a local crisis that could trigger a much larger war.\n5. Security dilemma: arming \"just to be safe\" scares the other side into arming more.\n6. Proxy war: superpowers fight through other countries instead of directly. They are like two kings in chess: they move other pieces, because a direct clash ends the game.\n\nSTEPS\nTwo early flashpoints:\n1. Berlin Blockade and Airlift (1948–49): the USSR cut land routes to West Berlin; the US and UK supplied the city entirely by air, a lower rung than sending tanks. The West concluded it needed permanent unity, and NATO formed in 1949.\n2. Korean War (1950–53): North Korea invaded the South; US and UN forces intervened. Nuclear weapons existed but weren't used, for fear of drawing in the USSR and China. They acted as a ceiling on the fighting.\n\nCODE\n```text\n1948–49  Berlin Blockade and Airlift\n1949     NATO formed; the USSR tests its first atomic bomb\n1950–53  Korean War\n1955     Warsaw Pact formed\n```\n\nKEY POINTS\n- MAD made a world war less likely but pushed tension into smaller conflicts, pressure and brinkmanship.\n- Early crises convinced both blocs to build permanent alliances, standing armies and nuclear forces on alert.",
+      "original": ""
+    },
+    {
+      "group": "Week 1",
+      "item": "Lesson 3",
+      "title": "Wartime Research and the Invention of Modern Computing",
+      "topic": "Week 1 · Lesson 3",
+      "order": 103,
+      "date": "2026-01-05",
+      "dateEnd": "2026-01-12",
+      "refined": "IN PLAIN WORDS\nModern computers were built to solve military problems: artillery math (ENIAC), guiding interceptors (Whirlwind) and continental air defense (SAGE). Government contracts with no financial risk let universities and companies attempt very new technology, and the side effects became civilian computing.\n\nKEY IDEAS\n1. ENIAC: an early electronic computer at the University of Pennsylvania, funded by the Army, built to calculate ballistic firing tables (finished 1945, unveiled 1946).\n2. Cost-plus contract: the government pays all costs plus a guaranteed profit, so long, difficult projects carry no risk of bankruptcy.\n3. Arsenal universities: universities such as MIT and UPenn doing military research as a core mission (radar, computing, guidance, control systems).\n4. Mission-driven research targets a military goal; spin-offs are the civilian benefits that follow (radar and real-time computing → air traffic control, weather systems).\n5. Whirlwind (MIT; Navy, then Air Force funding): a real-time computer that read radar input and updated screens for operators.\n6. SAGE (Semi-Automatic Ground Environment): a continent-wide network linking radar sites, communication lines and large computers to track bombers and coordinate air defense.\n7. Systems engineering: managing a huge project as one whole (hardware, software, people and procedures) by splitting it into subsystems with defined interfaces and testing them together.\n\nSTEPS\nThe Cold War computing loop:\n1. Threat: artillery accuracy, nuclear bombers, the need for early warning.\n2. Funding: cost-plus contracts, arsenal universities, defense labs and firms (MIT, IBM, RAND).\n3. Breakthroughs: fast calculation (ENIAC); real-time, interactive, networked systems (Whirlwind, SAGE); systems engineering.\n4. New capabilities: new air defense, command-and-control, and expectations of computers.\n5. Spillover: real-time computing, networking and large-system management spread into civilian life.\n\nKEY POINTS\n- Memory line: Problem → Money → Machine → Method → World changes.\n- Systems engineering later shaped aerospace, telecom and large-scale computing.",
+      "original": ""
+    },
+    {
+      "group": "Week 1",
+      "item": "Lesson 4",
+      "title": "Cryptography, Signals Intelligence, and Early Surveillance",
+      "topic": "Week 1 · Lesson 4",
+      "order": 104,
+      "date": "2026-01-05",
+      "dateEnd": "2026-01-12",
+      "refined": "IN PLAIN WORDS\nMissiles move faster than diplomacy, so both sides intercepted each other's signals to avoid a surprise attack. Fear, better technology and agencies rewarded for success kept surveillance growing.\n\nKEY IDEAS\n1. The core problem: how to avoid a nuclear surprise attack, and tell real threats from bluffs.\n2. SIGINT (signals intelligence): intelligence from intercepted communications.\n3. The NSA (founded 1952) became the main US signals intelligence agency.\n4. Information advantage: knowing more, earlier, than the opponent: seeing hidden plans, telling bluff from real threat, negotiating from strength.\n\nSTEPS\nThe SIGINT pipeline:\n1. Intercept: collect signals from radio, undersea cables and microwave links using antennas, listening posts and cable taps.\n2. Decrypt: break codes and ciphers (rotor machines, one-time pads, voice scramblers), moving from manual codebreaking to machines.\n3. Interpret: turn messages into meaning (drill, real alert, logistics, nuclear preparation) with linguists and analysts.\n4. Act: raise or lower alert levels, move forces, adjust negotiations.\n\nKEY POINTS\nWhy surveillance kept expanding:\n- Technology: as range, bandwidth and decryption speed improved, \"we can process more\" became \"we should intercept more.\"\n- Bureaucracy: every success became an argument for more budget, antennas and staff.\n- Fear: after each scare, leaders approved wider interception \"just in case.\"\n- Together: fear + better technology + growing agencies = ever-expanding surveillance.",
+      "original": ""
+    },
+    {
+      "group": "Week 1",
+      "item": "Lesson 5",
+      "title": "The Red Scare, McCarthyism, and Information Fear",
+      "topic": "Week 1 · Lesson 5",
+      "order": 105,
+      "date": "2026-01-05",
+      "dateEnd": "2026-01-12",
+      "refined": "IN PLAIN WORDS\nFear of hidden communists in the US (about 1947–1954) made weak evidence like rumors and old memberships count as proof. People lost jobs without trials, had to prove their own loyalty, and learned to stay quiet.\n\nKEY IDEAS\n1. Information–fear loop: fear of a hidden threat → political opportunity → lower evidence standards → dramatic actions and headlines → more fear.\n2. Federal Employee Loyalty Program (Executive Order 9835, 1947): screened millions of federal workers and applicants for \"loyalty,\" not crimes, using anonymous tips, old memberships and signed petitions. People could lose jobs without due process.\n3. HUAC (House Un-American Activities Committee, including Hollywood hearings) and Senator Joseph McCarthy's hearings (1950–1954) used televised questioning: \"Are you now or have you ever been a member of the Communist Party?\"\n4. Guilt by association: being treated as guilty for who you knew or what groups you were in.\n5. Reversed burden of proof: the accused had to prove loyalty, instead of the government proving wrongdoing.\n6. Blacklists: lists of people considered too risky to hire, especially in Hollywood, education, unions and media.\n7. Self-censorship: avoiding certain books, groups, petitions and topics to escape suspicion.\n\nCODE\n```text\nFeature            | Court trial                       | HUAC / McCarthy hearings\n-------------------|-----------------------------------|------------------------------------\nPurpose            | Decide guilt under the law        | Expose \"un-American\" activity\nEvidence           | Proof of a specific crime         | Rumor, association, beliefs\nBurden of proof    | On the state                      | Often on the accused\nRights             | Strong due-process protections    | Weak; public pressure\nConsequences       | Prison, fines                     | Firings, blacklists, ruined careers\n```\n\n```text\n1947        Loyalty Program (EO 9835); HUAC hearings\n1950–1954   McCarthy's accusations and hearings\n1954        McCarthy censured by the Senate\n```\n\nKEY POINTS\n- Being cleared rarely repaired the damage: reputations, careers and blacklist status often stayed harmed.\n- The system made harming people much easier than undoing the harm.",
+      "original": ""
+    },
+    {
+      "group": "Week 1",
+      "item": "Lesson 6",
+      "title": "Consumer Technology, Advertising, and Television America",
+      "topic": "Week 1 · Lesson 6",
+      "order": 106,
+      "date": "2026-01-05",
+      "dateEnd": "2026-01-12",
+      "refined": "IN PLAIN WORDS\nAfter World War II, factories could produce more than people needed. Advertising, especially on television, kept demand rising so factories stayed busy. Television also changed politics: candidates now had to look trustworthy on screen.\n\nKEY IDEAS\n1. Post-war demand problem: if supply outruns demand, goods pile up, prices fall, factories cut output and layoffs follow.\n2. Consumption smoothing: advertising raised lifestyle expectations so people kept buying and upgrading.\n3. Planned obsolescence and style cycles: yearly car models, tail fins, new appliance designs, black-and-white → color TV made working products feel outdated.\n4. Television was the first national, real-time medium: the same ads reached millions of homes, creating a shared picture of the ideal home, family and car.\n5. The living-room test: on TV, credibility depends on words plus image: appearance, posture, eye contact and calm.\n\nSTEPS\nThe loop:\n1. Factories increase output.\n2. Companies fund mass advertising.\n3. Ads shape what a \"good life\" looks like.\n4. People buy and upgrade more often.\n5. Demand stays strong; jobs and growth stay stable.\n6. Politicians benefit from stability and use TV to sell their own image.\n\nCODE\n```text\nSept 26, 1960  First Kennedy–Nixon TV debate\n               Kennedy: relaxed and confident on camera\n               Nixon: pale and uncomfortable, recovering from illness\n```\n\nKEY POINTS\n- Kennedy–Nixon is the classic example of image shaping political judgment; historians still debate how large the \"radio listeners thought Nixon won\" effect was.\n- People tend to trust what they see on TV as evidence: \"I saw it with my own eyes.\\\"",
+      "original": ""
+    },
+    {
+      "group": "Week 1",
+      "item": "Lesson 7",
+      "title": "The Space Race and the Politics of Innovation",
+      "topic": "Week 1 · Lesson 7",
+      "order": 107,
+      "date": "2026-01-05",
+      "dateEnd": "2026-01-12",
+      "refined": "IN PLAIN WORDS\nThe space race (1957–1969) was a public scoreboard for which system worked better. The Soviets scored first with Sputnik and Gagarin; the US answered with NASA and three programs that ended with Americans on the Moon in 1969.\n\nKEY IDEAS\n1. Sputnik (Oct 4, 1957): the first satellite. It suggested the USSR could also deliver nuclear weapons over long distances, causing the \"Sputnik shock\" and a US funding push.\n2. Yuri Gagarin (Apr 12, 1961): the first human in space and in orbit.\n3. NASA (1958): a civilian agency to coordinate the US effort.\n4. Mercury (1958–1963): one astronaut; can a human survive launch, weightlessness and recovery?\n5. Gemini (1961–1966): two astronauts, missions up to about 14 days, spacewalks, rendezvous and docking; practice for the Moon.\n6. Apollo (1961–1972): the Moon program; Apollo 11 landed on July 20, 1969.\n7. Technology–legitimacy loop: fear of falling behind → funding → visible wins → prestige at home and abroad → political support for more funding.\n8. Dual use: public science and exploration alongside classified surveillance, military satellites and early warning.\n\nKEY POINTS\n- Mercury = get there; Gemini = learn to operate there; Apollo = go to the Moon.\n- Space successes were used to win influence with non-aligned countries and to justify large technology and defense budgets.\n- Test pilots, early astronauts and test animals bore heavy risks in cramped, punishing conditions.",
+      "original": ""
+    },
+    {
+      "group": "Week 2",
+      "item": "Lesson 1",
+      "title": "The 1970s: Crisis of Confidence and Economic Disruption",
+      "topic": "Week 2 · Lesson 1",
+      "order": 201,
+      "date": "2026-01-12",
+      "dateEnd": "2026-01-19",
+      "refined": "IN PLAIN WORDS\nIn the 1970s, prices and unemployment rose at the same time (stagflation), which the standard economics of the day said shouldn't happen. Combined with Watergate, Americans lost faith in both their leaders' ideas and their honesty.\n\nKEY IDEAS\n1. Phillips Curve: the post-war idea that unemployment and inflation trade off.\n2. Stagflation: stagnation + inflation: slow growth and high unemployment with rapidly rising prices.\n3. OPEC: a cartel of oil producers that coordinates output to influence prices.\n4. Oil shocks: in 1973, Arab OPEC members cut oil to the US (the embargo); in 1979, the Iranian Revolution cut production.\n5. Supply-side shock: the available supply is squeezed; it isn't a boom in demand.\n6. The standard tools (stimulus, wage-price controls) didn't fix stagflation, so policy credibility fell.\n7. Watergate: people tied to Nixon's re-election campaign broke into Democratic offices (June 1972); a cover-up and abuse of power followed; secret White House tapes surfaced; Nixon resigned (Aug 1974) facing near-certain impeachment.\n8. Crisis of confidence: doubt in leaders' competence and honesty, which opened space for new economic and political ideas.\n\nSTEPS\nHow an oil shock feeds stagflation:\n1. Oil supply is cut and prices spike.\n2. Transportation, manufacturing and energy costs rise.\n3. Businesses raise prices → inflation.\n4. Workers demand higher wages to keep up → costs rise again.\n5. Higher costs and uncertainty lead firms to cut or delay hiring → unemployment stays high.\n\nKEY POINTS\n- Summary: oil shocks created stagflation that broke faith in the old economic playbook, and Watergate broke trust in political leadership.",
+      "original": ""
+    },
+    {
+      "group": "Week 2",
+      "item": "Lesson 2",
+      "title": "Vietnam and Public Opinion",
+      "topic": "Week 2 · Lesson 2",
+      "order": 202,
+      "date": "2026-01-12",
+      "dateEnd": "2026-01-19",
+      "refined": "IN PLAIN WORDS\nThe US fought in Vietnam to contain communism. As television brought the war home, the Tet Offensive surprised the public, the draft fell unevenly, and Kent State shocked the country, public trust collapsed. The US withdrew, and South Vietnam fell in 1975.\n\nKEY IDEAS\n1. Containment: stop communism from spreading. Domino theory: if one country falls, its neighbors may follow.\n2. The 1954 Geneva Accords split Vietnam into a communist North (backed by the USSR and China) and a non-communist South (backed by the US).\n3. Gulf of Tonkin (Aug 1964): reported attacks on US ships (the second was likely a misreading) led Congress to authorize \"all necessary measures\" without declaring war, opening the way to escalation.\n4. Tet Offensive (Jan 1968): surprise attacks across South Vietnam. A military defeat for the attackers, but a political shock in the US: \"If we're winning, how can they strike everywhere?\"\n5. The draft: college and other deferments meant working-class and minority men carried more of the burden; protests included draft-card burning and refusing induction.\n6. Kent State (May 4, 1970): Ohio National Guardsmen fired 67 shots in about 13 seconds into a crowd protesting the invasion of Cambodia, killing 4 students and wounding 9.\n7. Credibility gap: the distance between official optimism (\"light at the end of the tunnel\") and what people saw on TV.\n8. Vietnamization: Nixon's policy of withdrawing US troops while shifting the fighting to South Vietnamese forces.\n\nCODE\n```text\n1954          Geneva Accords split Vietnam\nAug 1964      Gulf of Tonkin incident and Resolution\nJan 1968      Tet Offensive\nMay 4, 1970   Kent State shootings\nJan 1973      Paris Peace Accords; US combat troops leave\nNov 1973      War Powers Resolution\nApr 30, 1975  Fall of Saigon\n```\n\nKEY POINTS\n- The War Powers Resolution limits a president's ability to keep troops in combat without Congress, a direct response to the Tonkin escalation.\n- Many veterans returned with PTSD and moral injury to a divided public.\n- Vietnam, then Watergate, began a long decline in Americans' trust in official accounts.",
+      "original": ""
+    },
+    {
+      "group": "Week 2",
+      "item": "Lesson 3",
+      "title": "Market Liberalism, Deregulation, and the New Innovation Culture",
+      "topic": "Week 2 · Lesson 3",
+      "order": 203,
+      "date": "2026-01-12",
+      "dateEnd": "2026-01-19",
+      "refined": "IN PLAIN WORDS\nAfter the 1970s, US leaders turned to a new approach: cut taxes and regulations so businesses would take more risks and innovate. The culture followed, and the entrepreneur became a national hero.\n\nKEY IDEAS\n1. Demand-side economics: put money in people's hands so they spend (government spending, support for wages, tax cuts for lower and middle incomes).\n2. Supply-side economics: make producing and investing more profitable (tax cuts on high incomes, businesses and investment; deregulation).\n3. Laffer Curve: tax revenue is zero at 0% and, in theory, at 100%, so it peaks somewhere between. If rates are above the peak, cutting them could raise revenue. Economists still debate how much the 1980s cuts paid for themselves.\n4. Deregulation relaxes rules on private companies; privatization sells government-owned companies.\n5. Airline deregulation (Airline Deregulation Act, 1978, signed by Carter): new airlines could start, carriers could set fares and routes, and new models (no-frills service, hub-and-spoke) appeared.\n6. ERTA (Economic Recovery Tax Act, 1981): the flagship of \"Reaganomics,\" cutting income tax rates (including the top rates) and favoring investment.\n7. Hero entrepreneur: the 1980s–90s cultural ideal of the risk-taking founder (Bill Gates, Steve Jobs), celebrated on magazine covers, the Forbes 400 list and \"garage startup\" stories.\n\nSTEPS\nThe intended chain:\n1. Lower taxes and fewer rules.\n2. More reward for each extra dollar earned or invested.\n3. More risk-taking, startups and investment.\n4. More innovation and growth.\n5. Media celebrates the winners, inspiring more people to try.\n\nKEY POINTS\n- The cultural hero shifted from the 1960s rebel or protester to the 1980s–90s entrepreneur and CEO.\n- Cheaper computers, open markets and celebrated risk-taking made room for small studios, solo developers and independent creators.",
+      "original": ""
+    },
+    {
+      "group": "Week 2",
+      "item": "Lesson 4",
+      "title": "Personal Computing: Complements, Killer Apps, and Lock-In",
+      "topic": "Week 2 · Lesson 4",
+      "order": 204,
+      "date": "2026-01-12",
+      "dateEnd": "2026-01-19",
+      "refined": "IN PLAIN WORDS\nPeople didn't buy personal computers for the box; they bought them for what ran on them. A great program (a killer app) sold the hardware, and once someone's files, software and skills were on one platform, switching became too costly.\n\nKEY IDEAS\n1. Complementary goods: products that make another product valuable: software, games, printers, floppy disks, modems, manuals and classes.\n2. Killer app: software so compelling it drives hardware sales.\n   - VisiCalc (1979) on the Apple II: the first spreadsheet; people bought Apple IIs to run it.\n   - Doom (1993): people upgraded PCs (CPUs, RAM, sound and graphics cards) to run it.\n3. Network effect: more users → more software → more users. A platform with software now is \"a sale\"; one without is \"an investment.\"\n4. Switching costs: everything lost when changing platforms: purchased software, learned skills and habits, files in proprietary formats.\n5. Lock-in: staying on a platform because switching costs too much, even when another is cheaper, faster or \"better.\"\n6. Platform owners create lock-in through proprietary file formats and tools, APIs and standards that tie developers to one platform.\n\nSTEPS\nHow lock-in forms:\n1. A platform uses proprietary formats and attracts many complements.\n2. Users build up years of files, skills and software on it.\n3. Switching would mean losing work, rebuying and relearning.\n4. Users stay, even if a rival looks better.\n\nKEY POINTS\n- PCs spread because complements made them useful, killer apps made platforms must-haves, network effects reinforced winners, and design choices created lock-in.\n- Game consoles and engines compete for developers for the same reason: more games → more players → more developers.",
+      "original": ""
+    },
+    {
+      "group": "Week 2",
+      "item": "Lesson 5",
+      "title": "Silicon Valley, Venture Capital, and Entrepreneurial Capitalism",
+      "topic": "Week 2 · Lesson 5",
+      "order": 205,
+      "date": "2026-01-12",
+      "dateEnd": "2026-01-19",
+      "refined": "IN PLAIN WORDS\nSilicon Valley became an ecosystem, not one lucky company. Defense research money, Stanford's talent and industry links, venture capital, and engineers with equity who kept starting new companies fed each other.\n\nKEY IDEAS\n1. Defense R&D: Cold War agencies (including ARPA) funded risky electronics and computing research near Stanford, acting like early startup capital.\n2. Stanford deliberately blurred the line between university and industry: Stanford Industrial Park (1951), partnerships, defense research contracts, and sometimes faculty equity.\n3. Venture capital (VC): investors buy a share (equity) of risky startups, expecting many failures and a few huge wins. Banks avoid such startups because there's no collateral or reliable revenue.\n4. Limited partnership: LPs (limited partners such as pension funds and wealthy individuals) supply most of the money with limited liability; GPs (general partners, the VCs) choose startups, sit on boards and earn fees plus carry (a share of the profits).\n5. Equity: owning part of the company, so engineers get rich if it succeeds, not just paid a salary.\n6. Spin-out cascade: Fairchild Semiconductor (1957) veterans founded Intel (1968), National Semiconductor and many others (the \"Fairchildren\"), carrying knowledge and investor networks with them.\n\nSTEPS\nFour forces that fused into an ecosystem:\n1. Defense R&D created demand and seed funding.\n2. Stanford concentrated talent and linked it to industry.\n3. Venture capital financed repeated high-risk bets.\n4. Equity-driven founder networks spread the model through spin-outs.\n\nKEY POINTS\n- Bank debt wants safety and repayment; VC equity accepts failure in exchange for rare large wins.\n- The result is a \"family tree\" of companies rather than a one-off success.",
+      "original": ""
+    },
+    {
+      "group": "Week 2",
+      "item": "Lesson 6",
+      "title": "From Military Networks to the Civilian Internet",
+      "topic": "Week 2 · Lesson 6",
+      "order": 206,
+      "date": "2026-01-12",
+      "dateEnd": "2026-01-19",
+      "refined": "IN PLAIN WORDS\nThe internet grew from a military-funded network that broke messages into packets so it could route around damage. Open, layered standards let anyone build on it, which led to enormous innovation along with security holes, privacy problems and a few dominant platforms.\n\nKEY IDEAS\n1. Circuit switching (the old phone system): one fixed path per call; if any link fails, the connection drops.\n2. Packet switching: messages are split into independently addressed packets that can take different routes around failures. The survivability idea came mainly from Paul Baran's research at RAND; ARPANET itself was funded mostly to share computers between research labs.\n3. End-to-end principle: keep the network core simple (just forward packets) and put the intelligence at the edges (devices handle reliability, encryption and app logic).\n4. TCP/IP's four layers:\n   - Application: what apps care about (HTTP, SMTP, DNS).\n   - Transport: TCP (reliable, ordered, resends lost packets) or UDP (lightweight, no guarantees).\n   - Internet: IP addressing and routing.\n   - Link: the physical connection (Ethernet, Wi-Fi, fiber).\n5. Layers let one part change (phone lines → fiber → Wi-Fi) without changing the others.\n6. Governance: ARPA funded ARPANET; NSFNET became the academic backbone; commercial providers took over. Standards are public RFCs written through the IETF's \"rough consensus and running code.\"\n\nCODE\n```text\n1969          ARPANET's first connection\nJan 1, 1983   ARPANET switches to TCP/IP\n1985–1995     NSFNET backbone, then commercial providers\n```\n\nKEY POINTS\nSide effects of the open design:\n- Security: the core doesn't inspect traffic, so billions of edge devices must defend themselves; worms, malware and DDoS attacks followed.\n- Privacy: early traffic crossed many networks unencrypted; metadata (who talks to whom, when) is still observable.\n- Concentration: open protocols underneath, but proprietary services on top (search, ads), where network effects let a few giants control data and attention.",
+      "original": ""
+    },
+    {
+      "group": "Week 2",
+      "item": "Lesson 7",
+      "title": "Globalization, Supply Chains, and Digital Capitalism",
+      "topic": "Week 2 · Lesson 7",
+      "order": 207,
+      "date": "2026-01-12",
+      "dateEnd": "2026-01-19",
+      "refined": "IN PLAIN WORDS\nGlobal supply chains became cheap by having each place specialize and by keeping almost no spare stock (just-in-time). That is efficient but fragile, and the firms that run the coordinating software gain power over suppliers and workers.\n\nKEY IDEAS\n1. Specialization: each country or company focuses on one thing (chips, screens, assembly) and makes a lot of it.\n2. Economies of scale: a large upfront cost, then each extra unit is cheaper (a chip factory making 100 million chips instead of 1 million).\n3. Just-in-time (JIT): parts arrive right when needed; lower storage costs and less money tied up, but one late delivery stops production. A weekly delivery where the goal is to almost run out right before the next truck is a JIT system.\n4. Fragility: little backup means small failures spread (a missing $5 part halts a car plant; a chip shortage delays millions of consoles).\n5. Bullwhip effect: small changes at the end of the chain cause larger swings upstream (school → distributor → factory → farm).\n6. Digital coordination stack: barcodes (each scan records a movement or sale) → ERP systems (a company's internal inventory and order brain) → APIs and platforms (automatic orders, shipping and stock sync between companies). If it isn't in the system, it effectively doesn't exist.\n7. Bargaining power triangle: the lead firm (runs the platform and sees all the data), suppliers (compete on price and deadlines), workers (follow the app's routes and shifts), with the state in the background setting rules but competing to attract investment.\n\nKEY POINTS\n- Digital coordination makes chains faster and cheaper but concentrates power at the top and pressure at the bottom, especially on workers.\n- JIT and low buffers make bullwhip swings sharper.",
+      "original": ""
+    },
+    {
+      "group": "Week 2",
+      "item": "Lesson 8",
+      "title": "The End of the Cold War and the Unipolar Moment",
+      "topic": "Week 2 · Lesson 8",
+      "order": 208,
+      "date": "2026-01-12",
+      "dateEnd": "2026-01-19",
+      "refined": "IN PLAIN WORDS\nThe Soviet economy was worn out, oil income fell, and Gorbachev's reforms let people see how bad things were. The USSR dissolved in 1991, leaving the US as the only superpower and confident that its model had won.\n\nKEY IDEAS\n1. Command economy: the state sets production targets and prices. Factories chased quotas rather than what people needed, causing shortages, low-quality goods and slow innovation.\n2. Hard currency: money accepted worldwide, like dollars, needed to import grain and technology. Much of it came from oil and gas, so falling oil prices in the 1980s squeezed imports while military spending stayed high.\n3. Perestroika (\"restructuring\"): Gorbachev's economic reform, adding limited market elements to make socialism work better.\n4. Glasnost (\"openness\"): more honest media and politics. Its unintended effect was to reveal how deep the problems and past abuses were, speeding the loss of legitimacy.\n5. Bipolar → unipolar: from two superpowers to one; the \"unipolar moment\" after 1991.\n6. Victory narrative: the belief that liberal democracy and market capitalism had proved to be the final model (Francis Fukuyama's \"end of history,\" 1989/1992).\n7. Washington Consensus (term coined 1989): the policy package pushed by US policymakers, the IMF and the World Bank: privatize, deregulate, cut deficits, open to trade and investment.\n\nCODE\n```text\n1985       Gorbachev takes power; perestroika and glasnost\nNov 1989   The Berlin Wall falls\nDec 1991   The USSR dissolves\n```\n\nKEY POINTS\n- Loop: oil revenue falls → fewer imports → technology and consumer goods lag → daily life worsens → faith in the system weakens.\n- The expectation was that open markets would lead countries toward democracy and convergence with the West.",
+      "original": ""
+    },
+    {
+      "group": "Week 2",
+      "item": "Lesson 9",
+      "title": "9/11, Asymmetric Warfare, and the Security State",
+      "topic": "Week 2 · Lesson 9",
+      "order": 209,
+      "date": "2026-01-12",
+      "dateEnd": "2026-01-19",
+      "refined": "IN PLAIN WORDS\nThe 9/11 attacks showed that a small network with cheap tools could badly damage a superpower. The US rebuilt its security system around rare but devastating threats, and most of the \"emergency\" powers became permanent.\n\nKEY IDEAS\n1. A systems shock: 19 hijackers with box cutters and civilian planes struck symbols of US finance (the World Trade Center) and military power (the Pentagon), overturning the assumption that big threats come from big armies with warning.\n2. Asymmetric warfare: a weaker side uses unconventional tactics against a stronger side's weak points, including the openness of a free society.\n3. Low-probability / high-impact (LPHI) threats: unlikely on any given day, enormous if they happen; this logic drove more surveillance, data collection and screening.\n4. New institutions: the Department of Homeland Security (created Nov 2002, operating 2003) to coordinate domestic agencies, and the TSA (Nov 2001) to take over airport screening from private contractors.\n5. USA PATRIOT Act (Oct 26, 2001): expanded surveillance, financial tracking and information sharing between agencies; some parts had sunset clauses, but many were renewed.\n6. Ratchet effect: powers and budgets expand quickly in a crisis and rarely shrink back, because rolling them back is politically risky.\n7. Mission creep: an agency's job gradually grows beyond its original purpose.\n8. Precautionary principle: when the possible harm is huge, act without full proof, which pushes toward over-protection.\n\nCODE\n```text\nSept 11, 2001   Attacks\nOct 26, 2001    USA PATRIOT Act signed\nNov 2001        TSA created\nNov 2002        Department of Homeland Security created\n2015            USA FREEDOM Act ends NSA bulk phone-records collection\n2020            Some PATRIOT Act provisions (including Section 215) expire\n```\n\nKEY POINTS\n- Most of the post-9/11 security system stayed permanent, though a few pieces were rolled back in 2015 and 2020.\n- Shoes off, liquid limits and body scanners show how crisis measures became everyday normal.",
+      "original": ""
+    },
+    {
+      "group": "Week 2",
+      "item": "Lesson 10",
+      "title": "Mobile Technology, Social Media, and Political Mobilization",
+      "topic": "Week 2 · Lesson 10",
+      "order": 210,
+      "date": "2026-01-12",
+      "dateEnd": "2026-01-19",
+      "refined": "IN PLAIN WORDS\nSmartphones and social media made political organizing fast and cheap. But feeds promote whatever gets the strongest reactions, which makes the world feel constantly in crisis and pulls people into \"us versus them.\"\n\nKEY IDEAS\n1. Affordances: what a technology makes easy: push notifications, always-on connection, cameras, location and maps.\n2. Engagement loop: a post gets engagement → the algorithm boosts it → more people see it → more engagement → it goes viral. Ranking aims at attention and time on the platform, not fairness or calm.\n3. Emotional content (fear, anger, outrage) usually outperforms nuanced explanation, so feeds skew toward crisis and conflict.\n4. Identity affordances: profile pictures, bios, flags, hashtags, follower counts and who you follow all signal group membership; people post to show loyalty, not just to inform.\n5. Echo chamber: you mostly hear your own group, by your own choice of who to follow. Filter bubble: the algorithm mostly shows what you already engage with.\n6. Network effect: a platform is more valuable as more people use it. Complements: more things that run on it.\n7. Coordination threshold: the number of people needed before a group can act; large shared platforms make it far easier to reach.\n\nSTEPS\nDigital-era mobilization:\n1. A trigger event happens (for example, a video of police violence).\n2. The footage spreads through feeds via the engagement loop.\n3. People who identify with the victims feel anger, solidarity or duty.\n4. Large existing networks carry the message to thousands or millions quickly.\n5. Low coordination costs bring people out physically (protests, vigils, marches).\n6. New footage from the ground feeds back into the loop.\n\nKEY POINTS\n- Mobile and social media don't create injustice; they amplify how fast and widely it's seen, felt and organized around.\n- Constant exposure to distant suffering can feel overwhelming; one person's real influence is mostly local.",
+      "original": ""
+    },
+    {
+      "group": "Week 2",
+      "item": "Lesson 11",
+      "title": "Artificial Intelligence: A New Era",
+      "topic": "Week 2 · Lesson 11",
+      "order": 211,
+      "date": "2026-01-12",
+      "dateEnd": "2026-01-19",
+      "refined": "IN PLAIN WORDS\nAI became powerful because three things arrived together: huge amounts of data, cheap and powerful chips, and large institutions funding it. Whoever controls the data, compute and models gains power, so the key questions are who uses AI, on whom, and who can hold them accountable.\n\nKEY IDEAS\n1. Training-data scale: phones, social media, streaming, GPS and online shopping created vast data; models trained on more and better data improve dramatically.\n2. Compute: GPUs and specialized chips do many calculations in parallel; cheaper cloud compute allowed bigger models trained longer.\n3. Institutional enablers: big tech, universities and governments funded research and infrastructure; cloud platforms and open-source tools let others build on top.\n4. Tokens: the small pieces of text AI reads and writes; usage is priced per token, which makes AI easy to meter and sell as a service.\n5. Power shifts:\n   - Firms that control data, compute and models gain economic and political leverage.\n   - Workers face automation and algorithmic management (AI tracking, scoring and assigning work), unless they move into roles AI amplifies.\n   - States treat AI as a geopolitical asset in the economy, cyber, intelligence and the military.\n6. AI in security: scanning cameras, transactions, travel and communications; risk scores in policing, border control, intelligence and targeting. It can scale mass monitoring and produce judgments that are hard to contest.\n7. Secrecy debate: governments cite national security and protecting sources; critics worry secrecy hides wrongdoing. One position from class discussion: knowledge should be public by default, and secrecy narrow and justified.\n\nSTEPS\nThe accountability chain, for any important AI system:\n1. Input data: what is collected, was it obtained lawfully, is sensitive data minimized?\n2. AI processing: what model, is it biased, audited, explainable enough for its risks?\n3. Outputs and actions: does it only recommend, or can it act on its own (freeze accounts, trigger alerts)?\n4. Human decisions: who reviews it, can they overrule it, are they trained to question it?\n5. Democratic oversight: courts, legislatures, watchdogs and journalists; can people appeal decisions?\n\nKEY POINTS\n- Four questions for any AI system: what's the data, who owns the compute and model, who decides how it's used, and who can challenge it?\n- The same chain applies to misuse: stolen personal data plus AI enables tailored fraud at scale, which calls for data protection and legal responsibility for leaks.",
+      "original": ""
+    }
+  ]
+}

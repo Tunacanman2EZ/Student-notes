@@ -1,0 +1,226 @@
+{
+  "app": "notes-vault",
+  "kind": "contribution",
+  "version": 1,
+  "createdOn": "2026-11-27T09:19:32.318Z",
+  "contributor": {
+    "id": "55946333-9863-49ca-acb3-a25bfccc48c9",
+    "displayName": "Front-pay"
+  },
+  "program": "Applied science software engineering",
+  "class": {
+    "code": "SPCH100",
+    "name": "SPCH100: Essentials of public speaking"
+  },
+  "lessons": [
+    {
+      "group": "Week 5",
+      "item": "Lesson 1",
+      "title": "Welcome to SPCH100!",
+      "topic": "Week 5 · Lesson 1",
+      "order": 501,
+      "date": "2026-08-24",
+      "dateEnd": "2026-08-31",
+      "refined": "IN PLAIN WORDS\nSPCH100 is about speaking clearly to a specific audience, and then informing, persuading and connecting. Most speeches in this course are recorded videos.\n\nKEY IDEAS\n1. Unit 1: foundations of audience-centered speaking.\n2. Unit 2: speaking to inform, persuade and connect.\n3. Video 1 (discussion): a 3–5 minute speech for practice and feedback.\n4. Video 2 (final speech): 4–5 minutes on a topic of your choice, judged on clarity, structure, evidence (when facts are used), delivery and preparation.\n5. Both videos are uploaded to YouTube as unlisted.\n\nKEY POINTS\n- A useful goal for the course: explain your own project clearly to different audiences, sharing what helps them and keeping private details private.",
+      "original": ""
+    },
+    {
+      "group": "Week 5",
+      "item": "Lesson 2",
+      "title": "Get your recording setup working",
+      "topic": "Week 5 · Lesson 2",
+      "order": 502,
+      "date": "2026-08-24",
+      "dateEnd": "2026-08-31",
+      "refined": "IN PLAIN WORDS\nA good recording setup makes you easy to see and hear: eyes level with the camera, head and shoulders in frame, light on your face, and the microphone close. Upload class videos to YouTube as unlisted and test the link.\n\nKEY IDEAS\n1. Sit upright and comfortable with your eyes level with the camera.\n2. Record at 30 fps; 720p or 1080p is enough.\n3. Frame head, shoulders and a little chest, with a small space above your head.\n4. Light your face; avoid bright windows behind you.\n5. Keep the mic 2–3 fingers from your mouth, slightly to the side, and adjust the input level, not just the speaker volume.\n\nSTEPS\nUploading to YouTube:\n1. Create → Upload video.\n2. Add the file and basic details.\n3. Set visibility to Unlisted (usually best for class).\n4. Publish and copy the link.\n5. Open the link in an incognito or signed-out window to confirm it plays.\n\nKEY POINTS\n- Unlisted videos can be watched by anyone with the link but don't appear in search.",
+      "original": ""
+    },
+    {
+      "group": "Week 5",
+      "item": "Lesson 3",
+      "title": "Analyzing a communication situation",
+      "topic": "Week 5 · Lesson 3",
+      "order": 503,
+      "date": "2026-08-24",
+      "dateEnd": "2026-08-31",
+      "refined": "IN PLAIN WORDS\nBefore you speak or record, analyze the situation with APCMC: Audience, Purpose, Context, Medium and Constraints. Then make two concrete choices: how you'll start, and what you'll show as proof.\n\nKEY IDEAS\n1. Audience: who is this really for?\n2. Purpose: what should they think or do afterward?\n3. Context: where and when will they see it?\n4. Medium: what format (video, text, live)?\n5. Constraints: your limits (time, tools, reach).\n\nSTEPS\n1. Answer the five APCMC questions.\n2. Choose your opening based on them (a busy audience watching a video needs a quick hook).\n3. Choose your proof (show the real thing, with short captions or voiceover so it's obvious).\n\nCODE\nExample: a short project video for developers and recruiters.\n```text\nAudience:     game developers and recruiters\nPurpose:      \"this developer and this game are worth a closer look\"\nContext:      a portfolio post on YouTube or LinkedIn, shared in developer communities\nMedium:       a short gameplay video showing real systems\nConstraints:  short attention spans, simple editing tools, no followers yet\nOpening:      a short intro with a clear hook\nProof:        one continuous gameplay clip with on-screen labels for each system\n```\n\nKEY POINTS\n- Showing working features is stronger evidence than describing them.",
+      "original": ""
+    },
+    {
+      "group": "Week 5",
+      "item": "Lesson 4",
+      "title": "Critical and ethical listening",
+      "topic": "Week 5 · Lesson 4",
+      "order": 504,
+      "date": "2026-08-24",
+      "dateEnd": "2026-08-31",
+      "refined": "IN PLAIN WORDS\nCritical and ethical listening means checking two things: validation (what a claim stands on) and fairness (what might be missing).\n\nKEY IDEAS\n1. Empty claims rely on vague support: \"Everyone knows single-player games are dying,\" \"people say...\"\n2. Concrete claims give a year, a source, a number and a clear measure.\n3. Treat a speaker's (or an AI's) answer as a proposed model, not automatic truth; notice when it sounds scripted or generic.\n4. Selective framing presents one slice of the picture as the whole.\n\nCODE\n```text\nSelective:  \"70% of top-grossing games use microtransactions, so that's the only path.\"\nFairer:     \"70% of top-grossing games use microtransactions, but other paths still succeed.\"\n```\n\nSTEPS\nWhile listening:\n1. Is this validated by anything real, or only by style?\n2. Is this the full picture, or one slice sold as everything?\n\nKEY POINTS\n- The same check works on your own speeches: as your own audience, would you find it validated and fair?",
+      "original": ""
+    },
+    {
+      "group": "Week 5",
+      "item": "Lesson 5",
+      "title": "Finding a focused central idea",
+      "topic": "Week 5 · Lesson 5",
+      "order": 505,
+      "date": "2026-08-24",
+      "dateEnd": "2026-08-31",
+      "refined": "IN PLAIN WORDS\nA central idea is one sentence stating what the audience should understand by the end of your speech. It works as a filter: keep the details that help it and cut the rest.\n\nKEY IDEAS\n1. Topic: what the speech is about. Central idea: the single takeaway for this audience.\n2. Write it as: \"By the end of my speech, my audience will understand ______.\"\n3. Filter question for every detail: does this help the audience understand that sentence? Yes → keep. No → cut or shorten.\n\nCODE\n```text\nTopic:         My game and how school and AI tools helped me build it.\nCentral idea:  By the end of my speech, my classmates will understand how I'm building my game by\n               learning the engine, using my school program and an AI tool to organize my logic,\n               and working with an artist who speaks a different language.\n```\n\nKEY POINTS\n- A strong supporting line shows the change in thinking, not just the result: learning why a system is built a certain way, not only how to make it work.\n- Paste the central idea at the top of your notes and check everything against it.",
+      "original": ""
+    },
+    {
+      "group": "Week 5",
+      "item": "Lesson 6",
+      "title": "Challenge: Selecting credible supporting material",
+      "topic": "Week 5 · Lesson 6",
+      "order": 506,
+      "date": "2026-08-24",
+      "dateEnd": "2026-08-31",
+      "refined": "IN PLAIN WORDS\nSupporting material makes the central idea believable. Mix a specific example, a short story and a general truth, and check each one: would the audience accept it as true, and does it push the main idea forward?\n\nKEY IDEAS\n1. Specific example: a concrete case, often from your own experience.\n2. Short story: a brief narrative with a moment of change.\n3. General truth: a widely accepted statement or expert-style point.\n4. Every piece of support ties back to the main idea.\n\nCODE\n```text\nMain idea:      We shouldn't judge others, because many people are dealing with hard things we can't see.\nExample:        Someone who seems fine on the outside may be struggling on the inside.\nStory:          A time when a person pulled away from others because they didn't want to share their pain.\nGeneral truth:  Many people hide their struggles because retelling them is exhausting and they fear being judged.\n```\n\nSTEPS\nFor each piece of support:\n1. Would my audience accept this as true?\n2. Does it move my main idea forward?\n3. Does it connect back to the central idea when I say it?\n\nKEY POINTS\n- A general truth is stronger with a credible source, such as a health organization or a study.",
+      "original": ""
+    },
+    {
+      "group": "Week 5",
+      "item": "Lesson 7",
+      "title": "Organizing your speech",
+      "topic": "Week 5 · Lesson 7",
+      "order": 507,
+      "date": "2026-08-24",
+      "dateEnd": "2026-08-31",
+      "refined": "IN PLAIN WORDS\nOrganize a speech around one central idea, two or three main points, clear transitions, and a closing call to action.\n\nKEY IDEAS\n1. Open with the goal: \"In this speech, I want to show ______ so they can ______.\"\n2. Use 2–3 big points, not a long list of facts.\n3. Transitions guide the listener: \"Now that you know ______, let me show you ______.\" / \"The next question is ______.\"\n4. End with one simple thing the audience can do next.\n\nCODE\nExample: teaching classmates how to start a hobby (gloving, a light-show art form).\n```text\nCentral idea:  what gloving is, which lights to start with, and what it costs, so beginners don't overspend\nPoint 1:       what gloving is: an art form, its energy, competitions and community\nPoint 2:       the lights: fingertip lights from established brands and independent makers\nPoint 3:       cost and how to start: about $30 to begin, free video tutorials, anyone can try\nCall to action: try one beginner tutorial this week\n```\n\nKEY POINTS\n- Three points is easy for listeners to follow and remember.",
+      "original": ""
+    },
+    {
+      "group": "Week 5",
+      "item": "Lesson 8",
+      "title": "Delivery basics and confidence",
+      "topic": "Week 5 · Lesson 8",
+      "order": 508,
+      "date": "2026-08-24",
+      "dateEnd": "2026-08-31",
+      "refined": "IN PLAIN WORDS\nGood delivery means a steady pace, a short pause after each key idea, tall posture, and eye contact with the camera. The 3-2-1 pitch keeps a short talk focused, and the ABC pivot handles criticism calmly.\n\nKEY IDEAS\n1. Pace: steady, not rushed.\n2. Pauses: a short silence (\"one-and\") after each main point.\n3. Posture when sitting: feet flat, front half of the chair, tall spine, relaxed shoulders.\n4. Eye contact on video: look at the camera or a chosen spot for each main line.\n5. 3-2-1 pitch (60 seconds or less): 3 key points, 2 details or examples, 1 takeaway.\n6. ABC pivot: Acknowledge the concern → Bridge to your reason → Continue with your plan.\n\nCODE\n```text\n3-2-1 pitch:   a roguelite with 4 characters; dying loses your inventory and gold;\n               takeaway: gain experience to defeat the final boss\n\nABC pivot on \"only 4 characters?\":\nAcknowledge:   \"I get that four can feel small.\"\nBridge:        \"Right now I'm keeping the scope small for my portfolio.\"\nContinue:      \"Later I plan to add more characters as time and budget allow.\"\n```\n\nSTEPS\nImprovement loop:\n1. Record the pitch once.\n2. Rate pace and pauses, posture, and eye contact.\n3. Pick one to improve and record again.",
+      "original": ""
+    },
+    {
+      "group": "Week 5",
+      "item": "Lesson 9",
+      "title": "Virtual speeches: An audience of none",
+      "topic": "Week 5 · Lesson 9",
+      "order": 509,
+      "date": "2026-08-24",
+      "dateEnd": "2026-08-31",
+      "refined": "IN PLAIN WORDS\nFor virtual speeches, look at the lens rather than your own preview, frame head and shoulders at eye level, speak a little slower with extra energy on key words, pause after key ideas, and check your technology first.\n\nKEY IDEAS\n1. Eyes: treat the camera like a person.\n2. Frame: head and shoulders, camera at eye level.\n3. Voice: slightly slower than normal, with extra energy on important words.\n4. Pauses: about half a second after key ideas or questions, which also helps with lag.\n\nSTEPS\nTech check before a talk:\n1. Internet connection.\n2. Battery or power.\n3. Microphone input.\n4. Camera angle.\n5. The platform's audio test.\n\nKEY POINTS\n- Online audiences lose energy faster than in-person ones, so vocal energy matters more.",
+      "original": ""
+    },
+    {
+      "group": "Week 5",
+      "item": "Lesson 10",
+      "title": "Managing speaking anxiety",
+      "topic": "Week 5 · Lesson 10",
+      "order": 510,
+      "date": "2026-08-24",
+      "dateEnd": "2026-08-31",
+      "refined": "IN PLAIN WORDS\nSpeaking nerves don't mean you're bad at it; they're energy you can guide. Reframe the nerves, use box breathing, and focus on what the audience needs.\n\nKEY IDEAS\n1. Reframe: treat it as \"challenge mode\": \"I'm here to talk to people like I mean it.\"\n2. Box breathing: breathe in for 4, hold 4, out 4, hold 4; repeat once or twice.\n3. A quick reset such as water or a snack can help.\n4. Audience focus: \"What does this person need from me right now?\"\n\nKEY POINTS\n- Nerves can boost performance; they aren't proof you're unqualified.\n- Moving attention from yourself to the audience lowers anxiety.",
+      "original": ""
+    },
+    {
+      "group": "Week 6",
+      "item": "Lesson 1",
+      "title": "Designing informative messages",
+      "topic": "Week 6 · Lesson 1",
+      "order": 601,
+      "date": "2026-08-31",
+      "dateEnd": "2026-09-07",
+      "refined": "IN PLAIN WORDS\nAn informative speech has a focused central idea, uses at least two explaining strategies (definitions, examples or numbers, analogies), and explains why things were designed the way they were.\n\nKEY IDEAS\n1. Definition: say plainly what something is (\"A loot bag is how players find currency, potions and equipment\").\n2. Example or numbers: make it concrete (a 1-in-216 drop chance; a short commented script).\n3. Analogy: compare it to something familiar (a projectile script is a traveling hitbox).\n4. Justify design choices: explain why (exact odds are shown for fairness and trust; code is organized in labeled regions so other developers can follow it).\n\nSTEPS\nExplaining any system:\n1. Purpose: \"This system is for ______.\"\n2. How it works: \"First ______, then ______, finally ______.\"\n3. Why it's built this way: \"I did it this way so players or developers can ______.\"\n\nKEY POINTS\n- The same three-step pattern works for portfolio videos and interviews.",
+      "original": ""
+    },
+    {
+      "group": "Week 6",
+      "item": "Lesson 2",
+      "title": "Explaining complex topics clearly",
+      "topic": "Week 6 · Lesson 2",
+      "order": 602,
+      "date": "2026-08-31",
+      "dateEnd": "2026-09-07",
+      "refined": "IN PLAIN WORDS\nTo explain something complex, use one analogy, replace jargon with plain words, and answer the listener's obvious next question inside your explanation.\n\nKEY IDEAS\n1. Start with who you are and what you do (\"I use AI to help me make games\").\n2. Add one simple analogy (\"It's like having a teammate\").\n3. Replace jargon:\n   - \"debugging\" → \"finding and fixing mistakes\"\n   - \"readability\" → \"making the code easier to read later\"\n   - \"architecture\" → \"how everything is organized so it's easier to change\"\n4. Predict the next question: \"If I said this to a cousin, what would they ask?\" (\"Do you still do the work?\" \"How do you know it's correct?\")\n5. Answer it in advance (\"It suggests options, but I decide what to use, and I check its answers before adding them\").\n\nKEY POINTS\n- One analogy is enough; several can confuse.",
+      "original": ""
+    },
+    {
+      "group": "Week 6",
+      "item": "Lesson 3",
+      "title": "Building persuasive arguments",
+      "topic": "Week 6 · Lesson 3",
+      "order": 603,
+      "date": "2026-08-31",
+      "dateEnd": "2026-09-07",
+      "refined": "IN PLAIN WORDS\nA persuasive message needs a claim, real evidence, reasoning (the \"because\" sentence), a short story frame, and a clear call to action.\n\nKEY IDEAS\n1. Claim: what you want the audience to believe or do.\n2. Evidence: real support: actions taken, time spent, tools used, progress shown.\n3. Reasoning: why the evidence proves the claim (\"This shows I'm not just dreaming; I'm building\").\n4. Story frame: before → turning point → now.\n5. Call to action: exactly what you want the audience to do next.\n\nCODE\n```text\nClaim:      If you think making a game is impossible, follow my journey.\nEvidence:   a year of solo progress; finished scenes and milestones; recorded sessions and\n            a version-control history as a timeline of real work\nReasoning:  Because I document the process, you can see the steady progress, not just the result.\nStory:      Before: building in private for a year. Turn: this course pushed me to share it.\n            Now: showing the process so people who doubt themselves can see what progress looks like.\nAction:     Follow the project and wishlist the game when it's released.\n```\n\nKEY POINTS\n- Evidence from your own work is credible when it's specific and can be shown.",
+      "original": ""
+    },
+    {
+      "group": "Week 6",
+      "item": "Lesson 4",
+      "title": "Evidence, reasoning, and counterarguments",
+      "topic": "Week 6 · Lesson 4",
+      "order": 604,
+      "date": "2026-08-31",
+      "dateEnd": "2026-09-07",
+      "refined": "IN PLAIN WORDS\nCheck an argument the way you'd debug code: find the reasoning link from evidence to claim, look for gaps and limited evidence, and respond to counterarguments fairly by restating them and then refuting or accommodating them.\n\nKEY IDEAS\n1. Reasoning link: the \"because\" that connects evidence to claim (\"The team using AI closed 50% more tickets, so we should adapt our workflow\").\n2. Reasoning gap: a jump that skips something important (\"AI closed more tickets → fire the junior developers\" ignores quality, risk and lost knowledge).\n3. Evidence limitation: true but narrow (one team, one month, one project); don't stretch it to \"always\" or \"everyone.\"\n4. Counterargument response: first restate the other side fairly (no strawman), then\n   - refute: show why it doesn't hold or is risky, or\n   - accommodate: partly agree and adjust (\"Don't replace juniors; train them to use AI with guidelines\").\n\nCODE\n```text\n\"This evidence supports the claim only if we assume that ______.\"\n\"Some people argue that ______ because ______. However, ______.\"\n\"While ______ shows ______, a better approach is to ______.\"\n```\n\nSTEPS\n1. Label the claim, the evidence and the reasoning link.\n2. Stress-test: what must be assumed for it to work, and is that safe?\n3. Respond: a fair version of the other view, then refute or accommodate.",
+      "original": ""
+    },
+    {
+      "group": "Week 6",
+      "item": "Lesson 5",
+      "title": "Challenge: Ethical persuasion strategies",
+      "topic": "Week 6 · Lesson 5",
+      "order": 605,
+      "date": "2026-08-31",
+      "dateEnd": "2026-09-07",
+      "refined": "IN PLAIN WORDS\nEthical persuasion influences people while protecting their ability to make an informed, free choice. Manipulation uses exaggerated fear or shame, hides downsides, or misrepresents the other side.\n\nKEY IDEAS\n1. Coercive emotional appeal: emotion used to force a reaction (\"you'll have no future,\" \"you're not a real developer\").\n2. Ethical emotion: shows real human consequences, stays accurate, and leaves room for \"no.\"\n3. Selective framing: only the parts that help your side. Ethical framing includes a real upside and a real downside (AI helps explore ideas faster; it also risks shipping code you don't understand).\n4. Transparent credibility: say where information comes from and admit uncertainty (\"the evidence suggests...\").\n5. Fair opposition: describe why people hold the other view before responding.\n6. Ethos (credibility), pathos (emotion) and logos (reasoning) should be balanced.\n\nSTEPS\nChecking a persuasive message:\n1. Could the audience name a real benefit and a real risk afterward?\n2. Could they say no without feeling threatened, insulted or doomed?\n3. Fix selective framing by adding a real upside and downside.\n4. Replace doom language with concrete consequences (\"you risk shipping bugs you can't fix\").\n5. Name your sources, or your own role and experience.\n6. Replace mocking labels with the other side's real reasons, then respond.\n\nKEY POINTS\n- Keep the core position; remove the manipulation.",
+      "original": ""
+    },
+    {
+      "group": "Week 6",
+      "item": "Lesson 6",
+      "title": "Visual support and language choices",
+      "topic": "Week 6 · Lesson 6",
+      "order": 606,
+      "date": "2026-08-31",
+      "dateEnd": "2026-09-07",
+      "refined": "IN PLAIN WORDS\nA visual should show one clear idea that matches what you're saying. Use concrete wording instead of vague claims, choose a clear audience, and spell out the benefit to the user.\n\nKEY IDEAS\n1. Visuals support the speech; each one shows one idea.\n2. Ask: \"What's the one thing I want the audience to see right now?\"\n3. Concrete wording describes specific actions and outcomes.\n4. Inclusive wording: keep terms the audience knows, explain the benefit, and don't assume they've seen earlier material.\n\nCODE\n```text\nVague:     \"I improved my combat system a lot.\"\nConcrete:  \"I reworked combat so every enemy kill reliably grants XP.\"\n\nSpoken:    \"I built a save system so players can swap characters, close the game and reload later\n           with all their inventory and XP preserved.\"\nSlide:     Before: swap character → lose items and XP\n           After:  swap character → items and XP preserved\n```\n\nKEY POINTS\n- A small flow diagram (Save → Swap → Close → Reload → Everything preserved) can replace a paragraph of explanation.",
+      "original": ""
+    },
+    {
+      "group": "Week 6",
+      "item": "Lesson 7",
+      "title": "Group discussion and responding to questions",
+      "topic": "Week 6 · Lesson 7",
+      "order": 607,
+      "date": "2026-08-31",
+      "dateEnd": "2026-09-07",
+      "refined": "IN PLAIN WORDS\nIn a group discussion, take turns, build on what others said, answer questions directly, and tie back to your main point. PREP structures a clear answer: Point → Reason → Example → Point.\n\nKEY IDEAS\n1. Turn-taking: wait for a pause, signal (\"Can I add something?\"), and keep it short.\n2. Build on others: acknowledge (\"That's a fair concern\"), then add (\"To handle that, we'll...\").\n3. Answer the question asked, then connect it to your main idea.\n4. Avoid vague hype (\"1000x better\"); use specific, honest wording (\"works better for my workflow\").\n\nCODE\n```text\nPoint:    \"My view is that ______.\"\nReason:   \"Because ______.\"\nExample:  \"For example, ______.\"\nPoint:    \"So overall, ______.\"\n```\n\n```text\nPhrases:  \"Can I add something to that?\" / \"I'd like to build on what you said.\" /\n          \"To clarify our approach...\" / \"You're right that ______. To handle that, we'll ______.\"\n```",
+      "original": ""
+    },
+    {
+      "group": "Week 6",
+      "item": "Lesson 8",
+      "title": "Challenge: Self-assessment and improvement",
+      "topic": "Week 6 · Lesson 8",
+      "order": 608,
+      "date": "2026-08-31",
+      "dateEnd": "2026-09-07",
+      "refined": "IN PLAIN WORDS\nSelf-assessment means naming a real strength, a specific area to improve, and one concrete action you can check afterward in your recording.\n\nKEY IDEAS\n1. Strength: something you can explain well because you understand it.\n2. Improvement area: a specific skill, such as clarifying code while explaining it.\n3. Concrete action: observable behavior you can verify by watching the recording.\n\nCODE\n```text\nStrength:     explaining variables and exported properties in Godot\nImprove:      clarifying code while explaining it\nAction:       show a tiny script; pause on each line and say what it does; point to the Inspector\nScript:       var player\n              @export var attack_value: int = 10\nCheck after:  Did I show the script? Did I pause on each line? Did I point to the Inspector?\n```\n\nKEY POINTS\n- \"Be clearer\" can't be checked; \"pause and explain each line\" can.\n- In Godot 4 the syntax is @export var; plain \"export var\" is Godot 3.",
+      "original": ""
+    },
+    {
+      "group": "Week 6",
+      "item": "Lesson 9",
+      "title": "Recap challenge: full speech workflow",
+      "topic": "Week 6 · Lesson 9",
+      "order": 609,
+      "date": "2026-08-31",
+      "dateEnd": "2026-09-07",
+      "refined": "IN PLAIN WORDS\nThe full speech workflow brings everything together: a clear topic and audience, a thesis, a hook, three main points, a credible source, a purposeful visual, and a prepared answer to a likely question.\n\nKEY IDEAS\n1. Requirements: a new 4–5 minute video, speech notes in the required format, at least one credible and traceable source; visuals optional.\n2. Topic: simple enemy AI for a 2D game in Godot. Audience: classmates new to Godot.\n3. Thesis: by the end, they'll know a simple pattern to make an enemy move and react.\n4. Source: the official Godot documentation (for example, what Area2D and collisions do).\n5. Visual: one screenshot of the enemy's node tree with its body shape and hurtbox.\n6. Prepared question: \"Why not just copy a tutorial?\" Answer: building your own system gives full control and a clear path others can follow.\n\nCODE\n```text\nIntro:    name and role, plus a hook about enemies that don't react or take damage\nPoint 1:  use vectors to control enemy movement\nPoint 2:  add a body shape and hurtbox so collisions and damage make sense\nPoint 3:  let the enemy detect the player (Area2D or a distance check)\nClosing:  recap the three steps; \"test it, and break it on purpose\"\n```\n\nSTEPS\nSelf-check before recording:\n1. Is it clear what the audience will get?\n2. Intro → three points → recap?\n3. Does each step explain why it matters?\n4. Is a real source named?\n5. Does the visual explain one point?\n6. Are the notes short reminders, not a full script, with delivery cues?",
+      "original": ""
+    }
+  ]
+}

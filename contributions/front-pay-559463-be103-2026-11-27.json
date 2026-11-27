@@ -1,0 +1,413 @@
+{
+  "app": "notes-vault",
+  "kind": "contribution",
+  "version": 1,
+  "createdOn": "2026-11-27T09:19:32.318Z",
+  "contributor": {
+    "id": "55946333-9863-49ca-acb3-a25bfccc48c9",
+    "displayName": "Front-pay"
+  },
+  "program": "Applied science software engineering",
+  "class": {
+    "code": "BE103",
+    "name": "BE103: Databases: SQL & NoSQL Basics"
+  },
+  "lessons": [
+    {
+      "group": "Week 1",
+      "item": "Lesson 1",
+      "title": "Welcome to BE103!",
+      "topic": "Week 1 · Lesson 1",
+      "order": 101,
+      "date": "2026-07-27",
+      "dateEnd": "2026-08-03",
+      "refined": "IN PLAIN WORDS\nBE103 is about databases and persistence. BE102's API had no memory: its data lived in Python and vanished on restart. BE103 adds a database so data survives restarts. BE104 then adds login on top.\n\nKEY IDEAS\n1. Persistence: data that survives the program stopping and starting.\n2. BE102: API with in-memory data → BE103: API backed by a database → BE104: authentication on top.\n\nKEY POINTS\n- Without a database, a restart erases everything.\n- A database is what lets an API remember.",
+      "original": ""
+    },
+    {
+      "group": "Week 1",
+      "item": "Lesson 3",
+      "title": "Tables, rows and columns",
+      "topic": "Week 1 · Lesson 3",
+      "order": 103,
+      "date": "2026-07-27",
+      "dateEnd": "2026-08-03",
+      "refined": "IN PLAIN WORDS\nA table is a grid for one kind of thing. A row (record) is one thing. A column (field) is one property every row has. A field value is one cell.\n\nKEY IDEAS\n1. Table: data about one type of thing (books, authors, game classes).\n2. Row / record: one thing (one book, one class). Rows run across.\n3. Column / field: one named property (title, year, hp_base). Columns run down.\n4. Field value: one cell, like rating = 4.8 or hp_per_lvl = 12.\n\nCODE\n```text\nclasses table: one row per class\nclass   | hp_base | hp_per_lvl | mana_base | mana_per_lvl | stam_base | stam_per_lvl\n--------|---------|------------|-----------|--------------|-----------|-------------\nWarrior | 180     | 12         | 180       | 10           | 80        | 5\nMage    | 110     | 5          | 250       | 16           | 40        | 7\nTank    | 260     | 22         | 200       | 10           | 100       | 5\nHealer  | 140     | 7          | 220       | 14           | 60        | 6\n```\n\n```text\nConcept        | Books database      | Game example\n---------------|---------------------|--------------------------------\nTable          | books               | classes\nRow / record   | one book            | one class (Warrior, Mage)\nColumn / field | title, year, rating | hp_base, hp_per_lvl, mana_base\nField value    | rating = 4.8        | hp_per_lvl = 12\n```\n\nKEY POINTS\n- The course database: authors (13 rows: id, name, country, birth_year) and books (35 rows: id, title, author_id, genre, year, pages, price, rating).",
+      "original": ""
+    },
+    {
+      "group": "Week 1",
+      "item": "Lesson 4",
+      "title": "What is SQL?",
+      "topic": "Week 1 · Lesson 4",
+      "order": 104,
+      "date": "2026-07-27",
+      "dateEnd": "2026-08-03",
+      "refined": "IN PLAIN WORDS\nSQL is declarative: you describe the result you want, and the database works out the steps. In SELECT * FROM books;, SELECT is a keyword, * means every column, books is the table name, and ; ends the statement.\n\nKEY IDEAS\n1. Imperative code (JavaScript, GDScript): you write the steps (loops, ifs).\n2. Declarative SQL: you describe the result.\n3. Keyword: a reserved SQL word (SELECT, FROM).\n4. Identifier: a name you chose (a table or column name).\n5. The result is a grid: the header row has the column names, each row below is one record.\n\nCODE\n```sql\nSELECT * FROM books;\n```\n\nKEY POINTS\n- Read one value from a result by row + column (id 33, column genre → Fiction).\n- The semicolon ends the statement.",
+      "original": ""
+    },
+    {
+      "group": "Week 1",
+      "item": "Lesson 5",
+      "title": "Selecting columns with SELECT",
+      "topic": "Week 1 · Lesson 5",
+      "order": 105,
+      "date": "2026-07-27",
+      "dateEnd": "2026-08-03",
+      "refined": "IN PLAIN WORDS\nSELECT * returns every column, which is good for exploring. SELECT title, year returns only those columns, which is what real queries usually need. Columns are separated by commas, with none after the last one, and appear in the order you list them. The result is a new, temporary table.\n\nCODE\n```sql\nSELECT *              -- every column\nFROM books;\n\nSELECT title, year    -- only these, in this order\nFROM books;\n```\n\nKEY POINTS\n- If the question names specific columns, list them instead of using *.\n- The result of a SELECT is itself a table: one row per matching record, one column per item listed.",
+      "original": ""
+    },
+    {
+      "group": "Week 1",
+      "item": "Lesson 6",
+      "title": "Your first WHERE filter",
+      "topic": "Week 1 · Lesson 6",
+      "order": 106,
+      "date": "2026-07-27",
+      "dateEnd": "2026-08-03",
+      "refined": "IN PLAIN WORDS\nWHERE keeps only the rows where the condition is true. It comes after FROM, and = checks equality. Text goes in single quotes and must match the data exactly. Predict how many rows you'll get before running it.\n\nCODE\n```sql\nSELECT title, genre\nFROM books\nWHERE genre = 'Mystery';\n\nSELECT name, country, birth_year\nFROM authors\nWHERE country = 'United Kingdom';\n\nSELECT title, price\nFROM books\nWHERE title = 'The Alchemist';     -- 1 row, price 8.99\n```\n\nKEY POINTS\n- Order: SELECT → FROM → WHERE.\n- Text values use single quotes. Double quotes are for table and column names; SQLite sometimes accepts double-quoted text as an old leftover behavior, so it can seem to work, but don't rely on it.\n- In SQLite, = on text is case-sensitive: genre = 'mystery' won't find 'Mystery'.\n- Table and column names must exist exactly (birth_year, not birthyear).\n- Expect 0, 1 or many rows.",
+      "original": ""
+    },
+    {
+      "group": "Week 1",
+      "item": "Lesson 7",
+      "title": "WHERE clauses and filtering",
+      "topic": "Week 1 · Lesson 7",
+      "order": 107,
+      "date": "2026-07-27",
+      "dateEnd": "2026-08-03",
+      "refined": "IN PLAIN WORDS\nWHERE tools: = != <> < > <= >= for comparisons, LIKE with % for patterns, IN (...) for lists, IS NULL / IS NOT NULL for missing values (never = NULL), and AND / OR / NOT to combine them. AND runs before OR, so use parentheses when you mix them.\n\nKEY IDEAS\n1. Comparisons: = equal, != or <> not equal, < > <= >=.\n2. LIKE: % = any number of characters, _ = exactly one character.\n3. IN (a, b): equal to any value in the list. NOT IN: none of them.\n4. NULL means missing or unknown. Test it with IS NULL / IS NOT NULL.\n5. AND: both true. OR: at least one true. NOT: flips it.\n6. AND is evaluated before OR: A OR B AND C means A OR (B AND C).\n\nCODE\n```sql\nWHERE price > 10\nWHERE genre != 'Mystery'\nWHERE title LIKE 'The%'              -- starts with \"The\"\nWHERE title LIKE '%The%'             -- contains \"The\"\nWHERE genre IN ('Mystery', 'Fiction')\nWHERE author_id IS NULL\nWHERE (genre = 'Mystery' OR genre = 'Fiction') AND price > 9\n```\n\nKEY POINTS\n- Mixed AND/OR → add parentheses.\n- SQLite's LIKE ignores upper/lowercase for plain letters ('the%' matches \"The Hobbit\").\n- If the list after NOT IN contains a NULL, the query returns no rows at all. Filter out NULLs first.",
+      "original": ""
+    },
+    {
+      "group": "Week 1",
+      "item": "Lesson 8",
+      "title": "Sorting with ORDER BY",
+      "topic": "Week 1 · Lesson 8",
+      "order": 108,
+      "date": "2026-07-27",
+      "dateEnd": "2026-08-03",
+      "refined": "IN PLAIN WORDS\nORDER BY sorts ascending by default; DESC reverses it. You can sort by a column you don't show, and extra columns break ties, read left to right. LIMIT N comes last and keeps the first N rows, which is how you answer \"top N\" questions.\n\nCODE\n```sql\nSELECT title, rating, year\nFROM books\nORDER BY rating DESC, year DESC     -- highest rating first; ties: newest first\nLIMIT 3;\n\nSELECT title, pages\nFROM books\nORDER BY pages                      -- ASC is the default\nLIMIT 5;                            -- 5 shortest books\n```\n\nKEY POINTS\n- Order of clauses: SELECT → FROM → WHERE → ORDER BY → LIMIT.\n- Sort first, then LIMIT cuts the list.\n- In SQLite, NULL counts as smaller than any value: NULLs come first with ASC and last with DESC. Other databases may differ. SQLite 3.30+ supports NULLS FIRST / NULLS LAST.",
+      "original": ""
+    },
+    {
+      "group": "Week 1",
+      "item": "Lesson 9",
+      "title": "Aggregate functions",
+      "topic": "Week 1 · Lesson 9",
+      "order": 109,
+      "date": "2026-07-27",
+      "dateEnd": "2026-08-03",
+      "refined": "IN PLAIN WORDS\nAggregates turn many rows into one value. COUNT(*) counts rows; COUNT(col) counts non-NULL values; SUM, AVG, MIN and MAX skip NULLs. Name results with AS. GROUP BY genre gives one row per genre, and every non-aggregate column in SELECT must also be in GROUP BY.\n\nKEY IDEAS\n1. COUNT(*): rows (after WHERE). COUNT(col): rows where col is not NULL.\n2. SUM, AVG, MIN, MAX use only non-NULL values. AVG = sum of non-NULL ÷ count of non-NULL.\n3. NULL is not 0 and not empty text; the row still exists and COUNT(*) counts it.\n4. AS gives a result column a clear name (snake_case: total_books, avg_price).\n5. GROUP BY column: one result row per distinct value.\n\nCODE\n```sql\nSELECT COUNT(*)     AS total_books,      -- 35\n       COUNT(price) AS books_with_price, -- 33 (2 prices are NULL)\n       AVG(price)   AS avg_price,\n       MIN(price)   AS min_price,\n       MAX(price)   AS max_price\nFROM books;\n\nSELECT genre, AVG(rating) AS avg_genre_rating\nFROM books\nGROUP BY genre;\n```\n\nKEY POINTS\n- Every non-aggregate column in SELECT must be in GROUP BY.\n- SQLite doesn't enforce that rule: SELECT genre, year, AVG(rating) ... GROUP BY genre runs and fills year from one row per group, a misleading answer with no error. PostgreSQL and most others reject it.",
+      "original": ""
+    },
+    {
+      "group": "Week 1",
+      "item": "Lesson 10",
+      "title": "GROUP BY and HAVING",
+      "topic": "Week 1 · Lesson 10",
+      "order": 110,
+      "date": "2026-07-27",
+      "dateEnd": "2026-08-03",
+      "refined": "IN PLAIN WORDS\nGROUP BY bundles rows that share values, and aggregates run per group. HAVING filters groups after grouping, usually with an aggregate. WHERE filters rows before grouping and can't use aggregates. Logical order: FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY → LIMIT.\n\nCODE\n```sql\nSELECT genre, year, COUNT(*) AS book_count\nFROM books\nGROUP BY genre, year;                 -- one row per genre + year pair\n\nSELECT author_id, COUNT(*) AS book_count\nFROM books\nGROUP BY author_id\nHAVING COUNT(*) >= 3;                 -- only authors with 3+ books\n```\n\n```sql\n-- Wrong: aggregates can't go in WHERE\nSELECT author_id, COUNT(*) FROM books WHERE COUNT(*) >= 3 GROUP BY author_id;\n```\n\nKEY POINTS\n- Filter rows → WHERE. Filter groups or aggregates → HAVING.\n- Every non-aggregate column in SELECT must be in GROUP BY.",
+      "original": ""
+    },
+    {
+      "group": "Week 1",
+      "item": "Lesson 11",
+      "title": "Challenge: answer questions with SELECT",
+      "topic": "Week 1 · Lesson 11",
+      "order": 111,
+      "date": "2026-07-27",
+      "dateEnd": "2026-08-03",
+      "refined": "IN PLAIN WORDS\nClause order never changes: SELECT → FROM → WHERE → GROUP BY → HAVING → ORDER BY → LIMIT. Aggregates go in SELECT, HAVING and ORDER BY, never in WHERE. Turn the question into SQL step by step, then check the result against the question.\n\nSTEPS: ENGLISH → SQL\n1. Which table?\n2. Which rows? → WHERE (no aggregates).\n3. One row per what? Per item → no GROUP BY; per genre or author → GROUP BY.\n4. What to show? Grouped columns and aggregates with AS names.\n5. Filter groups? → HAVING.\n6. Sorting or top N? → ORDER BY ... DESC / ASC, LIMIT N.\n7. Check: right columns, every row passes the filters, groups pass HAVING, sort matches the wording.\n\nCODE\n```sql\n-- Mystery books rated 4.5 or more\nSELECT title, genre, rating\nFROM books\nWHERE genre = 'Mystery' AND rating >= 4.5;\n\n-- Per genre: average rating, only genres with 3+ books, highest first\nSELECT genre, AVG(rating) AS avg_rating\nFROM books\nGROUP BY genre\nHAVING COUNT(*) >= 3\nORDER BY avg_rating DESC;\n\n-- Per author: book count and average, 3+ books, most books then highest average\nSELECT author_id, COUNT(*) AS book_count, AVG(rating) AS avg_rating\nFROM books\nGROUP BY author_id\nHAVING COUNT(*) >= 3\nORDER BY book_count DESC, avg_rating DESC;\n```\n\nKEY POINTS\n- \"Highest / most first\" → DESC. \"Lowest / least first\" → ASC.\n\nCORRECTION\nThe last query originally used HAVING book_count >= 3 (the alias). That works in SQLite and MySQL but not in PostgreSQL or standard SQL. HAVING COUNT(*) >= 3 works everywhere, so the query above uses it.",
+      "original": ""
+    },
+    {
+      "group": "Week 2",
+      "item": "Lesson 1",
+      "title": "Foreign keys and relationships",
+      "topic": "Week 2 · Lesson 1",
+      "order": 201,
+      "date": "2026-08-03",
+      "dateEnd": "2026-08-10",
+      "refined": "IN PLAIN WORDS\nOne-to-many: one row in a parent table (authors) relates to many rows in a child table (books). The parent has the primary key (authors.id); the child has a foreign key pointing to it (books.author_id). Splitting one wide table into two stores each author once.\n\nKEY IDEAS\n1. Parent table: holds the primary key. Child table: holds the foreign key.\n2. Foreign key: a child column storing a parent's primary key value. books.author_id = 1 means the author whose id is 1.\n3. FOREIGN KEY constraint: a rule in CREATE TABLE that the value must match an existing parent row.\n4. A wide table repeats author details on every book: more updates, typos, inconsistency.\n5. Two tables: author details stored once; books store only author_id. Change the country in one row.\n6. ON DELETE CASCADE: deleting a parent also deletes its child rows, so no orphans are left.\n\nCODE\n```text\nWide table (duplicated):\ntitle                | author_name   | author_country\nNineteen Eighty-Four | George Orwell | United Kingdom\nAnimal Farm          | George Orwell | United Kingdom\n\nSplit:\nauthors: id | name          | country          books: id | title                | author_id\n         1  | George Orwell | United Kingdom          1  | Nineteen Eighty-Four | 1\n                                                       2  | Animal Farm          | 1\n```\n\n```sql\nPRAGMA foreign_keys = ON;    -- SQLite: run on every new connection\n```\n\nKEY POINTS\n- authors is the parent, books the child; authors.id ← books.author_id; one author, many books.\n- SQLite does not enforce foreign keys (or ON DELETE CASCADE) unless PRAGMA foreign_keys = ON is run on that connection. Checked by running it: without it, a book with a non-existent author_id is accepted; with it, the insert fails with \"FOREIGN KEY constraint failed\".",
+      "original": ""
+    },
+    {
+      "group": "Week 2",
+      "item": "Lesson 2",
+      "title": "INNER JOIN across tables",
+      "topic": "Week 2 · Lesson 2",
+      "order": 202,
+      "date": "2026-08-03",
+      "dateEnd": "2026-08-10",
+      "refined": "IN PLAIN WORDS\nINNER JOIN returns only rows that match on the join condition; books without a real author row don't appear. Pattern: FROM child, JOIN parent, ON foreign key = id, with table aliases on every column.\n\nKEY IDEAS\n1. Start FROM the child (where the foreign key lives), JOIN the parent, match ON fk = pk.\n2. Table aliases (books AS b) shorten names and are required when both tables have a column with the same name, like id.\n3. Column aliases (b.title AS book_title) only rename the output.\n\nCODE\n```sql\nSELECT b.id    AS book_id,\n       b.title AS book_title,\n       a.name  AS author_name\nFROM books AS b\nINNER JOIN authors AS a\n  ON b.author_id = a.id;\n```\n\n```sql\n-- Wrong: the table listed twice\nFROM books AS b, authors AS a INNER JOIN authors AS a ON ...\n-- Wrong: two ON clauses\nINNER JOIN authors AS a ON b.author_id = a.id ON b.author_id = a.id\n-- Wrong: using b before defining it\nSELECT b.title FROM books INNER JOIN authors AS a ON b.author_id = a.id;\n```\n\nKEY POINTS\n- \"FROM child, JOIN parent, ON fk = id.\"\n- \"Ambiguous column name\" → prefix it with the table alias.",
+      "original": ""
+    },
+    {
+      "group": "Week 2",
+      "item": "Lesson 3",
+      "title": "LEFT JOIN and unmatched rows",
+      "topic": "Week 2 · Lesson 3",
+      "order": 203,
+      "date": "2026-08-03",
+      "dateEnd": "2026-08-10",
+      "refined": "IN PLAIN WORDS\nLEFT JOIN keeps every row from the left table (the one after FROM). Rows with no match get NULL in the right table's columns. To find unmatched rows, LEFT JOIN and then WHERE right_table.id IS NULL. Only want matched pairs? Use INNER JOIN.\n\nSTEPS\n1. SELECT: which columns to see.\n2. FROM: the table whose rows you keep all of (left).\n3. LEFT JOIN: the table you add (right).\n4. ON: how they match (foreign key = primary key).\n5. WHERE: optional, for example only unmatched rows.\n\nCODE\n```sql\n-- every author, even those with no books (title is NULL)\nSELECT a.name, b.title\nFROM authors AS a\nLEFT JOIN books AS b ON a.id = b.author_id;\n\n-- only books with no author\nSELECT b.title\nFROM books AS b\nLEFT JOIN authors AS a ON b.author_id = a.id\nWHERE a.id IS NULL;\n```\n\nKEY POINTS\n- Care about rows with no match → LEFT JOIN. Only matched pairs → INNER JOIN.\n- Check the right table's primary key for IS NULL: it can only be NULL when nothing matched, while another column might be NULL in a real row.",
+      "original": ""
+    },
+    {
+      "group": "Week 2",
+      "item": "Lesson 4",
+      "title": "Set up SQLite on your machine",
+      "topic": "Week 2 · Lesson 4",
+      "order": 204,
+      "date": "2026-08-03",
+      "dateEnd": "2026-08-10",
+      "refined": "IN PLAIN WORDS\nSet up SQLite on your machine and build two linked tables: anime (parent) and characters (child, with anime_id and a FOREIGN KEY). Insert rows, check them with SELECT *, and join them.\n\nSTEPS\n1. Open (or create) a database file: sqlite3 practice.db\n2. Turn on readable output: .mode column and .headers on\n3. Create the tables, insert rows, SELECT * to check.\n4. Join child to parent.\n5. .schema shows the CREATE TABLE statements.\n\nCODE\n```sql\nCREATE TABLE anime (\n  id    INTEGER PRIMARY KEY,\n  title TEXT,\n  genre TEXT\n);\nCREATE TABLE characters (\n  id       INTEGER PRIMARY KEY,\n  name     TEXT,\n  role     TEXT,\n  anime_id INTEGER,\n  FOREIGN KEY (anime_id) REFERENCES anime(id)\n);\n\nINSERT INTO anime (id, title, genre) VALUES\n  (1, 'Naruto', 'Shounen'),\n  (2, 'Jujutsu Kaisen', 'Shounen');\nINSERT INTO characters (id, name, role, anime_id) VALUES\n  (1, 'Naruto Uzumaki', 'Main', 1),\n  (2, 'Sasuke Uchiha', 'Main', 1),\n  (3, 'Yuji Itadori', 'Main', 2),\n  (4, 'Satoru Gojo', 'Main', 2);\n\nSELECT characters.name AS character_name,\n       characters.role,\n       anime.title     AS anime_title\nFROM characters\nJOIN anime ON characters.anime_id = anime.id;\n```\n\nKEY POINTS\n- The child's anime_id values must be ids that exist in anime.\n- The join answers: for each character, which anime are they from?",
+      "original": ""
+    },
+    {
+      "group": "Week 2",
+      "item": "Lesson 5",
+      "title": "Data types and constraints",
+      "topic": "Week 2 · Lesson 5",
+      "order": 205,
+      "date": "2026-08-03",
+      "dateEnd": "2026-08-10",
+      "refined": "IN PLAIN WORDS\nFor each column ask three questions. What kind of value: TEXT, INTEGER (whole numbers) or REAL (decimals)? Can it ever be missing? If not, NOT NULL. Must every row be different? If so, UNIQUE. Write the type first, then the constraints.\n\nSTEPS\n1. Kind of value → TEXT, INTEGER or REAL.\n2. Can never be missing → NOT NULL.\n3. Must differ in every row → UNIQUE.\n\nCODE\n```sql\nCREATE TABLE members (\n  member_id INTEGER NOT NULL UNIQUE,\n  name      TEXT NOT NULL,            -- two people can share a name\n  email     TEXT NOT NULL UNIQUE\n);\n```\n\n```text\nusername     → TEXT NOT NULL UNIQUE\nprice        → REAL (may allow NULL)\nrelease_year → INTEGER\n```\n\nKEY POINTS\n- Type first, then constraints.\n- SQLite's types are flexible: an INTEGER column will store the text 'abc' unless the table is declared STRICT (add STRICT after the closing parenthesis, SQLite 3.37+). Application code should still check types.",
+      "original": ""
+    },
+    {
+      "group": "Week 2",
+      "item": "Lesson 6",
+      "title": "Primary keys",
+      "topic": "Week 2 · Lesson 6",
+      "order": 206,
+      "date": "2026-08-03",
+      "dateEnd": "2026-08-10",
+      "refined": "IN PLAIN WORDS\nA primary key uniquely identifies each row and can't be NULL. Other tables point to it, and JOINs use it. id INTEGER PRIMARY KEY is filled in automatically by SQLite (1, 2, 3...), so you can leave it out of INSERT. Use an id, not a name, because names repeat.\n\nKEY IDEAS\n1. Primary key: no duplicates, no NULLs, the row's identity.\n2. INTEGER PRIMARY KEY in SQLite: unique, not NULL, and auto-assigned.\n3. Foreign key (lookup) columns like anime_genres.anime_id store another table's primary key; they aren't primary keys themselves.\n\nCODE\n```sql\nCREATE TABLE anime_series (\n  id     INTEGER PRIMARY KEY,\n  name   TEXT,\n  year   INTEGER,\n  rating REAL\n);\nINSERT INTO anime_series (name, year, rating) VALUES ('Naruto', 2002, 8.5);  -- id filled in\n```\n\n```sql\nSELECT a.id AS anime_id, a.name AS anime_title, g.genre_name AS genre\nFROM anime_series a\nJOIN anime_genres ag ON a.id = ag.anime_id\nJOIN genres g        ON ag.genre_id = g.id\nORDER BY a.id;\n```\n\nKEY POINTS\n- Every table should have a primary key.\n- Auto ids are \"largest id + 1\": delete the newest row and its id is reused. AUTOINCREMENT prevents reuse.\n- Only INTEGER PRIMARY KEY is automatically NOT NULL in SQLite; because of an old quirk, a TEXT PRIMARY KEY can hold NULL unless you also write NOT NULL.",
+      "original": ""
+    },
+    {
+      "group": "Week 2",
+      "item": "Lesson 7",
+      "title": "CREATE TABLE statements",
+      "topic": "Week 2 · Lesson 7",
+      "order": 207,
+      "date": "2026-08-03",
+      "dateEnd": "2026-08-10",
+      "refined": "IN PLAIN WORDS\nCREATE TABLE name (column TYPE CONSTRAINTS, ...); with a comma between columns, none after the last, and ); at the end. In sqlite3, silence means success. Check it with .schema name.\n\nKEY IDEAS\n1. Types: INTEGER (whole numbers), TEXT (strings), REAL (decimals).\n2. PRIMARY KEY marks the id column. NOT NULL makes a value required.\n3. Dot-commands (.schema, .tables) are sqlite3 tool commands, not SQL, and don't accept -- comments after them (\"Unknown option: --\").\n\nCODE\n```sql\nCREATE TABLE players (\n    player_id INTEGER PRIMARY KEY,\n    username  TEXT NOT NULL,\n    level     INTEGER NOT NULL\n);\n```\n\n```text\n.schema players\n```\n\nKEY POINTS\n- Common errors: misspelled keywords (INTEGAR), a missing comma between columns, a missing ); at the end.\n- \"near \"INTEGAR\": syntax error\" → check the spelling at that word.",
+      "original": ""
+    },
+    {
+      "group": "Week 2",
+      "item": "Lesson 8",
+      "title": "INSERT your first rows",
+      "topic": "Week 2 · Lesson 8",
+      "order": 208,
+      "date": "2026-08-03",
+      "dateEnd": "2026-08-10",
+      "refined": "IN PLAIN WORDS\nINSERT INTO players (username, level) VALUES ('DragonSlayer', 5); adds a row; several rows go in one VALUES list. Leave out the INTEGER PRIMARY KEY and keep values in the same order as the columns. Check with SELECT *.\n\nCODE\n```sql\nINSERT INTO players (username, level)\nVALUES ('DragonSlayer', 5);\n\nINSERT INTO players (username, level)\nVALUES ('ShadowMage', 7),\n       ('TankLord', 3),\n       ('HealerFox', 10);\n\nSELECT * FROM players;          -- player_id filled in: 1, 2, 3, 4\n```\n\nKEY POINTS\n- \"NOT NULL constraint failed: players.level\" → you sent NULL (or nothing) to a required column. Give it a real value and run the INSERT again.\n- Before writing an INSERT: check the real column names (.schema), skip the auto id, cover every NOT NULL column.",
+      "original": ""
+    },
+    {
+      "group": "Week 2",
+      "item": "Lesson 9",
+      "title": "UPDATE and DELETE with WHERE",
+      "topic": "Week 2 · Lesson 9",
+      "order": 209,
+      "date": "2026-08-03",
+      "dateEnd": "2026-08-10",
+      "refined": "IN PLAIN WORDS\nUPDATE table SET col = value WHERE condition; and DELETE FROM table WHERE condition;. Never skip the WHERE, or every row changes. Safe habit: preview with SELECT ... WHERE, change with the same WHERE, then check with SELECT again.\n\nSTEPS\n1. Preview: SELECT * FROM t WHERE condition;\n2. Change: UPDATE ... or DELETE ... with the same WHERE.\n3. Verify: SELECT again.\n\nCODE\n```sql\nSELECT * FROM players WHERE level <= 3;\nUPDATE players SET level = 4 WHERE level <= 3;\nSELECT * FROM players WHERE level <= 3;      -- now 0 rows\n\nDELETE FROM players WHERE username = 'BuggedPlayer';\n```\n\nKEY POINTS\n- UPDATE players SET level = 4; with no WHERE changes every row.\n- It's DELETE FROM table, not DELETE table.\n- Text values need quotes: WHERE username = 'DragonSlayer'.",
+      "original": ""
+    },
+    {
+      "group": "Week 2",
+      "item": "Lesson 10",
+      "title": "Challenge: model and populate a table",
+      "topic": "Week 2 · Lesson 10",
+      "order": 210,
+      "date": "2026-08-03",
+      "dateEnd": "2026-08-10",
+      "refined": "IN PLAIN WORDS\nRecap: design tables (players, a player_items child table with a FOREIGN KEY, quests), change data safely with preview and verify, query with WHERE and ORDER BY, join players to items, and prove the data persists by closing and reopening the database file.\n\nCODE\n```sql\nCREATE TABLE players (\n  player_id INTEGER PRIMARY KEY,\n  username  TEXT    NOT NULL,\n  level     INTEGER NOT NULL\n);\nCREATE TABLE player_items (\n  item_id   INTEGER PRIMARY KEY,\n  player_id INTEGER NOT NULL,\n  item_name TEXT    NOT NULL,\n  quantity  INTEGER NOT NULL,\n  FOREIGN KEY (player_id) REFERENCES players(player_id)\n);\nCREATE TABLE quests (\n  quest_id   INTEGER PRIMARY KEY,\n  title      TEXT    NOT NULL,\n  difficulty INTEGER NOT NULL,\n  reward_xp  INTEGER NOT NULL\n);\n\nSELECT title, difficulty, reward_xp FROM quests WHERE difficulty >= 5;\nSELECT title, reward_xp FROM quests ORDER BY reward_xp DESC;\n\nSELECT p.username, p.level, i.item_name, i.quantity\nFROM players AS p\nINNER JOIN player_items AS i ON p.player_id = i.player_id;\n```\n\n```text\nsqlite3 mygame.db\nSELECT * FROM players;\n.exit\nsqlite3 mygame.db\nSELECT * FROM players;      -- same rows: the data persisted\n```\n\nKEY POINTS\n- The table with the FOREIGN KEY is the child; the one it references is the parent.\n- INNER JOIN drops item rows whose player_id doesn't exist in players.\n- Items were accepted for a player_id that didn't exist because foreign keys were off. With PRAGMA foreign_keys = ON; SQLite would have refused them.",
+      "original": ""
+    },
+    {
+      "group": "Week 3",
+      "item": "Lesson 1",
+      "title": "Connect Python to SQLite",
+      "topic": "Week 3 · Lesson 1",
+      "order": 301,
+      "date": "2026-08-10",
+      "dateEnd": "2026-08-17",
+      "refined": "IN PLAIN WORDS\nBuild two linked tables for the movie API: directors and movies, where movies.director_id is a FOREIGN KEY to directors.id. Insert rows and check them with SELECT *. Inserting an id that already exists fails with \"UNIQUE constraint failed: directors.id\".\n\nCODE\n```sql\nCREATE TABLE directors (\n    id         INTEGER PRIMARY KEY,\n    name       TEXT NOT NULL,\n    country    TEXT NOT NULL,\n    birth_year INTEGER\n);\nCREATE TABLE movies (\n    id          INTEGER PRIMARY KEY,\n    title       TEXT NOT NULL,\n    year        INTEGER NOT NULL,\n    rating      INTEGER,\n    director_id INTEGER NOT NULL,\n    FOREIGN KEY (director_id) REFERENCES directors(id)\n);\n\nINSERT INTO directors (id, name, country, birth_year) VALUES\n    (1, 'Hayao Miyazaki', 'Japan', 1941),\n    (2, 'Christopher Nolan', 'United Kingdom', 1970),\n    (3, 'Greta Gerwig', 'United States', 1983);\n\nSELECT * FROM directors;\n```\n\nKEY POINTS\n- Values go into the columns in order. Text in single quotes, numbers without.\n- A primary key value must be unique. \"UNIQUE constraint failed: directors.id\" → use a new id, or leave id out and let SQLite assign one.",
+      "original": ""
+    },
+    {
+      "group": "Week 3",
+      "item": "Lesson 2",
+      "title": "Read rows with sqlite3",
+      "topic": "Week 3 · Lesson 2",
+      "order": 302,
+      "date": "2026-08-10",
+      "dateEnd": "2026-08-17",
+      "refined": "IN PLAIN WORDS\nRead rows from Python: connect → set row_factory = sqlite3.Row → execute a SELECT → turn each row into a dict. Wrap it in a function that returns a list of dicts, the shape an API needs. JOINs work the same way inside the SQL string.\n\nKEY IDEAS\n1. Connection: the link to the database file.\n2. Cursor: runs SQL and hands back result rows.\n3. row_factory = sqlite3.Row lets dict(row) give {\"id\": ..., \"title\": ...}.\n4. with sqlite3.connect(...) as conn: commits or rolls back at the end, but does not close the connection. Call conn.close() yourself.\n\nCODE\n```python\nimport sqlite3\n\ndef get_movies_with_directors():\n    conn = sqlite3.connect(\"movies.db\")\n    conn.row_factory = sqlite3.Row\n    try:\n        rows = conn.execute(\n            '''\n            SELECT movies.id, movies.title, movies.year,\n                   directors.name AS director_name\n            FROM movies\n            INNER JOIN directors ON movies.director_id = directors.id\n            '''\n        ).fetchall()\n        return [dict(row) for row in rows]\n    finally:\n        conn.close()\n```\n\nKEY POINTS\n- Return a list of dicts: [{\"id\": 1, \"title\": \"The Matrix\", ...}, ...].\n- The JOIN matches each movie to the director whose id equals movies.director_id.",
+      "original": ""
+    },
+    {
+      "group": "Week 3",
+      "item": "Lesson 3",
+      "title": "SQL injection risks",
+      "topic": "Week 3 · Lesson 3",
+      "order": 303,
+      "date": "2026-08-10",
+      "dateEnd": "2026-08-17",
+      "refined": "IN PLAIN WORDS\nSQL injection happens when user input is glued into the SQL text and becomes code. Typing ' OR '1'='1 turns WHERE title = '...' into WHERE title = '' OR '1'='1', which is always true, so every row comes back.\n\nKEY IDEAS\n1. Dangerous: building SQL with f-strings or + from user input.\n2. '1'='1' is always true; anything OR true is true, so the WHERE matches every row.\n3. Symptom: you expected one row and got many or all.\n\nCODE\n```python\ntitle = user_input\nquery = f\"SELECT * FROM movies WHERE title = '{title}';\"     # vulnerable\n```\n\n```text\nNormal input:   The Matrix    → WHERE title = 'The Matrix';     (0 or 1 row)\nInjected input: ' OR '1'='1   → WHERE title = '' OR '1'='1';    (every row)\n```\n\nKEY POINTS\n- This code is vulnerable because user input becomes part of the SQL text and can change the WHERE clause.",
+      "original": ""
+    },
+    {
+      "group": "Week 3",
+      "item": "Lesson 4",
+      "title": "Parameterized queries",
+      "topic": "Week 3 · Lesson 4",
+      "order": 304,
+      "date": "2026-08-10",
+      "dateEnd": "2026-08-17",
+      "refined": "IN PLAIN WORDS\nNever put user input into the SQL string. Use ? placeholders and pass the values separately as a tuple. One ? per value, in the same order. Commit after INSERT, UPDATE or DELETE. Attack text then becomes just a value to look for.\n\nCODE\n```python\ntitle = input(\"Title: \")\ncursor.execute(\"SELECT * FROM movies WHERE title = ?\", (title,))   # (title,) is a 1-item tuple\nrows = cursor.fetchall()\n\ncursor.execute(\"INSERT INTO movies (title, rating) VALUES (?, ?)\", (\"New Movie\", 8.5))\ncursor.execute(\"UPDATE movies SET rating = ? WHERE id = ?\", (new_rating, movie_id))\ncursor.execute(\"DELETE FROM movies WHERE id = ?\", (movie_id,))\nconn.commit()\n```\n\nKEY POINTS\n- With ?, the input ' OR '1'='1 is searched for as a literal title, so the attack does nothing.\n- Checklist: ? in the SQL, a tuple of values, execute(sql, params), commit after writes.\n- ? works for values only, never for table or column names. Check user-chosen names against a fixed allowlist in Python.",
+      "original": ""
+    },
+    {
+      "group": "Week 3",
+      "item": "Lesson 5",
+      "title": "Connect SQLite inside a Flask app",
+      "topic": "Week 3 · Lesson 5",
+      "order": 305,
+      "date": "2026-08-10",
+      "dateEnd": "2026-08-17",
+      "refined": "IN PLAIN WORDS\nUse one SQLite connection per request, not one global connection. get_db() opens a connection once per request and keeps it in Flask's g; close_db(), registered with @app.teardown_appcontext, closes it after the request.\n\nKEY IDEAS\n1. g: storage that belongs to the current request only.\n2. get_db(): if this request has no connection yet, open one and store it in g.db; then always return g.db.\n3. close_db(): runs after every request, removes g.db and closes it if it exists.\n4. A module-level sqlite3.connect() breaks with the threaded dev server: \"SQLite objects created in a thread can only be used in that same thread\".\n\nCODE\n```python\nimport sqlite3\nfrom flask import g\n\nDATABASE = \"movies.db\"\n\ndef get_db():\n    if \"db\" not in g:\n        g.db = sqlite3.connect(DATABASE)\n        g.db.row_factory = sqlite3.Row\n    return g.db\n\n@app.teardown_appcontext\ndef close_db(exception):\n    db = g.pop(\"db\", None)\n    if db is not None:\n        db.close()\n```\n\nKEY POINTS\n- get_db() creates the connection once per request, then reuses it.\n- Routes call get_db(); none of them keep their own connection.",
+      "original": ""
+    },
+    {
+      "group": "Week 3",
+      "item": "Lesson 6",
+      "title": "Serve GETs from SQLite",
+      "topic": "Week 3 · Lesson 6",
+      "order": 306,
+      "date": "2026-08-10",
+      "dateEnd": "2026-08-17",
+      "refined": "IN PLAIN WORDS\nGET endpoints from SQLite. A list: fetchall() → [dict(row) for row in rows] → jsonify. One item: WHERE id = ? with (movie_id,) → fetchone() → 404 if None. Restart the server and the data is still there, because it lives in the database file.\n\nCODE\n```python\n@app.get(\"/movies\")\ndef get_movies():\n    rows = get_db().execute(\"SELECT id, title, year FROM movies\").fetchall()\n    return jsonify([dict(row) for row in rows]), 200\n\n@app.get(\"/movies/<int:movie_id>\")\ndef get_movie(movie_id):\n    row = get_db().execute(\n        \"SELECT id, title, year FROM movies WHERE id = ?\", (movie_id,)\n    ).fetchone()\n    if row is None:\n        return jsonify({\"error\": \"Movie not found\"}), 404\n    return jsonify(dict(row)), 200\n\n@app.get(\"/movies/<int:movie_id>/full\")\ndef get_movie_full(movie_id):\n    row = get_db().execute(\n        '''\n        SELECT movies.id, movies.title, movies.year, genres.name AS genre_name\n        FROM movies\n        INNER JOIN genres ON movies.genre_id = genres.id\n        WHERE movies.id = ?\n        ''',\n        (movie_id,),\n    ).fetchone()\n    if row is None:\n        return jsonify({\"error\": \"Movie not found\"}), 404\n    return jsonify(dict(row)), 200\n```\n\nKEY POINTS\n- Many rows → fetchall(). One row → fetchone(), which returns None when missing.\n- Proof the data is in SQLite: it survives a server restart, while Python memory doesn't.",
+      "original": ""
+    },
+    {
+      "group": "Week 3",
+      "item": "Lesson 7",
+      "title": "Create rows through POST endpoints",
+      "topic": "Week 3 · Lesson 7",
+      "order": 307,
+      "date": "2026-08-10",
+      "dateEnd": "2026-08-17",
+      "refined": "IN PLAIN WORDS\nPOST /movies: read the JSON → check required fields and their types (400 if wrong) → parameterized INSERT → commit → cur.lastrowid → return 201 with the new movie and a Location header.\n\nSTEPS\n1. Read the body with request.get_json(silent=True).\n2. Validate: present, and the right types → else 400.\n3. INSERT with ? placeholders.\n4. db.commit()\n5. new_id = cur.lastrowid\n6. Return 201, the new movie, and Location: /movies/<id>.\n\nCODE\n```python\n@app.post(\"/movies\")\ndef create_movie():\n    data = request.get_json(silent=True)\n    if not isinstance(data, dict):\n        return jsonify({\"error\": \"JSON body required\"}), 400\n    if not isinstance(data.get(\"title\"), str) or not data[\"title\"].strip():\n        return jsonify({\"error\": \"title must be a non-empty string\"}), 400\n    if not isinstance(data.get(\"year\"), int) or not isinstance(data.get(\"director_id\"), int):\n        return jsonify({\"error\": \"year and director_id must be integers\"}), 400\n\n    db = get_db()\n    cur = db.execute(\n        \"INSERT INTO movies (title, year, director_id) VALUES (?, ?, ?)\",\n        (data[\"title\"], data[\"year\"], data[\"director_id\"]),\n    )\n    db.commit()\n    new_id = cur.lastrowid\n    body = {\"id\": new_id, \"title\": data[\"title\"], \"year\": data[\"year\"],\n            \"director_id\": data[\"director_id\"]}\n    return jsonify(body), 201, {\"Location\": f\"/movies/{new_id}\"}\n```\n\nKEY POINTS\n- 201 when a row was created; 400 when the body is missing or wrong.\n- ? placeholders prevent injection.\n\nCORRECTION\n- The lesson only checked that the fields existed, so \"year\": \"lol\" was saved: SQLite columns accept any type unless the table is STRICT. The code above checks types.\n- request.get_json() without silent=True answers a non-JSON body with Flask's own error before your 400 runs. silent=True returns None instead.\n- A director_id that doesn't exist is also saved unless PRAGMA foreign_keys = ON is set.",
+      "original": ""
+    },
+    {
+      "group": "Week 3",
+      "item": "Lesson 8",
+      "title": "Update and delete rows through PATCH and DELETE",
+      "topic": "Week 3 · Lesson 8",
+      "order": 308,
+      "date": "2026-08-10",
+      "dateEnd": "2026-08-17",
+      "refined": "IN PLAIN WORDS\nPATCH and DELETE on /movies/<id> run a parameterized UPDATE or DELETE, then commit. cur.rowcount says how many rows changed: 0 means 404. Otherwise PATCH returns 200 with JSON, and DELETE returns 204 with an empty body.\n\nCODE\n```python\n@app.delete(\"/movies/<int:movie_id>\")\ndef delete_movie(movie_id):\n    db = get_db()\n    cur = db.execute(\"DELETE FROM movies WHERE id = ?\", (movie_id,))\n    db.commit()\n    if cur.rowcount == 0:\n        return jsonify({\"error\": \"Movie not found\"}), 404\n    return \"\", 204\n\n@app.patch(\"/movies/<int:movie_id>\")\ndef update_title(movie_id):\n    data = request.get_json(silent=True) or {}\n    new_title = data.get(\"title\")\n    if not isinstance(new_title, str) or not new_title.strip():\n        return jsonify({\"error\": \"title is required\"}), 400\n    db = get_db()\n    cur = db.execute(\"UPDATE movies SET title = ? WHERE id = ?\", (new_title, movie_id))\n    db.commit()\n    if cur.rowcount == 0:\n        return jsonify({\"error\": \"Movie not found\"}), 404\n    return jsonify({\"id\": movie_id, \"title\": new_title}), 200\n```\n\n```text\nAction               | Row exists? | Status | Body\n---------------------|-------------|--------|---------------\nPATCH /movies/<id>   | yes         | 200    | updated JSON\nPATCH /movies/<id>   | no          | 404    | error\nDELETE /movies/<id>  | yes         | 204    | empty\nDELETE /movies/<id>  | no          | 404    | error\n```\n\nKEY POINTS\n- PATCH changes some fields; it doesn't replace the whole row.\n- rowcount after UPDATE or DELETE = rows affected.\n\nCORRECTION\nThe lesson's PATCH used data.get(\"title\") with no check, so a body without \"title\" set the title to NULL (or crashed with a 500 because of NOT NULL). The code above returns 400 instead. Lesson 10 updates only the fields that were sent.",
+      "original": ""
+    },
+    {
+      "group": "Week 3",
+      "item": "Lesson 9",
+      "title": "Handle errors and status codes",
+      "topic": "Week 3 · Lesson 9",
+      "order": 309,
+      "date": "2026-08-10",
+      "dateEnd": "2026-08-17",
+      "refined": "IN PLAIN WORDS\nTurn database problems into clear status codes: bad input → 400 (checked before touching the database), missing row → 404, sqlite3.IntegrityError (a UNIQUE or FOREIGN KEY rule broken) → 409, sqlite3.OperationalError → 400 if the user caused it, 500 if your code is broken.\n\nSTEPS: A WRITE ROUTE\n1. Validate the input → 400.\n2. Run the SQL inside try.\n3. IntegrityError → 409 Conflict.\n4. OperationalError → 500 (your bug), unless the user caused it.\n5. Success → 200, 201 or 204.\n\nCODE\n```python\ntry:\n    cur = db.execute(\"INSERT INTO movies (title, year, director_id) VALUES (?, ?, ?)\",\n                     (title, year, director_id))\n    db.commit()\nexcept sqlite3.IntegrityError:\n    return jsonify({\"error\": \"conflict\", \"message\": \"Unique or foreign key constraint failed\"}), 409\nexcept sqlite3.OperationalError:\n    return jsonify({\"error\": \"internal_error\"}), 500\n```\n\n```python\nALLOWED_SORT = {\"title\", \"year\", \"rating\"}\nsort = request.args.get(\"sort\", \"title\")\nif sort not in ALLOWED_SORT:\n    return jsonify({\"error\": \"invalid sort column\"}), 400\nrows = db.execute(f\"SELECT * FROM movies ORDER BY {sort}\").fetchall()   # safe: allowlisted\n```\n\nKEY POINTS\n- Duplicate (title, year) under UNIQUE → 409. Unknown id → 404. Wrong types → 400. Typo in your own table name → 500.\n- Foreign key violations only raise IntegrityError when PRAGMA foreign_keys = ON.\n- Check a user-chosen column against an allowlist instead of waiting for an error. ? can't hold a column name: ORDER BY ? sorts by a constant, so nothing is sorted and no error appears.",
+      "original": ""
+    },
+    {
+      "group": "Week 3",
+      "item": "Lesson 10",
+      "title": "Challenge: full CRUD API on SQLite",
+      "topic": "Week 3 · Lesson 10",
+      "order": 310,
+      "date": "2026-08-10",
+      "dateEnd": "2026-08-17",
+      "refined": "IN PLAIN WORDS\nA full CRUD API on SQLite: get_db and close_db, GET list and GET one (404), POST (400 / 201 + Location), PATCH that updates only the fields sent (400 if none, 404 if missing), DELETE (204 / 404), and GET /directors/<id>/movies. Every write commits. A restart proves persistence; an injection attempt proves safety.\n\nCODE\n```python\n@app.patch(\"/movies/<int:movie_id>\")\ndef update_movie(movie_id):\n    data = request.get_json(silent=True)\n    if not isinstance(data, dict):\n        return jsonify({\"error\": \"Missing request body\"}), 400\n    fields, params = [], []\n    for column in (\"title\", \"year\"):              # only columns from this fixed list\n        if column in data:\n            fields.append(f\"{column} = ?\")\n            params.append(data[column])\n    if not fields:\n        return jsonify({\"error\": \"No updatable fields\"}), 400\n    db = get_db()\n    cur = db.execute(f\"UPDATE movies SET {', '.join(fields)} WHERE id = ?\", (*params, movie_id))\n    db.commit()\n    if cur.rowcount == 0:\n        return jsonify({\"error\": \"Movie not found\"}), 404\n    row = db.execute(\"SELECT id, title, year FROM movies WHERE id = ?\", (movie_id,)).fetchone()\n    return jsonify(dict(row)), 200\n\n@app.get(\"/directors/<int:director_id>/movies\")\ndef director_with_movies(director_id):\n    db = get_db()\n    row = db.execute(\"SELECT id, name FROM directors WHERE id = ?\", (director_id,)).fetchone()\n    if row is None:\n        return jsonify({\"error\": \"Director not found\"}), 404\n    director = dict(row)\n    director[\"movies\"] = [dict(r) for r in db.execute(\n        \"SELECT id, title, year FROM movies WHERE director_id = ?\", (director_id,))]\n    return jsonify(director), 200\n```\n\nKEY POINTS\n- 200 GET/PATCH, 201 POST, 204 DELETE, 400 bad body, 404 missing id, 409 constraint conflict.\n- Persistence test: POST, restart the server, GET → still there.\n- Injection test: POST the title \"Matrix; DROP TABLE movies; --\" → stored as plain text, table untouched.\n- The f-string in PATCH is safe only because the column names come from your own fixed list; the values still go through ?.",
+      "original": ""
+    },
+    {
+      "group": "Week 4",
+      "item": "Lesson 1",
+      "title": "The document data model",
+      "topic": "Week 4 · Lesson 1",
+      "order": 401,
+      "date": "2026-08-17",
+      "dateEnd": "2026-08-24",
+      "refined": "IN PLAIN WORDS\nIn a document database, a row becomes a document: one JSON-like object for one thing, and columns become fields. A field can hold one value, a list, or a nested object. Embedding stores the related data inside; referencing stores only its id.\n\nKEY IDEAS\n1. Row (SQL) ↔ document (NoSQL). Column ↔ field.\n2. Scalar field: one value (\"level\": 7). Array: a list (\"inventory\": [...]). Sub-document: a nested object (\"stats\": {...}).\n3. Embedding: the related data itself sits inside the document.\n4. Referencing: only an id is stored; the real data lives in its own document.\n5. Document-shaped data: one main thing with nested parts, usually loaded together (player + stats + inventory).\n6. Relational-shaped data: shared by many and changed on its own (items used by many players, guilds), so it needs one source of truth.\n\nCODE\n```json\n{\n  \"_id\": \"player_01\",\n  \"name\": \"R0BERT\",\n  \"level\": 7,\n  \"stats\": {\"hp\": 120, \"mp\": 40},\n  \"inventory\": [\"wood_sword\", \"health_potion\"],\n  \"guild_id\": \"guild_42\"\n}\n```\n\n```json\n{\"_id\": \"guild_42\", \"name\": \"Knights of Dawn\", \"rank\": 5}\n```\n\nKEY POINTS\n- stats and inventory are embedded; the guild is referenced through guild_id.\n- Nested object with real data → embedding. Only ids → referencing.\n- Loaded together → usually embed. Shared and reused → usually reference.",
+      "original": ""
+    },
+    {
+      "group": "Week 4",
+      "item": "Lesson 2",
+      "title": "CRUD a MongoDB collection with pymongo",
+      "topic": "Week 4 · Lesson 2",
+      "order": 402,
+      "date": "2026-08-17",
+      "dateEnd": "2026-08-24",
+      "refined": "IN PLAIN WORDS\nMongoDB CRUD from Python with pymongo: client → database → collection. insert_one adds a document, find reads with a filter, update_one changes fields with $set, delete_one removes one document. Each result tells you what happened.\n\nCODE\n```python\nfrom pymongo import MongoClient\n\nclient = MongoClient(\"mongodb://localhost:27017/\")   # needs a running MongoDB server\ndb = client[\"mydb\"]\nmovies = db[\"movies\"]\n\nres = movies.insert_one({\"title\": \"Inception\", \"year\": 2010})\nprint(res.inserted_id)                               # the new _id\n\nfor doc in movies.find({\"title\": \"Inception\"}):      # filter = a dict\n    print(doc)\n\nres = movies.update_one({\"title\": \"Inception\"}, {\"$set\": {\"director\": \"Nolan\"}})\nprint(res.matched_count, res.modified_count)\n\nres = movies.delete_one({\"title\": \"Inception\"})\nprint(res.deleted_count)                             # 0 or 1\n```\n\nKEY POINTS\n- update_one and delete_one touch only the first match; update_many and delete_many handle every match.\n- modified_count can be 0 while matched_count is 1, when the field already had that value.\n- Variable names (movies, results) are your choice; make them say what they hold.",
+      "original": ""
+    },
+    {
+      "group": "Week 4",
+      "item": "Lesson 3",
+      "title": "Choosing SQL vs NoSQL",
+      "topic": "Week 4 · Lesson 3",
+      "order": 403,
+      "date": "2026-08-17",
+      "dateEnd": "2026-08-24",
+      "refined": "IN PLAIN WORDS\nChoose between SQL and a document store with three questions: what shape is the data, what will you query most, and how strict must consistency be? One nested object loaded whole fits a document store. Queries across objects and strict counts or money fit SQL.\n\nKEY IDEAS\n1. Data shape: tables linked by ids (SQL) or one nested object (document).\n2. Query patterns: \"get one movie with everything\" → document. \"All movies for this actor\", \"all reviews by this reviewer\" → SQL joins.\n3. Consistency: values that must always agree (seats left, tickets sold, money) → SQL transactions.\n\nKEY POINTS\n- Choose by data shape, main queries and consistency needs.\n- Be ready to say when the other store would win.\n\nCORRECTION\n- Keeping several tables in sync takes a transaction (BEGIN ... COMMIT) in SQL; one statement changes one table.\n- MongoDB is not weak here: changes inside one document are all-or-nothing, and since version 4.0 (2018) it supports multi-document transactions. SQL is still the more natural fit when many separate records must change together.",
+      "original": ""
+    },
+    {
+      "group": "Week 4",
+      "item": "Lesson 4",
+      "title": "Challenge: model both ways",
+      "topic": "Week 4 · Lesson 4",
+      "order": 404,
+      "date": "2026-08-17",
+      "dateEnd": "2026-08-24",
+      "refined": "IN PLAIN WORDS\nModel one feature both ways. SQL: tables, primary keys, foreign keys, and a link table for many-to-many with extra data. MongoDB: embed what's read together and not shared; reference what many parents share and should change in one place. Use stable ids either way.\n\nKEY IDEAS\n1. Ask: what's the main thing I load, what repeats, and do I want one central copy?\n2. Link table: for many-to-many (players ↔ achievements), with extra columns like unlocked_at.\n3. Embed: read together, not shared, not updated in many places.\n4. Reference: shared by many parents, updated in one place, or big with a life of its own.\n\nCODE\n```sql\nCREATE TABLE player_unlock_achievement (\n    id             INTEGER PRIMARY KEY,\n    player_id      INTEGER NOT NULL,\n    achievement_id INTEGER NOT NULL,\n    unlocked_at    TEXT NOT NULL,\n    FOREIGN KEY (player_id) REFERENCES player(id),\n    FOREIGN KEY (achievement_id) REFERENCES achievement(id)\n);\n```\n\n```json\n{\n  \"_id\": 1,\n  \"gamertag\": \"Tunacan2EZ\",\n  \"unlocks\": [\n    {\"achievement_id\": \"ach_kill_10\", \"unlocked_at\": \"2026-08-23T10:15:00-07:00\"}\n  ]\n}\n```\n\n```json\n{\"_id\": \"ach_kill_10\", \"name\": \"Killed 10 Monsters\", \"game_id\": \"game_elusionrpg\"}\n```\n\nKEY POINTS\n- Embedding the full achievement in every player is one read, but renaming it means updating every copy.\n- Referencing keeps one definition; players store only the id and when they unlocked it.",
+      "original": ""
+    },
+    {
+      "group": "Week 4",
+      "item": "Lesson 5",
+      "title": "Challenge: pick the right store",
+      "topic": "Week 4 · Lesson 5",
+      "order": 405,
+      "date": "2026-08-17",
+      "dateEnd": "2026-08-24",
+      "refined": "IN PLAIN WORDS\nFor each feature: shape → queries → consistency → verdict, then say when the other store would win. Support tickets fit documents if you mostly load one ticket with its comments, and SQL if you search comments across tickets.\n\nSTEPS: ANSWER \"SQL OR DOCUMENT?\"\n1. Shape: one object with a list inside, or many independent things linked by id?\n2. Queries: mostly \"one bundle\", or searching across many records?\n3. Consistency: atomic changes across records (trades, money), or updates inside one object?\n4. Verdict: the store that fits all three.\n5. Opposite: the change that would make the other store win.\n\nKEY IDEAS\n1. One main object + list inside → document.\n2. Searching and filtering across many records → SQL.\n3. Several records must change together → SQL transactions.\n\nKEY POINTS\n- Tickets + comments: document if you load one ticket at a time; SQL if you search all comments for \"refund\".\n- Player inventory: document if you load one player's items together; SQL if items are traded and logged on their own.",
+      "original": ""
+    },
+    {
+      "group": "Week 4",
+      "item": "Lesson 6",
+      "title": "Challenge: databases course recap",
+      "topic": "Week 4 · Lesson 6",
+      "order": 406,
+      "date": "2026-08-17",
+      "dateEnd": "2026-08-24",
+      "refined": "IN PLAIN WORDS\nAn endpoint is a bridge: HTTP → Flask route → database driver and query → JSON response. Swapping SQLite for MongoDB only changes the database part; the route and the JSON response stay the same.\n\nKEY IDEAS\n1. Flask: the route and its function.\n2. Driver: connect, cursor, close (SQLite) or a collection (MongoDB).\n3. SQL: the query and fetchone.\n4. API: jsonify and the status code.\n5. Next (BE104 and on): error handling, authentication, cleaner structure, and later an ORM (SQLAlchemy).\n\nCODE\n```python\n# SQLite\n@app.get(\"/movies/<int:movie_id>\")\ndef get_movie(movie_id):\n    row = get_db().execute(\"SELECT * FROM movies WHERE id = ?\", (movie_id,)).fetchone()\n    if row is None:\n        return jsonify({\"error\": \"Movie not found\"}), 404\n    return jsonify(dict(row)), 200\n```\n\n```python\n# MongoDB: only the database part changes\n@app.get(\"/movies/<int:movie_id>\")\ndef get_movie(movie_id):\n    movie = movies_collection.find_one({\"id\": movie_id}, {\"_id\": 0})\n    if movie is None:\n        return jsonify({\"error\": \"Movie not found\"}), 404\n    return jsonify(movie), 200\n```\n\nKEY POINTS\n- The swap surface is the block that talks to the database.\n\nCORRECTION\nChecked by running it:\n- jsonify on a plain SQLite row gives a JSON list ([1, \"The Matrix\", ...]), not an object, and a missing movie returned null with status 200. The code uses row_factory = sqlite3.Row (in get_db), dict(row), and a 404.\n- jsonify on a MongoDB document fails with \"Object of type ObjectId is not JSON serializable\" because of _id. The code leaves _id out with {\"_id\": 0}.",
+      "original": ""
+    }
+  ]
+}

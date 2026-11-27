@@ -1,0 +1,402 @@
+{
+  "app": "notes-vault",
+  "kind": "contribution",
+  "version": 1,
+  "createdOn": "2026-11-27T09:19:32.318Z",
+  "contributor": {
+    "id": "55946333-9863-49ca-acb3-a25bfccc48c9",
+    "displayName": "Front-pay"
+  },
+  "program": "Applied science software engineering",
+  "class": {
+    "code": "BE102",
+    "name": "BE102: RESTful API Development"
+  },
+  "lessons": [
+    {
+      "group": "Week 7",
+      "item": "Lesson 1",
+      "title": "Welcome to BE102!",
+      "topic": "Week 7 · Lesson 1",
+      "order": 701,
+      "date": "2026-06-22",
+      "dateEnd": "2026-06-29",
+      "refined": "IN PLAIN WORDS\nBE102 teaches you to build a real web server and API in Python with Flask: the backend that games and tools talk to. The practice project is My Movies.\n\nKEY IDEAS\n1. Unit 1: a first web server.\n2. Unit 2: API structure (URLs and JSON).\n3. Unit 3: CRUD (create, read, update, delete).\n4. Unit 4: documentation and polish so others can use the API.\n5. The same skills power shops, player data, feeds and tasks, and later let you put AI behind your own API and control when it's called.\n\nKEY POINTS\n- Flask = a Python framework for building web servers and APIs.",
+      "original": ""
+    },
+    {
+      "group": "Week 7",
+      "item": "Lesson 2",
+      "title": "Backend roles and what a server does",
+      "topic": "Week 7 · Lesson 2",
+      "order": 702,
+      "date": "2026-06-22",
+      "dateEnd": "2026-06-29",
+      "refined": "IN PLAIN WORDS\nThe frontend (client) shows the interface, handles input and sends requests. The backend (server) receives requests, processes them and returns responses.\n\nKEY IDEAS\n1. Frontend: what the user sees (UI, buttons, text); handles clicks and input; sends requests and updates the screen with the answers.\n2. Backend: receives a request, applies rules, checks, calculations and data lookups, and returns a response (data, success or error).\n\nKEY POINTS\n- The frontend handles the user interface; the backend receives requests, processes them and returns responses.",
+      "original": ""
+    },
+    {
+      "group": "Week 7",
+      "item": "Lesson 3",
+      "title": "The request-response cycle",
+      "topic": "Week 7 · Lesson 3",
+      "order": 703,
+      "date": "2026-06-22",
+      "dateEnd": "2026-06-29",
+      "refined": "IN PLAIN WORDS\nEvery call is: the client asks, the server decides, the server answers. The client writes the request (method, URL, body); the server writes the response (status code, body).\n\nKEY IDEAS\n1. Client = consumer (a game or any app using the API). Server = producer (the backend).\n2. Request: method (get data or change something), URL (where it goes), body (data sent, like an item to buy).\n3. Response: status code (did it work?), body (data sent back).\n4. Both sides also send headers, like Content-Type, which says what kind of data the body holds.\n\nKEY POINTS\n- Client → method, URL, request body. Server → status code, response body.",
+      "original": ""
+    },
+    {
+      "group": "Week 7",
+      "item": "Lesson 4",
+      "title": "Isolating projects with venv",
+      "topic": "Week 7 · Lesson 4",
+      "order": 704,
+      "date": "2026-06-22",
+      "dateEnd": "2026-06-29",
+      "refined": "IN PLAIN WORDS\nA virtual environment gives each project its own Python and packages, so one project's upgrades can't break another.\n\nSTEPS (POWERSHELL)\n1. Create: py -m venv venv\n2. Activate: .\\venv\\Scripts\\Activate.ps1 → (venv) appears in the prompt.\n3. Check: Get-Command python → the path points inside the project's venv.\n4. Deactivate: deactivate\n\nKEY POINTS\n- Each project has its own Python tools, chosen when you activate it.\n- Experiments and upgrades stay inside one project.",
+      "original": ""
+    },
+    {
+      "group": "Week 7",
+      "item": "Lesson 5",
+      "title": "Installing Flask with pip",
+      "topic": "Week 7 · Lesson 5",
+      "order": 705,
+      "date": "2026-06-22",
+      "dateEnd": "2026-06-29",
+      "refined": "IN PLAIN WORDS\nInstall → freeze → restore. pip install flask installs into the active venv only. pip freeze > requirements.txt saves the exact versions. pip install -r requirements.txt rebuilds the same setup somewhere else.\n\nSTEPS\n1. Check (venv) is in the prompt.\n2. pip install flask\n3. pip freeze shows every package with its exact version (Flask==3.1.3, Werkzeug==3.1.8, ...).\n4. pip freeze > requirements.txt saves that list in the project folder.\n5. Elsewhere, in a new active venv: pip install -r requirements.txt\n\nKEY POINTS\n- Installing without (venv) puts packages in the system Python instead.\n- > sends the output into a file.",
+      "original": ""
+    },
+    {
+      "group": "Week 7",
+      "item": "Lesson 6",
+      "title": "Your first Flask app",
+      "topic": "Week 7 · Lesson 6",
+      "order": 706,
+      "date": "2026-06-22",
+      "dateEnd": "2026-06-29",
+      "refined": "IN PLAIN WORDS\nThe smallest Flask app: import Flask, create app = Flask(__name__), and call app.run(debug=True). It listens on http://127.0.0.1:5000. A 404 at / is fine, because there are no routes yet. Ctrl + C stops it. Debug mode restarts the server when you save.\n\nKEY IDEAS\n1. Your code: import Flask, create the app object, start the server.\n2. Flask: listens on the port, reads HTTP requests, matches URLs to routes, sends responses.\n3. A running server loaded your code once. Without debug mode, changes need a stop and restart.\n4. Debug mode watches your files and reloads on save (\"Detected change in ... reloading\").\n\nCODE\n```python\nfrom flask import Flask\n\napp = Flask(__name__)\n\nif __name__ == \"__main__\":       # only when this file is run directly\n    app.run(debug=True)\n```\n\n```powershell\ncd movies\npython app.py                    # or: python -m flask run --debug\n# Ctrl + C to stop\n```\n\nKEY POINTS\n- 404 at / means the server is running but has no routes yet.\n- No debug: edit → save → stop → rerun. Debug: edit → save → automatic reload.",
+      "original": ""
+    },
+    {
+      "group": "Week 7",
+      "item": "Lesson 7",
+      "title": "Defining routes and URL paths",
+      "topic": "Week 7 · Lesson 7",
+      "order": 707,
+      "date": "2026-06-22",
+      "dateEnd": "2026-06-29",
+      "refined": "IN PLAIN WORDS\n@app.route(\"/path\") connects a URL to the view function right below it. Whatever the function returns is what the browser shows. print() only shows in your terminal.\n\nKEY IDEAS\n1. Route decorator: \"when someone requests /path, run the function below me.\"\n2. View function: the function that handles that URL.\n3. return → the response body the browser displays. print → the terminal only, for debugging.\n\nCODE\n```python\nfrom flask import Flask\n\napp = Flask(__name__)\n\n@app.route(\"/\")\ndef home():\n    return \"Hello Movies API\"\n\n@app.route(\"/about\")\ndef about():\n    print(\"Inside about route\")          # terminal only\n    return \"About this Movies API\"       # shown in the browser\n\nif __name__ == \"__main__\":\n    app.run(debug=True)\n```\n\nKEY POINTS\n- /  → \"Hello Movies API\". /about → \"About this Movies API\".\n- flask run finds a file named app.py on its own. To point it elsewhere in PowerShell: $env:FLASK_APP = \"file.py\" (set FLASK_APP=... is Command Prompt syntax).",
+      "original": ""
+    },
+    {
+      "group": "Week 7",
+      "item": "Lesson 8",
+      "title": "Returning text and HTML",
+      "topic": "Week 7 · Lesson 8",
+      "order": 708,
+      "date": "2026-06-22",
+      "dateEnd": "2026-06-29",
+      "refined": "IN PLAIN WORDS\nA view function can return plain text, an HTML snippet (the browser renders the tags), or a whole file with send_file(\"index.html\"). Flask labels returned strings as Content-Type: text/html.\n\nCODE\n```python\nfrom flask import Flask, send_file\n\napp = Flask(__name__)\n\n@app.route(\"/\")\ndef home():\n    return send_file(\"index.html\")                  # a whole HTML file\n\n@app.route(\"/about\")\ndef about():\n    return \"<h1>About this Movies API</h1><p>Served from a Flask app</p>\"   # an HTML snippet\n\n@app.route(\"/plain\")\ndef plain():\n    return \"Just some text\"                         # no tags → shows as plain text\n```\n\nKEY POINTS\n- Content-Type tells the browser what kind of data it received.\n- A string with tags renders as HTML; without tags it simply shows as text.",
+      "original": ""
+    },
+    {
+      "group": "Week 7",
+      "item": "Lesson 9",
+      "title": "Returning JSON with jsonify",
+      "topic": "Week 7 · Lesson 9",
+      "order": 709,
+      "date": "2026-06-22",
+      "dateEnd": "2026-06-29",
+      "refined": "IN PLAIN WORDS\njsonify(data) turns a Python dict or list into real JSON and sets Content-Type: application/json. Static routes return the same data every time; dynamic routes build it with logic, like random.choice(movies).\n\nCODE\n```python\nimport random\nfrom flask import Flask, jsonify\n\napp = Flask(__name__)\n\n@app.route(\"/movie\")\ndef movie():\n    movies = [\n        {\"title\": \"Jaws\", \"year\": 1975, \"rating\": 4.5},\n        {\"title\": \"Alien\", \"year\": 1979, \"rating\": 5.0},\n    ]\n    return jsonify(random.choice(movies))\n```\n\n```text\njsonify(data) → {\"title\":\"Jaws\"}     Content-Type: application/json  (valid JSON)\nstr(data)     → {'title': 'Jaws'}    Content-Type: text/html         (not JSON: single quotes)\n```\n\nKEY POINTS\n- APIs always return real JSON.\n- Static = the same data every time. Dynamic = built by logic per request.\n- Since Flask 1.1, returning a dict directly also gives JSON.\n\nCORRECTION\nThe lesson said str(data) is sent as text/plain. Checked by running it: Flask sends any returned string as text/html. The body still isn't JSON, which is the real problem.",
+      "original": ""
+    },
+    {
+      "group": "Week 8",
+      "item": "Lesson 1",
+      "title": "Exploring a real API service with Swagger",
+      "topic": "Week 8 · Lesson 1",
+      "order": 801,
+      "date": "2026-06-29",
+      "dateEnd": "2026-07-06",
+      "refined": "IN PLAIN WORDS\nA local script only runs on your machine. An HTTP API service has URLs that any client can call: \"Python is internal, HTTP is a service.\" Swagger's interactive docs for the Petstore API can send real requests and show the data's schema.\n\nKEY IDEAS\n1. URL: the address of a resource, like https://petstore.swagger.io/v2/pet/1.\n2. Swagger shows each operation's method, path, parameters, request body and response.\n3. POST sends a JSON body to create something. GET reads data, usually with URL parameters and no body.\n4. Schema (model): the blueprint of the data: fields, types, and which are required (marked *).\n5. 2xx = success. 4xx = the client made a mistake.\n\nCODE\n```text\nPOST https://petstore.swagger.io/v2/pet           body: {\"name\": \"dolphin\", \"photoUrls\": [\"string\"], \"status\": \"available\", ...}\nGET  https://petstore.swagger.io/v2/pet/findByStatus?status=available   → 200, an array of pets\n\nPet {\n  id\n  category  Category { ... }\n  name*\n  photoUrls*\n  tags\n  status\n}\n```\n\nKEY POINTS\n- An internal script has no URL; an API service is reachable over HTTP.\n- JSON APIs and HTML pages both use URLs, but an API returns data, not a page.",
+      "original": ""
+    },
+    {
+      "group": "Week 8",
+      "item": "Lesson 2",
+      "title": "Choosing what your API returns",
+      "topic": "Week 8 · Lesson 2",
+      "order": 802,
+      "date": "2026-06-29",
+      "dateEnd": "2026-07-06",
+      "refined": "IN PLAIN WORDS\nA response format is the body plus its Content-Type header. HTML (text/html) is for people in browsers; JSON (application/json) is for games, AI and scripts. A JSON body labelled text/html breaks the API's contract, and the client may not parse it.\n\nKEY IDEAS\n1. Browser user → HTML body, Content-Type: text/html.\n2. Game, AI or script → JSON body, Content-Type: application/json.\n3. Very simple human messages → Content-Type: text/plain.\n4. API contract: the Content-Type promises what the body really is.\n\nCODE\n```text\nWrong: body {\"health\": 80, \"mana\": 30}   Content-Type: text/html\nRight: body {\"health\": 80, \"mana\": 30}   Content-Type: application/json\n```\n\nKEY POINTS\n- HTML is for humans, JSON is for programs.\n- If the body is JSON, the Content-Type must say application/json.",
+      "original": ""
+    },
+    {
+      "group": "Week 8",
+      "item": "Lesson 3",
+      "title": "REST principles and resources",
+      "topic": "Week 8 · Lesson 3",
+      "order": 803,
+      "date": "2026-06-29",
+      "dateEnd": "2026-07-06",
+      "refined": "IN PLAIN WORDS\nREST thinks in nouns (resources: movie, player, quest), not verbs (create, join, buy). A resource has a shape: fields, types, and which ones are required, which is a product decision. Resource URLs are nouns (/movies); action URLs start with verbs (/createQuest).\n\nKEY IDEAS\n1. Resource: a thing you can put \"a\" or \"the\" before (a movie, a player).\n2. Action: something you can put \"to\" before (to create, to ban).\n3. Resource shape: e.g. title (string, required), year (number, required), genre (string, optional), rating (number, optional).\n4. Resource-oriented URLs: /movies, /players, /players/search (search treated as a sub-resource).\n5. Action-oriented URLs: /createQuest, /rateMovie, /banPlayer.\n\nSTEPS: DESIGN FROM A STORY\n1. Highlight the nouns → candidate resources.\n2. Highlight the verbs → candidate actions.\n3. Give each resource 3–5 fields and decide required or optional by what the app must always know.\n\nKEY POINTS\n- A URL starting with a verb is action-style; nouns (or noun/noun) are resource-style.\n- \"Endpoint\" isn't a domain noun; it's just the path.",
+      "original": ""
+    },
+    {
+      "group": "Week 8",
+      "item": "Lesson 4",
+      "title": "Resource URLs and HTTP methods",
+      "topic": "Week 8 · Lesson 4",
+      "order": 804,
+      "date": "2026-06-29",
+      "dateEnd": "2026-07-06",
+      "refined": "IN PLAIN WORDS\nA collection URL is /movies and an item URL is /movies/{id}. The path stays a noun, and the HTTP method is the action: GET reads, POST creates (the server picks the id), PUT replaces a known item, DELETE removes it.\n\nCODE\n```text\nRead all            → GET    /movies\nRead one            → GET    /movies/{id}\nCreate new          → POST   /movies\nReplace one         → PUT    /movies/{id}\nDelete one          → DELETE /movies/{id}\n\n/getAllMovies          → GET    /movies\n/createPlayer          → POST   /players\n/deleteMovie/7         → DELETE /movies/7\n/updatePlayerScore/15  → PUT    /players/15\n/getMovieById/10       → GET    /movies/10\n```\n\nKEY POINTS\n- URL = nouns; method = action.\n- Add something new to the list → POST /collection. Replace a known id → PUT /collection/{id}.\n- Words like get, create, update, delete or fetch in a path are a sign the action belongs in the method.\n- PATCH changes only some fields; this course uses PUT for updates.",
+      "original": ""
+    },
+    {
+      "group": "Week 8",
+      "item": "Lesson 5",
+      "title": "Statelessness and server memory",
+      "topic": "Week 8 · Lesson 5",
+      "order": 805,
+      "date": "2026-06-29",
+      "dateEnd": "2026-07-06",
+      "refined": "IN PLAIN WORDS\nA stateless server doesn't remember callers between requests. Every request is a stranger, so it must carry everything it needs: the resource, the id and the filters. Shared data in memory is fine; remembering each caller isn't. Benefit: any server can handle any request.\n\nKEY IDEAS\n1. Self-contained request: /movies (resource), /movies/10 (id), ?rating=pg13 (filters).\n2. Allowed: shared data the process holds while running (the movies list).\n3. Not allowed as state: per-caller history (\"this player last asked for PG-13\").\n4. Stateless servers scale out easily (add servers) and recover easily (another server takes over).\n\nKEY POINTS\n- The server doesn't remember callers; each request carries what it needs.\n- Any server can handle the next request.",
+      "original": ""
+    },
+    {
+      "group": "Week 8",
+      "item": "Lesson 6",
+      "title": "Creating an in-memory data store",
+      "topic": "Week 8 · Lesson 6",
+      "order": 806,
+      "date": "2026-06-29",
+      "dateEnd": "2026-07-06",
+      "refined": "IN PLAIN WORDS\nStart a new project with its own environment, then define the movies list as seed data. The list lives in memory, so anything added while running is gone after a restart; only what's written in app.py comes back.\n\nSTEPS (POWERSHELL)\n1. mkdir movies_api, then cd movies_api\n2. python -m venv venv\n3. venv\\Scripts\\Activate.ps1\n4. pip install flask\n5. pip freeze > requirements.txt\n\nCODE\n```python\nmovies = [\n    {\"id\": 1, \"title\": \"The Matrix\", \"director\": \"The Wachowskis\", \"year\": 1999, \"watched\": True},\n    {\"id\": 2, \"title\": \"Spirited Away\", \"director\": \"Hayao Miyazaki\", \"year\": 2001, \"watched\": False},\n    {\"id\": 3, \"title\": \"Inception\", \"director\": \"Christopher Nolan\", \"year\": 2010, \"watched\": True},\n]\n```\n\nKEY POINTS\n- Fields: id (unique integer), title, director, year, watched (True/False).\n- In-memory data resets on restart: it's rebuilt from the code, and anything added only in memory is lost.\n- Permanent change → edit app.py. Temporary change → only while it runs.",
+      "original": ""
+    },
+    {
+      "group": "Week 8",
+      "item": "Lesson 7",
+      "title": "Reading the collection",
+      "topic": "Week 8 · Lesson 7",
+      "order": 807,
+      "date": "2026-06-29",
+      "dateEnd": "2026-07-06",
+      "refined": "IN PLAIN WORDS\nGET /movies returns the whole list as JSON. The home route serves index.html, and that page calls /movies to show the cards. print() goes to the console; return goes to the client.\n\nCODE\n```python\nfrom flask import Flask, jsonify, send_file\n\napp = Flask(__name__)\nmovies = [...]                      # the in-memory list\n\n@app.get(\"/\")\ndef home():\n    return send_file(\"index.html\")  # index.html sits next to app.py\n\n@app.get(\"/movies\")\ndef get_movies():\n    return jsonify(movies)          # list of dicts → JSON array\n\nif __name__ == \"__main__\":\n    app.run(debug=True)\n```\n\nSTEPS: VERIFY\n1. python app.py → \"Running on http://127.0.0.1:5000\".\n2. /movies → a JSON array with status 200.\n3. / → the My Movies page shows the cards.\n\nKEY POINTS\n- Collection endpoint: GET /movies returns every movie.\n- The client only ever sees what you return.",
+      "original": ""
+    },
+    {
+      "group": "Week 8",
+      "item": "Lesson 8",
+      "title": "Filtering with query parameters",
+      "topic": "Week 8 · Lesson 8",
+      "order": 808,
+      "date": "2026-06-29",
+      "dateEnd": "2026-07-06",
+      "refined": "IN PLAIN WORDS\nQuery parameters (?key=value) let one endpoint filter optionally. request.args.get(\"director\") returns None when the parameter is missing, so nothing crashes. No parameter → the full list. No match → an empty list.\n\nCODE\n```python\nfrom flask import request\n\n@app.get(\"/movies\")\ndef get_movies():\n    director = request.args.get(\"director\")\n    if director:\n        return jsonify([m for m in movies if m[\"director\"] == director])\n    return jsonify(movies)\n```\n\n```text\n/movies                                → all movies\n/movies?director=Christopher+Nolan     → only Inception\n/movies?director=DoesNotExist          → []   (still 200, no crash)\n```\n\nKEY POINTS\n- Query parameters live in request.args.\n- .get() returns None for a missing parameter instead of raising an error.\n- In a URL, + or %20 stands for a space.",
+      "original": ""
+    },
+    {
+      "group": "Week 8",
+      "item": "Lesson 9",
+      "title": "Reading an item by ID",
+      "topic": "Week 8 · Lesson 9",
+      "order": 809,
+      "date": "2026-06-29",
+      "dateEnd": "2026-07-06",
+      "refined": "IN PLAIN WORDS\nA path parameter picks one item: @app.get(\"/movies/<int:movie_id>\") passes the number in. Find it and return it, or return a JSON 404. The path says which item; the query says how to filter a list. Use /movies/3, not /movies?id=3.\n\nCODE\n```python\n@app.get(\"/movies/<int:movie_id>\")\ndef get_movie(movie_id):\n    movie = next((m for m in movies if m[\"id\"] == movie_id), None)\n    if movie is None:\n        return jsonify({\"error\": \"Movie not found\"}), 404\n    return jsonify(movie), 200\n```\n\n```text\n/movies/3                 → one movie (path = which item)\n/movies?watched=true      → filtered list (query = how)\n/movies/9999              → 404 {\"error\": \"Movie not found\"}\n```\n\nKEY POINTS\n- <int:movie_id> only matches whole numbers and hands them over as int.\n- Keep the error shape consistent (\"error\" key) across the API.\n- Watch the spelling: /movies/2, not /movie/2.",
+      "original": ""
+    },
+    {
+      "group": "Week 8",
+      "item": "Lesson 10",
+      "title": "Testing read endpoints in Postman",
+      "topic": "Week 8 · Lesson 10",
+      "order": 810,
+      "date": "2026-06-29",
+      "dateEnd": "2026-07-06",
+      "refined": "IN PLAIN WORDS\nPostman: pick the method, type the URL, click Send, then check both the status and the JSON body. Save working requests in a collection so you can retest after every restart.\n\nSTEPS\n1. Method: GET. URL: http://localhost:5000/...\n2. Send.\n3. Check the status (200 or 404) and the body's shape (array, object or error).\n4. Save it to the collection; duplicate and edit it for the next test.\n\nCODE\n```text\nGET /movies                              → 200, JSON array\nGET /movies/1                            → 200, one JSON object\nGET /movies?director=Christopher+Nolan   → 200, filtered array (Inception)\nGET /movies/999                          → 404, {\"error\": \"Movie not found\"}\n```\n\nKEY POINTS\n- Always check the status and the body.\n- Postman shows what the route returns, never what it prints.\n- Saved requests in \"My Movies API – Read\" are one-click retests.",
+      "original": ""
+    },
+    {
+      "group": "Week 9",
+      "item": "Lesson 1",
+      "title": "Write requests: GET versus POST",
+      "topic": "Week 9 · Lesson 1",
+      "order": 901,
+      "date": "2026-07-06",
+      "dateEnd": "2026-07-13",
+      "refined": "IN PLAIN WORDS\nGET is read-only (safe), and its data goes in the URL. POST is for writing, and its data goes in the request body. Flask matches path + method: a route with methods=[\"POST\"] answers a GET with 405 Method Not Allowed. A path that doesn't exist gives 404.\n\nKEY IDEAS\n1. Read (safe): only returns data, changes nothing.\n2. Write: sends data the server stores or uses to change something.\n3. GET data lives in the URL: /movies?director=Nolan.\n4. POST data lives in the body: {\"title\": \"New Movie\", \"director\": \"Nolan\"}.\n\nCODE\n```python\n@app.route(\"/echo\", methods=[\"POST\"])\ndef echo_post():\n    return {\"message\": \"Received POST on /echo\"}\n```\n\n```text\nPOST /echo  → 200\nGET  /echo  → 405 Method Not Allowed (path exists, method not allowed)\nGET  /nope  → 404 Not Found (path doesn't exist)\n```\n\nKEY POINTS\n- 404 = no such path. 405 = the path exists but not for that method.\n- %0A in a URL is a hidden newline. /echo%0A doesn't match /echo, so it gave 404 instead of 405.",
+      "original": ""
+    },
+    {
+      "group": "Week 9",
+      "item": "Lesson 2",
+      "title": "Reading a JSON request body",
+      "topic": "Week 9 · Lesson 2",
+      "order": 902,
+      "date": "2026-07-06",
+      "dateEnd": "2026-07-13",
+      "refined": "IN PLAIN WORDS\nThe client sends JSON in a POST body with Content-Type: application/json, and Flask reads it with request.get_json(), which gives you a Python dict. Bad JSON → 400. Missing or wrong Content-Type → 415.\n\nKEY IDEAS\n1. Whole objects (a movie, a save, a score) travel as JSON in the body, not in the query string.\n2. Content-Type: application/json tells the server how to read the body.\n3. request.get_json(silent=True) returns None instead of raising Flask's error, so your own validation can answer.\n\nCODE\n```python\nfrom flask import request, jsonify\n\n@app.post(\"/movies/body-test\")\ndef movie_body_test():\n    content_type = request.headers.get(\"Content-Type\")\n    data = request.get_json(silent=True)\n    title = data.get(\"title\") if isinstance(data, dict) else None\n    return jsonify({\"seen_content_type\": content_type, \"raw_data\": data, \"got_title\": title})\n```\n\n```text\nPOST /movies HTTP/1.1\nContent-Type: application/json\n\n{\"title\": \"Inception\", \"year\": 2010}\n```\n\nKEY POINTS\n- To send JSON that get_json() reads, use POST with a JSON body.\n- With plain get_json() in Flask 3: invalid JSON → 400, wrong Content-Type → 415.",
+      "original": ""
+    },
+    {
+      "group": "Week 9",
+      "item": "Lesson 3",
+      "title": "Building a POST endpoint",
+      "topic": "Week 9 · Lesson 3",
+      "order": 903,
+      "date": "2026-07-06",
+      "dateEnd": "2026-07-13",
+      "refined": "IN PLAIN WORDS\nA POST endpoint reads the request body (JSON from the client) with request.get_json() and sends back a response body built with jsonify. Every request, whatever its method, gets a response.\n\nCODE\n```python\n@app.post(\"/movies\")\ndef create_movie():\n    data = request.get_json(silent=True)\n    return jsonify({\"message\": \"Got your movie\", \"received\": data})\n```\n\n```json\n{\"title\": \"Godot RPG\", \"director\": \"You\", \"year\": 2026, \"watched\": false}\n```\n\nKEY POINTS\n- Request body: JSON the client sends to the server.\n- Response body: JSON the server sends back.\n- Request/response is about direction; GET/POST is about intent.",
+      "original": ""
+    },
+    {
+      "group": "Week 9",
+      "item": "Lesson 4",
+      "title": "CRUD pt 1: Creating resources with POST",
+      "topic": "Week 9 · Lesson 4",
+      "order": 904,
+      "date": "2026-07-06",
+      "dateEnd": "2026-07-13",
+      "refined": "IN PLAIN WORDS\nCreate: read the JSON, pick the next id, build the new movie, append it to the list, and return it with 201 Created. The page sees 201, clears the form and reloads the list with GET /movies.\n\nSTEPS\n1. data = request.get_json(silent=True)\n2. Pick a server-side id.\n3. Build the movie dict from the body.\n4. movies.append(new_movie)\n5. return jsonify(new_movie), 201\n6. Front end: on 201, reset the form and call GET /movies again.\n\nCODE\n```python\n@app.post(\"/movies\")\ndef create_movie():\n    data = request.get_json(silent=True)\n    next_id = max((m[\"id\"] for m in movies), default=0) + 1\n    new_movie = {\n        \"id\": next_id,\n        \"title\": data[\"title\"],\n        \"director\": data[\"director\"],\n        \"year\": data[\"year\"],\n        \"watched\": data[\"watched\"],\n    }\n    movies.append(new_movie)\n    return jsonify(new_movie), 201\n```\n\n```javascript\nconst { status } = await api(\"POST\", \"/movies\", body);\nif (status === 201) {\n  f.reset();      // clear the form\n  load();         // GET /movies and redraw the cards\n}\n```\n\nKEY POINTS\n- The server picks the id, never the client.\n- A body without \"title\" raises KeyError → 500. Lesson 5 adds validation.\n- GET has no body and changes nothing; POST has a body and creates something.\n\nCORRECTION\nChecked by running it:\n- The GET code had a stray } line, which is a Python SyntaxError. It's removed.\n- max() of an empty list crashes (ValueError → 500) once every movie is deleted. default=0 fixes it.\n- Taking the highest id + 1 reuses the id of a deleted newest movie. A counter that only goes up, like next_item_id in Lesson 10, never reuses ids.",
+      "original": ""
+    },
+    {
+      "group": "Week 9",
+      "item": "Lesson 5",
+      "title": "Validating input and the 400 response",
+      "topic": "Week 9 · Lesson 5",
+      "order": 905,
+      "date": "2026-07-06",
+      "dateEnd": "2026-07-13",
+      "refined": "IN PLAIN WORDS\nValidate before changing anything. Guard clauses return 400 for a body that isn't an object, missing fields, empty strings, a year that isn't a number, or watched that isn't true/false. Use the same error shape every time so the front end can show data.message.\n\nSTEPS\n1. data = request.get_json(silent=True)\n2. Not a dict → 400.\n3. Any required field missing → 400.\n4. title and director must be non-empty strings → else 400.\n5. year must convert to an int → else 400.\n6. watched must be a bool → else 400.\n7. Only then create, append and return 201.\n\nCODE\n```python\ndef bad_request(message):\n    return jsonify({\"error\": \"Bad Request\", \"message\": message}), 400\n\ndata = request.get_json(silent=True)\nif not isinstance(data, dict):\n    return bad_request(\"Request body must be a JSON object.\")\nfor field in (\"title\", \"director\", \"year\", \"watched\"):\n    if field not in data:\n        return bad_request(f\"Missing required field: {field}\")\nfor field in (\"title\", \"director\"):\n    if not isinstance(data[field], str) or not data[field].strip():\n        return bad_request(f\"Field '{field}' must be a non-empty string.\")\nif isinstance(data[\"year\"], bool):\n    return bad_request(\"Field 'year' must be a number.\")\ntry:\n    year_value = int(data[\"year\"])\nexcept (TypeError, ValueError):\n    return bad_request(\"Field 'year' must be a number.\")\nif not isinstance(data[\"watched\"], bool):\n    return bad_request(\"Field 'watched' must be a boolean.\")\n```\n\n```javascript\n// front end: <form id=\"form\" novalidate> and show the API's message\nif (status === 400) {\n  $(\"#formErr\").textContent = data?.message || \"Invalid input.\";\n  return;\n}\n```\n\nKEY POINTS\n- Guard clauses: return early with 400 the moment something is wrong.\n- 400 = bad input. 404 = missing resource.\n- novalidate turns off the browser's own checks, so the API's message is what people see.\n\nCORRECTION\n- With plain get_json(), bodies that aren't JSON were stopped by Flask (415 or 400) before your check, so the front end never got your message. silent=True lets your check handle every case.\n- int(True) is 1 in Python, so \"year\": true would have been saved as year 1. The bool check above blocks it.",
+      "original": ""
+    },
+    {
+      "group": "Week 9",
+      "item": "Lesson 6",
+      "title": "CRUD pt 2: Updating with PUT",
+      "topic": "Week 9 · Lesson 6",
+      "order": 906,
+      "date": "2026-07-06",
+      "dateEnd": "2026-07-13",
+      "refined": "IN PLAIN WORDS\nPUT /movies/<id> replaces an existing movie: validate the same way as POST, find it (404 if missing), build the full new dict with the same id, put it in place, and return 200. Sending the same PUT twice gives the same result: PUT is idempotent.\n\nSTEPS\n1. Validate the body exactly like POST → 400 on any problem.\n2. Find the movie's index → 404 if not found.\n3. Build the full replacement with the same id.\n4. movies[index] = updated_movie\n5. return jsonify(updated_movie), 200\n\nCODE\n```python\n@app.put(\"/movies/<int:movie_id>\")\ndef update_movie(movie_id):\n    # ...same validation as POST → year_value...\n    index = next((i for i, m in enumerate(movies) if m[\"id\"] == movie_id), None)\n    if index is None:\n        return jsonify({\"error\": \"Not Found\", \"message\": \"Movie not found\"}), 404\n    updated = {\"id\": movie_id, \"title\": data[\"title\"], \"director\": data[\"director\"],\n               \"year\": year_value, \"watched\": data[\"watched\"]}\n    movies[index] = updated\n    return jsonify(updated), 200\n```\n\nKEY POINTS\n- POST /movies creates and assigns an id. PUT /movies/<id> replaces, keeping the id.\n- Idempotent: repeating the request leaves the same end state.",
+      "original": ""
+    },
+    {
+      "group": "Week 9",
+      "item": "Lesson 7",
+      "title": "CRUD pt 3: Deleting with DELETE",
+      "topic": "Week 9 · Lesson 7",
+      "order": 907,
+      "date": "2026-07-06",
+      "dateEnd": "2026-07-13",
+      "refined": "IN PLAIN WORDS\nDELETE /movies/<id>: find the index, remove it with movies.pop(index), and return \"\", 204 (success, no body). Missing → 404 with JSON. Deleting twice leaves the same end state, so DELETE is idempotent even though the second call returns 404.\n\nCODE\n```python\n@app.delete(\"/movies/<int:movie_id>\")\ndef delete_movie(movie_id):\n    index = next((i for i, m in enumerate(movies) if m[\"id\"] == movie_id), None)\n    if index is None:\n        return jsonify({\"error\": \"Movie not found\"}), 404\n    movies.pop(index)\n    return \"\", 204\n```\n\nKEY POINTS\n- 200: success with a JSON body. 201: created. 204: success, no body. 404: doesn't exist.\n- enumerate gives both the index and the item, and the index is what pop needs.\n- Idempotent: after one or two DELETEs, the movie is gone either way.",
+      "original": ""
+    },
+    {
+      "group": "Week 9",
+      "item": "Lesson 8",
+      "title": "Mapping the full CRUD surface",
+      "topic": "Week 9 · Lesson 8",
+      "order": 908,
+      "date": "2026-07-06",
+      "dateEnd": "2026-07-13",
+      "refined": "IN PLAIN WORDS\nThe full CRUD map: create with POST /movies → 201; read with GET /movies or /movies/<id> → 200; update with PUT /movies/<id> → 200; delete with DELETE /movies/<id> → 204. 404 is an error, never a success.\n\nCODE\n```text\nCRUD action      | Method | URL           | Success        | Meaning\n-----------------|--------|---------------|----------------|----------------------------\nCreate movie     | POST   | /movies       | 201 Created    | new movie made\nRead all movies  | GET    | /movies       | 200 OK         | list in the body\nRead one movie   | GET    | /movies/<id>  | 200 OK         | one movie in the body\nUpdate movie     | PUT    | /movies/<id>  | 200 OK         | updated movie in the body\nDelete movie     | DELETE | /movies/<id>  | 204 No Content | deleted, no body\n```\n\nKEY POINTS\n- Collection URL (/movies): POST and GET. Item URL (/movies/<id>): GET, PUT, DELETE.\n- POST is create, not update. Reads use 200, not 201. A successful delete is 204, not 404.\n- The same map works for /players, /items, /monsters.",
+      "original": ""
+    },
+    {
+      "group": "Week 9",
+      "item": "Lesson 9",
+      "title": "Verifying the CRUD lifecycle in Postman",
+      "topic": "Week 9 · Lesson 9",
+      "order": 909,
+      "date": "2026-07-06",
+      "dateEnd": "2026-07-13",
+      "refined": "IN PLAIN WORDS\nDrive one movie through its whole life in Postman: POST (201 + new id) → GET (200) → PUT (200) → GET shows the change → DELETE (204) → GET (404). After a server restart, the in-memory list is back to the seed movies.\n\nSTEPS\n1. POST /movies with a full JSON body → 201 and the new id.\n2. GET /movies/<id> → 200, that movie.\n3. PUT /movies/<id> with every field changed → 200, the updated movie.\n4. GET /movies/<id> → 200, shows the changes.\n5. DELETE /movies/<id> → 204, empty body.\n6. GET /movies/<id> → 404, {\"error\": \"Movie not found\"}.\n7. Restart the server → GET /movies shows only the seed movies.\n\nKEY POINTS\n- POST → 201. GET and PUT → 200. DELETE → 204. Missing id → 404. Bad body → 400.\n- Changes live in memory until the server restarts.\n- Track the id carefully between steps.",
+      "original": ""
+    },
+    {
+      "group": "Week 9",
+      "item": "Lesson 10",
+      "title": "Challenge: build a CRUD resource",
+      "topic": "Week 9 · Lesson 10",
+      "order": 910,
+      "date": "2026-07-06",
+      "dateEnd": "2026-07-13",
+      "refined": "IN PLAIN WORDS\nBuild your own CRUD resource: items (name, type, rarity and power required; description optional) at /items and /items/<int:item_id>. The in-memory list uses a next_item_id counter, the same validation pattern, and the same status codes: 201, 200, 204, 400 and 404.\n\nKEY IDEAS\n1. Required: name, type, rarity (non-empty strings), power (number). Optional: description.\n2. Collection: /items. Item: /items/<int:item_id>. No verbs in the path.\n3. A counter that only goes up never reuses an id.\n\nCODE\n```python\nitems = []\nnext_item_id = 1\n\n@app.post(\"/items\")\ndef create_item():\n    global next_item_id                  # needed to change the module-level counter\n    data = request.get_json(silent=True)\n    if not isinstance(data, dict):\n        return bad_request(\"Request body must be a JSON object.\")\n    for field in (\"name\", \"type\", \"rarity\", \"power\"):\n        if field not in data:\n            return bad_request(f\"Missing required field: {field}\")\n    # ...string checks for name, type, rarity...\n    try:\n        power_value = int(data[\"power\"])\n    except (TypeError, ValueError):\n        return bad_request(\"Field 'power' must be a number.\")\n    new_item = {\n        \"id\": next_item_id,\n        \"name\": data[\"name\"],\n        \"type\": data[\"type\"],\n        \"rarity\": data[\"rarity\"],\n        \"power\": power_value,\n        \"description\": data.get(\"description\", \"\"),\n    }\n    items.append(new_item)\n    next_item_id += 1\n    return jsonify(new_item), 201\n```\n\n```json\n{\"name\": \"plunger\", \"type\": \"sword\", \"rarity\": \"very common\", \"power\": 1,\n \"description\": \"Gross go put that back by the TOILET!\"}\n```\n\nKEY POINTS\n- POST /items → 201 or 400. GET /items → 200 ([] when empty). GET /items/<id> → 200 or 404.\n- PUT /items/<id> → 200, 400 or 404. DELETE /items/<id> → 204 or 404.\n\nNOTE\nChanging next_item_id inside a function needs global next_item_id, or Python raises UnboundLocalError (\"cannot access local variable\").",
+      "original": ""
+    },
+    {
+      "group": "Week 10",
+      "item": "Lesson 1",
+      "title": "Generating Swagger documentation",
+      "topic": "Week 10 · Lesson 1",
+      "order": 1001,
+      "date": "2026-07-13",
+      "dateEnd": "2026-07-20",
+      "refined": "IN PLAIN WORDS\nFlasgger adds a /docs/ page that lists your endpoints and lets you test them with \"Try it out\". Document a route with a docstring: a summary line, ---, then YAML for parameters and responses. The docs only describe your API; they don't change what it does.\n\nSTEPS\n1. pip install flasgger\n2. Set app.config[\"SWAGGER\"], then swagger = Swagger(app), after creating the app and before the routes.\n3. Run the app and open http://localhost:5000/docs/ (with the trailing slash).\n4. \"No operations defined in spec!\" means Swagger works but nothing is documented yet.\n5. Add a docstring to a route, restart, and use Try it out → Execute.\n\nCODE\n```python\nfrom flask import Flask, jsonify\nfrom flasgger import Swagger\n\napp = Flask(__name__)\napp.config[\"SWAGGER\"] = {\"title\": \"Movies API\", \"uiversion\": 3, \"specs_route\": \"/docs/\"}\nswagger = Swagger(app)\n\n@app.get(\"/items/<int:item_id>\")\ndef get_item(item_id):\n    '''\n    Get one item by ID\n    ---\n    parameters:\n      - name: item_id\n        in: path\n        type: integer\n        required: true\n        description: ID of the item\n    responses:\n      200:\n        description: The item data\n      404:\n        description: Item not found\n    '''\n    ...\n```\n\nKEY POINTS\n- Endpoint = HTTP method + path.\n- Swagger is the map and test panel; the route code is the actual behavior.\n- Everything after --- in the docstring is Swagger YAML.",
+      "original": ""
+    },
+    {
+      "group": "Week 10",
+      "item": "Lesson 2",
+      "title": "Challenge: harden a new endpoint",
+      "topic": "Week 10 · Lesson 2",
+      "order": 1002,
+      "date": "2026-07-13",
+      "dateEnd": "2026-07-20",
+      "refined": "IN PLAIN WORDS\nA hardened PUT /movies/<int:movie_id>/watched: the body must be an object, \"watched\" must be present and true/false, then find the movie (200) or return 404. Every error uses the same {\"error\", \"message\"} shape, and every path is tested.\n\nSTEPS\n1. Body not a JSON object → 400.\n2. \"watched\" missing → 400.\n3. \"watched\" not a boolean → 400.\n4. Movie not found → 404.\n5. Update and return the movie → 200.\n\nCODE\n```python\n@app.put(\"/movies/<int:movie_id>/watched\")\ndef update_movie_watched(movie_id):\n    data = request.get_json(silent=True)\n    if not isinstance(data, dict):\n        return jsonify({\"error\": \"Bad Request\", \"message\": \"Request body must be a JSON object.\"}), 400\n    if \"watched\" not in data:\n        return jsonify({\"error\": \"Bad Request\", \"message\": \"Missing required field: watched\"}), 400\n    if not isinstance(data[\"watched\"], bool):\n        return jsonify({\"error\": \"Bad Request\",\n                        \"message\": \"Field 'watched' must be a boolean (true or false).\"}), 400\n    for movie in movies:\n        if movie[\"id\"] == movie_id:\n            movie[\"watched\"] = data[\"watched\"]\n            return jsonify(movie), 200\n    return jsonify({\"error\": \"Not Found\", \"message\": f\"Movie with id {movie_id} not found.\"}), 404\n```\n\n```text\nPUT /movies/2/watched   {\"watched\": true}    → 200, updated movie\nPUT /movies/2/watched   {\"watched\": \"yes\"}   → 400, must be a boolean\nPUT /movies/2/watched   {}                   → 400, missing watched\nPUT /movies/999/watched {\"watched\": true}    → 404\n```\n\nKEY POINTS\n- The same guard-clause pattern works for any update endpoint.\n- Test the failure paths, not just the happy one.",
+      "original": ""
+    },
+    {
+      "group": "Week 10",
+      "item": "Lesson 3",
+      "title": "Challenge: document a new endpoint",
+      "topic": "Week 10 · Lesson 3",
+      "order": 1003,
+      "date": "2026-07-13",
+      "dateEnd": "2026-07-20",
+      "refined": "IN PLAIN WORDS\nDocument the hardened endpoint so /docs matches reality: the path parameter (in: path), the body parameter (in: body with a schema), and every status you return (200, 400, 404). Then loop: edit → restart → Try it out → compare the live responses with the docs.\n\nSTEPS\n1. Write the docstring: parameters and responses.\n2. Restart Flask.\n3. Open /docs and find PUT /movies/{movie_id}/watched.\n4. Try it out: a valid body (200), a bad body (400), a bad id (404).\n5. Each live status and JSON should match the docs. If not, fix the docs.\n\nCODE\n```python\n@app.put(\"/movies/<int:movie_id>/watched\")\ndef update_movie_watched(movie_id):\n    '''\n    Update watched status for a movie\n    ---\n    parameters:\n      - name: movie_id\n        in: path\n        type: integer\n        required: true\n      - name: body\n        in: body\n        required: true\n        schema:\n          type: object\n          required: [watched]\n          properties:\n            watched:\n              type: boolean\n    responses:\n      200:\n        description: Movie updated\n        schema:\n          type: object\n          properties:\n            id: {type: integer}\n            title: {type: string}\n            director: {type: string}\n            year: {type: integer}\n            watched: {type: boolean}\n      400:\n        description: Invalid body\n        schema:\n          type: object\n          properties:\n            error: {type: string}\n            message: {type: string}\n      404:\n        description: Movie not found\n        schema:\n          type: object\n          properties:\n            error: {type: string}\n            message: {type: string}\n    '''\n    ...\n```\n\nKEY POINTS\n- Path parameter: part of the URL. Body parameter: the JSON sent.\n- Mistakes to avoid: two --- lines, requestBody instead of in: body, a code path with no return, code after a return.\n\nCORRECTION\nThe lesson's docstring mixed two versions of the spec. Flasgger uses Swagger 2.0 by default (why in: body works and requestBody doesn't). In 2.0 a path parameter uses type: integer directly, and a response uses schema: right under the status code, not content: application/json: schema: (that's OpenAPI 3). The docstring above is all 2.0, so the response shapes show in the docs.",
+      "original": ""
+    },
+    {
+      "group": "Week 10",
+      "item": "Lesson 4",
+      "title": "The REST API contract end to end",
+      "topic": "Week 10 · Lesson 4",
+      "order": 1004,
+      "date": "2026-07-13",
+      "dateEnd": "2026-07-20",
+      "refined": "IN PLAIN WORDS\nA REST API is a contract: the same method + URL + body always gives a predictable status + JSON. Trace any request from intention → method → URL → handler → status + JSON.\n\nCODE\n```text\nRead list   → GET    /api/movies       → 200, [ movie, ... ]\nRead one    → GET    /api/movies/:id   → 200 movie | 404 {\"error\": \"Movie not found\"}\nCreate      → POST   /api/movies       → 201, new movie with id\nUpdate      → PUT    /api/movies/:id   → 200 updated movie | 404\nDelete      → DELETE /api/movies/:id   → 204 no body | 404\n```\n\nKEY POINTS\n- Noun URLs (/api/movies, /api/movies/:id), never verbs (/api/delete-movie/4).\n- Methods match intent; status codes carry meaning.\n- Errors are JSON with the right status, never a 200 with \"does not exist\".\n- Create has no id in the URL; the server makes one.",
+      "original": ""
+    },
+    {
+      "group": "Week 10",
+      "item": "Lesson 5",
+      "title": "Capstone: build and document an API",
+      "topic": "Week 10 · Lesson 5",
+      "order": 1005,
+      "date": "2026-07-13",
+      "dateEnd": "2026-07-20",
+      "refined": "IN PLAIN WORDS\nCapstone: a spells API. /health plus full CRUD on /spells, the same error shape for 400 and 404 (message can be a list), one validate_spell() helper shared by POST and PUT, a global next_id counter, and Swagger docs at /apidocs grouped with tags.\n\nKEY IDEAS\n1. Spell fields: id (auto), name, element, power (non-empty strings), mana_cost and tier (numbers), is_ultimate (boolean).\n2. One validation helper returns (ok, errors); POST and PUT both use it.\n3. Errors: {\"error\": \"Bad Request\" or \"Not Found\", \"message\": text or a list of texts}.\n4. @app.get / @app.post / @app.put / @app.delete are shortcuts for @app.route(..., methods=[...]).\n\nCODE\n```python\nREQUIRED_FIELDS = [\"name\", \"element\", \"mana_cost\", \"power\", \"tier\", \"is_ultimate\"]\n\ndef is_number(value):\n    return isinstance(value, (int, float)) and not isinstance(value, bool)\n\ndef validate_spell(payload):\n    if not isinstance(payload, dict):\n        return False, [\"Payload must be a JSON object.\"]\n    errors = [f\"Missing required field: {f}\" for f in REQUIRED_FIELDS if f not in payload]\n    if errors:\n        return False, errors\n    for field in (\"name\", \"element\", \"power\"):\n        if not isinstance(payload[field], str) or not payload[field].strip():\n            errors.append(f\"Field '{field}' must be a non-empty string.\")\n    for field in (\"mana_cost\", \"tier\"):\n        if not is_number(payload[field]):\n            errors.append(f\"Field '{field}' must be a number.\")\n    if not isinstance(payload[\"is_ultimate\"], bool):\n        errors.append(\"Field 'is_ultimate' must be a boolean.\")\n    return not errors, errors\n\n@app.post(\"/spells\")\ndef create_spell():\n    global next_id\n    data = request.get_json(silent=True)\n    ok, errors = validate_spell(data)\n    if not ok:\n        return {\"error\": \"Bad Request\", \"message\": errors}, 400\n    new_spell = {\"id\": next_id, **{f: data[f] for f in REQUIRED_FIELDS}}\n    spells.append(new_spell)\n    next_id += 1\n    return new_spell, 201\n```\n\n```text\nGET    /health          → 200 {\"status\": \"ok\", \"service\": \"spells_api\"}\nGET    /spells          → 200 {\"spells\": [...]}\nGET    /spells/<id>     → 200 spell | 404\nPOST   /spells          → 201 new spell | 400\nPUT    /spells/<id>     → 200 updated | 400 | 404\nDELETE /spells/<id>     → 204 | 404\n```\n\nKEY POINTS\n- 200 with body, 201 created, 204 no body, 400 bad input, 404 missing.\n- tags: groups endpoints in the docs.\n\nNOTE\nIn Python, True and False count as int, so isinstance(True, (int, float)) is True and \"mana_cost\": true would have passed the lesson's check. is_number() above rules booleans out.",
+      "original": ""
+    },
+    {
+      "group": "Week 10",
+      "item": "Lesson 6",
+      "title": "Challenge: diagnose a broken API",
+      "topic": "Week 10 · Lesson 6",
+      "order": 1006,
+      "date": "2026-07-13",
+      "dateEnd": "2026-07-20",
+      "refined": "IN PLAIN WORDS\nDiagnose an API that breaks the rules: verb URLs, wrong status codes, missing validation, mixed error shapes. Fix it with nouns in URLs, one error shape everywhere, and the right 4xx for each problem.\n\nSTEPS: PICK THE 4XX\n1. Wrong URL or missing resource → 404.\n2. Real URL, method not allowed → 405.\n3. Malformed body or missing fields → 400.\n4. Clashes with existing data (duplicate username) → 409.\n5. Valid JSON that breaks a rule (level 0 when the minimum is 1) → 422.\n\nCODE\n```text\nCreate message → POST   /messages\nList messages  → GET    /messages\nOne message    → GET    /messages/{id}\nDelete message → DELETE /messages/{id}\n```\n\n```json\n{\"error\": \"validation_failed\", \"message\": \"text must be at least 1 character\"}\n```\n\nKEY POINTS\n- Nouns in URLs, verbs in methods.\n- One error format, used everywhere.\n- 400 vs 422 is a convention, not a law. Many APIs (including your movies and spells APIs) use 400 for every validation error. Be consistent.",
+      "original": ""
+    }
+  ]
+}
