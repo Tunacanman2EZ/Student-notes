@@ -22,7 +22,8 @@ function buildLibrary(contributions) {
     const cls = classes[key] || (classes[key] = { key, code: f.class.code || "", name: f.class.name, lessons: {} });
     for (const l of f.lessons) {
       const lesson = cls.lessons[l.topic] || (cls.lessons[l.topic] = {
-        topic: l.topic, group: l.group, item: l.item, title: l.title, order: l.order, versions: [] });
+        topic: l.topic, group: l.group, item: l.item, title: l.title, order: l.order,
+        date: l.date || "", dateEnd: l.dateEnd || null, versions: [] });
       if (!lesson.title && l.title) lesson.title = l.title;
       const version = {
         contributor: f.contributor, program: f.program || "", sharedOn: f.createdOn,
@@ -73,4 +74,35 @@ if (typeof validateContribution === "undefined" && typeof require !== "undefined
   var { validateContribution } = require("./share.js");
 }
 
-if (typeof module !== "undefined") module.exports = { libraryClassKey, buildLibrary, combineLibraryClasses };
+// The newest version of a lesson (when several classmates shared it).
+function newestVersion(lesson) {
+  return lesson.versions.reduce((a, b) => ((b.sharedOn || "") > (a.sharedOn || "") ? b : a));
+}
+
+// "Add to my notes": turn a library class into notes for your own app.
+// One note per lesson, from the newest version. Each note remembers who shared it (fromLibrary),
+// so the Share page never shares someone else's notes as yours.
+// The id is fixed per class + lesson, so adding the same class again updates instead of copying.
+function libraryClassToNotes(libClass, now = new Date().toISOString()) {
+  const slug = s => (s || "").toLowerCase().normalize("NFKD").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 60);
+  return libClass.lessons.filter(l => l.versions.length).map(l => {
+    const v = newestVersion(l);
+    return {
+      id: `lib-${libClass.key}-${slug(l.topic)}`,
+      className: libClass.name, topic: l.topic, title: v.title || l.title || "", order: l.order || 0,
+      date: l.date || "", dateEnd: l.dateEnd || null,
+      text: v.original || v.refined, refined: v.refined, addedOn: now,
+      fromLibrary: { id: v.contributor.id, displayName: v.contributor.displayName, sharedOn: v.sharedOn || "" },
+    };
+  });
+}
+
+// If you already have the class, only add what you're missing: lessons you have no notes for,
+// plus updates to library notes you added before. Your own notes are never doubled up.
+// myClassNotes: your notes for this class.
+function libraryNotesToAdd(libNotes, myClassNotes) {
+  const ownTopics = new Set(myClassNotes.filter(n => !n.fromLibrary).map(n => n.topic));
+  return libNotes.filter(n => !ownTopics.has(n.topic));
+}
+
+if (typeof module !== "undefined") module.exports = { libraryClassKey, buildLibrary, combineLibraryClasses, newestVersion, libraryClassToNotes, libraryNotesToAdd };

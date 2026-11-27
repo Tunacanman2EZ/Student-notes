@@ -9,18 +9,20 @@ browser, and your notes are saved in your browser's own database.
 
 ## Use it
 Open the app's page (or download this repo and double-click `index.html`), then:
-1. **＋ Add notes**: paste a whole class. It's split into one note per lesson automatically.
+1. **Library**: start with notes other students shared. Read any lesson, or click **Add to my notes**
+   to copy a whole class into your app. (If you already have the class, only the lessons you're missing come in.)
+2. **＋ Add notes**: paste a whole class. It's split into one note per lesson automatically.
    Or use **Backup → Load a file** to load a notes file.
    Want to try it first? Load the files in `examples/`, a small made-up course.
-2. **Search** at the top (press **/**), or pick a class from the dropdown.
-3. **Study a week:** in the sidebar, open a class and click a week. Each lesson shows its short summary,
+3. **Search** at the top (press **/**), or pick a class from the dropdown.
+4. **Study a week:** in the sidebar, open a class and click a week. Each lesson shows its short summary,
    and you tick it off when you've studied it.
-4. **Open a lesson:** a note with a link shows a button. **Open lesson** goes to the lesson on your school's site,
+5. **Open a lesson:** a note with a link shows a button. **Open lesson** goes to the lesson on your school's site,
    **▶ Watch** opens a video, and **Open link** opens anything else.
-5. **Back up** whenever the amber dot shows. Your notes only live in your browser.
-6. **Share** notes with other students: open **Share**, pick a class, tick lessons, download the share file,
+6. **Back up** whenever the amber dot shows. Your notes only live in your browser.
+7. **Share** notes with other students: open **Share**, pick a class, tick lessons, download the share file,
    and upload it to [`contributions/`](contributions/) (GitHub makes a pull request for you).
-7. **Compare** with classmates: open a class and click **⇄ Compare**. See lessons classmates have that you don't,
+8. **Compare** with classmates: open a class and click **⇄ Compare**. See lessons classmates have that you don't,
    and any lesson side by side with a classmate's version, with **What's new to you** (only the lines you don't have).
    It uses the shared library on the website, or a share file a classmate sends you.
 
@@ -29,6 +31,7 @@ Open the app's page (or download this repo and double-click `index.html`), then:
 - **Never shared:** pasted lessons (a lesson belongs to your school), reviews, finals, quizzes, exams,
   and notes you lock. Share only your end-of-lesson notes and notes you wrote yourself.
 - Emails and phone numbers are replaced with [hidden] before anything is shared.
+- Notes you add from the Library keep the name of who shared them, and are never shared again as yours.
 - Your profile has a random id. Your real name and email are never needed.
 
 ## How it's built

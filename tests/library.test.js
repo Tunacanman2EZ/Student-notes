@@ -1,8 +1,8 @@
 // Notes Vault: the library and Compare (run through node tests/run.js)
 const assert = require("node:assert/strict");
-const { buildLibrary, libraryClassKey, combineLibraryClasses } = require("../js/core/library.js");
+const { buildLibrary, libraryClassKey, combineLibraryClasses, newestVersion, libraryClassToNotes, libraryNotesToAdd } = require("../js/core/library.js");
 const { sameCourse, compareRows, myTextFor, missingLessons, whatsNew } = require("../js/core/compare.js");
-const { buildContribution } = require("../js/core/share.js");
+const { buildContribution, shareCheck } = require("../js/core/share.js");
 const { migrateToV2 } = require("../js/core/classes.js");
 
 module.exports = function libraryTests(check) {
@@ -78,4 +78,23 @@ module.exports = function libraryTests(check) {
   check("compare: still one row per lesson", () => assert.deepEqual(chatRows.map(r => r.topic), ["Week 1 · Lesson 1", "Week 1 · Lesson 2"]));
   check("compare: 'What's new' checks your chat too", () =>
     assert.deepEqual(whatsNew(myTextFor(chatRows[0]), "The client is whoever sends the request.\nA server answers with a status code."), ["A server answers with a status code."]));
+
+  // ---- "Add to my notes" from the library ----
+  const addLib = buildLibrary([{ name: "alex", file: alex }, { name: "sam-new", file: samNew }]).classes.demo101;
+  const added = libraryClassToNotes(addLib, "2026-02-01T00:00:00Z");
+  check("add: one note per lesson", () => assert.deepEqual(added.map(n => n.topic), ["Week 1 · Lesson 1", "Week 1 · Lesson 2"]));
+  check("add: the newest version is used", () => assert.ok(added[0].refined.includes("game backend")));
+  check("add: each note remembers who shared it", () => assert.equal(added[0].fromLibrary.displayName, "Sam"));
+  check("add: the same lesson always gets the same id (adding again updates, never copies)", () =>
+    assert.deepEqual(libraryClassToNotes(addLib).map(n => n.id), added.map(n => n.id)));
+  check("add: dates come along", () => assert.equal(added[0].date, "2026-01-05"));
+  check("add: newestVersion picks the latest share", () => assert.equal(newestVersion({ versions: [{ sharedOn: "2026-01-06" }, { sharedOn: "2026-01-08" }] }).sharedOn, "2026-01-08"));
+  check("add: notes from the library can never be shared again as yours", () =>
+    assert.deepEqual(shareCheck(added[0]).allowed, false));
+  check("add: with your own notes for the class, only missing lessons come in", () => {
+    const mine = [{ topic: "Week 1 · Lesson 1", text: "my own notes" }];
+    assert.deepEqual(libraryNotesToAdd(added, mine).map(n => n.topic), ["Week 1 · Lesson 2"]);
+  });
+  check("add: library notes you added before still get updated", () =>
+    assert.equal(libraryNotesToAdd(added, [{ ...added[0] }]).length, 2));
 };
