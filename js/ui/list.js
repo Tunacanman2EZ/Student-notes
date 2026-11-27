@@ -1,7 +1,7 @@
 // Notes Vault: SCREEN LAYER, the saved-notes list
 // Each note is a dropdown card: click its title to open or close it.
 // Closed, it shows the date, class › topic and title (plus, while searching, a highlighted snippet).
-// Open, it shows the Watch button, the Refined / Original tabs, the note itself and Delete.
+// Open, it shows the link button (Open lesson / Watch / Open link), the Refined / Original tabs, the note itself and Delete.
 // The inside of a card is only built the first time you open it, so even thousands of notes stay fast.
 
 const MAX_AUTO_OPEN = 3;   // searching finds 3 or fewer notes? open them right away
@@ -55,12 +55,13 @@ function noteCard(note, { terms = [], snippet = "", where = null, open = false }
     body.className = "note-text";
 
     if (note.link && /^https?:\/\//.test(note.link)) {
+      const label = linkLabel(note.link);   // "Open lesson", "▶ Watch" or "Open link"
       const watch = document.createElement("a");
-      watch.className = "watch";
+      watch.className = "watch is-" + label.kind;   // is-lesson / is-video / is-link
       watch.href = note.link;
       watch.target = "_blank";
       watch.rel = "noopener";
-      watch.textContent = "▶ Watch";
+      watch.textContent = label.text;
       actions.append(watch);
     }
 
