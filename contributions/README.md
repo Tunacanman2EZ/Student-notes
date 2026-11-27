@@ -8,8 +8,6 @@ This folder is where students' share files arrive. Anyone can read them, because
 3. A safety check runs automatically. After a review, your notes join the library.
 
 ## The rules (checked automatically, by the same code the app uses)
-- **Pasted lessons are never shared.** A lesson belongs to your school. Share your end-of-lesson notes
-  and notes you wrote yourself.
 - **Reviews, finals, quizzes and exams are never shared.** School rules.
 - **No emails or phone numbers.** The app replaces them with [hidden]; the check rejects any that are left.
 - Only a display name and a random id identify who shared. No real names or emails.
