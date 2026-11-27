@@ -9,7 +9,8 @@
 //   3. Emails and phone numbers are replaced with [hidden].
 //   4. Only your display name and random id go with it. Never your real name or email.
 //   5. Your refined notes are shared; your originals only if you tick the box.
-//   6. Notes with your own chat messages ("YOU:" lines) start unticked, so you choose on purpose.
+//   6. Lesson chats (the full lesson, with "YOU:" lines) are NEVER shared: the lesson belongs to the school.
+//      What you CAN share: your end-of-lesson notes and notes you wrote yourself.
 
 const CONTRIBUTION_VERSION = 1;
 const LIMITS = { lessons: 200, textChars: 60000, nameChars: 40 };
@@ -35,7 +36,13 @@ function hasPersonalInfo(text) {
 
 // Lines you wrote to a tutor, kept in chat notes as "YOU: ..."
 function hasOwnChat(note) {
-  return /^YOU:/m.test(note.refined || "") || /^YOU:/m.test(note.text || "");
+  return /^YOU:/m.test(note.refined || "") || /^YOU:/m.test(note.text || "") || /^YOU:/m.test(note.original || "");
+}
+
+// A lesson chat: the whole lesson as it happened, not your notes from the end of it.
+// Spotted by its title ("...lesson chat") or by "YOU:" lines (your side of the chat).
+function isLessonChat(note) {
+  return /\blesson chat\b/i.test(note.title || "") || hasOwnChat(note);
 }
 
 // Can this note be shared at all, and should it start ticked?
@@ -45,7 +52,7 @@ function shareCheck(note) {
   if (isGradedReview(note)) return { allowed: false, reason: "Reviews and finals are never shared" };
   if (note.private) return { allowed: false, reason: "You locked this note" };
   if (!(note.refined || note.text || "").trim()) return { allowed: false, reason: "Empty" };
-  if (hasOwnChat(note)) return { allowed: true, ticked: false, warning: "Has your own chat messages: check before sharing" };
+  if (isLessonChat(note)) return { allowed: false, reason: "Lesson chats are never shared" };
   return { allowed: true, ticked: true, warning: "" };
 }
 
@@ -104,6 +111,7 @@ function validateContribution(file) {
     const where = `Lesson ${i + 1} (${l && l.topic})`;
     if (!l || !isStr(l.topic) || !isStr(l.refined) || !isStr(l.original || "")) { problems.push(`${where}: missing fields`); return; }
     if (isGradedReview(l)) problems.push(`${where}: reviews and finals can't be shared`);
+    if (isLessonChat(l)) problems.push(`${where}: lesson chats can't be shared (only end-of-lesson notes and your own notes)`);
     if (hasPersonalInfo(l.refined) || hasPersonalInfo(l.original) || hasPersonalInfo(l.title)) problems.push(`${where}: contains an email or phone number`);
     if ((l.refined.length + (l.original || "").length) > LIMITS.textChars) problems.push(`${where}: too long`);
     if (seen.has(l.topic)) problems.push(`${where}: the same lesson twice`);
@@ -118,5 +126,5 @@ if (typeof isGradedReview === "undefined" && typeof require !== "undefined") {
 }
 
 if (typeof module !== "undefined") module.exports = {
-  CONTRIBUTION_VERSION, LIMITS, hidePersonalInfo, hasPersonalInfo, hasOwnChat, shareCheck,
+  CONTRIBUTION_VERSION, LIMITS, hidePersonalInfo, hasPersonalInfo, hasOwnChat, isLessonChat, shareCheck,
   buildContribution, contributionFileName, validateContribution };

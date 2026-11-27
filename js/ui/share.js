@@ -95,7 +95,7 @@ function renderShareSummary() {
   if (!result) { $("share-summary").textContent = ""; btn.disabled = true; return; }
   const r = result.report;
   const parts = [`${r.shared} lesson${r.shared === 1 ? "" : "s"} will be shared`];
-  if (r.blocked) parts.push(`${r.blocked} never shared (reviews, finals or locked)`);
+  if (r.blocked) parts.push(`${r.blocked} never shared (reviews, finals, lesson chats or locked)`);
   if (r.hidden) parts.push(`${r.hidden} email${r.hidden === 1 ? "" : "s"}/phone number${r.hidden === 1 ? "" : "s"} will be hidden`);
   $("share-summary").textContent = parts.join("  ·  ");
   btn.disabled = !r.shared || !App.profile.displayName;

@@ -1,4 +1,4 @@
-# Notes Vault step 2I: the Share panel and the lock button, in a real browser.
+# Notes Vault steps 2I + 2M: the Share panel, the lock button, and lesson chats never shared, in a real browser.
 #   python tests/browser_share_test.py      (needs Python + Playwright)
 from playwright.sync_api import sync_playwright
 import glob, json, pathlib, tempfile, subprocess
@@ -56,6 +56,20 @@ with sync_playwright() as p:
     r = subprocess.run(["node", str(tool), str(path)], capture_output=True, text=True)
     ok("GitHub's check passes the downloaded file", r.returncode == 0, r.stdout.strip().splitlines()[-1])
     ok("no page errors", not errs, errs)
+    # ---- 2M: a lesson chat is greyed out, and can't be ticked ----
+    chat = {"app": "notes-vault", "version": 1, "notes": [{"id": "demo-w1-l1-chat", "className": "DEMO101: Building Web APIs",
+            "topic": "Week 1 · Lesson 1", "title": "What an API is: lesson chat", "order": 101.5, "date": "2026-01-05",
+            "dateEnd": "2026-01-12", "link": "", "text": "Tutor: welcome!\nYOU: what's an API?", "refined": "", "addedOn": "2026-01-06"}]}
+    cf = pathlib.Path(tempfile.gettempdir()) / 'nv-chat.json'; json.dump(chat, open(cf, "w"))
+    pg.click('[data-panel=share-panel]'); settle(pg)          # close
+    pg.set_input_files('#import-file', str(cf)); settle(pg, 500)
+    pg.click('[data-panel=share-panel]'); settle(pg)          # open again
+    row = pg.locator('.share-row', has_text='lesson chat')
+    ok("2M: the lesson chat is greyed out with the reason", row.count() == 1 and "blocked" in row.get_attribute('class')
+       and "Lesson chats are never shared" in row.inner_text(), row.inner_text() if row.count() else "no row")
+    ok("2M: …and can't be ticked", row.locator('input').is_disabled() and not row.locator('input').is_checked())
+    ok("2M: the summary names lesson chats", "lesson chats" in pg.inner_text('#share-summary'), pg.inner_text('#share-summary'))
+    ok("no page errors (after 2M)", not errs, errs)
     pg.screenshot(path=str(pathlib.Path(tempfile.gettempdir()) / 'nv-share.png'))
     b.close()
 print(f"\n{sum(results)} of {len(results)} passed")
