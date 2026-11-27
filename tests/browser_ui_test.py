@@ -14,7 +14,7 @@ with sync_playwright() as p:
     b = p.chromium.launch(); pg = b.new_page(viewport={"width": 1100, "height": 900})
     errs = []; pg.on('pageerror', lambda e: errs.append(str(e)))
     pg.goto(URL); wait(pg)
-    ok("new user: the paste box starts open", pg.locator('#add-panel').is_visible())
+    ok("new user: the Library starts open", pg.locator('#library-panel').is_visible())
     for f in FILES: pg.set_input_files('#import-file', f); pg.wait_for_timeout(250)
     pg.reload(); wait(pg)
     ok("every note is listed", pg.locator('.note').count() == TOTAL, pg.inner_text('#result-count'))

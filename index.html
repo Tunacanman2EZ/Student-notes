@@ -39,11 +39,12 @@
         </span>
       </div>
 
-      <!-- THREE EQUAL BUTTONS: each opens one panel below (click again to close) -->
+      <!-- EQUAL BUTTONS: each opens one panel below (click again to close) -->
       <div id="panel-tabs">
         <button class="panel-tab" data-panel="add-panel">＋ Add notes</button>
         <button class="panel-tab" data-panel="backup-panel"><span>Backup<span id="backup-dot" class="dot" title="Changes since your last backup" hidden></span></span></button>
         <button class="panel-tab" data-panel="classes-panel"><span>Profile &amp; classes (<span id="class-total">0</span>)</span></button>
+        <button class="panel-tab" data-panel="library-panel">Library</button>
         <button class="panel-tab" data-panel="share-panel">Share</button>
       </div>
 
@@ -116,6 +117,15 @@
       <h3>Your classes</h3>
       <p class="muted">Click a name to rename it (press Enter to save). Its notes follow, and loading an old class file still finds it. Click the color square to change a class color.</p>
       <div id="class-table"></div>
+    </section>
+
+    <!-- LIBRARY: classes other students shared. Read them, or add a class to your notes. -->
+    <section class="card panel" id="library-panel" hidden>
+      <h2>Library</h2>
+      <p class="muted">Notes other students shared. Read any lesson, or add a whole class to your notes.
+        Notes you add stay labelled with who shared them, and they are never shared again as yours.</p>
+      <p id="library-message"></p>
+      <div id="library-list"></div>
     </section>
 
     <!-- SHARE: pick lessons → download a share file → upload it to the library as a pull request -->
@@ -194,6 +204,7 @@
   <script src="js/ui/classes.js"></script>
   <script src="js/ui/panels.js"></script>
   <script src="js/ui/share.js"></script>
+  <script src="js/ui/library.js"></script>
   <script src="js/ui/sidebar.js"></script>
   <script src="js/ui/week.js"></script>
   <script src="js/ui/compare.js"></script>

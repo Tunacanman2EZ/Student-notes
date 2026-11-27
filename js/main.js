@@ -25,7 +25,7 @@ async function start() {
   setUpPanels();
   setUpSharePanel();
   setUpCompare();
-  if (!App.notes.length) openPanel("add-panel");   // brand new? open the paste box
+  if (!App.notes.length) openPanel("library-panel");   // brand new? start with what classmates shared
   App.render();
   askToKeepData();
 }

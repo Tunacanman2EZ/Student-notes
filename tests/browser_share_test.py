@@ -15,7 +15,7 @@ with sync_playwright() as p:
     pg.goto(URL); settle(pg)
     for f in FILES: pg.set_input_files('#import-file', f); pg.wait_for_timeout(200)
     pg.reload(); settle(pg, 800)
-    ok("four equal panel buttons", pg.locator('.panel-tab').count() == 4)
+    ok("five equal panel buttons", pg.locator(".panel-tab").count() == 5)
     pg.click('[data-panel=share-panel]'); settle(pg)
     ok("no display name yet: asks for one", "Set a display name first" in pg.inner_text('#share-who'))
     ok("…and the download button waits", pg.locator('#share-download').is_disabled())

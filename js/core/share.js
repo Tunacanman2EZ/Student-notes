@@ -12,6 +12,7 @@
 //   6. Lesson chats (the full lesson as it happened) are NEVER shared, not even a cleaned-up version:
 //      the lesson belongs to the school.
 //      What you CAN share: your end-of-lesson notes and notes you wrote yourself.
+//   7. Notes you added from the library are someone else's: never shared again as yours.
 
 const CONTRIBUTION_VERSION = 1;
 const LIMITS = { lessons: 200, textChars: 60000, nameChars: 40 };
@@ -62,6 +63,7 @@ function isLessonChat(note) {
 function shareCheck(note) {
   if (isGradedReview(note)) return { allowed: false, reason: "Reviews and finals are never shared" };
   if (note.private) return { allowed: false, reason: "You locked this note" };
+  if (note.fromLibrary) return { allowed: false, reason: `From the library (${note.fromLibrary.displayName || "a classmate"}): only share your own notes` };
   if (!(note.refined || note.text || "").trim()) return { allowed: false, reason: "Empty" };
   if (isLessonChat(note)) return { allowed: false, reason: "Lesson chats are never shared" };
   return { allowed: true, ticked: true, warning: "" };
