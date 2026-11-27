@@ -1,6 +1,6 @@
 # Notes Vault
 
-A study app for students: keep your end-of-lesson notes, find anything fast, review week by week, and prep for finals.
+A free study app for students: keep your end-of-lesson notes, find anything fast, review week by week, and prep for finals. Your notes stay in your own browser.
 Built by Tunacan.
 
 **Your notes stay on your computer.** Nothing is uploaded anywhere. The app runs in your browser,
