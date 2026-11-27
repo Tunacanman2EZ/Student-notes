@@ -1,6 +1,6 @@
 # Step 2Q: no Final prep, no review rows
 
-**Why:** Robert's notes no longer have reviews or finals, and he doesn't want the app built around them.
+**Why:** The notes no longer have reviews or finals, and the app shouldn't be built around them.
 
 ## What changed
 - **Final prep page removed.** The ★ Final prep link, its page, its print layout, and the code behind it

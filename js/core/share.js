@@ -9,7 +9,8 @@
 //   3. Emails and phone numbers are replaced with [hidden].
 //   4. Only your display name and random id go with it. Never your real name or email.
 //   5. Your refined notes are shared; your originals only if you tick the box.
-//   6. Lesson chats (the full lesson, with "YOU:" lines) are NEVER shared: the lesson belongs to the school.
+//   6. Lesson chats (the full lesson as it happened) are NEVER shared, not even a cleaned-up version:
+//      the lesson belongs to the school.
 //      What you CAN share: your end-of-lesson notes and notes you wrote yourself.
 
 const CONTRIBUTION_VERSION = 1;
@@ -39,10 +40,20 @@ function hasOwnChat(note) {
   return /^YOU:/m.test(note.refined || "") || /^YOU:/m.test(note.text || "") || /^YOU:/m.test(note.original || "");
 }
 
+// The tutor's own opening lines. A pasted lesson always starts with one of them,
+// and nobody writes them in their own end-of-lesson notes.
+const TUTOR_OPENING = /welcome to your next lesson\b|preparing your personalized lesson|getting your lesson ready/i;
+
+function hasTutorOpening(note) {
+  return [note.text, note.original, note.refined].some(t => TUTOR_OPENING.test(t || ""));
+}
+
 // A lesson chat: the whole lesson as it happened, not your notes from the end of it.
-// Spotted by its title ("...lesson chat") or by "YOU:" lines (your side of the chat).
+// Spotted by its title ("...lesson chat"), by "YOU:" lines (your side of the chat),
+// or by the tutor's opening lines. If ANY part of the note is a lesson chat, the whole
+// note stays private, because its cleaned-up version was made from the lesson.
 function isLessonChat(note) {
-  return /\blesson chat\b/i.test(note.title || "") || hasOwnChat(note);
+  return /\blesson chat\b/i.test(note.title || "") || hasOwnChat(note) || hasTutorOpening(note);
 }
 
 // Can this note be shared at all, and should it start ticked?
@@ -126,5 +137,5 @@ if (typeof isGradedReview === "undefined" && typeof require !== "undefined") {
 }
 
 if (typeof module !== "undefined") module.exports = {
-  CONTRIBUTION_VERSION, LIMITS, hidePersonalInfo, hasPersonalInfo, hasOwnChat, isLessonChat, shareCheck,
+  CONTRIBUTION_VERSION, LIMITS, hidePersonalInfo, hasPersonalInfo, hasOwnChat, hasTutorOpening, isLessonChat, shareCheck,
   buildContribution, contributionFileName, validateContribution };
