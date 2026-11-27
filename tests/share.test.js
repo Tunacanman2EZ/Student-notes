@@ -26,6 +26,17 @@ module.exports = function shareTests(check) {
   check("share: reviews are never allowed", () => assert.equal(shareCheck(notes[2]).allowed, false));
   check("share: finals are never allowed", () => assert.equal(shareCheck(notes[5]).allowed, false));
   check("share: locked notes are never allowed", () => assert.equal(shareCheck(notes[4]).allowed, false));
+  check("share: a pasted lesson (tutor's opening, no YOU: lines) is never allowed", () =>
+    assert.deepEqual(shareCheck({ topic: "Week 2 · Lesson 1", title: "Objects", text: "Tue, Sep 15\n\nWelcome to your next lesson: Objects.\n\nI'm preparing your personalized lesson...", refined: "IN PLAIN WORDS\nObjects group values." }), { allowed: false, reason: "Lesson chats are never shared" }));
+  check("share: the other tutor opening is caught too", () =>
+    assert.equal(shareCheck({ topic: "Week 2 · Lesson 2", title: "Arrays", text: "I'm getting your lesson ready, using what you've learned", refined: "x" }).allowed, false));
+  check("share: your own notes that mention a lesson are still allowed", () =>
+    assert.equal(shareCheck({ topic: "Week 2 · Lesson 3", title: "Loops", text: "In the next lesson we use while loops.", refined: "Loops repeat code." }).allowed, true));
+  check("check: a contribution with a pasted lesson as its original is refused", () => {
+    const f = buildContribution({ notes, cls, profile, pickedIds: all, includeOriginals: true }).file;
+    f.lessons[0].original = "Welcome to your next lesson: Intro.";
+    assert.ok(validateContribution(f).some(p => p.includes("lesson chats")));
+  });
   check("share: a note with your own chat lines (a lesson chat) is never allowed", () => assert.deepEqual(shareCheck(notes[3]), { allowed: false, reason: "Lesson chats are never shared" }));
   check("share: a note titled 'lesson chat' is never allowed, even without YOU: lines", () =>
     assert.equal(shareCheck({ topic: "Week 1 · Lesson 4", title: "Routes: lesson chat", refined: "Tutor: hi" }).allowed, false));

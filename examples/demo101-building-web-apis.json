@@ -64,7 +64,7 @@
       "dateEnd": "2026-01-19",
       "link": null,
       "text": "Week\n02\nJan 12 - Jan 19\nReal users\nLesson 1\nHashing passwords\nNever store the password. Store a hash.\nThe default method is pbkdf2.\nKey exam idea:\nHashing is one-way; you can only check a guess.\n",
-      "refined": "IN PLAIN WORDS\nNever store a password, only a one-way hash. Login re-hashes the guess and compares.\n\n————— YOUR NOTES (tidied) —————\n\nNever store the password. Store a hash.\n```python\nfrom werkzeug.security import generate_password_hash, check_password_hash\nh = generate_password_hash(\"secret\")\ncheck_password_hash(h, \"secret\")  # True\n```\nKey exam idea:\nHashing is one-way; you can only check a guess.\n\nCORRECTION (checked by running it)\nIn current Werkzeug the default method is scrypt, not pbkdf2. check_password_hash reads the method from the hash, so both still work.\n\nMORE EXACT (game fact)\nThis demo has no real game facts; this block only tests that game-fact fixes stay out of Final prep.",
+      "refined": "IN PLAIN WORDS\nNever store a password, only a one-way hash. Login re-hashes the guess and compares.\n\n————— YOUR NOTES (tidied) —————\n\nNever store the password. Store a hash.\n```python\nfrom werkzeug.security import generate_password_hash, check_password_hash\nh = generate_password_hash(\"secret\")\ncheck_password_hash(h, \"secret\")  # True\n```\nKey exam idea:\nHashing is one-way; you can only check a guess.\n\nCORRECTION (checked by running it)\nIn current Werkzeug the default method is scrypt, not pbkdf2. check_password_hash reads the method from the hash, so both still work.",
       "addedOn": "2026-01-01T00:00:00Z"
     },
     {

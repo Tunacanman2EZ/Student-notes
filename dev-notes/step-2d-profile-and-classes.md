@@ -31,10 +31,10 @@ A new panel, **Profile & classes**:
 
 ## Your profile, and why your name isn't your id
 ```js
-{ id: "947850b6-…", displayName: "Tunacan", program: "AAS in AI Software Engineering" }
+{ id: "3f2a91c0-…", displayName: "Alex", program: "Your program" }
 ```
 The id is random. Names aren't unique (two students can both be "Alex"), and names can change.
-It's the same reason your Elusion users have a number id and a username that isn't the key.
+It's the same reason a game account has a number id and a username that isn't the key.
 Your real name and email never go anywhere unless you type them in yourself.
 
 ## The move to version 2 (a migration, like your E-21 fix)
